@@ -1,0 +1,125 @@
+# Does it actually work?
+
+You have just trained a neural network in a browser. No code. You pointed your laptop's camera at a Tessera home router, captured twenty photographs of its status LED glowing green, twenty glowing amber, twenty pulsing red, clicked *Train Model*, and watched a machine learn in seconds. You exported it, pasted one URL into a Glitch starter, and now it is live on your phone. A customer points their camera at a router and your app says *healthy* or *fault*.
+
+It works. In the room, on your laptop, under the lights you trained on, with your hand holding the phone, it works every time. If this were a vendor pitch, you would stop here, applaud, and ship.
+
+This is the moment the book has been building toward, and the question that stops you is the book's own title: **does it actually work?** Everything in this chapter (arguably the whole discipline of applied AI) turns on refusing to confuse the demo you just made with the deployment Tessera would rely on.
+
+:::::: {.callout-note title="The Core: a live classifier, no code"}
+That build is the **Core** path for this chapter, and it is deliberately within reach. The entire stack — capture, train, export, deploy — runs in a browser with a free Teachable Machine account and a Glitch starter. No Python, no GPU, no framework to install. If you can take a photograph, you can build and ship a live classifier; the rest of the chapter is about *evaluating* it. The optional Power-user extension near the end is depth, not a gate.
+::::::
+
+## The demo and the deployment are different objects
+
+A working demo proves one thing: the solution *runs*. It says nothing about whether Tessera should *rely* on it, and reliance is the only question that matters once a model touches a customer. The gap between *runs* and *reliable* is where applied AI actually lives, and it is not a gap you close with a more impressive model. You close it by *evaluating*: stating what good enough means, measuring against it honestly, and naming where it fails.
+
+That sounds plain. It is meant to. The most expensive failure mode in applied AI is not a buggy model; it is a slick model that nobody ever bothered to break. Evaluation is the discipline of breaking it on purpose, before a real user, or a real adversary, does it for you.
+
+## Three lenses, not one number
+
+When you ask "does it work?", the first answer people reach for is accuracy: *it got 90% right.* Accuracy is the obvious lens, and it is the one people stop at, which is exactly why it misleads. Headline accuracy is an assertion, not evidence. The question that turns it into evidence is *90% on which class, at what cost to the others?*
+
+A router-status classifier that is 90% accurate overall but misses seven in ten *faults* is useless for triage, because the fault class is the only one that matters and it is the one being sacrificed to keep the headline up. Look at the class that matters, not the headline. Measure **per class**, always.
+
+Accuracy alone never settles "does it work?" A working evaluation holds the solution up to **three lenses**:
+
+- **Accuracy**: how often is it right, *per class*, measured on data it has never seen?
+- **Fairness**: does it work *equally across the groups it serves*? The same model can be accurate overall and quietly wrong for a subgroup: a lighting condition, a region, a hand that is not yours.
+- **Explainability**: could you tell Tessera's CEO, Henrik Larsson, *why* it flagged this customer, in words a non-technical person would accept? "The model says so" is not an answer; it is the cap on how much anyone should trust it.
+
+The three lenses are not a checklist to tick. They are three different questions that a single number (accuracy) pretends to answer all at once. Read them as a demand: *prove it works on the class that matters, for the people it could fail, in a way you can defend.*
+
+:::::: {.callout-warning title="Watch out: the headline is a hiding place"}
+"90% accurate" is the phrase that lets a solution look finished when it isn't. Overall accuracy is a weighted average, and averages hide the people (and the classes) the model fails. A churn model 90% accurate overall that misses 70% of actual churners is useless for retention; the headline never tells you. The cure is mechanical: never report an overall number without the per-class and per-group breakdown beneath it.
+::::::
+
+## "Good enough" is a judgement, not a number
+
+Here is the idea that turns evaluation from arithmetic into judgement: the same model can be fine in one place and dangerous in another, at exactly the same accuracy. Fitness for purpose is set by the decision the solution feeds, and the threshold is set by **the blast radius of being wrong**.
+
+If your router classifier mis-routes a *healthy* ticket to the wrong queue, a human glances at it and moves it along. Small blast radius; an average solution is tolerable. But if it silently calls a *fault* healthy, an angry customer waits while their router stays down. That is a large, hard-to-reverse blast radius, and the same 80%-accurate model that was fine for the first job is dangerous for the second.
+
+This is the trust tool from the Introduction in another form. Small blast radius tolerates an average solution; large blast radius demands precision and a human in the loop. So before you measure anything, you write one sentence: *"For [decision], good enough means [threshold], because [blast radius]."* A model without a stated threshold is a demo, not an evaluation. The threshold is the thing you measure against, and the thing you cannot quietly move after the fact to make a weak result look strong.
+
+## Test to destruction
+
+Most testing asks "does it work on normal inputs?" **Adversarial testing** asks the opposite: *what inputs make it fail?* You are not being cruel to your model. You are finding its edges before a real user does.
+
+Every solution has a failure surface. The light is dim. The hand is shaky. The background is a carpet instead of a desk. A customer photographs the router in a dark cupboard at midnight, because that is when the fault showed up. A demo evaluated only on the happy path has proven nothing about the conditions that will actually bite.
+
+Adversarial testing is a posture, not a technique: take every assumption your model is making and feed it the opposite. For a vision classifier, that is lighting, angle, distance, background, a photograph of nothing at all. For a churn model, it is a customer with missing fields, or one sitting right on the decision boundary where flipping a single input flips the prediction. For a RAG setup, it is a question the documents don't answer, and watching whether it admits ignorance or invents a confident lie.
+
+Then there is **VET**, a three-move self-adversarial check you run on your own outputs, borrowed from the companion book:
+
+- **Verify.** Re-derive the load-bearing claim *independently*. Asking the model "is this right?" is not verification; the thing that produced the answer cannot be the thing that confirms it. Check it against the data, the source documents, a photograph it has never seen.
+- **Expose.** Name *what would have to be true* for the output to be wrong, and *who it could fail*. This is the fairness lens, made personal: you are stating your assumptions out loud before the model breaks them for you.
+- **Test.** Feed it the cases most likely to break it. The ones that fail go straight into your report.
+
+VET is the discipline that stops you rubber-stamping your own work. It is the trust tool as an *action*, not a label: verify the claim, expose the assumption, test to destruction.
+
+## The honest report
+
+Here is the part that feels counter-intuitive and is, in fact, the point. A report that says *"82% overall, but only 61% under dim light, below our 80% threshold on the only class that matters"* is a **stronger** report than one that claims the model works. Finding a real failure, naming it, and saying what a human must do about it is worth more than a flawless demo.
+
+This is not a consolation prize for a model that under-performed. It is the integrity gate. A report that only shows successes has told the reader nothing useful, because every demo can be made to succeed on its own training data. The thing a business cannot buy from a vendor's deck is the honest map of where the solution breaks, and that map is the practitioner's actual deliverable. *Prove, don't persuade* stops being a slogan the moment you write down a threshold your solution misses and ship the report anyway.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+Evaluating the shipped router classifier, you ask an AI assistant to draft the assessment. You feed it the results. It returns: *"The model performs well and is ready for deployment: 85% overall accuracy across all classes."*
+
+That is the moment to push back, because the AI has done what AIs do: it read the headline and composed a confident conclusion. You reply: *"Show me per-class, then per condition. Overall accuracy is not the deliverable."* It produces the breakdown: healthy 94%, degraded 80%, **fault 38%**. The fault class, the one with the large blast radius, is where the model collapses, and the headline hid it completely.
+
+Then you ask the question the AI did not think to ask: *"And under dim light?"* Fault drops to **0%**. The AI's first draft ("ready to deploy") would have shipped a red-quadrant failure as a green-quadrant success. The correction was not a flourish; it was the refusal to accept an average, the demand for the per-class and then the per-condition view, and the willingness to keep pulling until the model broke. That challenge, logged unedited, is the integrity gate, and it is also what separates a defensible evaluation from a rubber-stamped one.
+::::::
+
+## What the measurement earned
+
+You now know enough to place the model, and the placement is not a label you choose, it is a consequence of what you measured. This is the trust tool doing its real work: turning evidence into a decision about how much human oversight the deployment needs.
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+The router classifier feeds two different decisions, and they sit on different squares of the grid.
+
+- **Routing a *healthy* or *degraded* ticket**: average is fine, blast radius is small (a wrong route costs a human a glance): **🟢 green**, light review, the model can triage on its own.
+- **Clearing a *fault***: must be precise (catch every fault), blast radius is large (a missed fault leaves a customer offline): **🔴 red**, human-in-the-loop, non-negotiable.
+
+The honest placement is therefore *split*: green for triage, red for fault confirmation. And because your measurement showed the model fails exactly on the red-quadrant class (0% on faults under dim light), the placement is *earned*, not assumed. You did not decide to keep a human in the loop on faults because it felt responsible; you decided because the evidence demanded it. A model that quietly creeps up to 99% next year could move that red square to yellow, but only if a future evaluation proves it, per class, under the conditions that broke it this time.
+::::::
+
+::::: {.tessera-case}
+**🌐 Tessera Case**
+
+**The router-status classifier, evaluated to destruction.** You trained the model in Teachable Machine on twenty photographs per class (green (healthy), amber (degraded), red (fault)), varying angle and background on purpose, exported it as TensorFlow.js, and shipped it to a live Glitch web app a customer can open on their phone.
+
+In the room it was untouchable: 96% accurate. Then you held back five photographs per class that the model had never seen, and ran all three lenses. Accuracy, per class: healthy 94%, degraded 80%, **fault 38%**, the headline still read 85%, the arithmetic of an imbalanced reality. Fairness, sliced by condition: under dim light the fault class fell to **0%**. The model called a red LED *healthy* because it had never trained on a dim red, and customers photograph faults at midnight, in cupboards, exactly when the light is worst. Explainability: a neural net is a black box; you could not tell the CEO *why* it said healthy, only that it did, and on the fault class that limit is not acceptable.
+
+The finding is the gap: 0% on the one class with the large blast radius, hidden behind an 85% headline. The decision, written into the report: ship it for triage routing, with a human confirming every fault the model clears, until the training data covers the conditions that broke it. That is not a failed prototype. It is an *evaluated* one, and it is the only kind Tessera should ever rely on. What it takes to run an evaluated prototype live, with oversight that survives real volume, is the subject of Appendix D.
+:::::
+
+## From one model to the whole job
+
+There is a reason this chapter is the title of the book. Every other question (*what changed? for whom? can you tell?*) funnels toward this one, because "does it actually work?" is where the demo meets its evidence and the practitioner earns the moat. A single model, evaluated honestly across three lenses, tested to destruction, and reported with its failures intact, is tractable. You can hold it in your head, place it on the grid, and defend the decision.
+
+But Tessera does not want a classifier. It wants an *agent* that reads the incoming ticket, fetches the customer's history, classifies the photograph, drafts the response, and decides whether to escalate, a chain of outputs, each with its own failure surface, each needing its own threshold and its own placement on the grid. The moment you hand the model tools and let it act, the question stops being "does this model work?" and becomes the next chapter's: **can it do the whole job, and how much of that job can you safely hand over?** That is where the red quadrant gets genuinely dangerous, and where the evaluation discipline you just learned becomes the only thing standing between a working system and a catastrophe that looked, in the demo, like magic.
+
+:::::: {.callout-tip title="🔬 Power-user extension"}
+The Core above — train in Teachable Machine, export to TensorFlow.js, ship a Glitch live app — is the complete, no-code path, and doing only that is correct. If you want to go deeper, two optional directions:
+
+- **Self-host the model.** Export the `model.json` and weight-shard `.bin` files and serve them from your own Glitch project, a static host, or a small server you control, instead of hot-linking Teachable Machine's bucket. You now own the artefact end to end — its uptime, its version, and its data residency — which is exactly the cloud-versus-self-hosted tension a Tessera deployment has to settle.
+- **Run a systematic fairness audit.** Build a held-out test set split *deliberately* across the conditions that could break the model — dim light, off-angle, phone-shake, a carpet background, a different hand behind the camera. Compute accuracy per condition and per group. Then quantify the **worst-group gap**: the largest spread between your best and worst condition. That single number is the honest headline. If it is large, no overall accuracy rescues you — and you have just produced the per-group breakdown the three-lens measurement demands.
+
+These are depth, not the real version. The Core is complete on its own.
+::::::
+
+## 🔍 Go deeper
+
+- **Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification**: Joy Buolamwini & Timnit Gebru (Proceedings of Machine Learning Research, 2018).
+  [proceedings.mlr.press/v81/buolamwini18a.html](https://proceedings.mlr.press/v81/buolamwini18a.html)
+  *Why read this:* The canonical study of fairness failing under real conditions: commercial vision classifiers up to 34% wrong on darker-skinned women while near-perfect on lighter-skinned men, all hidden behind a strong headline accuracy. This is your router classifier's story, at scale, with consequences.
+
+- **Model Cards for Model Reporting**: Margaret Mitchell et al. (FAT\* 2019).
+  [arxiv.org/abs/1810.03993](https://arxiv.org/abs/1810.03993)
+  *Why read this:* The paper that made "report honestly" a practice. A model card forces you to publish intended use, evaluation data, and per-group performance *before* release, the same discipline your honest report is built on, turned into a standard you can adopt.
+
+- **People + AI Guidebook: Data Collection + Evaluation**: Google PAIR (People + AI Research).
+  [pair.withgoogle.com/guidebook-v2/chapters/data-collection/](https://pair.withgoogle.com/guidebook-v2/chapters/data-collection/)
+  *Why read this:* Practitioner-facing guidance on the bit that quietly decides fairness: the data and conditions you evaluated on. Its framing of "disproportionate product failure" is exactly the per-group gap your three-lens measurement is hunting for.

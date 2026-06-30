@@ -1,0 +1,94 @@
+# What is it saying?
+
+Tessera collects feedback the way most growing companies do, faster than anyone reads it. Two hundred customer reviews. A backlog of support tickets with free-text fields full of detail. A quarterly net-promoter score that condenses all of it into a single number, trending gently upward. The dashboard is green. The board is reassured. And nobody, including the board, can actually say what the customers are saying.
+
+This is the chapter's question, and it is harder than it looks. *What is it saying?* is not "is it positive or negative?" and not "what's the average score?" Those are the questions a dashboard answers and a demo performs. The practitioner's question is the one the dashboard cannot reach: what are these hundreds of voices actually telling us, and where would a tidy number mislead us if we let it?
+
+Two tools do the job, and both are dangerous in the same way: they produce a number that *looks* like an answer. **Clustering** finds the themes buried in a wall of text. **Sentiment** scores the tone. Done honestly, each tells you where to look. Done carelessly, each manufactures a confidence the underlying text does not support. And Tessera, like any company under pressure, will act on the confidence either way.
+
+## Sorting without being told the piles
+
+Picture a librarian facing five hundred returned books. They do not read each one cover to cover. They sort, into a migration pile, a billing pile, a "loves the new dashboard" pile. **Clustering is that, automated.** An algorithm measures how alike every item is and forms groups, without anyone telling it the group names in advance. This is *unsupervised* learning: no labels, no right answer to train towards. The machine finds structure. A human decides what the structure means.
+
+For the structured data of Chapter 4 (tenure, spend, region), "alike" was a matter of nearby numbers. For text it is a matter of nearby words. Two reviews are alike if they reach for the same vocabulary in the same proportions. *"Sync is slow"* and *"the sync keeps lagging"* land beside each other; *"great uptime"* lands far away. "Distance," in this space, is just similarity turned into a number, the smaller the distance, the more alike. (For text the standard measure is *cosine* distance, and you will choose it from a dropdown, not compute it.)
+
+The grouping itself is almost embarrassingly simple. Tell the algorithm you want *k* groups; it drops *k* starting points; every item joins its nearest one; each centre moves to the middle of its new group; repeat until nothing moves. The groups settle because every step only tightens them. That is the whole of *k*-means. A variant, *hierarchical* clustering, nests the items into a tree you cut at the level that yields useful themes, so you apply the "how many clusters?" judgement by eye, after you see the groups, instead of committing to it up front.
+
+There is one catch, and it is a human catch, not a mathematical one. The algorithm will give you *exactly* the *k* you ask for, even if *k* is silly. There is no automatic "right" number of clusters. You judge it the way you judge a good paragraph: enough detail to be useful, few enough groups to hold in your head. Five to eight named themes is almost always more useful than thirty micro-clusters or one giant blob.
+
+And here is the move that separates a finding from decoration: **a cluster is not an insight until a human names it.** "Group 3" tells you nothing. The work, real work, is opening the group, reading the items inside, and writing a one-line label that captures what they share: *"billing-cycle confusion among mid-tenure customers."* The algorithm proposes the grouping. You supply the meaning. Skip the naming and you have produced a screenshot, not an insight.
+
+## From words to numbers (without writing any code)
+
+A machine cannot read a review the way you do. Before any of this works, text has to become numbers, and the route it takes quietly shapes everything downstream. The pipeline is the same one Orange's Text add-on runs for you: tokenise (split into words), lowercase (so *Cloud* and *cloud* match), strip the stopwords (*the*, *and*, *is* carry no signal here), normalise (*running* becomes *run*), and finally vectorise (turn each document into a list of word-weights, a point in the space the clustering needs).
+
+The choice of vectoriser matters more than it sounds. The simplest, **bag of words**, just counts how often each word appears. It works, but it over-weights the ubiquitous words and under-weights the rare, distinctive ones that actually define a theme. **TF-IDF** fixes this: a word earns weight by appearing a lot *in one document* and *in few documents overall*. *"Sync"* turning up in forty of two hundred reviews is distinctive; *"service"* in a hundred and eighty of them is not. TF-IDF pushes the distinctive words forward, which is exactly what makes clusters separable in the first place.
+
+You will not compute any of this. You will tick a box marked TF-IDF, re-run with it unticked, and *the difference between the two cluster maps is the lesson.* The preprocessing is not housekeeping; it is where the meaning is either preserved or quietly flattened.
+
+## The sentiment number, and where it lies
+
+Once the themes exist, the next reflex is to ask which way they lean. **Sentiment analysis** takes a piece of text and returns a polarity: positive, negative, or neutral, often with a confidence attached. There are two families, and which one you are holding changes everything.
+
+**Lexicon-based** scoring (what Orange's Sentiment widget does) keeps a dictionary of words tagged positive or negative, and the text's score is simply the net of its words. It is fast, transparent, and needs no training data. Its virtue is also its blindness: it reads words one at a time and has no idea what they are doing together. **Model-based** scoring trains a classifier on labelled examples. It is smarter about context, but it needs labelled data and arrives in a black box.
+
+Most of the no-code stack, and most of what you will touch first, is the lexicon kind. So attend carefully to what it cannot see, because this is the load-bearing caveat of the whole chapter:
+
+- **Negation.** *"Not good"* scores as positive, because it contains *good*.
+- **Sarcasm.** *"Oh, great, another outage"* reads positively to a word-counter.
+- **Domain shift.** *"Cheap"* is a compliment for a bargain and an insult for infrastructure.
+- **Mixed sentiment.** *"Support is wonderful but the product is broken"* has no single polarity, and a single number will average away the very thing that matters.
+
+None of these are exotic. They are the ordinary texture of how unhappy customers actually write. A sentiment score is a **coarse signal over many documents, never a verdict on one.** Its value lives in the aggregate (*"tickets about Analytics Pro and SecureLink skew markedly more negative than the other products"*), not in any individual number. Trust the gap between groups; never trust the single score.
+
+## Where Tessera's feedback actually lands
+
+Run the pipeline on `tessera-support-data.csv` and the clusters name themselves once you read them: a DataVault reliability-and-sovereignty praise cluster, a CloudSync uptime-and-performance praise cluster, an Analytics Pro accuracy-and-reliability complaint cluster, a SecureLink security-and-connectivity complaint cluster, a billing-cycle confusion cluster among the mid-tenure customers. Switch the tickets to sentiment and group by product, then by region, and a pattern surfaces that no single review would have shown you: Analytics Pro and SecureLink skew most negative (Analytics Pro a mean rating near 2.1, SecureLink near 2.5), while CloudSync (~4.1) and DataVault (~4.2) are the happy products, and the gap is sharpest in the South and Metro territories. The follow-up rate tells the same story: roughly three in four Analytics Pro tickets and two in three SecureLink tickets need a follow-up, against barely one in ten for DataVault and CloudSync.
+
+That is a finding. *"Customers complain about Analytics Pro and SecureLink"* is a vibe; *"Analytics Pro and SecureLink skew more negative than the rest of the portfolio, and most sharply in the South and Metro territories"* is something a product decision could rest on. The clustering did the finding. You did the naming. Neither is ground truth; both are starting points that tell a human where to look.
+
+And notice what this finding is *not* standing on: one method, one time. Tessera's churn model in Chapter 4 surfaced the same two products — Analytics Pro and SecureLink — as the ones customers leave. Two independent methods, different data, same problem products. That convergence is cross-validation, and it is the kind of agreement that earns trust: not because either analysis is perfect, but because each corroborates the other without being designed to.
+
+Now hold the tension the chapter is built to teach. The same analysis that surfaced a real pattern also handed you a sentiment number that is, in the lexicon's hands, partly fictional. Re-score the same Analytics Pro and SecureLink tickets with a second, model-based scorer and join the two columns side by side. Filter to the disagreements. Read eight or ten of them. Those tickets (the sarcastic *"love paying for outages"*, the negated *"not happy with Analytics Pro"*, the infrastructure *"cheap"* the lexicon read as praise) are exactly where the scorer silently failed. The *size* of that disagreement is your evidence for how far a single sentiment number can be trusted in a Tessera decision. Most of the time, the answer is: not far enough to act on alone.
+
+:::::: {.tessera-case}
+**🌐 Tessera Case**
+
+**The artefact** is not the cluster screenshot. It is two things together: the named theme maps (DataVault and CloudSync praise — reliability and sovereignty; Analytics Pro and SecureLink complaint clusters — accuracy and connectivity) *and* the **disagreement set**, the same Analytics Pro and SecureLink tickets re-scored lexicon-then-model, filtered to where the two scorers part ways, with eight to ten of those tickets read in full. The headline finding is *"Analytics Pro and SecureLink skew most negative in the portfolio, sharpest in the South and Metro territories."* But the defensible artefact, the thing a consultant report can actually stand behind, is the disagreement set, because it is the evidence that a single sentiment number is not enough to act on. The screenshot persuades; the disagreement set proves.
+::::::
+
+## The number is not the decision
+
+This is where the discipline of the book bites. The theme is a summary, so it leans *average*, and on the trust tool, average usually points towards green. But the *decision* the theme feeds is a different animal. A finding that justifies sunsetting Analytics Pro or SecureLink in a region is not data analysis you can skim. The model did not make that decision; a human leaning on an un-checked aggregate will. Name the blast radius before you name the recommendation.
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+Where does the Analytics Pro and SecureLink sentiment gap sit? The theme itself is a summary, so it leans **average**, but the decision it feeds (resource allocation, a region's product roadmap) has a **large** blast radius. That lands it at **🟡 yellow, sliding towards 🔴 red**: verify the load-bearing claim before anyone acts on it. Concretely, that means reading the raw South and Metro tickets behind the gap, and confirming the lexicon score against a second scorer on the disagreements. The output looks like "safe data analysis" right up until it justifies sunsetting a product in a region, then it is a red-quadrant decision wearing a green-quadrant costume. The placement, not the widget, is what fails.
+::::::
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+You sanity-check a cluster label with the shared AI stack, using the RTCF prompt frame. You feed the model eight Analytics Pro tickets and ask for a one-line label. It returns *"Analytics Pro pricing and value complaints."* Plausible, except that when you read the eight tickets yourself, four of them are not about price at all; they are about reporting accuracy dressed up in the language of cost (*"paying through the nose for dashboards that lie daily"*). The model collapsed two distinct grievances, accuracy and value, into the more marketable one. You relabel the cluster *"Analytics Pro accuracy-and-reliability complaints, with cost as a proxy for frustration"* and split it.
+
+In the same session you ask the model to score the sarcasm in *"love paying for outages."* It flags it correctly as negative, where the lexicon scorer had read it positive. The lesson is not that the AI is wrong, nor that it is right. It is that it is *both in the same sitting*, and only the human reading decides which is which. The model proposed a tidy label; you supplied the distinction that mattered. That correction (written down, with the tickets that forced it) is exactly what your conversation log entry is for.
+::::::
+
+:::::: {.callout-warning title="Watch out: it's just data analysis, it's safe"}
+No, it is not. A sentiment finding that justifies sunsetting a product in a region is a red-quadrant output even though it came out of a harmless-looking Orange widget. The model did not make the decision, but a human leaning on an un-checked aggregate will. The danger is never the tool; it is the confidence the tidy number lends to the recommendation.
+::::::
+
+## What this chapter proved, and what it didn't
+
+What text mining gave Tessera is genuine: themes a human would have taken a week to surface, and a sentiment gap sharp enough to act on. What it did *not* give is certainty. The clusters needed naming, the sentiment number needed a second scorer to check it, and the headline finding needed a human to read the raw tickets before anyone touched a product roadmap. That is not a failure of the tools. It is what the tools are *for*: accelerating the looking, not replacing the judging.
+
+The sentiment number lied to you in predictable, nameable ways, and you caught it because you went looking for the lie. That habit (expect the failure, measure it, name its size) is the whole posture the next chapter formalises. "Does it actually work?" stops being a question you ask of one output and becomes a discipline you apply to the whole solution: a threshold stated up front, an honest measurement against it, and a record of who it fails. The cluster map and the sentiment gap were the easy part. Proving the thing works is what earns this book its title.
+
+:::::: {.callout-tip title="🔬 Power-user extension"}
+The **Core** path — Corpus → Preprocess Text → TF-IDF → Distances → Hierarchical Clustering, then Sentiment grouped by product and region — is complete and correct on its own. To push further, add the **second scorer**: train a model-based sentiment classifier (Orange's Logistic Regression or SVM on a small hand-labelled slice of tickets), score the same documents, and join it beside the lexicon column. Now the work is the **disagreement set** — filter to where the two scorers part ways, read the tickets, and *quantify the error*: what share of Analytics Pro tickets does the lexicon mis-score, and is that share the same for SecureLink? Compute the **worst-group error** — which product's sentiment is least reliable — and put that number in the report. A sentiment finding that names its own weakest group is the difference between a number and an honest number.
+::::::
+
+## 🔍 Go deeper
+
+- **Soujanya Poria, Devamanyu Hazarika, Navonil Majumder & Rada Mihalcea, "Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research"** (2020), arXiv:2005.00357, <https://arxiv.org/abs/2005.00357>. *Why read this:* the field-level argument that polarity classification "feels solved" precisely because its hardest cases (sarcasm, implicit and mixed sentiment, context) are the ones lexicons quietly fail. Read it to upgrade your intuition for exactly where the number lies.
+
+- **Christopher D. Manning, Prabhakar Raghavan & Hinrich Schütze, *Introduction to Information Retrieval*** (Cambridge University Press, 2008), free online, <https://nlp.stanford.edu/IR-book/>. *Why read this:* the canonical, no-paywall text behind everything in this chapter: TF-IDF and term weighting (ch. 6), cosine similarity, and flat and hierarchical clustering (chs. 16–17). When you want to know not just *that* cosine distance separates text better than Euclidean, but *why*.
+
+- **Orange Data Mining, "Text Mining" tutorial playlist** (YouTube), <https://www.youtube.com/playlist?list=PLmNPvQr9Tf-bxmjlFRg0AGjMzzd1y8_kB>. *Why watch this:* the no-code, hands-on companion to exactly the workflow in this chapter (Corpus → Preprocess Text → Bag of Words / TF-IDF → Distances → Hierarchical Clustering), plus a dedicated sentiment-analysis walkthrough. See the pipeline move before you build it.

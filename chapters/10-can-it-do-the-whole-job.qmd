@@ -1,0 +1,136 @@
+# Can it do the whole job?
+
+> *A chatbot answers your question. An agent does your job. That difference (small in words, enormous in blast radius) is what this chapter is about.*
+
+## From answering to acting
+
+Every system you have built so far in this book has been a *responder*. You asked; it answered. A classifier sorted a row. A RAG chatbot pulled a paragraph. A sentiment model labelled a ticket. In every case the human decided what to *do* with the output. The model produced text; you produced action. That line is the entire safety model of chapters one through nine.
+
+An agent erases the line. An agent is a model wired to **tools and a loop**, and the loop is the whole difference between "answer my question" and "do this job." The model has not changed, it is still doing next-token prediction, still the same Qwen you pointed at a document folder in chapter seven. What changes is the **harness** around it. Instead of answering once, the harness lets the model run a cycle:
+
+1. **Plan**: break the task into steps.
+2. **Act**: call a tool: read a file, search a folder, run a calculation.
+3. **Observe**: read the tool's result back into its own context.
+4. **Repeat or stop**: until the task is done, or until something tells it to stop.
+
+That loop is seductive. It is also where every agentic failure you have ever read about was born. The airline chatbot that promised a customer a refund the airline never authorised did not fail because the model was malicious. It failed because the model was inside a loop that let it *act* (send a message, file a record) on the strength of its own confidence. The blast radius moved from text on a screen to a commitment a company had to honour.
+
+This chapter is not a warning against agents. It is the opposite: it is how you build one small enough to understand, and then (the actual skill) *decide where the human stands inside its loop before you switch it on.*
+
+## The blast radius lives in the tools, not the model
+
+The single most useful idea in agentic AI is this: a tool call is **structured output, not a paragraph.** When the model decides to act, it does not reach into your file system. It emits something that looks like a function call (`search_docs("churn", region="Metro")`) and the **harness** executes it, handing the result back. The model proposes; the harness disposes.
+
+This matters because it tells you exactly where the danger is. A read-only search is low risk: the worst it does is return a slightly-off document. A tool that *sends an email*, *files a support ticket*, *refunds a payment*, or *closes an account* is high risk, because those actions touch people, money, and records you cannot walk back. You do not control the danger by hoping the model is careful. You control it by controlling **which tools the harness exposes**, and, just as importantly, by reading every exposed tool as a *permission* you have granted the loop.
+
+A vendor will tell you their agent is "safe" because the model is aligned. That is persuasion, not proof. The proof is the tool list: what, precisely, have you let this loop do? That list is your risk register. If you cannot name every action the agent can take, you have not evaluated it.
+
+## MCP: a standard plug for tools
+
+Wiring tools to a model used to be bespoke work: one integration per tool, per model, per harness. **Model Context Protocol (MCP)** is an open standard that replaces the tower of custom plumbing with one shared interface. The analogy the spec itself uses is apt: MCP is the USB standard, but for AI tools. Write a tool once as an MCP server, and any MCP-aware model and harness can call it.
+
+You will not build an MCP server this chapter, and you do not need to. What you need is to *recognise it* when a vendor mentions it, because "the agent reached into our CRM" stops being a custom build and becomes a standard pattern the moment MCP is involved. That is convenient. It is also why the tool-list question gets harder, not easier: a standard plug means a standard way to hand the loop a dangerous capability. The convenience and the risk are the same feature.
+
+## Skills folders: an organisation of agents, in text
+
+Here is this book's central agentic idea, and it is simpler and stranger than it sounds. In chapter seven you opened the skills folder and saw **markdown files and folders**. Extend that one step and you have an agent that spawns sub-agents with no infrastructure at all:
+
+- A skill file is an instruction set for *one specialised job*: "you are the churn-analysis sub-agent; read the customer data, return the top three risk signals, do not speculate beyond the data."
+- The main agent **reads the skills folder, picks the skill that matches its next step, and dispatches the sub-task**, sometimes to itself with a new instruction, sometimes to a fresh model call.
+- That is a single agent spawning specialised sub-agents on demand, using nothing but folders and text.
+
+No orchestration framework. No new infrastructure. The harness you already understand is doing the work. This is Layer 2 of the harness (the prompt layer) extended to carry an organisation. And the insight that travels is this: **you design an agent's skills folder the way you design a team.** The division of labour *is* the design decision. A ticket-clusterer, a knowledge-searcher, a brief-drafter: three sub-agents, three skill files, one coherent workflow. Get the division wrong and the whole loop drifts; get it right and any capable model can run it.
+
+RAG moves inside the loop at the same moment. In chapter seven you built retrieval by pointing the model at a document folder and letting it answer. In an agent, retrieval becomes **one tool among several**: the agent retrieves from the Tessera folder *as a step in its loop*, then reasons over what it found, then acts. Grounding each action in a real document is precisely what stops the agent inventing a plausible-sounding but wrong internal fact halfway through the workflow. It is also, as you are about to see, the thing that fails first.
+
+## The danger zone
+
+Now pull up the trust tool you have carried since the introduction. Ask the two questions of an agent's output, *before you act on it*:
+
+1. Does it need to be **precise**, or is **average** fine?
+2. If it is wrong, how big is the **blast radius**, small or large?
+
+An agent that *takes actions* almost always lands in the same cell. It must be **precise**: it is filing, sending, classifying, recommending, and a "pretty good" action that is wrong is still wrong. And its blast radius is **large**: actions touch people, money, records, and decisions you cannot easily walk back. That bottom-right cell, precise and large, is the **danger zone**, and it is the natural home of agentic AI.
+
+This is not an argument against agents. It is an argument for designing the human in *before* you switch the loop on. Because here is the thing about a loop: **drift compounds.** Each step the agent takes builds on the last. A slightly-off retrieval in step two becomes a confidently-wrong theme in step three becomes a brief to the COO in step four that is built on a fact nobody ever checked. By the time a human glances at the finished output, several steps of drift have already been baked in, and the human is approving a *fait accompli*, not making a decision.
+
+## What "human-in-the-loop" actually means
+
+It is not "a human glances at the end." That is a rubber stamp wearing a safety vest. Human-in-the-loop is a **checkpoint you design into the workflow** so that a human makes the load-bearing decision at the load-bearing moment. Four common patterns, in increasing autonomy:
+
+1. **Approval gate.** The agent drafts; a human approves before *any* action fires. Safest, slowest.
+2. **Review checkpoint.** The agent runs freely *within* a sandbox, but must stop and surface its work at a defined point for human review.
+3. **Confidence threshold.** The agent acts on its own when its confidence is high; escalates to a human when it is not. Requires the model to know when it is unsure: use carefully, and never as your only safeguard.
+4. **Dry-run then execute.** The agent produces a *plan* of actions; a human reviews the plan; only then does execution proceed.
+
+The skill is not picking the most autonomous pattern. The skill is matching the pattern *to the blast radius*, and, harder, placing the checkpoint at the right *step*. The wrong place is "at the very end, after everything is done." The useful question is the one you should tattoo on this chapter:
+
+> *At which step does the output become load-bearing or irreversible?*
+
+Put the checkpoint *just before* that step. Everything before it can run fast and cheap. Everything after it carries a human's decision forward, and you can defend *why you put it there, and not one step later.* That defence is the actual deliverable. "Put a human here" is easy. Justifying *why here and not one step on* is the practitioner's edge.
+
+## The provocation
+
+Here is the question the whole book keeps circling, and this chapter it lands hardest:
+
+> *If the loop runs without you (drafts, retrieves, decides, acts) what exactly is your role, and is that role stable?*
+
+A defensible answer is not "I review everything." That is the Delegation Trap from chapter three, now at workflow scale: rubber-stamping every output until the stamp loses its meaning, at which point you are not in the loop, you are *blocking* it, and the pressure to remove you will be enormous. A defensible answer sounds more like this: *I design the checkpoints, I own which tools the agent can call, I decide which outputs are red-quadrant, and I can explain why the agent did what it did.* Notice how much of that is **design and judgement**, not keystrokes. The work that survives automation is upstream of the loop: choosing the tools, drawing the boundaries, naming what must not run unattended.
+
+You do not need a final answer this chapter. You need to notice the question, and you will record it in your working log, because it is one of the book's secondary threads.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+Building the Tessera support digest, the agent drifted, and the conversation log is where it got caught.
+
+**Goal.** Have the agent read the week's new support tickets, find the top three themes, check the internal knowledge folder for a relevant answer to each, and draft a short brief for the COO.
+
+**Where the AI got it right.** It cleanly split the job into three sub-agents (a ticket-clusterer, a knowledge-searcher, a brief-drafter) and dispatched them in order. The skills-folder design was sound.
+
+**Where the AI got it wrong.** The *knowledge-searcher* sub-agent, asked to find an answer to a theme about "intermittent latency on Premium routes," returned a confident paragraph that *sounded* like it came from the runbook. It had not. No retrieval had fired on that step; the sub-agent had drafted from its parametric memory instead of from the Tessera folder, and it did not flag the difference. The *brief-drafter* then built a recommendation on top of the invented fact. Two steps of compounding drift, invisible in the final prose.
+
+**The human correction.** The checkpoint was placed between *search* and *draft*: every knowledge-searcher claim had to cite the document it was retrieved from, and the reviewer checked one citation at random before the drafter was allowed to proceed. The invented fact failed the citation check and was caught. The lesson, written into the log: **grounding is not a property of the model; it is a property of the tool call, and an agent that *could* retrieve but *didn't* looks identical to one that did.** Verify the retrieval, not just the prose.
+
+What was trusted: the clustering, after a spot-check. What was refused: the recommendation, until the citation was real.
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+The agent's brief to the COO lands **red**: precise, large blast radius. A leader may act on it; it is drawn from real customer tickets; getting a theme wrong wastes a week of the customer-success team's attention, and getting a recommendation wrong routes engineers at the wrong fault. Red means a human signs off, and the sign-off has to be *Real*, meaning the human checked the load-bearing bit (here, the citations behind each recommendation), not just skimmed the prose.
+
+The agent's *intermediate* steps live elsewhere on the grid: the ticket clustering is yellow (verify the load-bearing bit: did it miss a whole segment?), the raw retrieval is green (skim and use, it is just a document pull). Trust-tool placement is not one decision per agent; it is a decision *per step*, and the red steps are where your checkpoint goes.
+::::::
+
+:::::: {.tessera-case}
+**🌐 Tessera Case**
+
+Grace Sullivan, Tessera's COO, wants a weekly digest she can act on: *read the new support tickets, find the top three themes, check the internal knowledge folder for a relevant answer to each, and draft a short brief.* Your team builds it as a multi-step agent.
+
+The skills folder carries three sub-agents (a ticket-clusterer, a knowledge-searcher, a brief-drafter) and the main agent runs the plan-retrieve-draft-assemble loop against the Tessera document folder as its RAG tool. It works. It is impressive in the demo. It is also red-quadrant the moment the brief is destined for someone who might act on it.
+
+The design decision that earns the engagement is not the agent. It is the checkpoint: **between *search* and *draft.*** Every claim the knowledge-searcher returns must cite the document it was retrieved from; a human checks one citation before the drafter is allowed to proceed. Everything upstream (clustering, retrieval) runs fast and cheap. Everything downstream carries a reviewer's decision forward.
+
+**What breaks if the checkpoint is removed.** Remove it and the loop runs end to end unattended. Drift compounds across the steps: an unretrieved "fact" in the search step becomes a confident theme in the draft becomes a recommendation a leader acts on. The first time nobody notices is the time the brief is wrong *in exactly the way the model is most persuasive*: fluent, structured, and ungrounded. The agent has not failed uniquely; the *placement* has failed, by letting a precise, large-blast-radius output cross the line without a human's decision attached. Tessera's reputation, and a week of the customer-success team's attention, is the blast radius.
+
+The provocation, on the desk of everyone who built it: if this digest ships every Monday and a human only ever approves it, *at what point is the human a rubber stamp?* The honest answer is the one your working log should capture, and it is not "we review everything."
+::::::
+
+:::::: {.callout-tip title="🔬 Power-user extension"}
+**Core (no-code).** Build the digest yourself from the skills-folder idea: three short markdown files — a ticket-clusterer, a knowledge-searcher, a brief-drafter — dropped into an Open WebUI skills folder, with one model pointed at Tessera's support-tickets and knowledge folders. Run the plan-retrieve-draft loop, then place your checkpoint between *search* and *draft*.
+
+**Power-user.** Take it further one of two ways. *Add a real tool-calling step*: give the knowledge-searcher a retrieval tool over the knowledge folder and require it to return the source filename and a verbatim quote with every claim — the citation check the case box enforces by hand, now done inside the loop. *Or instrument the loop*: log, at each step, whether the retrieved source actually contains the phrase the drafter went on to quote, so drift becomes a number you can watch compound instead of a surprise in the finished brief.
+::::::
+
+## Where this leaves you
+
+An agent is the harness you already understand, extended to act. Its power is real, and so is its danger, and both live in the same place: the tool list, and the loop that calls it. The discipline this chapter adds to *prove, don't persuade* is specific. State, before you switch the loop on, *every action the agent can take.* Name *which steps are red-quadrant.* Place a checkpoint *just before* the output becomes load-bearing or irreversible, and be able to defend why there, and not one step later. Treat an agent that *could* retrieve but *didn't* as identical to one that confabulated, because to the reader they are.
+
+Do that and you have answered *can it do the whole job?* honestly: it can do a great deal of it, fast, and cheaply, and the part it cannot do is the part where someone decides whether what it did is true. That part is yours, and it is not going anywhere.
+
+But there is a question underneath this one we have not yet opened. You have built agents that act, classifiers that sort, models that recommend, and you have treated the model itself as a fixed, opaque thing you point a harness at. *How does it actually decide?* What is happening inside the weights before the first token ever reaches a chat interface? The next chapter opens the box (quantisation, jagged intelligence, model collapse, and NotebookLM as production-grade RAG to take apart) because you cannot fully prove a system works until you have some handle on what it is doing when it is not being watched.
+
+## 🔍 Go deeper
+
+- **Building Effective Agents**: Anthropic, `anthropic.com/research/building-effective-agents`. The canonical practitioner's primer on the agent loop, tool use, and, crucially, *when an agent is overkill and a simple prompt will do*. Read it for the discipline of reaching for the loop only when simpler solutions fall short, and for Anthropic's three principles: keep the design simple, make the planning transparent, and craft the agent-computer interface as carefully as you'd craft a user interface.
+
+- **How we built our multi-agent research system**: Anthropic Engineering, `anthropic.com/engineering/multi-agent-research-system`. A rare, honest production write-up of exactly the sub-agent-spawning pattern this chapter uses: a lead agent dispatching specialised sub-agents from a folder. Read it for two numbers worth carrying: multi-agent systems use roughly **10–15× the tokens** of a single agent (do the cost maths before you commit), and the system is evaluated by an LLM judge scoring *factual accuracy against sources*, the same citation check the Tessera checkpoint enforces by hand.
+
+- **Model Context Protocol: Introduction**: `modelcontextprotocol.io/docs/getting-started/intro`. The official MCP documentation, which itself uses the USB analogy. Read it to demystify the standard: tools, resources, and prompts are the three primitives, and "the agent reached into our CRM" is a vendor phrase you should now be able to translate into a concrete, auditable tool call.

@@ -1,0 +1,99 @@
+# For whom?
+
+Last chapter you ran the same prompt on two models and felt them differ. This chapter widens the lens until the discomfort becomes visible: the *same* model is not the same for everyone. A tool built on English-heavy, Western data behaves differently for a farmer in New South Wales, a youth advocate in Lagos, and a cloud customer in Singapore. The model is one artefact. The people using it are not.
+
+This is the question that turns AI from a tool into a choice. "Does it work?" is the wrong first question, because it has no subject. *For whom does it work, and for whom does it quietly fail?* Until you can answer that, you have a demo, not a deployment.
+
+## There is no "average user"
+
+A product team says "we optimised for the average user." They did no such thing. They optimised for the user the model is *fluent for*: English-first, well-represented in the training data, with problems that resemble the problems in the training set. Everyone else gets a tool that mostly works and quietly breaks at the edges, exactly the edges where the consequences are largest.
+
+The word "average" hides a choice. An average is a centre of mass; the people it sits on top of are the ones the data weighted heavily. The people far from that centre are not exceptions; they are the customers, patients, students and citizens the system was never really built to serve. Their inconvenience is the price of everyone else's convenience, and they were almost never in the room when the choice was made.
+
+This is why the question is *for whom*, not *whether*. "Does it work?" invites a yes. "For whom does it work?" forces a list, and a list has people on it who get left out. Name them and the demo stops being a triumph.
+
+## The same model, three different countries
+
+A large language model is a single artefact, but it is used by very different people in very different conditions. Three things vary by region: what is **legal**, what is **normal**, and what the model is **good at**.
+
+*Legal* diverges sharply, and it changes what "a compliant deployment" even means. The EU's AI Act sets risk tiers and outright bans some uses; the default question there is *is this permitted?* China regulates through algorithm registries and content rules. The US is sectoral and litigated; liability arrives after harm, not before approval. Australia leans on the Privacy Act, anti-discrimination law, and a voluntary AI Ethics Framework, with mandatory guardrails advancing. A Tessera feature that ships lawfully in San Francisco may need a documentation pack in Frankfurt and a content review in Shanghai. "Global rollout" is not one decision. It is three.
+
+*Normal* varies too, and culture shapes how a tool is used, not just whether it can be. In some contexts a confident system answer is treated as authoritative and pushing back feels rude, which makes rubber-stamping culturally easy in some places and not others. A response that reads as crisp in one place can read as blunt or evasive in another; the model has a default register, and it is not yours. And "personalised recommendation" quietly assumes an individual decision-maker, when many real decisions are made by a family, a team, or a community. A tool built for one user misreads the actual unit of choice.
+
+And what the model is *good at* is not even. Training data is lopsided. English dominates; Spanish, French, Mandarin and German are strong; many of the world's roughly seven thousand languages are thinly represented or absent. The model is measurably more fluent, more accurate, and less prone to confident error for some users than for others, through no fault of those users. Capability tracks data, not merit.
+
+The pattern is the point. The interesting question is never *does AI work here?* It is *for whom does it work, and for whom does it quietly fail?* The failure is usually quiet, and it usually lands on the people with the least power to complain.
+
+## The team as microcosm
+
+None of this is abstract. It is sitting in your own team.
+
+Picture a team where everyone uses whatever AI subscription they can personally afford. Within a week the team splits: some members have a frontier model that reasons, codes, and reads documents; others have a free tier that rate-limits, refuses, or lags. Same brief, same standard, different capability — and the difference tracks household budget, not effort or talent. That is the whole problem in miniature.
+
+This is exactly why a careful team standardises on a model like Qwen, run locally and on a shared hosted instance. Everyone gets the same model, the same context window, the same refusal behaviour. The playing field is level by design. And notice what this is *not*: it is not a cost workaround. Running a model locally and comparing it to a frontier model is itself a discipline — it makes the sovereignty, privacy, and equity questions tangible rather than theoretical. The local model is the cheapest way to put the equity argument in your hands.
+
+You felt the gap then. The frontier model was slicker; the local Qwen was rougher. Notice your instinct: *the slicker one is better.* Now ask the question this book keeps asking: better **for whom**, and at what cost? For a team, the cost of *better-for-some* is a tier of colleagues who cannot do the work. The local model is a deliberate bet: *same-for-everyone and slightly rough* beats *great-for-some and absent-for-others*. That bet is the equity argument, and it is the same argument a careful Tessera analyst makes when choosing a deployment for a customer base that cannot all afford the frontier tier.
+
+## Why no one slows down alone
+
+Even when a company *wants* to be careful, it walks into a structural trap. If Tessera pauses for six weeks to audit its churn model for regional bias, and a competitor ships immediately, the competitor takes the quarter, the funding round, or the enterprise contract. "Move fast and audit later" wins the race unless *everyone* moves at the audited pace, and no single actor can enforce that alone.
+
+This is a **coordination problem**, not a character flaw. It is why regulation tries to set a floor everyone must meet, so the careful firm is not punished for being careful. It is why shared frameworks (like the trust tool you carry every chapter) spread the cost of judgement across many actors. And it is why a firm's own ethics framework only bites when it is cheap enough to follow that no one is tempted to skip it.
+
+The trap explains the gap you have already noticed between what organisations *say* about responsible AI and what they *ship*. The honest framing is not "good companies versus bad companies." It is "everyone is in a race, and slowing down unilaterally means losing." Which means the people who pay for the race, the customers at the edges, keep paying until something changes the default for everyone at once. A shared local model does exactly this: a shared floor makes the careful, equitable choice the *default*, not the costly exception. The team and the market are running the same logic.
+
+## Profit or good? A real tension, a false binary
+
+The debate this question opens has two camps, and both are partly right.
+
+*For profit:* capital is what scales a tool to millions. The farmer's satellite yield model exists because someone could fund it and sell it. Profit is not the enemy of access; it is often the mechanism of it. A tool no one can afford to build helps no one.
+
+*For good:* but optimise purely for return, and the model is tuned for the customers who pay, not the ones who need it. The quiet failures land on people who were never the target market and never had a seat at the table. The agtech tool that serves large operations may be exactly the tool the small remote grower needs most and can afford least.
+
+The resolution is not to pick a side. It is to notice *which people each framing optimises for*, and to design so the people at the edges are not the ones paying for everyone else's convenience. Profit scales the tool; "for good" frames who it serves. The real lever is **designing who is in the target set**, not picking a slogan. This is a move any consultant report or pitch will eventually have to make.
+
+:::::: {.tessera-case}
+**🌐 Tessera Case**
+
+Tessera ships one renewal model to its ~600 clients: one artefact, one satisfaction threshold, one green tick on the dashboard.
+
+The model was trained on the churn Tessera could *see*: the large enterprise accounts that renew loudly, with complaint spikes and contract-renewal drama. It predicts those well. What it does not predict well is the quiet churn — the customers whose leaving looks nothing like the training set. Disaggregate the score and the failure concentrates, hard: the **South** and **Metro** territories run ~94% and ~85% at-risk; **Education** and **Healthcare** run ~94% and ~85%; **Small** companies run ~47%. Central, East and North, Finance and Manufacturing and Retail, and Large companies sit near zero. One model, one green tick — and a map of who it quietly fails.
+
+The model's aggregate accuracy is a green tick. The disaggregated accuracy by segment is the audit no one ran. *For whom does this model work?* For the large, the loud, and the well-represented. *Whom does it quietly leave out?* The South, Metro, Education, Healthcare, and Small — everyone whose leaving made no noise.
+::::::
+
+This is where the proof mindset starts to bite. "For whom does Tessera's churn model work?" is not a question the dashboard answers. The dashboard shows aggregate accuracy, a green tick, a model that *works*. The proof is the disaggregated one: break it down by region, by segment, by the customers who leave quietly, and you find the people the average quietly buried. That is the evidence the demo never showed you, and it is the difference between a deployment and a demo pretending to be one.
+
+And it sets up the next chapter's harder question. Once you can see *for whom* a system fails, you have to be able to *tell*: to detect the bias and the shadow systems it hides behind, to resist the delegation trap, and to refuse the rubber-stamp. That is where the next chapter goes. But it starts here, with the discipline of naming the people a tool was never built for.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+**Goal.** Work out who Tessera's churn model optimises for, and who it quietly leaves out.
+
+I asked the model: *"Tessera ships one renewal model to all ~600 clients. For whom is this optimised, and who pays?"*
+
+**Where the AI was useful.** It surfaced the right categories fast: the model is tuned on the customers who generate the most *signal* (usually the largest, loudest churners) and a single "global" threshold flattens regional behaviour. That gave me a structure to push on.
+
+**Where the AI got it wrong, and I corrected it.** The model concluded the churn model was "broadly fair across regions" because its overall accuracy was high. I pushed back: aggregate accuracy is exactly the thing that hides the gap. I asked it to disaggregate: accuracy by region, and accuracy for customers who churn *quietly* (no complaint, no support spike) versus those who churn loudly. The honest answer flipped: the model is fair for Central, East and North and for loud churners, and materially worse for South and Metro and for the quiet leavers. The AI's first answer was the dashboard's answer. The disaggregation was mine.
+
+**What I trusted, and why.** That *"the average is fair"* is the claim most likely to hide a regional or segment failure, and that it must be owned by a human, because the model will not volunteer it. The line I would act on: *for this output the model optimised for loud, well-represented churners; I trusted the disaggregated finding because the aggregate accuracy was the exact claim hiding the gap, and I verified it by region.*
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+This chapter's outputs sit mostly in 🟡 **yellow**: strategic framing where the *wording* is average-acceptable but the *load-bearing claim* (who benefits, who is excluded) must be verified and owned by a human. A line like *"the model works across all our regions"* is yellow: plausible prose over an unverified, load-bearing assertion.
+
+The moment the analysis touches a real person (a customer segment, a region, a demographic) it slides to 🔴 **red**. Outputs that touch people need a human in the loop, and *"the model said so"* is never an ethical defence. That is why the churn-model disaggregation in the conversation log is not a footnote: it is the difference between a yellow framing and a red decision someone has to sign.
+::::::
+
+:::::: {.callout-tip title="🔬 Power-user extension"}
+The **Core** of this chapter is the no-code move you just read: take the renewal model's headline accuracy, ask *for whom does it fail*, and disaggregate by segment until the green tick breaks. That alone is the discipline.
+
+**Go deeper (optional, code):** open `tessera-customer-data.csv` and compute the at-risk rate yourself. Group by `Region`, `Industry`, and `Company_Size`; in each group count the `Renewal_Likelihood = Low` rows and divide by the group total. You will reproduce the pattern by hand — South ~94% and Metro ~85%, Education ~94% and Healthcare ~85%, Small ~47%, the rest near zero. Then cross two slicings (Region × Industry) and look for a sparse cell where the rate is high but the count is tiny: that is the small-cell noise a careful analyst discards rather than ships. Want a second model? Train a simple decision tree (Chapter 4 does this in Orange) and compare its disaggregated gaps to the renewal threshold — two methods agreeing on the same failing segments is the cross-validation that earns trust.
+::::::
+
+## 🔍 Go deeper
+
+- **Iason Gabriel, "Artificial Intelligence, Values and Alignment"** (*Minds and Machines*, 2020; arXiv:2001.09768). <https://arxiv.org/abs/2001.09768>. The canonical philosophical case that there is no single value set to align to in a pluralistic society, and that *fairness*, not truth, is the right target. *Why read:* this is the foundation for treating "for whom?" as a design decision rather than a detail.
+
+- **"Better to Ask in English: Evaluation of Large Language Models on English, Low-resource and Cross-Lingual Settings"** (Ahmadi et al., 2024; arXiv:2410.13153). <https://arxiv.org/abs/2410.13153>. An empirical benchmark of how much worse the *same* model performs the moment the query leaves English. *Why read:* it turns "frontier felt better" into a measured equity gap, exactly the gap a deliberate local-model choice exists to surface.
+
+- **"Iason Gabriel on Foundational Philosophical Questions in AI Alignment,"** Future of Life Institute Podcast (2022). <https://futureoflife.org/podcast/iason-gabriel-on-foundational-philosophical-questions-in-ai-alignment/>. An accessible conversation on fair alignment across cultures and why *"whose values?"* is the question that won't go away. *Why listen:* the paper made rigorous; the podcast makes it human.

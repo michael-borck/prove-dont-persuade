@@ -1,0 +1,49 @@
+# E. The Tessera Case — A Living Example {.unnumbered}
+
+Tessera is fictional. It is also, deliberately, *real enough to explore*. The company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. Nothing in this book depends on visiting it — every dataset, document, and decision the chapters use is described in full right here. But if you learn by poking at things, the site turns the case from a thought experiment into an extended reality you can walk around in.
+
+This appendix is the map. Use it to go deeper on any chapter, or ignore it entirely.
+
+## The company, in one paragraph
+
+Tessera is an Australian managed-cloud and multi-tenant SaaS provider, founded in Perth in 2011, with offices in Sydney and an operations centre in Malaga, Western Australia. It serves more than 600 clients across the SME and enterprise segments and employs around 210 people. Its platform runs on AWS (primary region Sydney, standby Singapore), and it holds ISO/IEC 27001 and SOC 2 Type II certifications. Its stated values are *security first, customer success, evidence over assertion* — and that last one is the reason it is the right case for a book about proof.
+
+## Why the breach matters here
+
+Tessera recently lived through an incident it records as **TSR-INC-2025-031**: a long-lived cloud access key leaked through a misconfigured code repository, and — because the management plane was not properly segmented from the tenant-data plane — that key was used to read tenant data for an estimated five days before anyone noticed. Around 14,000 tenant records were exposed; 23 clients did not renew; the first-year impact was on the order of $1.8 million. The regulator was notified under the Australian Notifiable Data Breaches scheme.
+
+That incident is *not* the subject of this book. It is the backdrop. It is the reason Tessera's board now demands evidence rather than assertion for anything that touches customer data — including the AI systems the company is building. A company that has just paid the price of an unverified assumption is exactly the company that needs a practitioner who *proves, don't persuade*. Read the breach as the pressure that makes every chapter's question urgent.
+
+## What is on the site, and where it lands
+
+| Site artefact | Where to find it | Chapters it enriches |
+|---|---|---|
+| **Company overview & leadership** — the company profile, the org chart, the leadership team | *About* page; *Company Files → Internal Records* | 1, 2, 12 |
+| **Customer dataset** (`tessera-customer-data.csv`, 200 clients) — industry, size, tenure, product, satisfaction, renewal, region, contract value | *data/* folder | 2, 4, 6, 11 |
+| **Support dataset** (`tessera-support-data.csv`, 100 tickets) — category, priority, resolution time, satisfaction, follow-up | *data/* folder | 8 |
+| **Sales, HR, and finance datasets** — sales by region/product, leavers, budget, forecast | *data/* folder | 2, 4, 12 |
+| **Policies** — privacy, access control, breach response, data classification, acceptable use | *Company Files → Policies* | 3, 5, 6 |
+| **Incident & continuity documents** — the incident report, the NDB playbook, the risk register, the failover runbook, the business-impact analysis | *Company Files → Logs / Internal Records* | 3, 5, 6, 9 |
+| **Company files for retrieval** — the documents you would point a RAG assistant at | *Company Files* generally | 7, 10, 11 |
+
+## The people you can interview
+
+The most distinctive thing on the site is the cast. Tessera's senior team are not just named in an org chart; they are **AI personas you can talk to**. You can open a chat with the CEO, the CIO, the CISO, the CFO, the head of compliance, and half a dozen others, and ask them about the breach, the platform, or the certification programme — and they will answer in character, with the knowledge and the blind spots their role would give them.
+
+A few worth knowing:
+
+- **Henrik Larsson** — CEO. Carries the board mandate and the weight of the 23 lost clients.
+- **Adrian Vasquez** — CIO. Owns the infrastructure and the procurement questions (Chapter 5).
+- **Isabella Ferreira** — CISO. Led the breach response; uncomfortable with self-attested controls.
+- **Priya Nair** — CFO. The numbers behind the breach and the certification budget.
+- **Grace Sullivan** — COO. Service delivery, SLAs, the customer-experience side.
+- **Margaux Dubois** — Head of Compliance. The Privacy Act, the NDB scheme, the regulator.
+- **Olivia Tan** — Director of Operations at **Northbridge Group**, one of Tessera's enterprise clients. She is the customer's voice: she wants tenant isolation and sovereignty *evidenced*, not promised.
+
+Interviewing a persona is itself a small lesson in the trust tool: a fluent, in-character answer is still an output you place before you act on it. Treat what they say the way this book teaches you to treat any AI output — useful, plausible, and worth verifying against the documents.
+
+## How to use it
+
+Pick a chapter, find its row in the table above, and go and look at the real artefact. Read the actual privacy policy before you design the Chapter 6 architecture. Pull the customer dataset into Orange and check the Chapter 4 findings against your own tree. Ask the CISO how she would defend an AI summariser that sends tenant data to a third-party model vendor. The site is there to make the case textured, not to test you on it. If you never visit it, you lose nothing essential. If you do, the company stops being a name and becomes a place.
+
+> Tessera is a fictional company created for teaching. Its data, documents, and people are fabricated for learning; any resemblance to a real organisation is incidental.

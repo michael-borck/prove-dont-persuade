@@ -1,0 +1,43 @@
+# About the Author {.unnumbered}
+
+![Photo of Michael Borck](images/author-photo.jpg){fig-alt="Photo of Michael Borck, the author" width=200px fig-align="center"}
+
+**Michael Borck** is a software developer and educator working at the intersection of human expertise and artificial intelligence. He teaches applied AI and AI-driven knowledge systems, and the question that started this book (*what is a human practitioner actually for when a machine can build the demo?*) is the one he asks in every class he runs.
+
+His earlier book, *Conversation, Not Delegation*, argues that AI is most valuable not as a tool you delegate to, but as a thinking partner you converse with. *Prove, Don't Persuade* is the discipline that pairs with that craft: it is about what a practitioner must *prove* (not persuade, not demo) once the building is done. The two books are companions: one on how to work with the machine, one on how to know the work actually holds up. It has a sibling in *Substantiate, Don't Assume*, which teaches the same proof-instinct on the auditor's desk.
+
+The thesis grew out of a realisation that surfaced again and again in his classroom: a polished AI prototype is easy to produce and almost impossible to trust on its face. The real skill, and the durable one, is evaluation: stating what "good enough" means, measuring honestly, naming who a solution fails, and deciding how much a human must stay in the loop. That skill does not expire when the next model arrives, and it cannot be delegated to the model itself.
+
+Michael builds educational software and resources, and writes about the 80/20 principle in learning and professional judgement.
+
+---
+
+\newpage
+
+**Connect**
+
+- [michaelborck.dev](https://michaelborck.dev): Professional work and projects
+- [michaelborck.education](https://michaelborck.education): Educational software and resources
+- [8020workshop.com](https://8020workshop.com): Passion projects and workshops
+- [LinkedIn](https://linkedin.com/in/michaelborck)
+
+---
+
+**Other Books in This Series**
+
+*AI-Collaboration & Applied-AI Track:*
+
+- *Conversation, Not Delegation: How to Think With AI, Not Just Use It*: the companion to this book (how to work with AI as a thinking partner)
+- *Substantiate, Don't Assume: Why the Auditor's Opinion Matters More Than Ever in the Age of AI*: the audit sibling of this book's proof-instinct
+- *Partner, Don't Police: AI in the Business Classroom*
+
+*Python Track:*
+
+- *Think Python, Direct AI: Computational Thinking for Beginners*
+- *Code Python, Consult AI: Python Fundamentals for the AI Era*
+- *Ship Python, Orchestrate AI: Professional Python in the AI Era*
+- *Converse Python, Partner AI: The Intentional Prompting Methodology*
+
+*Web Track:*
+
+- *Build Web, Guide AI: Business Web Development with AI*

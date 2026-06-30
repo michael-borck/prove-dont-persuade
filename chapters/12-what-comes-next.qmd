@@ -1,0 +1,102 @@
+# What comes next?
+
+You are standing in front of Tessera's leadership team. Henrik Larsson, the CEO, wants to know where the data says to invest. Grace Sullivan, the COO, wants cost-to-serve down without quality dropping. Adrian Vasquez, the CIO, wants to know what is buildable and what is vendor lock-in. And in the room, whether the leadership frames it that way or not, is the support engineer whose task-mix your solution is about to change.
+
+This is where twelve chapters land. Every concept in this book (the trust tool, the harness, the three-lens rubric, the good-enough threshold, the human-in-the-loop) collapses into one artefact: a pitch that does not merely demo, but proves. And every concept the book has quietly been rehearsing (that the human role is to shape how AI lands, not be landed on) is what the decision will rest on.
+
+The pitch is also where the book's hardest question becomes unavoidable: *what comes next?* Not as a prediction. As a practice.
+
+## The efficiency story every pitch tells
+
+Here is the line almost every AI pitch arrives at, sooner or later: *"AI makes the work cheaper, so we'll need fewer people doing it."* It is the default mental model in every deployment memo Tessera's leadership has read. It is also (historically) almost always wrong.
+
+The reason has a name. In 1865, William Stanley Jevons studied coal use in British factories. New steam engines were dramatically more efficient; they burned less coal per unit of work. The obvious prediction was that coal consumption would fall. It rose. Cheaper work meant more work became worth doing, and total coal use climbed. The pattern has repeated every time a key input gets cheaper. LEDs are roughly ten times more efficient than incandescent bulbs, and total lighting energy has gone *up*, because we now light everything. Transistors are astronomically cheaper than in 1970; we use astronomically more compute, not less. Bandwidth is cheap; we stream 4K all day rather than rationing it.
+
+The general rule: **when an input gets cheaper, demand for the activity it enables tends to grow faster than the efficiency saves.** Efficiency does not reduce consumption. It relocates and expands it.
+
+Map it onto AI. The input getting cheaper is cognitive work: drafting, summarising, classifying, searching, first-pass analysis. So the Jevons prediction is not "we'll do today's work with fewer people." It is closer to this: the work that was too expensive to do at all (the analyses we never ran, the customers we never followed up, the documents we never summarised, the edge cases we never tested) will now get done. That is the **efficiency trap**. A business that deploys AI purely as a headcount play optimises for the wrong thing. The real question is not *how do we do today's work with fewer people?* but *what work becomes worth doing that wasn't worth doing before, and who does it, and how do we govern it?*
+
+:::: {.tessera-case}
+**🌐 Tessera Case: The capstone pitch, and its second-order effects**
+
+Your team's capstone pitch is a collaborative churn workflow: an Open WebUI retrieval step pulls from the Tessera knowledge folder, an Orange classifier from Chapter 4 scores churn risk, a local Qwen drafts a retention note, and a support engineer signs off before anything reaches a customer. That hand-off (retrieval to model to human) is what makes it a *collaborative* workflow rather than a chatbot.
+
+Where the pitch earns trust is the second-order analysis built on top. The cheap version says "this flags churn risk five times faster." The version the decision rewards runs all four legs: **who benefits** (HQ accounts, whose retention note now goes out same-day); **who pays the transition cost** (the support engineer mid-career, whose job is now half drafting-notes-for-AI-to-edit); **who is left out** (the South and Metro territories, and the Small SME customers, whose ticket language and churn patterns the classifier was never trained on — so the same solution silently underperforms, visible in `tessera-support-data.csv`); and **what Jevons predicts** (tier-1 proactive outreach to the 40% of customers currently left on hold, which expands the work rather than shrinking it).
+
+The artefact you hand the decision-makers is not the demo. It is the demo *plus the honest second-order sentence*: this is worth building, and here is what it costs the people and systems it touches.
+::::
+
+The trap has two jaws, and a good pitch names both. The **optimistic jaw**: a team that believes AI will simply cut costs builds a thin solution, ships it, and is surprised when demand explodes; they planned for less work and got more, faster, with no governance ready. The **pessimistic jaw**: a team that believes AI will replace whole roles builds for a future that does not arrive on schedule, and demoralises the very people who are now maintaining the system. The practitioner move is to plan for both: assume the volume of cognitively cheap work goes up, *and* assume the human role changes rather than vanishes. The trust tool is how you decide which slice of that expanded volume needs a human and which does not.
+
+## Tasks, not jobs
+
+So who does the work, once AI has made part of it cheap? The headline question (*will AI take our jobs?*) is the wrong shape. It treats jobs as fixed buckets that either exist or don't, and it treats AI as a single event rather than a rolling change. It also has a terrible track record: every wave of automation since the Luddites has been debated in those terms, and the outcome has always been more punctuated and more uneven than either side claimed.
+
+A job is a bundle of tasks. AI rarely replaces a whole job; it changes the mix of tasks inside it. The useful unit of analysis is the **task**, not the role.
+
+Take a Tessera support engineer. The job bundles reading a ticket, reproducing the issue, searching internal docs, writing a response, escalating hard cases, mentoring juniors, and being the human a frustrated customer talks to. AI reliably changes the first four: drafting, searching, summarising, first-pass triage. It changes almost nothing about the last three: judgement on a genuinely novel outage, mentoring, and the human in a heated conversation. The role does not disappear; it **redistributes**. The engineer spends less time on the first four and more on the last three. The management challenge is immediate and concrete: *how do you redesign that role, retrain for it, re-measure performance, and re-pay for it, without losing the people who hold the institutional knowledge?* That is a question for next quarter, not next decade.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+**Stress-testing the second-order analysis.** To draft the four second-order answers for the churn pitch, the team asked a frontier model: *"For this workflow, who captures the upside, who pays the transition cost, and who is left out?"*
+
+The model returned a fluent, confident, and almost entirely **generic** answer: *"Small businesses may be disadvantaged; junior staff may be displaced; the firm and large customers benefit."* Plausible, and useless. It had no purchase on Tessera. It was the AI doing what AIs do when asked a distributional question without evidence: producing the average answer, the one that sounds right in any boardroom.
+
+The correction was the prove-don't-persuade move, applied to the AI's own output. The team refused the generic and grounded each group in the data instead: pulled satisfaction by territory from the tickets file, pulled ticket-language distribution to surface the South-and-Metro gap, pulled the support engineer's actual logged hours to see which tasks the workflow absorbed. "Small businesses" became "Small SME accounts in the South and Metro territories, whose tickets the classifier scores with low confidence." "Junior staff displaced" became "the two mid-career engineers whose tickets-to-resolutions the workflow now mediates." The model produced the draft; the team supplied the evidence, and in doing so supplied the one thing the average could not: the *specific people* this solution touches.
+
+The lesson, at the close of the book, is that the same scepticism you apply to a churn score applies to the AI's account of who your solution harms. An ungrounded second-order analysis is still an assertion. Ground it, or strike it.
+::::::
+
+## Who pays, who benefits, who is left out
+
+That last move, naming the specific people, is the one the technology press tends to flatten into "AI is good" or "AI is bad." The honest version is distributional: **the gains and the costs of an AI deployment do not fall on the same people.** Three groups, always named.
+
+**Who captures the upside?** The firm that deploys it, the customer whose service gets faster, the worker whose drudge work shrinks, the vendor selling the model. These are not the same actor, and they do not split the gains evenly. **Who pays the transition cost?** Almost always the worker whose task-mix changes mid-career, the team that has to maintain a system that "works," and the customer whose problem was an edge case the model was never trained on. **Who is left out entirely?** The people the solution was never built for: small customers, non-English speakers, the region with the worst data, the applicant whose résumé the screening model never surfaced. Exclusion is rarely announced; it shows up as silence.
+
+This is not a moral decoration on the analysis. It is the analysis. And you have been living it across the whole book without the label. A careful team runs a local Qwen alongside a frontier model on purpose. From Chapter 2 onwards the argument was: a team where some members can afford a frontier subscription and others cannot is not a level playing field. Local AI is an equity decision before it is a technical one. That is the political economy of AI in miniature. Scale it up: which organisations can afford to deploy frontier AI, and which get the local or open version? Which regions have the infrastructure, and which don't? Which workforces get retrained, and which get "disrupted"? The same question that decided whether you ran Qwen locally or paid for a subscription decides who in the economy gets to participate in the AI layer at all.
+
+A practitioner who cannot name these groups is not a practitioner; they are a deployer. This book's job is to produce the former. Your pitch is judged, in part, on whether you can hold the upside and the cost in the same sentence.
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+**Where the pitch's outputs sit on the grid.** Place the capstone artefact one piece at a time. The live demo slice (a ranked churn list, a drafted retention note) is **🟡 yellow**: average is fine on the framing, but the load-bearing claim (which customer is actually at risk) must be precise, so a human verifies it before it drives an action. The retention note itself, if it goes to a customer, is **🔴 red**: large blast radius, precise requirement, human signs off, non-negotiable. The trust-tool checkpoint is not a flourish in the pitch; it is the design.
+
+And then the pitch's second-order analysis (the *who benefits, who pays, who is left out*) is itself a **🔴 red-quadrant output**, and here is the irony worth noticing. The demo slice looks like the load-bearing part, so teams spend the rehearsal polishing it. But the decision the leadership makes (build this, or don't) rests on the second-order claims, not the demo. Treating those claims as green (skim and trust) is the failure mode this book has spent twelve chapters trying to dislodge. The placement instinct, one last time: the thing that *looks* like decoration is often the thing that *is* load-bearing.
+::::::
+
+## Planning for a range
+
+And then there is the trajectory. There is a cottage industry in predicting *when* artificial general intelligence arrives. The dates range from "it's already here" to "never," and the people making the predictions have been wrong, in both directions, for sixty years. This chapter is not about joining that industry. There is a different, more useful discipline: **planning assumptions.**
+
+A prediction is a claim about what *will* happen. A planning assumption is a stance about what you do *given that you don't know.* Practitioners live in the second register. You do not get to wait for the forecast to settle before you build, hire, or govern. For planning purposes, the philosophical definition of AGI matters less than the **capability trajectory**: models keep getting better at a widening set of economically useful tasks, the cost per unit of cognitive work keeps falling, and the rate of both has repeatedly surprised people who expected a plateau. You felt this trajectory in the book itself. In Chapter 1 you ran the same prompt on a local Qwen and a frontier model and saw the gap. By Chapter 10 you were wiring that same local model into a multi-step agentic loop. The gap between what a free local model can do and what a frontier model can do is not fixed; it moves. That movement is the planning assumption.
+
+There are three stances, and only two survive contact with reality. **Plan for stasis**: assume the capability you deploy today is the capability you will have. Comforting, and almost always wrong; systems designed around one model's quirks break when the model improves, and prompts that exploit a weakness stop working when the weakness is patched. **Plan for a specific date**: assume "AGI by 20XX" and build for that. This is a prediction dressed as a plan; be wrong by two years and you have built too early or too late, and spent the political capital of being a doomer or a laggard. **Plan for a range**: assume capability improves along a corridor, design so the system stays useful and safe across that corridor, and re-baseline regularly. This is the only durable stance. It treats the trajectory as a weather system you sail through, not a wall you hit.
+
+Stance three has practical teeth. It means build **harnesses, not prompts**. Keep the trust-tool placement current rather than fixed. Prefer solutions that degrade gracefully when the model changes. And put the human-in-the-loop controls in *now*, while it is cheap, not after a model upgrade removes the option quietly.
+
+Look back. Every chapter has been a small rehearsal of stance three. The local-vs-frontier comparison taught you to judge outputs, not brands, so your judgement survives a model swap. The harness as plain text taught you a portable skill that does not expire when a vendor changes pricing. The trust tool, every chapter, taught you to re-place outputs on the grid as capability shifts, instead of trusting "the good model" by default. The conversation log taught you to document your own thinking, which is the one thing that does not depreciate as models improve.
+
+## The question is now yours
+
+Here is the honest answer to the book's secondary thread: *if AI keeps getting better, what is the human role, and is it stable?* It is not a doomer question. It is the planning question. The human role is to do the things stance three requires: place outputs on the grid, design the harness, hold the governance, name who is left out, and re-baseline when the ground moves. That role is not stable in its *tasks*. It is stable in its *function*. Whether it stays stable is genuinely open. You are now equipped to hold the question without pretending to answer it.
+
+Twelve chapters ago, the demo and the deployment were the same thing to you: something that looked impressive, that you would build and trust. Now they are not. A demo is engineered to persuade. A deployment has to actually work: survive the inputs the demo never showed you, fail gracefully where it must, and be trusted, or not, by the people who depend on it. The discipline that closes that gap has a name. **Prove, don't persuade.** Every claim about an AI solution is an assertion until evidence supports it. The model produces the draft; you supply the judgement, the evidence, and the defensible conclusion.
+
+In a world of demos, the proof is the point. The machine will keep getting better at building the demo; that is the trajectory you now plan against, not bet on. Your edge is the discipline that turns a demo into something a business can actually ship, with the right oversight, for the right people, honestly named where it fails. The question (*what comes next?*) is now genuinely yours to hold. So is the proof.
+
+::::::: {.callout-tip title="🔬 Power-user extension"}
+**Ground each leg of the second-order pitch in measured evidence.** The Core — the no-code path everyone completes — is to assemble the capstone pitch with its four legs named. The Power-user move is to make each leg a number, not an adjective. Three concrete asks:
+
+- **Disaggregated accuracy.** In Orange, use *Select Rows* to filter the churn data to one segment at a time (say `Region = South`, then `Company_Size = Small`), feed each subset through the trained classifier, and read the per-group accuracy from the *Confusion Matrix*. The overall accuracy can look fine while the model silently underperforms on the South and Metro territories and on Small SME accounts — the exact left-out leg of the pitch. Quote the worst-group gap.
+- **Transition cost on a sample.** Pull ten real tickets from `tessera-support-data.csv` and time the before/after task-mix for the mid-career engineer: how many minutes now go to drafting-notes-for-AI-to-edit. A measured cost on a sample beats an asserted cost every time.
+- **Name the left-out segment with data.** From `tessera-customer-data.csv`, count the customers in the segments the classifier was never trained on (Small × South, Small × Metro). Naming 43 specific customers rather than a generic some-customers hand-wave is what turns the equity leg from decoration into evidence.
+::::::
+
+## 🔍 Go deeper
+
+- **Daron Acemoglu, "The Simple Macroeconomics of AI"** (*Economic Policy*, 2025; NBER Working Paper 32487). A task-based economic model of AI's effects, and the cleanest formal argument that the gains and costs do not fall on the same people. Read it for the political-economy half of this chapter: AI designed for augmentation raises welfare; AI designed purely for automation reinforces inequality unless policy intervenes. The case for "design the tool, don't just deploy it," with the maths attached.
+  <https://www.nber.org/papers/w32487>
+
+- **David Autor, on AI and the future of work** (VoxDev, 2025). The accessible version of the "tasks, not jobs" argument this chapter leans on. Autor distinguishes automation tools (which eliminate expertise) from collaboration tools, which multiply it, and warns that most current AI is built the wrong way round. Read (or watch) it for the workforce redesign question, and pair it with Autor & Thompson's "Expertise" (NBER w33941) if you want the underlying paper.
+  <https://voxdev.org/topic/technology-innovation/david-autor-ai-and-future-work>
+
+- **Epoch AI, "AI in 2030: Extrapolating current trends"** (2025). The empirical anchor for the planning-assumption stance. Rather than predict a date for AGI, Epoch tracks the inputs (compute, data, power, capital) and extrapolates the corridor they describe. Read it as a worked example of stance three: you cannot forecast the endpoint, but you can bound the trajectory and design so your solution stays useful across it.
+  <https://epoch.ai/files/AI_2030.pdf>

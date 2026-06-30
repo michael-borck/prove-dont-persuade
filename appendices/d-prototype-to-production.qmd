@@ -1,0 +1,51 @@
+# D. From Prototype to Production {.unnumbered}
+
+Every artefact in Appendix C is, at the moment you finish it, a working prototype. It runs. It passed the evaluation you designed for it. You placed it on the trust grid and named its limits. That is a long way from a demo, and it is still not the same thing as a system a business can rely on, live, with its reputation on the line.
+
+This appendix is about the gap between *proved it works* and *keeps working in production*. It is the layer the twelve chapters point at but do not build out, because it belongs to the operational lifetime of a system, not to the act of building one. The thesis does not change: *prove, don't persuade*. It just does not stop at launch.
+
+## The honest boundary
+
+The no-code tools in this book (Orange, Open WebUI, Teachable Machine, an agent framework) will get you to a deployable prototype: something that works, that you have evaluated honestly, and that you can defend. They will not, on their own, run a hardened production system. Production is where software engineering begins: monitoring, rollback, access control, incident response, scaling, cost management.
+
+Knowing where that line sits is itself the practitioner's edge. The dangerous practitioner is the one who ships a polished prototype as if it were a production system, because they cannot see the line. The useful practitioner can say, for any artefact: this far I can build, evaluate, and defend; from here, engineering and operations take it, and here is exactly what they must not drop. This appendix is a map of that handoff, not a course in it.
+
+## What changes when you go live
+
+A prototype has to run. A production system has to do four things a prototype never did.
+
+**It has to keep working.** The model that scored well in your evaluation is not frozen. The world drifts: customers behave differently, the input distribution shifts, a vendor swaps the model under your API. An accuracy figure measured once is a photograph, not a guarantee. The question stops being *does it work?* and becomes *is it still working, and how would I know if it stopped?*
+
+**It has to fail visibly.** A prototype fails on your laptop, where you see it. A production system fails in front of customers, quietly, and the worst failure is the one nobody notices until a complaint arrives. You need telemetry that surfaces the failure, not a dashboard of green ticks that hides it. Chapter 3's lesson scales up: the dangerous output is the fluent one nobody checked, and the dangerous system is the one whose failures are invisible to the team that owns it.
+
+**Someone has to own it.** A prototype is yours. A production system needs an owner, an on-call, and a named human who signs off on the red-quadrant outputs. "The model does this" is not an operating model; it is the shadow system from Chapter 3, now running in production. Name the owner before you ship, or the ownership defaults to nobody.
+
+**The legal and security questions become gates.** In a prototype, the Privacy Act questions (Chapter 6) and the injection defences (Chapter 3) are things you considered. In production they are gates a launch does not pass without: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 5 chose where the prompt may travel; production makes that choice auditable and enforced.
+
+## A production checklist (for a no-code practitioner)
+
+This is what to demand of any system you move from proved prototype to live, phrased for someone who will hand it to engineers rather than build the engineering themselves.
+
+- **Watch the metric you evaluated on, sliced the way you evaluated it.** Not aggregate accuracy. The per-class, per-segment, per-condition view is what caught the fault class collapsing under dim light (Chapter 9). In production that view is your canary; the aggregate is the lie that hid the failure in the first place.
+- **Re-evaluate on a schedule and on every change.** A model swap, a new data source, a prompt rewrite: each is a reason to re-run the evaluation and re-place the output on the grid. Appendix A's rule holds: re-place on evidence, on a schedule, never on hope.
+- **Have a kill switch, and know who can pull it.** If the system cannot be turned off fast, it is not production-ready. Name the person, the channel, and the threshold at which they act.
+- **Make the human-in-the-loop a design, not a promise.** A checkpoint that survives Monday-morning volume and deadline pressure is the only one that counts. The Delegation Trap (Chapter 3) does not disappear at launch; it intensifies, because production volume is exactly the pressure that turns a reviewer into a rubber stamp. Design the checkpoint so that rubber-stamping is hard, not easy.
+- **Log for audit, not for curiosity.** Keep the records that let you answer, after a complaint, *what did the system do, why, and who decided to trust it*. The conversation log (Appendix B) is the prototype version of this discipline; production makes it a requirement.
+- **Sign off at go-live, on paper.** The deployment decision (Chapter 5), the privacy architecture (Chapter 6), the security baseline (Chapter 3): each needs a named sign-off before launch, not a nod. A launch memo that records what was checked, by whom, and what the known limits are, is the artefact that separates a responsible deployment from a hopeful one.
+
+## Worked example: the router classifier, live
+
+Take the Chapter 9 classifier to production. The evaluation already did the hard part: it found the fault class collapses to 0% under dim light, and you placed fault confirmation as red (a human verifies) and triage as green. Production does not re-litigate that; it operationalises it.
+
+- **Monitoring:** track the fault-detection rate and the false-clear rate over time, sliced by lighting condition, because dim-light faults are exactly where this model breaks.
+- **Re-evaluation:** re-run the held-out evaluation whenever the fleet gets a new LED design, a firmware update, or a new product line, because any of those shifts the input distribution the model was trained on.
+- **Checkpoint:** the human-verify-fault step is the load-bearing control. It must survive the volume of real tickets, which means it has to be fast and specific (show the human the photo and the model's call, ask one question), not a generic "please review."
+- **Kill switch:** if the false-clear rate climbs past a threshold, auto-clearing of faults stops and everything routes to a human until the model is re-evaluated.
+
+The model did not change between prototype and production. What changed is that the proof became continuous, the oversight became enforced, and the failure that was once caught in an evaluation is now caught by a system that keeps looking for it.
+
+## Where this book stops
+
+This book teaches you to build a prototype that works, evaluate it until it breaks, and defend the decision about how much to trust it. It stops short of teaching you to run it in production, because that is a different discipline, and pretending otherwise would be the demo mindset this book exists to resist.
+
+What it does give you is the ability to see the line, to hand the system over with its limits honestly named, and to specify the oversight that must travel with it. A practitioner who can do that is the one a business trusts to deploy AI. A practitioner who cannot is the one who ships a demo and calls it production, and the cost of the difference lands on the customer, the regulator, and the reputation that was on the line all along.

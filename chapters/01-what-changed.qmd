@@ -1,0 +1,88 @@
+# What changed?
+
+Do the inventory. In the last twenty-four hours, how much AI did you touch? The spam filter that ate a meeting invite. The recommender that queued your next song. Autocorrect. The transcription of yesterday's lecture. The chatbot you asked to rephrase an email. Map it onto a page and you will find something quietly startling: almost all of it is the *same kind* of AI, and it has been running your day for a decade.
+
+What changed in the last few years is not that AI arrived. It is that the word got reloaded. You can now talk to a model in plain language, and (more recently) the model has started to *act* on what you say. The technology that sorts your inbox and the technology that drafts your strategy are not the same thing, and most of the noise in this field comes from pretending they are. Before you build or evaluate anything for Tessera, hold three things apart.
+
+## Three things that share a name
+
+**Narrow AI** does one job well. It classifies an image, predicts churn, ranks a feed, transcribes speech. It cannot do anything outside its training: the churn model will not write you a poem, and the spam filter has no opinions about your calendar. Unsexy, and quietly running most of the economy. This is the AI that flags a Tessera support ticket as likely to escalate, the AI that ranks which contract a lawyer sees first. When you build a classifier in Orange Data Mining later in this book, this is what you are building. It is, by a wide margin, the AI that is actually deployed in business.
+
+**General-purpose AI** is the chatbot era. Large language models (ChatGPT, Claude, Qwen) trained on broad data so they can be pointed at many tasks through language. They feel general because you ask in English. Underneath they are still doing something narrow (predicting the next token), but the surface is broad enough to be useful almost anywhere: draft a policy, summarise a contract, brainstorm why customers leave. The catch is precise, and it is the reason this book exists. These models are *confidently wrong in exactly the spots a human would trust*. A hallucinated citation reads like a real one. A plausible churn driver reads like a measured finding. This is why you need the trust tool, and why every claim about what these models produce is an assert…
+
+**Agentic AI** is the newest, and it is the one that changed the stakes. Take a general-purpose model and wire it to tools and a loop: let it call an API, read a folder, run code, and decide its next step. The model itself has not changed; the **harness** around it has. Ask an agent to read Tessera's tickets folder, cluster them, and email you the top three themes, and it will go away and do a sequence of things. The more steps in the loop, the more places it can drift. Agentic does not mean autonomous. It means *more steps between you and the consequence*, which is a different and harder problem than a chatbot presents.
+
+## The arrow, not the list
+
+Memorising the taxonomy is beside the point. Notice the arrow. Narrow → general → agentic is a shift in *who acts*. The narrow model labels; the general model answers; the agent *takes steps*. That arrow is the whole reason this book is built the way it is.
+
+A chatbot that hallucinates a sentence is embarrassing. An agent that hallucinates a sentence *and then sends the email, books the meeting, and modifies the customer record* is a liability. The more a model acts, the bigger the blast radius when it is wrong, and the less the demo tells you about whether the deployment will hold. The direction of change is, precisely, the direction in which "is it impressive?" stops being a safe substitute for "does it actually work?"
+
+This is also where the practitioner's moat opens up. If building a demo is the work an AI can do for anyone in an afternoon, then the demo gives no one an advantage. What holds its value as the models learn to act is the judgement the model cannot supply: whether the output is right, for whom, and under what conditions. The capability is not the problem. The *unacted-upon gap between demo and deployment* is. As the arrow points further towards agents that act, that gap (and your ability to close it with evidence) is exactly what becomes worth paying for.
+
+## Multimodality runs sideways
+
+One more axis, and it is easy to misplace. "Multimodal" is not a fourth paradigm sitting on top of the other three; it runs *sideways* across them. It means the model handles more than text as input: image, audio, video, document. A narrow model can be multimodal (speech-to-text). A general model can be multimodal (describe this screenshot). The word describes *inputs*, not capability class.
+
+It matters in business for a blunt reason: the real world is not text-only. A Tessera support ticket often arrives with a screenshot of an error. A contract is a PDF, not a paragraph. A customer complaint might be a thirty-second voice note. A tool that can look at the actual artefact beats a tool that forces you to summarise the artefact into text first, because the summary is where you, the human, quietly smuggle in your own reading, and the model never sees the original. Later in this chapter you will change exactly one thing about a prompt (adding an image) and watch what the model can and cannot do with it.
+
+## First contact: a local model and a frontier model
+
+This is where the book stops describing and starts doing. You sit down at the shared stack: Open WebUI running a local Qwen on the machine in front of you, alongside a frontier model, side by side in the same window. You write one prompt and run it twice.
+
+Resist the question the interface is designed to provoke: *which one is better?* It is the wrong question, and answering it is how practitioners lose the plot. The right question is the one you can answer for either output, regardless of which model produced it: *where does this sit on the trust tool, and what does that tell me to do next?* A frontier model and a local four-bit Qwen can each produce green-quadrant brilliance and red-quadrant garbage on the same afternoon. You are learning to judge *outputs*, not brands. Brand confidence is not evidence, and the most expensive mistake in this chapter is trusting a fluent answer because it came from the model with the famous name. This is the first move the book asks of you, and it is the move you will repeat…
+
+::: {.callout-warning title="Watch out: the multimodal confidence trap"}
+When you attach the support-ticket image, the answer will often *sound* more authoritative: longer, more specific, more certain. That is not the same as more correct. A model that can see the artefact is still a model that can misread it, and a fluent wrong answer is more dangerous than a hesitant one, because it is harder to doubt. Confidence is a delivery property, not a truth property. Watch it.
+:::
+
+::: {.tessera-case}
+**🌐 Tessera Case · Tessera's first comparison**
+
+Tessera wants to know why customers leave. Rather than reach for a vendor demo, you do the unfashionable thing: you run the same question on two models and judge the outputs yourself.
+
+Pick the churn problem from Tessera's profile. Write one prompt using **RTCF**: *Role* (a customer-success analyst), *Task* (help me understand what might be driving churn), *Context* (Tessera's customer segments, its product lines, its support tiers), *Format* (a short list of candidate drivers, each with a one-line "how we'd check this"). Run it on the local Qwen. Run the identical prompt on the frontier model. Paste the two answers side by side.
+
+Then change one thing. Attach a screenshot of a real Tessera support ticket and ask the model to *read the ticket* and respond. Note what shifts when the model can see the artefact instead of relying on your description of it. Which model handled the image? Did the answer genuinely improve, or merely sound more confident?
+
+Finally (and this is the move the whole book hangs on) place *every* output on the trust tool. Text-only and image-included. Local and frontier. Were they equally trustworthy? The honest question you will write in your field journal at the door: which did you trust more, and was that trust **earned by the content** or **assumed from the brand**? Your answer to that is the first entry in a habit you will keep for twelve chapters.
+:::
+
+::: {.callout-note title="🤖 Conversation Log · where the model went wrong"}
+**Goal.** Brainstorm candidate churn drivers for Tessera, to scope the problem before any data analysis.
+
+**The exchange.** I asked both models, in RTCF, for "candidate drivers of churn, with how we'd check each." The local Qwen gave a short, hedged list (tenure, support tier, product mix) and flagged that these were hypotheses to test. Useful, cautious, a little flat. The frontier model gave a longer, more specific list, and then crossed a line. It asserted, with no data in front of it, that *"roughly 18 CloudSync customers in the South territory, representing about \$340k in MRR, are likely to churn this quarter."*
+
+**Where it went wrong.** That figure is a confabulation. The model has not seen Tessera's data; it cannot know the count, the revenue, or the quarter. It produced a number because numbers are what a confident-sounding churn analysis is *supposed* to contain, and it dressed the guess in the costume of a finding. A busy COO would screenshot that line and drop it straight into a board slide.
+
+**The correction.** I struck the figure and replaced it with what was actually true at this stage: *these are untested hypotheses; no counts yet.* The brainstorm itself was fine. It was the specific, actionable number that was load-bearing and false.
+
+**Trust-tool placement.** A brainstorm of *candidate* drivers is **average-fine, small blast: green**: skim, use it to scope the problem, move on. The instant a specific customer count and revenue-at-risk figure appears, the same output flips to **must-be-precise, large blast: red**: a human verifies before it touches anything real. Same screen, different quadrant. The placement, not the model, was what failed.
+:::
+
+::: {.callout-tip title="📍 Trust-tool placement · the comparison, on the grid"}
+The four outputs you produced (text/image × local/frontier) do not all sit in the same quadrant, and that is the lesson.
+
+- **A brainstorm of churn drivers**: average is fine, blast radius small → **🟢 green**. Skim, use it to scope the problem, move on.
+- **A specific churn rate or revenue-at-risk figure someone might act on**: must be precise, blast radius large → **🔴 red**. A human signs off before it reaches a slide, an email, or a customer record.
+
+The frontier model's fluency does not move an output from red to green. Neither does the local model's caution. What moves an output between quadrants is what the output *is*: whether it needs to be precise, and what breaks if it is wrong. By the end of this book, placing an output on this grid before you act on it should be a reflex. It starts with these four.
+:::
+
+::: {.callout-note title="🔬 Power-user extension · vary the RTCF prompt, not the model"}
+The Core compares two models on one prompt. The Power-user path holds the model fixed and changes the *prompt*. Take the same churn brief and run it four times, altering one RTCF axis at a time: drop the *Role*; change *Task* from "candidate drivers" to "the single biggest driver"; cut *Context* back to one sentence; switch *Format* from a list to a one-paragraph executive summary. Paste all four alongside your original. You will see the output walk across the trust tool — the prompt stripped of Context drifts towards specific, unverifiable numbers (towards red); the prompt that forces a single answer pushes confidence ahead of evidence. The model is fixed; the *harness you write around it* is what moves an output between quadrants.
+:::
+
+## Where this is going
+
+The thing that changed is that the model acts. And the moment a model acts, "does it work?" stops being a question about the model in isolation. It becomes a question about *who it works for, and who it fails*, because a model that scores well on average can still miss an entire customer segment, an entire region, an entire way of phrasing a problem. The average the model optimises for is always the average of *someone*, and that someone is rarely everyone.
+
+That is the question the next chapter turns to: *for whom?* Before you trust an output, you have to know whose problems it was built to solve, and whose it quietly ignores. Tessera serves customers across six territories who do not all phrase a complaint the same way, do not all experience the same outage, and do not all appear in equal numbers in the data the model learned from. The shift from narrow to agentic made the stakes higher. The question of *for whom* is what makes the answer honest.
+
+## 🔍 Go deeper
+
+- **Stanford HAI, *AI Index Report* (annual).** [hai.stanford.edu/ai-index](https://hai.stanford.edu/ai-index/2025-ai-index-report): the closest thing the field has to a shared, evidence-grounded scoreboard: capability gains, plunging inference costs, rising incidents, regional divides in trust. *Why read it:* it is the antidote to arguing about where AI is from demos, whenever a chapter's claim needs a number behind it, start here.
+
+- **Andrew Ng, *Agentic AI* (DeepLearning.AI, free short course).** [learn.deeplearning.ai/courses/agentic-ai](https://learn.deeplearning.ai/courses/agentic-ai): Ng's case that agentic workflows (reflection, tool use, planning, multi-agent collaboration) will drive more progress than the next generation of foundation models. *Why watch it:* the clearest statement of the *arrow* this chapter is built on, models that take steps, not just give answers.
+
+- **Simon Willison's weblog, *local-llms* tag.** [simonwillison.net/tags/local-llms](https://simonwillison.net/tags/local-llms/): a respected practitioner's running notes on running open-weight models locally (Ollama and friends). *Why read it:* the local-versus-frontier terrain you touched in this chapter, written by someone who lives in it and distrusts hype as a matter of habit.

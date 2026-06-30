@@ -1,0 +1,92 @@
+# A. The Trust Tool {.unnumbered}
+
+The **trust tool** is the one idea this book uses in every chapter. It is small enough to fit on a sticky note and general enough to survive any model swap. Before you act on any AI output, you place it on a grid by answering two questions, and the grid tells you what to do next: skim it, check the load-bearing bit, or send it through a human before it touches anything real.
+
+Almost every public AI failure is a placement failure. The chatbot that gave wrong legal advice, the hallucinated citation in a filed court document, the churn flag nobody checked: each is someone treating a red-quadrant output as green. The model rarely fails uniquely. The *placement* fails, because nobody made it a conscious act. This appendix is the tool in full.
+
+## The two questions
+
+1. Does this output need to be **precise**, or is **average** fine?
+   - *Average* means roughly right is good enough: a brainstorm, a first draft, a summary that points you where to look. If it is a little off, the cost is small.
+   - *Precise* means the answer has to be right, because someone or something will act on it: a customer gets called, a contract clause gets relied on, a fault gets cleared.
+
+2. If it is wrong, how big is the **blast radius**, small or large?
+   - *Small* means a mistake costs a glance or a re-do: a misrouted ticket, a clumsy sentence.
+   - *Large* means a mistake lands on a real person, a real budget, or a real decision: a churn prediction, a hiring screen, a support reply a customer reads.
+
+Answer the two and you have a coordinate on the grid.
+
+## The grid
+
+| | Small blast radius | Large blast radius |
+|---|:---:|:---:|
+| **Average is fine** | 🟢 green | 🟡 yellow |
+| **Must be precise** | 🟡 yellow | 🔴 red |
+
+Two of the four cells collapse to the same action, which is why the tool reduces to a traffic light.
+
+## What each placement tells you to do
+
+- **🟢 Green, skim and use.** The output is roughly right and the cost of being wrong is small. Read it, use it, move on. Drafts, brainstorms, document pulls, triage of low-stakes tickets.
+- **🟡 Yellow, verify the load-bearing bit.** Most of the output can stand, but one claim carries the weight, and that is the claim you check. A strategic framing, a retrieved answer with a source, a summary that feeds a decision. Find the sentence a decision would rest on, and confirm it.
+- **🔴 Red, a human signs off before it touches anything real.** The output must be right and a mistake lands on a person. A churn flag acted on, a customer reply sent, a fault cleared, a hire screened. Human-in-the-loop, non-negotiable, and *the model said so* is never a defence.
+
+## How to place well
+
+The tool is a discipline, not a formula. These are the moves the chapters rehearse.
+
+**Place before you act.** Placement is a conscious step *before* you ship, because the surface will never warn you. A fluent, polished output is exactly the one nobody checks, and that is the danger.
+
+**Judge outputs, not models.** A frontier model and a local four-bit Qwen can each produce green-quadrant brilliance and red-quadrant garbage on the same afternoon. You are learning to judge the *output in front of you*, not the brand on the box. Your judgement has to survive a model swap, because the swap is coming.
+
+**The same screen can hold two placements.** One output can flip quadrant mid-sentence. A brainstorm of candidate churn drivers is green; the instant a specific customer count and revenue figure appears, the same screen is red. A segment description ("Basic-tier customers churn at roughly three times the base rate") is green; a per-customer score ("flag customer C0xxx for a save call") is red. Read each claim, not each screen.
+
+**Fluency raises the stakes.** A confident, well-structured output disarms scrutiny. The better the prose, the less likely anyone checks, so the more disciplined your placement has to be. Confidence is a delivery property, not a truth property.
+
+**Anything that touches a person is red until a human has checked it.** A churn flag, a customer persona, a screening ranking, a support reply: each lands on a real person, so each is red regardless of how polished it looks. This is the rule that runs under every chapter.
+
+**Place per step, not per workflow.** The moment you give a model tools and let it act (an agent), placement becomes a decision *per step*. Clustering might be yellow, retrieval green, the final brief red. Put your checkpoint just before the step that becomes load-bearing or irreversible, and be able to defend why there, and not one step later.
+
+**Controls move red toward yellow; they do not retire your judgement.** Good architecture, privacy-by-design, a sourced retrieval step: these shrink the blast radius or make the claim checkable. They move a red output to yellow ("verify the load-bearing bits before sending"). They do not promote it to green. A human still reads it.
+
+**Re-place as capability shifts.** A model that scores 0% on faults this year might creep to 99% next year, and a red square could move to yellow. But only a fresh evaluation moves it, not hope, and not the vendor's demo. Re-place on evidence, on a schedule.
+
+## When yellow or red: the four lenses
+
+When a placement tells you to verify, Chapter 3's four lenses turn "check it" into something you can actually do. For each lens, write one sentence of *evidence* pulled from the actual output, not a vibe.
+
+- **Representativeness**: who is in the data or output? Who is missing or thinly drawn?
+- **Harm**: if this output drove a decision, who could be disadvantaged, and would they know?
+- **Accountability**: who is responsible if it is wrong? Can they be identified and reached?
+- **Transparency**: can you see how it produced the answer, and show someone else?
+
+Representativeness and Harm tell you the **blast radius**. Accountability and Transparency tell you whether a human is genuinely **in the loop**. Fail either pair and the output stays red until it is fixed, not shipped. "It seems a bit biased" is not evidence; "the at-risk profile defaults to one industry and company size, which excludes every customer in the South and Metro territories" is.
+
+## Worked placements across Tessera
+
+The chapters run the same tool over and over. A representative sweep:
+
+| Output | Placement | Why |
+|---|---|---|
+| Brainstorm of candidate churn drivers | 🟢 green | average, small blast; scopes the problem |
+| Segment description, "dissatisfied customers churn well above the base rate" | 🟢 green | average, nobody gets touched |
+| Routing a *healthy* or *degraded* ticket | 🟢 green | a wrong route costs a human a glance |
+| Retrieved RAG answer (with a source to quote) | 🟡 yellow | verify the load-bearing citation |
+| Sentiment gap feeding a product decision | 🟡 yellow → red | verify against the raw tickets |
+| "The model works across all our regions" | 🟡 yellow | plausible prose over an unverified claim |
+| Per-customer churn score, "flag C0xxx" | 🔴 red | precise, lands on a named person |
+| Customer persona or screening ranking | 🔴 red | touches a person, drives a decision |
+| Router *fault* confirmation (under dim light) | 🔴 red | a missed fault leaves a customer offline |
+| Support reply a customer reads | 🔴 red | a human signs off before it sends |
+
+Notice how often the same analysis produces a green output and a red one a line apart. That is the discipline: read each claim, place each step.
+
+## The two mistakes to avoid
+
+**Treating red as green** is the failure mode this book exists to catch. It is rarely malicious; it is the natural drift of a polished output nobody made themselves place.
+
+**Blobbing a workflow into one cell** is the agent-era version of the same mistake. An agent is a chain of outputs, each with its own failure surface. One placement for the whole chain means the red step slips through unnamed. Place per step; checkpoint the red ones.
+
+::: {.callout-note}
+The trust tool comes from the companion book, *Conversation, Not Delegation*, which teaches it as part of the conversation loop. This appendix is the same tool through the lens of this book: applied AI, where placement is the act that turns a demo into something you can defend.
+:::

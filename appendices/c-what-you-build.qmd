@@ -1,0 +1,39 @@
+# C. What You Build {.unnumbered}
+
+This appendix is the inventory of what you produce across the twelve chapters: the artefacts, the tools, where each sits on the trust grid, and what each one proved. Not every chapter produces a thing you would call a build. Some produce an audit, a decision, or a proof. They are all here, because each is an artefact you can point to, defend, and place in your body of work.
+
+The pattern underneath them is the one this book keeps returning to. The machine can produce the demo for any of them in an afternoon. The thing that is yours, and the thing you must be able to defend, is the proof: the placement, the evaluation, the correction, and the defensible line you would act on.
+
+## The artefacts, by chapter
+
+| Chapter | Artefact | Tool | Trust placement | What you proved |
+|---|---|---|---|---|
+| 1 | Candidate churn-driver brainstorm | chat (frontier + local, RTCF) | 🟢 green, flips to 🔴 | a model invents specific figures it cannot know |
+| 2 | Disaggregated fairness analysis | reasoning over the data | 🟡 yellow | the average hid a regional failure |
+| 3 | Four-lens bias audit of a churn persona | the four lenses, by hand | 🔴 red | a model is a poor auditor of its own bias |
+| 4 | Churn analysis: decision tree + clustering | Orange | 🟢 segment / 🔴 score | a split is a correlation, not a cause |
+| 5 | Deployment decision (sovereignty map) | reasoning + local model | input axis (separate) | capability is one axis of three |
+| 6 | Privacy-by-design architecture | architecture | 🔴 → 🟡 | k-anonymity; controls move red toward yellow |
+| 7 | RAG assistant over Tessera docs | Open WebUI | 🟡 yellow | a confident answer is not a sourced answer |
+| 8 | Sentiment + theme analysis, with disagreement set | Orange + model scorer | 🟡 → 🔴 | the lexicon reads sarcasm as praise |
+| 9 | Router-status classifier, live on a phone | Teachable Machine → TF.js → Glitch | 🟢 triage / 🔴 fault | 0% on faults under dim light |
+| 10 | Support-digest agent | agent framework + RAG | 🔴 at the brief | the checkpoint between search and draft is the design |
+| 11 | Model comparison: hand-built vs NotebookLM | Orange + NotebookLM | 🟡 framing / 🔴 citations | capability is task-relative |
+| 12 | Capstone pitch + second-order analysis | synthesis | 🔴 (the analysis) | the gains and costs do not fall on the same people |
+
+## Two things run through all of them
+
+Every artefact above carries the same two companions, and together they are what turn a build into something defensible.
+
+- **The trust tool (Appendix A)** places each artefact before you act on it. Several sit in two cells at once (green and red a line apart), and the placement is the act that stops the red one slipping through as green.
+- **The conversation log (Appendix B)** records the thinking that produced each artefact, including where the AI was wrong and how you corrected it. It is the evidence the artefact was proved, not persuaded.
+
+## How it assembles into a body of work
+
+Your body of work has two halves, and this appendix is the spine of the first.
+
+- **The build.** The artefacts in the table above, each with its evaluation and its placement. A reader should be able to take any one of them and see what it does, where it fails, and how much oversight it needs.
+- **The thinking.** The conversation logs (Appendix B) that produced them, showing the pushback and the corrections.
+- **The capstone (Chapter 12).** The pitch that synthesises the whole engagement against Tessera, including the second-order analysis the decision actually rests on.
+
+The moat was never in building these. A chatbot can produce most of them in minutes. The moat is in reading each one correctly: placing it, evaluating it, catching where it is generic or wrong, and defending the decision you made about it. That is what *prove, don't persuade* looks like as a body of work.

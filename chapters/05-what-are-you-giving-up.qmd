@@ -1,0 +1,127 @@
+# What are you giving up?
+
+It still answers, because the weights are on your disk, not in someone's data centre.
+
+That moment is what this whole chapter is for. With the network gone, no prompt left your machine. No vendor saw it, no region processed it, no retention policy applies to it, no invoice accrues for it. For about thirty seconds, data sovereignty stops being a slide in a compliance deck and becomes something you can feel in the silence of a disconnected machine.
+
+Then you notice the answer is slower. And a little blunter than the frontier model would have given you. Hold both halves of that sentence (what you gained, and what it cost) because the gap between them is the entire chapter.
+
+This chapter asks one question, three ways: *what are you giving up?* Every deployment choice in AI is a trade, and the practitioner's job is to name both sides of it honestly rather than pick a side and forget the cost.
+
+## Where "somewhere" is
+
+When you use an AI tool, three things happen: the model runs *somewhere*, your prompt travels *there*, and the answer travels *back*. That "somewhere" is the **deployment model**, and it is a business decision masquerading as a technical footnote. There are three broad shapes it takes.
+
+**Cloud SaaS**: ChatGPT, Claude, Gemini as a subscription or API. The model runs on the vendor's servers; your prompt travels to them; you give up sovereignty, privacy control, and resistance to lock-in, and you keep convenience, the frontier model, and zero setup. This is what most people picture when they say "AI."
+
+**VPS or hosted**: you rent a server in a region you choose and run the stack yourself. The model runs on a box you administer; your data stays in a region you picked. You give up some convenience (you run the ops) and you keep control of the region and the model menu. A shared hosted stack the team runs is exactly this: you point a browser at it.
+
+**Local**: Ollama running a model like Qwen on your own hardware. The model runs on your machine; your data goes nowhere, because it never leaves. You give up some capability, speed, and polish, and you keep sovereignty, privacy, offline use, and a per-query cost of exactly zero.
+
+Three models, three trades. None of them is free. The work of this chapter, and of any real procurement decision, is to see the trade before you are committed to it.
+
+## How cloud AI is sold, and why the bill lies
+
+Cloud AI comes priced two ways, and the difference changes how a business behaves.
+
+A **subscription**, roughly US$20 a month per seat, is predictable and simple. You stop thinking about cost, which is the point and also the trap. A flat fee makes usage feel free, so usage rises, and the only signal you get that something is wrong is the moment a renewal lands.
+
+**Tokens** are how the API and the enterprise tier actually bill: pay per million input and output tokens. Cheaper at low volume, unbounded at high volume, and, crucially, *visible*. Every runaway agent loop, every chatty system prompt, every re-retrieval shows up on the invoice. A business that doesn't watch token usage learns about it on the bill. A business that runs models locally pays the cost up front (hardware, electricity) and zero per query afterwards.
+
+That shift reframes AI from a *utility* you tap, meter running, into a *capital asset* you own. That is a real strategic choice, not an accounting detail, and it has a counterintuitive consequence. Per-token prices have fallen fast and are still falling: what cost dollars in 2023 costs fractions of a cent now. But the total most organisations *spend* on AI is rising, because usage climbs faster than price falls. Cheaper coal did not mean less coal burned; it meant more. Economists call this the **Jevons Paradox**, and you will meet it again in the final chapter. For now, the practical version is enough: *falling unit price does not mean falling budget.* Plan for volume, not for price.
+
+## The same name, two different products
+
+The same model is sold differently to a consumer and to an enterprise, and for a B2B firm the difference is the whole game. The **consumer tier** shares infrastructure, may train future models on your prompts (there is a toggle, check it), rate-limits you, and routes your data through the vendor's region. The **enterprise tier** buys data-retention opt-outs, SOC 2 and ISO 27001 compliance paperwork, a region you can pin, and support, at a price that reflects all of it.
+
+For Tessera, handling *tenant* data, the consumer tier is often a compliance problem waiting to happen. The enterprise tier is where "could we actually deploy this?" becomes "yes, with paperwork." The two tiers are not the same product wearing different clothes; they are different legal commitments, and treating them as interchangeable is the most common way a promising prototype becomes a breach.
+
+## Lock-in, and the open-weight escape hatch
+
+There are two honest arguments for the cloud. It **wins** on capability (the frontier models live there first) on velocity, because you do no ops, and on integration breadth. The price of all that is control, and the quiet tax is **lock-in**: your prompt patterns, your agent schemas, your fine-tunes, your evals all grow around one vendor's API, and leaving gets expensive long before you try. Worse, a vendor can deprecate the model your production system depends on, and you find out in a changelog.
+
+**Self-hosting** (local or on a VPS, running an **open-weight** model like Qwen) wins on sovereignty, privacy, deterministic cost, and **portability**. Open weights mean no vendor can switch your model off from under you; the weights are a file you control. You trade raw capability, and you accept that *you* operate the thing.
+
+The bet in this book, stated openly, is that a practitioner who has run both makes better procurement decisions than one who has only ever swiped a subscription. That is why you install locally in this chapter.
+
+## Sovereignty: whose law applies to the prompt?
+
+*Sovereignty* is the legal and geographic question: **which jurisdiction's laws apply to your data while the model is processing it?** If your prompt leaves Australia for a US region, it is subject to US law on the way. That is not paranoia. Under the US **CLOUD Act** (2018), a provider headquartered in or operating through the United States can be compelled by a US warrant to hand over data it holds, even data sitting in a server in Sydney or Frankfurt. An Australian data centre run by a US-based company is not, in legal terms, fully Australian. Following the CLOUD Act's passage, country after country enacted data-localisation rules to push back.
+
+Local inference sidesteps the question entirely. The data never leaves the device, so there is no transit, no vendor region, no retention policy to audit, and no foreign statute to reach for it. That is the strongest privacy posture available, and it is the one you build in this chapter's hands-on exercise. The trade (slower, a weaker model than the frontier) is what you "gave up" to get it. Hold both halves.
+
+## You build the local stack
+
+This is not a chapter that stays abstract. The stack is three pieces, all on your laptop: **Ollama** (the engine that runs the model), **a model** (`qwen3:8b`, an 8-billion-parameter instruction-tuned model from the same family the shared server runs, sized down to fit your hardware) and **Open WebUI**, the chat interface you have used since Chapter 1, now pointed at *your* Ollama.
+
+A detail worth naming: that `qwen3:8b` tag is already **4-bit quantised**, compressed, so a capable model fits into roughly 5 GB and runs on a normal laptop. Quantisation is a chapter of its own later in the book; for now, know that the compression is *why* this runs on your hardware at all. The price of the compression is some quality, and you will measure exactly how much in the comparison.
+
+When it works, you open `http://localhost:3000`, pick the model, ask a question, and the answer is computed on your machine. Then you pull the network cable and ask again. It still answers. *That* is the proof: not a vendor's assurance, not a compliance tick, but a thing you did and watched survive the loss of the network. Sovereignty, made physical.
+
+## Three axes, not one winner
+
+Now you have both halves on your own desk: the local model you just built, and the frontier model on the shared stack. Run the same prompt on both and the temptation is to ask which is "better." Resist it. The comparison that matters is along three axes, and a deployment choice is a statement about which axis you are willing to lose on:
+
+- **Capability**: did both answer the question? Where the frontier did better, was the gap *material* to the task, or just polish?
+- **Speed**: how much slower was local? Noticeable, or fine?
+- **Privacy**: which answer required the prompt to leave the device?
+
+A frontier model and a local 4-bit model can each produce brilliance and each produce garbage. You are judging *outputs*, and now also *deployments*. The capability gap is real, but it is one axis among three, and a deployment that "loses" on capability can be the right call when the other two are non-negotiable.
+
+There is no rule, only a rough decision aid: sensitive or regulated data, low volume, can tolerate a slightly weaker model: **local**; sensitive data, high volume, needs the frontier: **a VPS in a pinned region with a data agreement**, open-weight where possible; non-sensitive, speed matters, predictable budget: **cloud SaaS**. The point is to make the choice *consciously*, naming the trade, rather than defaulting to whatever the demo used.
+
+## Inputs and outputs: two different questions
+
+One sharp distinction keeps this chapter honest. The **trust tool** (average or precise, small or large blast radius) applies to an AI *output*: the answer the model gives you. The deployment decision is about the *input*: where your prompt is allowed to travel *before* it ever reaches the model.
+
+These are separate questions, and a good practitioner answers both. Choosing local protects the input (the prompt never leaves), but it does *not* relieve you of judging the output: a local model can confabulate a churn signal just as confidently as a frontier one. Conversely, a frontier model on an enterprise tier, properly pinned, can be a defensible home for sensitive data *if* the output it returns still gets verified. Sovereignty is necessary; it is not sufficient. You still have to prove the thing works.
+
+:::::: {.tessera-case}
+**🌐 Tessera Case**
+
+Tessera runs its multi-tenant SaaS on AWS — workload primary region **ap-southeast-2 (Sydney)**, declared standby **ap-southeast-1 (Singapore)**. The data that matters is sensitive: tenant support tickets full of customer detail, billing signals, the contract clauses a churn model reads. Two of Tessera's internal AI services — an AI summarisation service and a support AI assistant — do their work by calling a **third-party model vendor** over TLS. That call is the cross-border tension: the vendor's region is unknown and likely overseas, and it sits outside Tessera's pinned AWS regions. Pick the churn problem (*which tenants are at risk, and why?*) and run the deployment decision through it.
+
+| Deployment | Where the prompt goes | Sovereignty posture | Tessera gives up… |
+|---|---|---|---|
+| **Cloud SaaS (frontier / third-party vendor)** | To the vendor's region, likely overseas | Weakest: tenant/customer data leaves Tessera's pinned regions | Sovereignty, lock-in resistance, and the compliance clean-up if a consumer-tier toggle is wrong |
+| **VPS, pinned ap-southeast-2** | To a box Tessera admins, in Sydney | Strong, with a data-processing agreement | Some ops burden; capability if open-weight is the constraint |
+| **Local (Ollama on laptop / on-prem)** | Nowhere: never leaves | Strongest available | Raw capability, speed, and the polish of a frontier model |
+
+For the churn tickets specifically, tenant/customer data sent to the third-party model vendor's region without a data-processing agreement is a breach waiting to happen, the kind of thing a polished prototype hides and a procurement review catches. Adrian Vasquez, Tessera's CIO, is right to ask *what is buildable, and what is vendor lock-in*: the deployment choice *is* the lock-in question. The honest answer for this data is that the frontier model's edge on capability is real but non-load-bearing for the task, while the sovereignty cost of sending the data offshore is load-bearing and legal. That is not a brand preference. It is a trade-off, stated and defended.
+::::::
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+**Mapping the deployment decision for Tessera's churn data: with AI, and against it.**
+
+I asked a frontier model to recommend cloud, VPS, or local for Tessera's churn analysis on tenant/customer data. Its first answer was confident and wrong: *cloud SaaS, because it offers the best capability.* It scored the decision on one axis, capability, and quietly dropped the other two. It had optimised for the demo, exactly the failure mode this book is about.
+
+The correction was the work. I pushed back: *tenant/customer data sent to the third-party model vendor's region without a data-processing agreement is a breach, and the capability edge is non-load-bearing for a summarisation task.* The model conceded and revised, but only after I named the constraint it had smoothed over. Left to itself, it would have shipped a compliance problem as a "best practice" recommendation.
+
+Where it *was* useful: once I held the framing, I used it to draft the sovereignty mapping table above, the mechanical part, the three-by-three grid, the clean phrasing of "what you give up" per row. That is a good use of a thinking partner: it does the typing, I supply the judgement about which trade is acceptable for *this* data. The deployment decision is mine. The AI's job was to make the table tidy, not to make the call.
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+This chapter produces two things, and they sit on *different* grids.
+
+The **deployment decision** is about the *input*: where the prompt may travel. It does not go on the trust tool's grid at all; it is a separate axis (sovereignty) you answer *before* you ever produce an output.
+
+The **output** (say, the local model's summary of which Tessera tenants are churning, which a retention team will act on) lands squarely in the **precise × large** quadrant (red). A wrong churn call loses a real customer, and the decision rides on the model's reading of the data. That means a **human signs off** before anyone intervenes. Going local protects the input; it does not promote the output out of the red quadrant. Both halves of the decision matter. And both keep mattering after launch; what keeping a deployed system working actually demands is in Appendix D.
+::::::
+
+## What this leaves open
+
+So far we have treated "the data" as if it were a single thing you either protect or send abroad. It is not. Customer data is a layered object: some of it is identifying, some of it is sensitive, some of it can be de-identified and some of it cannot, and some of it, stripped of the obvious names, can still be matched back to a person with enough cross-referencing. Naming where data travels is half the discipline. The other half is knowing whose data it is, what you are allowed to do with it, and what the law says when it goes wrong. That is the next chapter.
+
+:::::: {.callout-tip title="🔬 Power-user extension"}
+The **Core** above — installing Ollama and Open WebUI on your own laptop and watching the local model answer with the network unplugged — is the whole sovereignty argument made physical. Both sides of the trade have a deeper path worth taking once.
+
+On the **self-hosting** side: do not stop at your laptop. Stand Ollama up on a real box — a desktop with a consumer GPU, or a bare-metal host on-prem — and point Open WebUI at it over the LAN. You now have a *Tessera-shaped* private inference endpoint that never touches a vendor, and you can put several colleagues on the same model at once: the same "shared floor" argument, at team scale. Measure tokens per second and concurrent users until it breaks, and you have felt the ops cost the VPS row of the table only names.
+
+On the **procurement** side: take the cloud-SaaS row and turn "data-processing agreement" from a phrase into a one-page checklist — *what fields may leave, to which region, under what lawful basis, with what retention, what sub-processor access, what breach-notification window, and what exit/return/deletion looks like*. Run it against a real vendor's DPA. The sovereignty trade stops being abstract the moment you have to sign it.
+::::::
+
+## 🔍 Go deeper
+
+- **The US CLOUD Act: Frequently Asked Questions** (Cross-Border Data Forum). A clear, authoritative explainer of the 2018 law that lets US law enforcement compel US-based providers to hand over data held abroad, the reason a Sydney server run by a US company is not fully sovereign. Read it to understand the sharpest edge of the sovereignty trade: *https://www.crossborderdataforum.org/cloudactfaqs/*
+- **"Open-weight models lag state-of-the-art by around three months on average"** (Epoch AI). The research outfit that tracks AI capabilities quantifies, with data, exactly how much capability you give up by choosing an open-weight or local model instead of the frontier. If "what are you giving up?" is the chapter's question, this is the answer in months. *https://epoch.ai/data-insights/open-weights-vs-closed-weights-models*
+- **"Best practices to avoid AI vendor lock-in"** (TechTarget). A practitioner-facing rundown of the lock-in traps (API coupling, egress fees, model deprecation, data-format lock-in) and how to design for portability before you are trapped. Read it before you wire a production system to a single vendor's API. *https://www.techtarget.com/searchenterpriseai/tip/Best-practices-to-avoid-AI-vendor-lock-in*

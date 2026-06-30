@@ -1,0 +1,117 @@
+# What's in the data?
+
+## The spreadsheet, and the question it won't answer by itself
+
+Every customer-success team has this spreadsheet. Tessera's is 200 rows of its customers: industry, region, how long they have been a customer, what they buy, what they pay, how much they use it, how satisfied they are, and a single loaded column: `Renewal_Likelihood`, recorded as High, Medium or Low — with Low the one you watch, because Low-renewal customers are the ones who leave. Roughly one customer in three is Low.
+
+You can stare at that file for an hour and learn almost nothing. The signal is in there, but it is tangled across columns and buried inside interactions. It is never one row that churns; it is a *kind* of row. This is the gap machine learning exists to close. Hand the data to a model and it will, in seconds, sort the rows by how much they resemble the ones that left. The promise is seductive, and mostly true: the machine finds the pattern.
+
+The problem this chapter is actually about is the next sentence, the one the demo never says: *found, then what?* Finding the pattern is the part being commoditised. Any tool can do it, and soon any junior with a chatbot can do it. What is not commoditised, and what this chapter is your first proper rehearsal of, is knowing what the pattern *is* and, just as importantly, what it *is not*. A pattern in data is not a fact about the world. It is a clue. Reading it as a clue rather than a conclusion is the whole skill, and it is the one skill the machine does not have.
+
+## Two questions a model can answer
+
+Strip the software away and almost every data-analysis task collapses into one of two questions.
+
+The first: *I have a label, what predicts it?* You already know which Tessera customers churned. You want the rule that separates them from the ones who stayed, so you can apply it to customers you have not lost yet. This is **supervised** learning, and the decision tree is its most readable instrument.
+
+The second: *I have no label, what groups are hiding in here?* You take the same customers but set `Renewal_Likelihood` aside. You ask the data to fall into its own clusters, and you name the groups afterwards. This is **unsupervised** learning, and clustering is its workhorse.
+
+That is the whole forest. The rest (the widgets, the parameters, the colour palettes) is trees. Tessera's churn problem is a supervised question first (who will leave?) and an unsupervised question second (what kinds of customer do we actually have?). Both answers are useful. They are *different kinds* of useful, and confusing them is one of the mistakes this chapter exists to prevent.
+
+## A tool that shows its working
+
+You will do this in **Orange**, a visual data-mining tool with no code. You build an analysis by dragging widgets onto a canvas (File, Data Table, Distributions, Decision Tree, Tree Viewer) and wiring them together so data flows left to right. It looks like a child's flowchart, and that is the point.
+
+The reason this book uses Orange for classical machine learning is precisely that it is plain and obvious. The splits are visible. The clusters are visible. The distributions are visible. Nothing is hidden behind a script or a polished dashboard. When the model does something surprising, you can trace exactly where, because every step is a box you can double-click. That transparency matters: explainability is not a feature you bolt on at the end. In classical machine learning it is the *default*, and Orange keeps it that way.
+
+## The decision tree, the most readable model
+
+Build a decision tree and you have built a flowchart that asks yes/no questions of your data. *Is the satisfaction score six or below? Is tenure under a year? Is the contract value below a threshold?* At each fork it picks the single question that separates churners from stayers most cleanly, then asks again on each branch, until the groups at the leaves are mostly pure or the splits stop helping. Follow a path from the top to a leaf and you have a sentence a Tessera executive could follow.
+
+Run it on Tessera's customers and the tree lands hard on one variable first: **satisfaction score**. Customers who score six or below churn at ~98%; above six, effectively none do. That single split does most of the work. Below it the tree keeps finding structure (tenure, which product they hold, contract value) but the headline is already written.
+
+Now notice the part most people skip. You could have seen most of this yourself, with a bar chart and ten minutes. *Distributions*, one of Orange's plainest widgets, will show you the same satisfaction cliff — the step from a score of six to seven — if you ask it to. That cross-check is not redundant; it is the difference between *using* a model and *trusting* one. A model that agrees with your own eyes is reassuring. A model that disagrees is interesting, and the disagreement is usually because the tree can see interactions between variables that a single bar chart cannot. Both outcomes are useful. Neither is a reason to stop thinking.
+
+::::: {.tessera-case}
+**🌐 Tessera Case**
+
+The artefact for this chapter is `tessera-customer-data.csv`, 200 customers, dropped into an Orange canvas: **File** loads it, **Distributions** shows each variable split by churn, **Decision Tree** builds the model, **Tree Viewer** draws it, and **k-Means** segments the base when you switch to the unsupervised question.
+
+What the data actually says. The dominant predictor is **satisfaction score**: customers scoring six or below churn at ~98%, those above six at ~0%. The same story repeats in half a dozen reinforcing signals. **Tenure** tracks it (0–6 months ~100%, 6–12 months ~88%, 12–24 months ~45%, 24+ months ~0%), and so does **product** (Analytics Pro ~74% and SecureLink ~56% churn; CloudSync and DataVault ~0%). **Industry** piles on (Education ~94%, Healthcare ~85%; Finance, Manufacturing and Retail ~0%), as does **company size** (Small ~47%, Medium ~43%, Large ~6%) and **region** (South ~94% and Metro ~85%; Central, East and North ~0%). Even **contract value** agrees: at-risk customers average ~$960 against ~$2,160 for those who stay.
+
+The two findings worth carrying to leadership. First, a one-sentence headline any executive can parse: *"Dissatisfied customers (score under six) in their first year churn at well above the base rate."* Second, a non-obvious one the tree makes crisp: the signals don't compete, they pile up. Satisfaction, tenure, product, industry, size and contract value all point at the *same* customer — so the at-risk population is sharply defined, not scattered, and a single well-aimed intervention can reach most of it.
+
+The honest limit: once you cross two variables, the cells thin out fast. A Region × Company Size combination with only a handful of customers in it can show an extreme churn rate that is pure accident. If your tree splits on a cell like that near the top, it has found noise, not a finding. And every cluster name you write ("the heavy spenders who never call support", "the new and flighty") is *your* label, not the model's.
+:::::
+
+## The trap: a split is a correlation, not a cause
+
+This is the single most important sentence in the chapter, and you will watch people get it wrong for the rest of the book.
+
+> **A decision tree split is a correlation, not a cause.**
+
+When the tree splits on *satisfaction score ≤ 6*, it is not telling you that a low score *causes* customers to leave. It is telling you that, in this dataset, low-scoring customers leave more often. The cause lives somewhere the tree cannot see: a low score is a *symptom* of something going wrong — a rough onboarding, a product that does not fit, support that let them down — and churn follows the symptom. The tree found the shadow; the thing casting it is your job to investigate.
+
+Here is where it gets subtle, and where the temptation to tell a story is strongest. Tenure is in the tree too, and it has a stark shape: customers in their **first six months** churn at close to 100%, falling to ~88% across the 6–12 month band, ~45% over the first two years, and near zero beyond. The newest customers are by far the most fragile, and the risk collapses with time. That gradient points straight at a mechanism the data hints at but does not name: the trial-to-paid transition, the price shock that lands when the honeymoon ends, the moment a customer decides whether the product is actually worth keeping.
+
+Read that split as a cause and you reach for the wrong lever. "Customers leave because they're new; let's shorten onboarding for everyone." Half-right, and the half-right error is the most dangerous kind. Newness tracks churn, but it does not cause it: a *satisfied* new customer rarely leaves, a *dissatisfied* one almost always does. The signal is to investigate what happens in those first months — the onboarding, the fit, the first real problem — not to rewrite the calendar. The model gives you the question. It never gives you the answer.
+
+And then there is the quieter trap. This dataset's region and industry columns each look meaningful on their own, and a tree that has run out of real signal will happily cross them into a sparse cell: a specific Region × Company Size combination, say, where a handful of rows all happen to have left (or all happened to stay). That cell *looks* like a finding, but the counts behind it are tiny and the gap is an accident of who landed there. It is noise wearing the costume of a pattern. If your tree is splitting on a two-variable cell with only a few customers in it, be suspicious. It has found an accident, not a finding. This is the spurious-correlation trap, and it is the whole reason to slow down when a split feels too neat.
+
+## Clustering: the model finds the shape, you supply the meaning
+
+It looks at how close customers are to one another across all their numeric attributes (tenure, contract value, usage hours, satisfaction) and drops them into *k* groups so that customers inside a group resemble each other and the groups differ. You tell it how many groups to look for; it tells you who landed where.
+
+Then comes the step the model cannot do, and it is where all the judgement, and all the bias, enters. **You name the clusters.** You read each group's averages and give it a label: *the heavy spenders who never call support*, *the new and flighty single-product accounts*, *the steady mid-tier*. The names are yours. The model finds the shape; you supply the meaning.
+
+That act of naming is exactly how customer segmentation happens in a real marketing or success team, and it is exactly where a lazy or hurried analyst smuggles in a story the data does not warrant. A cluster of high-revenue, low-support customers is a fact. Calling them "our loyal champions" is an interpretation, one that might stop you noticing they are loyal only because nothing has gone wrong yet. Name carefully. The cluster is a description, not a verdict.
+
+## Average or precise: the same model, two placements
+
+Here is where this data chapter meets the trust tool from Chapter 1, and why that tool shows up in a chapter that has nothing to do with large language models.
+
+A data analysis produces two very different kinds of output, and they belong in different cells of the grid. The first is **average** output: *"roughly, our churn concentrates in dissatisfied customers (score under six) in their first year, well above the base rate."* That is a description. It points you where to look, nobody gets touched, and if it is slightly off the cost is small. That is a **green** artefact: skim it, act on it lightly, move on.
+
+The second is **precise** output: *"customer C0xxx has an estimated 78% chance of churning: flag them for a save call."* Now a real person gets called, repriced, or dropped from a list because of a number a model produced. That is precise, and the blast radius is large. That is **red**: a human checks it before it touches anyone.
+
+Same model. Same dataset. Two placements. The discipline is knowing which one you just produced, because the segment description and the per-customer score come out of the *same* Orange canvas, and only one of them is safe to act on without a person in the middle.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+You fed your Orange tree to an AI thinking partner and asked what Tessera should *do*. Two things came back, and both were instructively wrong.
+
+**The first error.** The model read the satisfaction and tenure splits as a cause: *"Low satisfaction and short tenure cause churn. Tessera should drive every customer's score above six and fast-track anyone in their first year."* You pushed back. The splits are correlations, not causes. A low score and churn move together because both are symptoms of the same underlying problem — a rough onboarding, a poor product fit, support that let the customer down — and short tenure just means the customer has not yet decided to stay. Bullying the score up with credits, or rushing every new customer, moves the wrong number and the churn arrives anyway. The signal is to investigate *why* customers are dissatisfied in those first months. And "fast-track everyone in year one" is too blunt: a *satisfied* new customer is safe; a *dissatisfied* one is the real target.
+
+**The second error.** The model then latched onto a two-variable cell: *"Large customers in the Metro region never churn — that's a safe pocket, worth leaving alone."* Tempting, and the number is real — 0% — but it is a single customer. A flexible model will happily fit a cell that small, and a rate computed from one row is an accident, not a finding. You corrected it: a tree splitting on a sparse Region × Company Size cell near the top is overfitting noise, and acting on it would steer effort away from the real signal — dissatisfaction and early tenure — which sits almost everywhere else.
+
+What you decided to trust. The satisfaction and tenure story is robust enough to act on — but directionally, not mechanically: focus save-effort on dissatisfied customers in their first year. The product, industry and size signals reinforce the same target, so they sharpen the aim rather than split it. The sparse Region × Company Size pocket you discarded as noise. The model did the finding fast. The judgement about what each finding *means*, and which one is worth anything, was yours.
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+This chapter's output sits in *two* cells at once, and that is the lesson.
+
+- **The segment description** (*"dissatisfied customers in their first year churn at well above the base rate"*) is **average** output with a **small** blast radius. It points you where to look and touches no one. **🟢 Green**: skim it, act on it lightly, use it to aim the next investigation.
+
+- **The per-customer churn score** (*"flag customer C0xxx for a save call"*) is **precise** output with a **large** blast radius. A person gets contacted, repriced, or dropped because of a number. **🔴 Red**: a human checks it before it touches anyone.
+
+Same canvas, two placements. The discipline this chapter builds is not building the model; it is recognising, the instant you produce a number attached to a name, that you have crossed from green to red and the oversight rules have changed.
+::::::
+
+## What the finding is worth
+
+So what did Tessera actually learn? A defensible handful of things, and a longer list of things it did *not* learn, which matters just as much. It learned that churn is concentrated, not scattered: it lives in a specific kind of customer, and that kind is identifiable from data the company already holds. It learned where to point its limited customer-success effort. It did *not* learn *why* those customers leave, it did not learn whether intervening will change anything, and it did not learn that any individual prediction is safe to act on without a person checking.
+
+That is a lot, honestly, for one afternoon with a no-code tool. It is also, precisely, the kind of work that a chatbot can now produce in minutes: the tree, the clusters, even the one-sentence headline. The moat was never in producing it. The moat was in reading it correctly: resisting the cause, refusing the neat story, naming the clusters carefully, and placing each output in the right cell before acting. Find the pattern is cheap. Understand the pattern is the job.
+
+You did all of this on a laptop, in a tool that never sent a single row of Tessera's customer data anywhere. That is not an accident, and it raises the question the next chapter answers: when the data is this sensitive, where do you run the AI, what does it cost, and whose servers are you willing to trust with it? Finding the pattern locally was the easy part of that decision. The hard part (deployment, sovereignty, and the trade between convenience and control) is where we go next.
+
+:::: {.callout-tip title="🔬 Power-user extension"}
+The **Core** above is enough: read one decision tree and write the one-line executive sentence. If you want to push further, cross-validate instead of trusting a single model. Add Orange's **Test & Score** widget and feed it three learners — **Decision Tree**, **Random Forest**, and **Logistic Regression** — over the same `Renewal_Likelihood` target. Read **Classification Accuracy (CA)** and **AUC** for each: if all three land in the same range, the satisfaction-and-tenure story is robust, not an artefact of one algorithm. Then drop a **Rank** widget on the data to rank features by information gain — satisfaction and tenure should sit at the top, which is exactly the cross-check the single tree already implied. The Core told you *what* the data says; this tells you *how much to trust it*.
+::::
+
+::: {.callout-note title="🔍 Go deeper"}
+- **Pedro Domingos, "A Few Useful Things to Know about Machine Learning"** (*Communications of the ACM*, 2012). <https://cacm.acm.org/research/a-few-useful-things-to-know-about-machine-learning/>. The canonical "folk knowledge" paper: overfitting, the bias/variance trade-off, and why more data usually beats a cleverer algorithm. Read it to understand the traps a flexible model like a decision tree will happily fall into. [Free PDF from the author: <https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf>]
+
+- **Christoph Molnar, *Interpretable Machine Learning***, Chapter: "Decision Tree". <https://christophm.github.io/interpretable-ml-book/tree.html>. A free, rigorous online book on exactly this chapter's core skill: how to read a decision tree, and why its famous interpretability quietly degrades as the tree gets deeper.
+
+- **Josh Starmer (StatQuest), "K-means clustering"** (video, 2018). <https://www.youtube.com/watch?v=4b5d3muPQmA>. A clear, visual walk through the unsupervised half: how *k*-means forms groups, why your choice of *k* matters, and how an elbow plot helps you pick it. Watch it before you name your first cluster.
+:::

@@ -1,0 +1,40 @@
+# B. The Conversation Log Format {.unnumbered}
+
+A conversation log is the artefact that makes your thinking *with* AI visible. It is the cumulative record you keep across the book: what you asked, how you pushed back, what you verified, and what you decided to trust. Each chapter's **Conversation Log** feature is the book version of the same discipline. This appendix is the format in full, so you can keep one of your own.
+
+The log is where *prove, don't persuade* stops being a slogan and becomes a habit. A demo persuades; a log proves, because it shows the work, including the parts where the AI was confidently wrong and you caught it.
+
+## Why it exists
+
+An AI session that goes smoothly proves nothing. If the model agreed with you the whole way and you shipped its answer, you have a transcript of agreement, and agreement is not evidence. The value of a conversation log is in the **corrections**: the moment the model drifted, the claim it smoothed over, the figure it invented, and the specific pushback that put it back on the rails. That is where your judgement becomes visible, and it is the part that shows whether the work is yours.
+
+A good log also keeps you honest about the trust tool. Every entry forces you to *place* the output before you act, and to say, in writing, which load-bearing bit you verified and why. Over twelve chapters that repetition turns placement into a reflex.
+
+## The entry
+
+One entry per substantive session. Keep it short enough to read in a minute; attach the raw transcript for the detail.
+
+- **Date, model(s), and goal.** What were you trying to figure out, and which model(s) did you use? Name the model, because a finding that holds for a frontier model and a local Qwen is worth more than one that holds for a single brand.
+- **Trust-tool placement.** Average or precise? Small or large blast radius? Which traffic light, and what does it tell you to verify? State this *before* you write the conclusion, not after.
+- **The prompts that mattered.** The turning points, not the whole chat. If you used the RTCF frame (Role, Task, Context, Format), say so and quote the prompt that changed the session. Three to five prompts is usually enough.
+- **Where the AI was wrong, and how you corrected it.** The load-bearing part. Quote the model's wrong claim, name why it was wrong (the split it misread, the constraint it dropped, the average it hid behind), and show the pushback. This is what the log is for.
+- **What you decided to trust, and why.** One or two lines you would act on, and the evidence that earns the trust. "The satisfaction-and-tenure story is robust enough to act on lightly; the segment spike is a question, not a lever; the sparse-cell pattern I discarded." The defensible answer, not the fluent one.
+- **Full transcript.** Saved unedited, as an appendix to the entry or a linked file. You never edit the transcript, because the unedited record is the integrity gate. If you are tempted to tidy the model's embarrassing error, that error is exactly what the reader needs to see.
+
+## What a good entry does (and doesn't)
+
+A good entry **shows the friction**. It records the disagreement that produced the insight, places the output honestly, and ends on a defensible line with its evidence named.
+
+A good entry **does not** log only the agreements, edit the transcript, hide the model's errors, or present the AI's fluent first draft as the conclusion. If your log reads as a smooth collaboration where the AI was right every time, you have written persuasion, not proof, and you have missed the point of the book.
+
+## A worked shape
+
+The Conversation Log features in Chapters 1 to 12 all follow this shape. The Chapter 4 log is a compact example: the goal (ask an AI partner what Tessera should *do* with the churn tree), the two errors (reading a correlation as a cause; chasing noise in a sparse segment cell), the corrections (the satisfaction/tenure split is correlation not cause; the small-cell spread is overfitting), and the defensible conclusion (act lightly on satisfaction and tenure; treat the segment spike as a question; discard the sparse-cell split). Two errors, two corrections, one trusted line. That is the whole pattern, and it is the pattern your working log repeats.
+
+## How it assembles into a body of work
+
+The conversation log is the spine of your working record. Across the twelve chapters it accumulates into the evidence that you can work *with* AI as a thinking partner and still supply the judgement the machine cannot: placing each output, catching each drift, and defending each decision you acted on. A reader who reads only your logs should be able to tell, for every artefact you built, which claim you trusted, which you verified, and which you refused. That is what *prove, don't persuade* looks like on paper.
+
+::: {.callout-note}
+The conversation log is taught in full in the companion book, *Conversation, Not Delegation*, as part of the conversation loop. This appendix is the same format through the lens of this book: the cumulative record that turns an applied-AI build into something a human can stand behind.
+:::

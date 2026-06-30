@@ -1,0 +1,137 @@
+# Introduction: The Proof Mindset {.unnumbered}
+
+> *Anyone can demo AI. The edge is proving it works.*
+
+## The demo and the deployment
+
+Watch any AI vendor for ten minutes and you will see a demo. It is slick, fast, and a little theatrical. A model drafts a policy in seconds. A chatbot answers a customer perfectly. A classifier sorts a tidy spreadsheet into the right piles, every time. The demo is designed to persuade. Read it as a practitioner and it reads as an assertion: a claim that has not yet met its evidence.
+
+**Tessera** has demos like this on its internal wiki. Tessera is an Australian managed-cloud and multi-tenant SaaS provider, founded in Perth, serving more than 600 clients across the SME and enterprise segments, and betting on AI to triage support tickets, flag churn, and summarise contracts. Its AI prototypes are impressive. Somewhere behind those prototypes is a churn model that quietly misses an entire customer segment, a ticket classifier that falls over the moment a customer is sarcastic, and a contract summariser that sounds confident about clauses it invented. Or maybe not. That is the point: nobody knows yet, and neither does Tessera's board.
+
+And Tessera has a reason to care that most companies do not. Recently it lived through a data breach — a leaked cloud key that exposed tenant records and cost it customers and trust. One of the lessons it took from that incident is now stitched into its own stated values: *evidence over assertion*. This book takes that idea seriously, in the place it matters most for an AI-build programme: before you rely on any model, you prove what it actually does.
+
+This book is about closing the gap between the demo and the deployment. It teaches the discipline that does it: *prove, don't persuade.*
+
+## What "applied AI that works" actually is
+
+Applied AI is not prompt engineering and it is not model training, though it borrows from both. A prompt engineer coaxes a better answer out of a model. A data scientist trains a model from scratch. An applied-AI practitioner does something messier and more useful: takes a real business problem, assembles a solution from models, data, and a harness, and then **finds out whether it actually works**, well enough, for the right people, under the conditions that will bite.
+
+The product of applied AI is not a model. It is a **defensible judgement**: this solution, on this problem, for these users, is good enough to ship, with this much human oversight, and these known limits. That judgement is the thing a business cannot buy from a vendor's demo. A vendor will always show the case where it works. A standard will always describe what good should look like. Only the practitioner says whether the two match, here, now, against the evidence.
+
+This book's founding question captures that in four words.
+
+## Does it actually work?
+
+"Does it actually work?" is the question this book lives inside. It is a different question from "is it impressive?", and confusing the two is the most common failure mode in applied AI. A demo is engineered to be impressive. A deployment has to actually work, which means surviving inputs the demo never showed you, failing gracefully where it must, and being trusted (or not) by the people who depend on it.
+
+Answering it well is not a vibe. It is a discipline: state what "good enough" means *before* you measure, measure honestly, name who your solution fails, and decide how much a human must stay in the loop. None of that is optional, and none of it is what the demo showed you.
+
+## The trust tool
+
+Before you build or evaluate anything, you need one small idea you will use in every chapter: the **trust tool**. It comes from the companion book, *Conversation, Not Delegation*, and it asks two questions of any AI output, *before you act on it*:
+
+1. Does this need to be **precise**, or is **average** fine?
+2. If it's wrong, how big is the **blast radius**, small or large?
+
+That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). Almost every public AI failure (the chatbot that gave wrong legal advice, the hallucinated citation in a filed court document) is someone treating a red-quadrant output as green. The model rarely fails uniquely; the *placement* fails. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.
+
+## Prove, don't persuade
+
+**Prove, don't persuade** is the spine of this book and the habit it builds. Every claim about an AI solution is an assertion until evidence supports it. An accuracy figure on the training data is an assertion. A dashboard of green ticks is an assertion. A manager's assurance that "we tested it" is an assertion. None of it is evidence until you have seen the solution work (and fail) on terms you set, in a form you can defend.
+
+This sounds obvious. In practice it is hard, because demos are persuasive and proof is laborious. Tessera is written to be plausible: impressive in its prototypes, rougher underneath, exactly like the real systems you will build for and evaluate. Good practice does not assume the worst. It does something more disciplined: it proves what is actually there, names what is missing, and lets the evidence set the decision.
+
+By the end of this book you will have done exactly that, one chapter at a time, against Tessera.
+
+## The practitioner's moat in the age of AI
+
+Here is the harder question this book takes seriously: *what is a human practitioner actually for when a machine can build the demo?*
+
+The answer is not "the same thing, faster." The book takes a deliberately pragmatic stance on AI (clear of both alarmism and hype) and lands it on the practitioner's desk. Four moves make the argument.
+
+### The demo is being commoditised
+
+Spinning up a classifier. Wiring a RAG chatbot to a document folder. Drafting a churn analysis. This is the craft of building AI prototypes, and it is exactly the work generative AI is rapidly commoditising. An AI can produce a plausible-looking solution faster than any junior practitioner. If the only thing you do is *build* the demo, you have no edge. Every vendor's deck now has one.
+
+### Evidence is the moat
+
+If an AI can build a generic solution for anyone, a generic solution gives no one an advantage. The edge comes from variation: human judgement about *whether it works, for whom, and under what conditions*. That judgement shows up as **evaluation**: stating a threshold, measuring against it, naming who it fails for, and deciding how much a human must stay in the loop. The machine produces the demo. The practitioner supplies the proof. That proof is the moat.
+
+### From builder to evaluator
+
+As AI moves from chatbots to agentic systems that take actions on their own, the practitioner's job shifts: from maker of slick prototypes to **expert evaluator** of AI-generated work. You will read AI-drafted analyses, AI-built pipelines, AI-shipped models, and your value will be in spotting where they are generic, where they confabulated success, and where the edge-case they smoothed over was the whole point. This book makes that discipline explicit and teaches it.
+
+### Augmentation, not automation
+
+The stance is proactive. Use these tools for **augmentation and personalised learning**, not passive automation that quietly atrophies the judgement the field depends on. Efficiency is never the goal; *defensible, evidence-based confidence* is. If you use AI to skip the evaluation, you have done the work wrong, no matter how good the demo looks. The companion book, *Conversation, Not Delegation*, teaches the craft of working with AI well; this book teaches what you must prove once the building is done.
+
+:::::: {.callout-warning title="Watch out: your own AI hygiene"}
+The AI you use is a third party. Do not paste Tessera's customer or tenant data, contracts, or PII into a consumer AI tool. That is a disclosure you cannot take back, and it may breach the Privacy Act and Tessera's obligations. Use approved or enterprise tooling, or a locally hosted model. The same scepticism you apply to Tessera's AI applies to your own: the tool is a thinking partner, not a safe drop box for secrets.
+::::::
+
+This premise is the thread that runs through every chapter.
+
+## Who this book is for
+
+This book is for anyone learning to build and evaluate applied AI for the first time, in a no-code business context. You do not need to be a developer. You need to be willing to form a judgement and defend it with evidence.
+
+It is also for any practitioner, new or experienced, who wants a readable, opinionated spine for applied AI, and a clear stance on where the human fits once the machines can build the demo. If you build AI, buy AI, or rely on AI in a business, the argument here is for you.
+
+## How this book works
+
+The book is one case told twelve ways. You build for and evaluate **Tessera**, an Australian managed-cloud company betting on AI. Each chapter asks one question, from *What changed?* through *For whom?*, *Can you tell?* and on to *Does it actually work?* and *What comes next?*. Read the chapters in order: each one builds on the trust tool, the harness, and the proof mindset the last one established.
+
+The arc has two acts:
+
+| Act | Chapters | What it does |
+|---|---|---|
+| **I · Foundation** | 1–6 | What changed, for whom: landscape, ethics, data, deployment, responsibility |
+| **II · Build and Prove** | 7–12 | Does it actually work: prompting, NLP, build-and-evaluate, agentic, model comparison, the future |
+
+Act I builds the base: the concepts and the stance. Act II is where the book earns its title: you build, you break, and you prove.
+
+Running through both acts is the **conversation log**: the cumulative record of your thinking *with* AI across the book, where you document what you asked, how you pushed back, and what you decided to trust. Each chapter's Conversation Log feature is the book version of that discipline.
+
+### A no-code floor, and a ceiling for those who want it
+
+Every chapter has a hands-on activity, and every one of them has a **no-code Core** path that anyone can complete with free tools — Orange Data Mining, Google Teachable Machine, NotebookLM, Ollama, and Open WebUI. You do not need to write a line of code to do the work this book asks of you. That is deliberate: the same capability should be available to every reader, regardless of background.
+
+For readers who want to go further, each chapter also carries an optional **🔬 Power-user extension** — the same concept taken deeper, through measurement, a second model, self-hosting, or a touch of code. The Core is complete and correct on its own. The extension is there for those who want the ceiling as well as the floor. Appendix F is the quick-start guide to the whole no-code toolkit if you are setting up from scratch.
+
+### A living case: the Tessera site
+
+Tessera is fictional, but it is also *real*, in a useful way: the company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. You can read its policies, browse its customer and support data, and even "interview" its staff through AI personas. Nothing in this book depends on visiting the site — every dataset and document the chapters use is described in full right here — but if you learn by exploring, Appendix E maps the site's artefacts to the chapters so you can go deeper on any one of them. Treat it as an extended reality for the case, not a prerequisite.
+
+## The companion book
+
+*Conversation, Not Delegation* (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the *what we prove*), that book teaches *how to work with the machine well*: the conversation loop, the trust tool in full, staying in the loop, compensating for AI's predictable weaknesses. The two are complementary. Every chapter here assumes you are using AI, and assumes you are using it the way that book describes: as a thinking partner, not a delegate.
+
+## Conventions used in this book
+
+Every chapter carries the same recurring features so you learn to recognise them.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+**Blue boxes** show AI used as a thinking partner for the chapter's task: a worked example against Tessera, including, crucially, where the AI got it wrong and how the practitioner corrected it.
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+**Green boxes** place the chapter's output on the Average/Precise × Small/Large grid, and say what that means for human oversight. This book's spine, made explicit every chapter.
+::::::
+
+::::: {.tessera-case}
+**🌐 Tessera Case**
+
+**Shaded boxes** carry the running Tessera engagement: the concrete artefact each chapter lands on. Tessera is written to be plausible: impressive in its prototypes, rougher underneath. Good practice does not assume the worst. It proves what is there.
+:::::
+
+You will also see **🔍 Go deeper** at the end of each chapter (one to three curated resources (a paper, a podcast, a video) for currency and breadth), the optional **🔬 Power-user extension** (a deeper take on the chapter's hands-on work), and standard callouts: **Watch out** (yellow) for traps that look right but aren't.
+
+## How this book came to be
+
+This book grew out of years of teaching applied AI to people who do not write code — newcomers and experienced practitioners who needed to build something real, evaluate it honestly, and defend the result. The frustration that shaped it is simple: too much AI education stops at the demo. The discipline this book teaches (*prove, don't persuade*) is the one those readers carry into every solution they build and ship. The book stands on its own; where its path happens to align with a course or a classroom, that is a happy coincidence, not a dependency.
+
+It was written using the methodology its companion describes. AI tools were used as thinking partners at every stage: drafting, stress-testing, and being corrected. The relationship between author and AI in producing this book is exactly what the book argues the practitioner's relationship to AI-generated work should be. The machine produces the draft; the author supplies the judgement, the evidence, and the defensible conclusion. Every sentence reflects the author's judgement. The AI made the work faster. It did not do the thinking.
+
+## A note on where this book is at
+
+This is an open-access book. The full text is drafted: an Introduction, twelve chapters across two acts, and six appendices. The online edition is always the most current, and passages are revised as the field moves.

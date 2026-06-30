@@ -1,0 +1,147 @@
+# Are you asking well?
+
+You typed the same words your colleague typed. You got the better answer. Naturally you concluded you were the sharper prompter, and you went off to refine your prompts some more.
+
+Hold that conclusion. It is half right, and the half that is wrong is the more interesting half. The gap between your answer and your colleague's was not (only) the words. It was everything those words travelled through before they reached the model: the standing instructions neither of you wrote down, the documents one of you had attached, the tools one of you had switched on, the model setting one of you had left at default. You have been improving the question and ignoring the room the question is asked in.
+
+By the end of the chapter you will have built both, against Tessera, and you will know which one moved the answer further.
+
+## RTCF is the floor you are standing on
+
+You have used **RTCF** (Role, Task, Context, Format) in every exercise since Chapter 1. There is no need to recap the four parts here; they are the smallest structure that turns a vague request into a useful one. What matters now is the move that comes *after* RTCF, because most people stop too early.
+
+Two habits separate a developing prompter from a novice, and neither of them is a cleverer Role.
+
+The first is **iterate, don't restart.** Treat the first response as a draft. Push back on it, narrow it, ask for the format you forgot to specify the first time. The second and third prompts in a conversation usually do more work than the first; the model has now seen what you do and do not want, and your follow-up is sharper for it.
+
+The second is **verify against the trust tool before you act.** RTCF does not exempt a red-quadrant task from human review. A perfectly structured prompt for a task that touches a customer or a contract is still a red-quadrant task. RTCF gets you a competent first response; it does not get you out of the discipline of placing that response on the grid and checking the load-bearing bits. The prompt is a floor, not a ceiling.
+
+## When one prompt is not enough: chaining
+
+Some jobs are too big, too uncertain, or too consequential for a single prompt. Ask a model to "analyse these support tickets and recommend a strategy" in one shot and it will skim: it has to, because the job contains four jobs and you asked for one. **Prompt chaining** breaks the work into a sequence where each prompt's output feeds the next. You have done tiny versions of this without naming it; now name it.
+
+Chaining earns its keep in four ways. It **decomposes**: asked to *first* extract themes, *then* quantify, *then* recommend, the model goes deeper at each step than it could in a single pass. It **verifies at each step**: a bad extraction caught at link two never reaches link four. It **specialises**: each link can carry a different Role and Format tuned to its sub-task. And it **routes**: an early link can decide which later link to run at all ("is this a billing issue or a technical one?" sends the ticket to different drafters).
+
+Picture a Tessera support chain, four links:
+
+1. **Classify**: *"Given this ticket, classify it (billing / technical / account / other) and state your confidence."* → a label.
+2. **Extract**: *"List the concrete facts in this ticket (product, error, what was attempted)."* → a structured list.
+3. **Draft**: *"Using only these extracted facts, draft a first-response email."* → a draft.
+4. **Critique**: *"Read this draft as the customer. What would make you trust it less?"* → a revision list.
+
+Here is the part that matters for this book: each link is small and verifiable, and each link is placed on the trust tool *individually*. The classification might be green: a wrong label is cheap to catch at the next step. The customer-facing draft is red: it goes to a person before it goes anywhere near a customer. Chaining lets you treat them differently instead of blobbing the whole job into one placement and then trusting all of it or none of it.
+
+Chain when the task has distinct stages that benefit from separate checking, or when a single prompt's output keeps drifting. Do not chain when the job is genuinely one step; over-chaining adds latency and fresh failure points for no gain. And keep the honest limit in view: a perfect chain on a red-quadrant task still needs a human in the loop. Chaining makes the steps *inspectable*; it does not make them *trustworthy by default*.
+
+## The deeper move: you have been blaming the wrong layer
+
+Everything above assumes the words you send travel through a neutral pipe straight to the model. They do not. When you open a chat tool and type a message, you are not talking to a bare model. You are talking to a **harness**, the wrapper around the model that decides, before your words are ever answered:
+
+- what **standing instructions** (the system prompt) frame every reply,
+- what **context** gets attached to your message: retrieved documents, memory, prior turns,
+- which **tools** the model can call: search, code execution, file reads,
+- and which **inference engine**, which model at which settings, answers.
+
+Change any one of those four and you change the output, *without touching the prompt you typed*. That is the real reason two people can type the same words and get different answers: their harnesses differ. One has a system prompt telling the model to be terse; the other does not. One has a folder of company documents attached; the other does not. One is on a frontier model at low temperature; the other is on a local model at default. Same words in, different answers out; and the prompt had nothing to do with it.
+
+Think of the harness as four layers stacked around the model:
+
+| Layer | What it is | In Open WebUI terms |
+|---|---|---|
+| **Prompt** | The standing instructions + your message | System prompt + your chat |
+| **Retrieval** | The documents the model can see | A knowledge / document folder (RAG) |
+| **Tool** | Capabilities beyond text generation | Functions, web search, file tools |
+| **Inference** | The model itself + its settings | Model selector, temperature, etc. |
+
+The same four pieces exist whether the harness is a consumer chatbot, an enterprise agent, or the local Qwen stack you installed in Chapter 5. Naming them is what lets you *design* one instead of only ever using one.
+
+## The demystification: a harness is plain text on disk
+
+Here is the move that changes how you see all of this. Every one of those four layers is, at bottom, **text and configuration**.
+
+The system prompt is a string of text. The retrieved documents are files on disk. A tool description is text telling the model what the tool does. Model selection is a setting. So a harness is a **folder of markdown files plus a bit of wiring**. That is it. There is no secret sauce.
+
+When you open Pi's skills folder in this chapter's exercise, you will see exactly this: directories of markdown. A "skill" is a well-written markdown file in a named folder. You can read it. You can edit it. You can delete it. It is just text, and once you can see the seams, you can change any of them. The "system prompt" you keep hearing about is simply the standing-instructions section of a file like that.
+
+This reframes what you are actually learning to be portable at. The portable skill is **designing the markdown files and the folder structure** (the system prompt, the knowledge documents, the tool descriptions), not operating any particular tool. Three reasons that matters for a business team:
+
+1. **It travels.** Design the folder well and any capable model can use it: Pi, Qwen, Claude, whatever ships next quarter. You are not building a dependency on one vendor's pricing or survival.
+2. **It is auditable.** Plain text on disk is something a privacy reviewer, a compliance team, or your future self can actually read. Recall Chapter 6: this is *visibility and transparency* made literal.
+3. **It is teachable without code.** You can design, edit, and reason about a harness without writing a line of code. The skill is in the *writing*, and you already know how to write.
+
+## You build rough before you are handed finished
+
+This book teaches the harness across three layers of increasing abstraction, deliberately, so the concept is demystified before it is ever hidden behind a user interface.
+
+**Layer 1 (this chapter, in Pi):** the harness as raw files on disk. Maximum transparency: you read every instruction the model reads.
+
+**Layer 2 (later in this chapter, and in Chapters 5 and 10, in Open WebUI):** the same architecture operated through a settings panel: system prompt, document folder, model selector. You control it; the retrieval is partly opaque.
+
+**Layer 3 (Chapter 11, NotebookLM):** a polished, production-grade harness you did not build. You arrive at it *after* building the rough version yourself, so the question is not *what is this?* but *what did they build underneath it, and could I build it too?*
+
+The ordering is the whole point. You are building, in sequence, the thing you will later be handed finished. Seeing the polished version after constructing the rough one is far more instructive than seeing it first. When a vendor shows you a slick RAG chatbot in Chapter 11, you will not be impressed into silence. You will recognise the seams, because you stitched them yourself.
+
+## Lands on Tessera: building rough RAG
+
+Now the proof. Tessera wants an assistant that can answer questions only Tessera's own documents would know: what the four core products are, who sits on the leadership team, what each stakeholder wants from an analyst. A bare model cannot know any of that. Ask it cold and it will do one of three things: refuse, guess, or hallucinate with confidence. Ask it cold and you have a trust-tool disaster on your hands: a confident answer to a question the model cannot actually know is the classic red-quadrant trap.
+
+This is where the harness earns its keep, and where you prove it does. The move is small and entirely literal. In Open WebUI you create a knowledge folder, drop in Tessera's company profile and stakeholder briefs, set a short RTCF-style system prompt (*"You are an analyst helping Tessera. Answer using only the attached documents; if the answer isn't there, say so."*), and ask the same impossible question again. What you have built is **retrieval-augmented generation, RAG**: the model reads your files before it answers. That is all RAG is, and having wired it with your own hands you will never find it mysterious again.
+
+:::::: {.callout-warning title="Watch out: a confident answer is not a sourced answer"}
+The hardest trap in Layer-2 RAG is that a retrieved answer *sounds* sourced when it is not. The model has read your documents, produced a fluent paragraph, and left you unable to see exactly which chunk of which file it pulled. A precise-sounding answer that grabbed the wrong paragraph is still wrong. The fix is cheap: ask the model to quote the sentence it used. If it cannot, or the quote does not match, you have caught it. Retrieval is a yellow-quadrant output until you verify the source.
+::::::
+
+Remember the spine of this book. The before-and-after of that impossible question is not a demo to admire; it is evidence. The baseline answer is the assertion. The retrieved answer is the answer with a source you can check. Neither one is "the truth" until you have verified which document the retrieved answer actually came from.
+
+So which lever moved the Tessera answer further toward trustworthy: the rewrite of the *words*, or the change to the *harness*? Hold that question. It is the one this chapter's field journal asks you to answer with a specific change named and a specific move on the trust tool explained. For most people who do this chapter honestly, the answer is the harness, and that answer reframes every chapter that follows.
+
+In the next chapter you stop asking one document at a time and start asking a whole corpus. Tessera has a pile of customer feedback, and the question becomes *what is it saying across all of it?* The harness idea stays useful: notice how a retrieved document, the move you made this chapter, differs from a *pattern found across many documents*, the move you are about to make. The folder is still your unit of work. The question just gets bigger.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+**Goal.** Design the system prompt for Tessera's RAG assistant, the standing instruction that frames every retrieved answer.
+
+**What I asked.** I used the model as a drafting partner: *"Draft a system prompt for an Open WebUI assistant answering questions about Tessera from an attached document folder."*
+
+**Where the AI got it wrong.** Its first draft was smooth and plausible, and quietly dangerous. It read: *"You are a Tessera expert. Use your knowledge of the company and the attached documents to give comprehensive answers."* That phrase *use your knowledge of the company* is exactly the trap. It licenses the model to fill gaps from its training, which is precisely what a hallucination needs. A harness that invites the model to confabulate will confabulate, fluently, on every question the folder does not quite cover.
+
+**How I corrected it.** I struck that clause and rewrote the standing instruction to *"You are an analyst helping Tessera. Answer using ONLY the attached documents. If the answer is not in the documents, say so; do not guess."* The model pushed back ("this will make answers terse"); I held the line. The harness, not the prompt, was the load-bearing decision here, and the AI had drafted the wrong harness.
+
+**What I decided to trust.** The corrected instruction, re-asked against the Tessera folder, correctly refused two questions the documents did not cover and answered three it did. The refusal was the evidence the harness was doing its job.
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+This chapter produced three outputs, and they sit in three different cells.
+
+- **The skill markdown file you sketched** (Role, standing instructions, format) is **green**: average is fine, small consequences. It is a draft structure; skim it and move on.
+- **The retrieved Tessera answer** is **yellow**. It needs to be roughly right (precise-ish, sourced), and the blast radius of a wrong product name in a stakeholder briefing is real but recoverable. Verify the load-bearing source (the quoted sentence), and let the rest stand.
+- **The baseline answer from the bare model** is **red**, even though nothing reached a customer. A confident answer to a question the model cannot know is the failure mode this whole book exists to catch. The point of asking it cold is to *see* the red quadrant, then build the harness that moves the same question to yellow.
+
+The lesson: one chapter, three placements. Never blob a workflow into a single cell.
+::::::
+
+:::::: {.tessera-case}
+**🌐 Tessera Case · the no-code Core**
+
+**The artefact:** a Tessera knowledge folder (company profile, four stakeholder briefs, a sample support ticket), wired into an Open WebUI assistant with a one-line RTCF system prompt.
+
+**The proof move:** ask the impossible question twice. First to the bare Qwen model (*"What are Tessera's four core products, and which office is the HQ?"*), and save the confident guess. Then attach the folder, ask the same words, and watch the answer move from confabulated to sourced.
+
+**What it teaches:** RAG is not a product category; it is "the model reads your files before answering." Having built it from a folder and a sentence of instruction, you can read every other RAG system (vendor demos, NotebookLM, the enterprise chatbot a supplier is pitching Tessera) as the same four layers in a nicer box. That is the demystification, and it is your edge: the supplier's demo persuades; your before-and-after proves.
+:::::
+
+::::::: {.callout-tip title="🔬 Power-user extension"}
+The Core above is the no-code path: a knowledge folder plus a one-line system prompt in Open WebUI. Both moves below are optional depth — doing only the Core is complete and correct.
+
+- **Author the harness as raw markdown on disk.** This is the Layer-1 idea, taken literally. Create the knowledge folder and the system-prompt file by hand, read every instruction the model will read, and point Pi (or any local runtime) at the directory. You see every seam because you wrote each one.
+- **Self-host the stack.** Run Ollama locally and point Open WebUI at your own model, then wire the same folder through it. Now the inference layer is yours too — no vendor rate-limit, no data leaving your machine. The sovereignty question this book keeps asking becomes something you operate, not just argue.
+
+Either path makes the four layers move under your own hand.
+:::::::
+
+:::::: {.callout-note title="🔍 Go deeper"}
+- **Anthropic, "Building Effective Agents"**: <https://www.anthropic.com/research/building-effective-agents>. *Why read this:* the clearest industry statement of the move this chapter makes, that the building block of any agent is an LLM enhanced with retrieval, tools, and memory, and that you should reach for chains and multi-step workflows only when a simpler harness falls short. Read it for prompt chaining, routing, and the argument against premature abstraction.
+
+- **Patrick Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (2020)**: <https://arxiv.org/abs/2005.11401>. *Why read this:* the paper that named RAG. The term you demystified this chapter was coined here, and reading the original shows the idea was never magic, just a model conditioned on retrieved passages, exactly what you wired up with a folder.
+
+- **OpenAI, "Prompt engineering"**: <https://platform.openai.com/docs/guides/prompt-engineering>. *Why read this:* a vendor's own treatment of RTCF-shaped fundamentals: be clear, be specific, show examples, iterate, test. Useful as a cross-check that the floor you have been standing on since Chapter 1 is the same floor the frontier labs describe.
+::::::

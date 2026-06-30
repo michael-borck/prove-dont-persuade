@@ -1,0 +1,106 @@
+# How does it decide?
+
+The chatbot you talk to is a (very large) neural network. Say that sentence slowly, because it does two things at once. It demotes the chatbot from magic to mechanism, a thing with parts you could, in principle, point at. And it reveals that the neural network is just one family of model, sitting beside two older, plainer cousins you have already met in Orange. This is the chapter where you stop asking *what does the model say?* and start asking *how does it decide?*, because the second question is the one a CEO will ask you before signing the cheque.
+
+Tessera’s churn problem is the test bed. You will open three models on the same customer data, watch them decide differently, and discover that the most accurate model is rarely the one you can defend. Then you will turn to NotebookLM (Google’s polished retrieval system) and ask the harder question: now that you have built the rough version by hand, can you read the polished one underneath?
+
+## The decision inside the box
+
+Before there was ever a chat interface, the same decide-and-predict mechanics ran in three classic forms. They share one loop:
+
+1. **Split** the data into train and test. You never test on what you trained on. That is marking your own homework, and it is the single most common way an AI prototype lies about how good it is.
+2. **Fit** the model on the train set: it learns the relationship between inputs (tenure, region, satisfaction, contract value) and the target (did the customer churn?).
+3. **Predict** on the test set, the data it has never seen.
+4. **Evaluate**: how often was it right, how wrong, and in which direction?
+
+The four steps are identical for every model you will build this week. The only thing that differs is step two: *how it fits.*
+
+A **logistic regression** learns a weight for each input (a positive weight for short tenure, a negative weight for high satisfaction), adds them up, and squashes the total into a probability of churn. The beauty is that the weights are readable. You can point at a coefficient and say “this is the single biggest churn driver the model found.” The limit is that it only captures straight-line, linear relationships.
+
+A **decision tree** learns a chain of yes/no questions: *tenure under six months? a recent complaint? predict churn.* You can trace any single prediction down the branches, and explain it to a stakeholder in plain English. A random forest is just many trees voting, which trades a little readability for a lot of sturdiness. A single tree’s weakness is that it can overfit, memorising the training data instead of learning the pattern.
+
+A **neural network** is layers of artificial neurons, every connection weighted, trained by nudging the weights to reduce error over many passes. It is far more flexible (it can capture patterns the other two cannot) at the cost of being nearly impossible to explain. This is the family the chatbot belongs to, scaled up until the individual decisions disappear into billions of weights.
+
+There is no free lunch. The table tells the whole story:
+
+| Family | Interpretability | Flexibility |
+|---|---|---|
+| Logistic regression | High: read the weights | Low: linear only |
+| Decision tree | High: trace the branches | Medium |
+| Neural network | Low: a black-ish box | High |
+
+A model that is easy to explain is often less flexible; a model that is very flexible is hard to explain. **In business, the interpretability column is frequently the one that matters**, because a model you cannot explain is a model you cannot defend to a stakeholder, or to a regulator. When the decision touches money, the question is rarely “which is smartest?” It is “which can I justify?”
+
+::::: {.tessera-case}
+**🌐 Tessera Case**
+
+You load Tessera’s churn data into Orange (`region` — Metro/North/South/East/West/Central — plus `tenure_months`, `company_size`, `satisfaction_score`, `primary_product`, `contract_value_aud`), and derive the one feature the data does not hand you: `satisfaction_band` (Low when `satisfaction_score` ≤ 6, High otherwise). (Your features are never all ready-made; building the right input is half the work.) You split seventy-thirty, build all three models from the same split, and read each against the same held-out test set.
+
+Then you open each one up. The **logistic regression’s** coefficients name the biggest churn driver in plain numbers; *short tenure* and *low satisfaction* light up, and a region segment stands out: the South and Metro territories churn at roughly two to three times the rate of Central, East, or North. The **tree** hands you a flowchart you could walk Henrik, Tessera’s CEO, down in a board meeting: *fewer than ~6 satisfaction, under ~12 months tenure → churn.* The **neural network** shows you nothing you can read. That opacity is the trade-off made concrete: the most flexible model is the one you cannot defend.
+
+The second artefact is NotebookLM, fed the same Tessera document folder your Chapter 10 agent retrieved from. You are not using it; you are reading it, reverse-engineering the seven-step pipeline underneath against the rough retrieval you built by hand.
+:::::
+
+## The honest question the data does not answer
+
+Three models, three confusion matrices, and one question the data will never answer for you: *for Tessera’s churn problem, which error is worse?* Predicting churn for a customer who stays means a wasted retention call (cheap, slightly annoying). Missing a customer who leaves means lost revenue you might have prevented. There is no universal answer. The business call shapes which model “wins.” A model with marginally lower accuracy that catches the real churners may be the better model for this decision, even though it looks worse on a leaderboard.
+
+This is the chapter's first proof of the spine: **accuracy is an assertion, not evidence of fitness.** A model that is 84% accurate on average can still miss every customer in the segment that actually matters. The figure on the dashboard persuades; the confusion matrix, read against the business's real cost of each error, is what proves.
+
+:::::: {.callout-note title="🤖 Conversation Log"}
+You ask an AI assistant to help pick a model for Tessera’s churn problem. It replies, confidently and quickly, with a recommendation: *the neural network, highest accuracy at 84%.* It even drafts a paragraph for the board paper.
+
+This is where you push back, because the AI is optimising the wrong objective. You name two things it did not weigh. First, the *direction* of the error matters more than its size: missing a churner costs more than a wasted retention call, so recall on the at-risk class is the metric to watch, not raw accuracy. Second, Henrik has to *defend* the retention budget to the board: the coefficients or the tree let him do that; the neural network does not. The AI was treating accuracy as the goal, when the goal is a defensible, explainable churn decision.
+
+You redirect it: rerun the comparison, weight recall and interpretability, and re-rank. The tree (or the logistic regression) becomes the better model for *this* decision, at slightly lower accuracy. The lesson lands: an AI will optimise whatever metric you name. Naming the right metric is a business judgement, and that judgement is yours, not the model’s. The machine proposes; you decide what counts as winning.
+::::::
+
+## A 4-bit model that wins on your task
+
+You have been running a **4-bit quantised** Qwen locally since Chapter 5. Quantisation means the model’s weights have been compressed, stored in four bits instead of the usual sixteen. You trade a sliver of precision for a large drop in memory and a real gain in speed. On a laptop, that is the difference between *won’t run* and *runs fine.*
+
+Here is the counterintuitive part: a 4-bit local model can outperform a much larger cloud model on a specific task. Not because it is smarter (it is not) but because on a narrow, well-scoped job it can be faster (no network round-trip, no token-billing throttle), private (the data never leaves the machine, the Chapter 6 sovereignty argument), cheap to specialise on your domain, and free at the margin so you can run the loop a thousand times. The lesson is not *local beats cloud.* It is **capability is task-relative.** You pick the model that fits the task and its constraints, and that judgement is yours to make and defend, not the vendor’s to sell you.
+
+This pairs with an uncomfortable property of models: they are not uniformly good. They are **brilliant at some things and shockingly bad at adjacent things**: write flawless code in one language and fumble a near-identical task in another, ace a reasoning puzzle and fail the same puzzle with the numbers swapped. This *jaggedness* is why the trust tool asks about the task, not the model: a model’s reputation on average tells you almost nothing about its reliability on the specific claim you are about to act on. The only honest answer is to evaluate on your task, on your data, which is exactly what the three-model comparison forces you to do.
+
+## When the data eats itself
+
+There is a slower failure hiding in all of this. When models are trained on text produced by *other models*, quality can degrade over generations: a slow blurring toward the average, where the rare but real cases quietly disappear. This is **model collapse**, and it matters now because the open web is filling with model-generated text. The risk for a business is specific: a model trained on contaminated synthetic data loses the long tail, exactly the unusual cases that churn analysis or fraud detection most need to catch. The churner who does not look like the average churner is the one you most need to keep, and the one collapse erases first.
+
+The defence is unglamorous and load-bearing: **know where your training and retrieval data came from.** Ground in human-authored, domain-specific documents (like the Tessera folder) rather than assuming that more data is always better. Provenance is a feature, not a chore.
+
+## The polished black box you can now read
+
+The second half of this chapter turns to a system that hides all of this machinery behind a clean interface: **NotebookLM**, Google’s production-grade retrieval system. You feed it the Tessera document folder, ask a real question (*which region is churning most, and what do the documents suggest is driving it?*) and it answers, grounding each claim in a specific source it cites.
+
+The temptation is to be impressed and move on. The discipline is to ask what they built underneath that you built by hand across Chapters 7 and 10. You already know the answer, because you built the rough version: **ingest → chunk → embed → retrieve → rank → generate → cite.** NotebookLM chunks the documents sensibly, ranks which chunk matters for the question, cites a source per claim, and handles the case where nothing matches. Your rough retrieval did one folder and one lookup; the polished one does all seven steps well, in the dark, where you cannot see them.
+
+This is the point of meeting the polished version *after* building the rough one. Layer 3 is convenient *because* it is a black box, and that is exactly why you needed the plain-text and configured layers first. You can trust NotebookLM’s retrieval **more** because you know what retrieval is, not less. The harness is a black box you can now read, because you once built its guts yourself.
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+Two outputs, two placements, and a transparency gap between them.
+
+The **churn prediction** that a retention budget is spent on is precise (a specific flag acted on) with large consequences (money, a customer relationship). That is the red quadrant: a human signs off, no exceptions. The Orange models’ transparency *helps* (you can show Henrik the coefficient or the branch), but it does not remove the obligation. The decision still crosses a human desk.
+
+NotebookLM’s answer on *which region is churning* is average-acceptable for the framing, but precise wherever it cites a figure or a document, so yellow: trust the framing, verify the load-bearing citations against their sources. Note the asymmetry. Orange shows you *how* it decided; NotebookLM hides the retrieval that fed its answer. Both demand placement on the grid. Neither earns trust by default, not even the shiny one.
+::::::
+
+## What you can now defend
+
+You came in asking *how does it decide?* You leave able to answer it three ways: by reading the weights, by tracing the tree, or by admitting you cannot read the network at all, and choosing accordingly. You know that capability is task-relative, that a smaller local model can win on a narrow job, that models are jagged and must be evaluated on your terms, and that data provenance is the quiet defence against collapse. And you can read a production retrieval system for what it is, because you built its rough ancestor.
+
+This is the practitioner’s moat made concrete. The machine produces the model. You supply the judgement about which model to trust, on which task, with how much oversight, and the evidence to defend it. But a harder question is now unavoidable. If a smaller local model can win on a specific task, and the defensible advantage is shifting from the model to the data and harness around it, then *what is the human’s role in choosing and defending a model, and is that role stable?* That is the question the final chapter turns to.
+
+:::::: {.callout-tip title="🔬 Power-user extension"}
+The **Core** path is the NotebookLM deconstruction in the case box: build a side-by-side comparison table — your rough hand-rolled RAG against NotebookLM’s polished retrieval — with one row per pipeline stage (*ingest, chunk, embed, retrieve, rank, generate, cite*) and a note on which stage each system performs visibly versus in the dark. That table alone shows you what you are paying Google for. Doing only this is complete and correct.
+
+To go further, run the same discipline on the Orange side. Re-open the three churn models and read them properly: the **ROC curve** and **AUC** in *Test & Score* tell you how cleanly the classes separate; the **confusion matrix** widget shows the *direction* of the errors, which matters more than headline accuracy (as the conversation log showed). Then tune **one hyperparameter** — the tree’s *minimum instances in leaves*, or the logistic regression’s regularisation strength — and watch the bias–variance trade-off move in real time: the tree memorises, then blurs; AUC rises, then falls. Sketch the full *ingest → chunk → embed → retrieve → rank → generate → cite* pipeline on a whiteboard while you do, and you will see both systems — yours and NotebookLM’s — as the same machine, built to different tolerances.
+::::::
+
+## 🔍 Go deeper
+
+- **Ilia Shumailov et al., “AI models collapse when trained on recursively generated data,” *Nature* 631 (2024).** <https://www.nature.com/articles/s41586-024-07566-y>. *Why read this:* the paper that put model collapse on solid ground, proving the long tail disappears as a statistical inevitability, not a guess. Read it for the mechanism behind the chapter’s warning on synthetic data.
+
+- **3Blue1Brown, “But what is a neural network? | Deep learning, chapter 1” (video, ~18 min).** <https://www.3blue1brown.com/lessons/neural-networks>. *Why watch this:* the clearest visual unpacking of layers, weights, and activation you will find, no code required. It makes “a stack of weighted connections” something you can actually see.
+
+- **Andrej Karpathy, “Intro to Large Language Models” (video).** <https://www.youtube.com/watch?v=zjkBMFhNj_g>. *Why watch this:* the LLM-as-operating-system analogy, where retrieval (RAG) is *disk access*, the single best mental model for deconstructing what NotebookLM is doing underneath its clean interface.

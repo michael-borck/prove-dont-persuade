@@ -1,0 +1,86 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Prove, Don't Persuade"
+  subtitle: "Why Proof Beats the Demo in Applied AI"
+  author: "Michael Borck"
+  date: today
+  license: "CC BY"
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - part: "Act I · Foundation: what changed, and for whom"
+      chapters:
+        - chapters/01-what-changed.qmd
+        - chapters/02-for-whom.qmd
+        - chapters/03-can-you-tell.qmd
+        - chapters/04-whats-in-the-data.qmd
+        - chapters/05-what-are-you-giving-up.qmd
+        - chapters/06-whose-data-is-it.qmd
+    - part: "Act II · Build and Prove: does it actually work?"
+      chapters:
+        - chapters/07-are-you-asking-well.qmd
+        - chapters/08-what-is-it-saying.qmd
+        - chapters/09-does-it-actually-work.qmd
+        - chapters/10-can-it-do-the-whole-job.qmd
+        - chapters/11-how-does-it-decide.qmd
+        - chapters/12-what-comes-next.qmd
+  appendices:
+    - appendices/a-the-trust-tool.qmd
+    - appendices/b-conversation-log-format.qmd
+    - appendices/c-what-you-build.qmd
+    - appendices/d-prototype-to-production.qmd
+    - appendices/e-the-tessera-case.qmd
+    - appendices/f-no-code-toolkit.qmd
+    - acknowledgments.qmd
+    - about-author.qmd
+  other-links:
+    - text: Download PDF
+      icon: file-pdf
+      href: prove-dont-persuade.pdf
+    - text: Download EPUB
+      icon: book
+      href: prove-dont-persuade.epub
+    - text: Tessera case site
+      icon: building
+      href: https://tessera.locoensayo.org
+    - text: GitHub
+      icon: github
+      href: https://github.com/michael-borck/prove-dont-persuade
+    - text: "Companion: Conversation, Not Delegation"
+      icon: chat-left-text
+      href: https://michael-borck.github.io/conversation-not-delegation/
+    - text: All Books
+      icon: collection
+      href: https://books.borck.education
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+  pdf:
+    documentclass: book
+    toc: true
+    toc-depth: 1
+    number-sections: true
+    geometry:
+      - paperwidth=6in
+      - paperheight=9in
+      - inner=1in
+      - outer=0.625in
+      - top=0.75in
+      - bottom=0.75in
+    include-in-header: pdf-header.tex
+    include-before-body:
+      - copyright-page.tex
+  epub:
+    toc: true
+    toc-depth: 1
+    css: epub-styles.css

@@ -1,0 +1,63 @@
+# F. The No-Code Toolkit — Getting Started {.unnumbered}
+
+Every hands-on activity in this book has a **no-code Core** path. You do not need to write code, install a compiler, or know a programming language to do the work this book asks of you. That is a design choice, not a compromise: the same capability should be available to every reader, whatever their background, on whatever laptop they happen to own.
+
+This appendix is the quick-start for the five free tools the Core paths use. Install what you need when you reach the chapter that needs it; you do not need all of them on day one. Everything here is free, runs on macOS, Windows, and Linux, and — with one exception — works entirely offline once set up.
+
+The optional **🔬 Power-user extensions** in each chapter sometimes go further (a little code, self-hosting, a second model). They are never required. If you want the ceiling, this appendix tells you where the floor is.
+
+## Which tool, which chapter
+
+| Tool | Free? | Online? | Used in |
+|---|:---:|:---:|---|
+| **Orange Data Mining** | yes | runs offline | 4, 8, 11 |
+| **Google Teachable Machine** | yes | browser (export runs anywhere) | 9 |
+| **NotebookLM** | yes | browser | 11 |
+| **Ollama** | yes | runs offline | 5, 7, 10, 11 |
+| **Open WebUI** | yes | runs offline | 5, 7, 10 |
+
+## Orange Data Mining — visual machine learning
+
+Orange is a drag-and-drop tool for classical machine learning. You build a workflow by placing widgets on a canvas and wiring them together; each widget is a step you can open and inspect. It is the tool this book uses to make decision trees, clustering, and sentiment visible — *literally*, because you can see every split.
+
+- **Get it:** <https://orangedatamining.com/download>. Installers for macOS, Windows, Linux.
+- **First run:** open it, drag a **File** widget onto the canvas, double-click it, and load a CSV. Drag a **Data Table** and a **Distributions** widget, wire them to File, and you are looking at data. That is the whole interaction model.
+- **For Chapter 4:** **File → Decision Tree → Tree Viewer**, and **File → k-Means** for clustering.
+- **No account, no cloud.** Your data stays on your machine. That matters in Chapter 6.
+
+## Google Teachable Machine — train a model in the browser
+
+Teachable Machine lets you train an image, audio, or pose classifier in a browser tab using transfer learning. You point a webcam (or upload images), click *Train Model*, and export a working model you can put on a web page. It is the most approachable way to experience "I built and shipped a model" in an afternoon — which is exactly why Chapter 9 uses it.
+
+- **Get it:** <https://teachablemachine.withgoogle.com>. A Google account helps for saving projects; the tool itself is free.
+- **For Chapter 9:** create an **Image Project**, add 2–3 classes, capture ~15–25 images per class varying the conditions on purpose, click **Train Model**, then **Export → TensorFlow.js → "Upload my model"**. Drop the link it gives you into the Glitch starter (below) and your classifier is live on your phone.
+- **Glitch starter:** remix the Teachable Machine starter at <https://glitch.com> (search "Teachable Machine") to turn your exported model into a web app anyone can open.
+- **Power-user note:** the same export can be *downloaded* and self-hosted, which is the sovereignty move from Chapter 5 applied to a model you built.
+
+## NotebookLM — retrieval, as a black box you can open
+
+NotebookLM is Google's polished retrieval system: you give it a set of source documents and it answers questions about them, with citations. It is, in this book's terms, a production-grade harness you did not build. Chapter 11 uses it as the thing you *deconstruct* — you compare it against the rough retrieval you built by hand and ask what they built underneath it.
+
+- **Get it:** <https://notebooklm.google.com>. A free Google account.
+- **For Chapter 11:** create a notebook, add the same document folder you used for your Chapter 7 retrieval, and ask it questions. Then ask the harder question: what did it do (chunking, ranking, citation) that your folder-and-a-sentence version did not?
+- A reminder from Chapter 11: NotebookLM is here to be *read*, not just used. The point of meeting it after you built the rough version is that you can see the seams.
+
+## Ollama — run a model on your own machine
+
+Ollama is the engine that runs a large language model locally, on your own hardware, with no data leaving your machine. It is the sovereignty and equity story of Chapter 5 made literal: the same capable model for everyone, free at the margin, private by construction.
+
+- **Get it:** <https://ollama.com/download>. Install, then in a terminal run `ollama run qwen3:8b` (or whichever model the chapter names). The first run downloads the model — a few gigabytes, once.
+- **What that tag means:** `qwen3:8b` is an 8-billion-parameter instruction-tuned model, stored **4-bit quantised** so it fits in roughly 5 GB and runs on a normal laptop. Chapter 11 explains quantisation; for setup, just know the compression is *why* it runs on your hardware.
+- **It runs offline** once the model is downloaded. No account, no per-query bill, no data sent anywhere.
+
+## Open WebUI — the chat interface
+
+Open WebUI is the chat front-end this book uses to point at a model and a knowledge folder. If you have used ChatGPT in a browser, you already know how to use it. The difference is that *you* choose the model and *you* control the documents.
+
+- **Get it:** the simplest path is to run it alongside Ollama; see the install instructions at <https://github.com/open-webui/open-webui>. A shared hosted instance (run by a team or a classroom) lets you skip local install entirely and just point a browser at it.
+- **For Chapter 7:** create a knowledge folder, drop in your documents, set a one-line system prompt, and you have built retrieval-augmented generation — the model reads your files before answering.
+- **For Chapter 10:** the same folder-plus-model idea extends into a multi-step agent that reads, retrieves, and drafts.
+
+## A note on equity
+
+The reason this toolkit is all free is not accident or charity. It is the argument Chapter 2 makes in miniature: if the capability to evaluate AI is gated behind a paid subscription, then only the people who can pay get to develop the judgement the field depends on — and the rest get to be deployed on. A no-code floor built on free, offline-capable tools is the cheapest way to put that judgement in everyone's hands. Install what you need, do the Core, and add the Power-user ceiling only if and when you want it.

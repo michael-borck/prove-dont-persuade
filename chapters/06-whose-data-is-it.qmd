@@ -1,0 +1,130 @@
+# Whose data is it?
+
+A support engineer at Tessera is drowning in tickets. The instinct (sensible, modern) is to paste the day's tickets into an AI, joined to the customer record, and let it draft a summary, classify the issue, and suggest a reply for each. Before anyone builds it, someone reassures the team: *don't worry, the customer dataset is anonymised.* The names are gone. The emails are gone. So it's safe, right?
+
+That sentence (*the data is anonymised*) is the most expensive assumption in applied AI. It is also, almost always, an assertion the speaker cannot defend. This chapter is about why, and about the discipline that turns that assertion into something you can prove.
+
+## The word that misleads everyone
+
+Two terms travel together and must not. **De-identified** data has had its identifiers stripped or masked, but the underlying records still exist and can be re-linked. **Anonymised** data has been transformed so that re-identification is *not reasonably possible*, by anyone, ever. The first is what most "anonymised" business data actually is. The second is a much higher bar, and it is rarely true of a rich dataset.
+
+The reason it matters is a thirty-year-old result, and it still surprises people. **Personally identifiable information (PII)** is anything that identifies a specific individual, directly or indirectly, and the indirect part is where nearly all the trouble hides. **Direct identifiers** (name, email, account number, a face) are the obvious ones. **Quasi-identifiers** identify nobody on their own, but *combined* they pin down a single person: postcode plus date of birth plus gender; employer plus job title plus start year; the particular product mix and tenure of one Tessera customer.
+
+In the late 1990s, Latanya Sweeney showed that roughly **87% of the US population** is uniquely identifiable from just three quasi-identifiers: postcode, date of birth, and sex. She proved it the memorable way. The governor of Massachusetts had just suffered a heart attack and publicly assured citizens that releasing "anonymised" medical records was harmless. Sweeney bought the voter roll for Cambridge on two floppy disks, linked it to the supposedly anonymous discharge data, and mailed the governor his own health record. The names were gone. The person was not.
+
+"I removed the names" is not anonymisation. It is de-identification wearing a confident label. And AI makes the second look like the first easier than ever, because cross-referencing a "de-identified" set against a public one is exactly the kind of pattern-matching these systems do well. The Netflix Prize dataset, the AOL search-log release, Strava's heat map exposing military bases: all were "anonymised." All were re-identified.
+
+## Where PII hides inside an AI workflow
+
+An AI pipeline is not one place data lives; it is several, and each is a leak surface:
+
+- **Training and fine-tuning data.** The model memorises and can regurgitate it.
+- **Prompts.** Users paste live customer data into a chat box.
+- **Retrieval corpus.** A knowledge folder full of tickets, contracts, and emails.
+- **Model outputs.** The model echoes back PII it was given or retrieved.
+- **Logs and telemetry.** Prompts and responses stored by the platform, sometimes for human review, sometimes indefinitely.
+
+Tessera's naive ticket-summariser hits all five at once. A production ticket carries a customer name, an account number, and often a screenshot; its free text may name a colleague or quote a contract value. Feed that raw into a summariser and you have placed personal data into every stage above. The risk does not sit in the model. It sits in the *flow*.
+
+## What the law says (and why it agrees with the architecture)
+
+Tessera has offices in Perth, Sydney and Malaga, with a standby region in Singapore, and customers across industries and regions, so it cannot pick one law. Its baseline is the **Australian Privacy Act 1988** and its **Notifiable Data Breaches (NDB) scheme**, administered by the **Office of the Australian Information Commissioner (OAIC)** — a scheme Tessera knows from the inside, having notified the OAIC of its own TSR-INC-2025-031 breach in early 2025. The operational heart of the Act is the **thirteen Australian Privacy Principles (APPs)**. You do not memorise thirteen. You recognise the four that bite hardest on an AI deployment:
+
+- **APP 3**: collect personal information only for a lawful, *necessary* purpose. You do not harvest ticket data "in case it's useful" for a future model.
+- **APP 6**: use or disclose it only for the purpose it was collected for. A ticket collected for support cannot quietly train a marketing model.
+- **APP 11**: take *reasonable* steps to protect it, including deletion. Prompts and logs holding PII must be secured and eventually destroyed.
+- **APP 8**: you are accountable for personal data sent overseas. Sending customer data to an overseas model server is a cross-border disclosure.
+
+The word *reasonable* in APP 11 is doing heavy lifting, and it moves with the technology. Pasting live customer PII into a consumer chatbot with no enterprise data agreement is very likely not reasonable. Running the same task on a local model, or on a contracted instance with no train-on-inputs clause, likely is. In October 2024 the Office of the Australian Information Commissioner made that direction explicit, publishing guidance that the APPs apply to *every* use of AI involving personal information (inputs, outputs, and inferred or hallucinated data alike) and that building a model on personal information is a high-privacy-risk activity. The direction of travel is more obligation, not less.
+
+Then come the stricter cousins. The EU's **General Data Protection Regulation (GDPR)** is the benchmark the rest of the world measures against, and it is stricter in several load-bearing ways. It requires a **lawful basis** for every processing activity: there is no default "we can because we have it." It grants **data-subject rights** (access, rectification, erasure, portability, objection) that have to be operationally answerable. It makes **privacy by design and by default** a *legal requirement* (Article 25), not best practice. It mandates **Data Protection Impact Assessments** for high-risk processing, which large-scale AI profiling usually is. It reaches **extraterritorially**: any company offering goods or services to people in the EU is caught, Aus…
+
+California's CCPA/CPRA, Singapore's PDPA, and China's PIPL add their own consent, breach-notification, and cross-border-transfer rules. A global AI deployment hits several at once. The pragmatic response most organisations adopt is the **highest-common-denominator approach**: build to the strictest applicable standard, usually GDPR, so a single pipeline is defensible everywhere, rather than running five. For a company of Tessera's size — roughly 210 staff serving around 600 clients — that is usually the only affordable answer.
+
+Notice what survives every framework. Two auditable questions recur, and they map directly onto architecture: *where* is the data stored and processed, and does that movement across borders trigger disclosure obligations (APP 8, GDPR transfer rules)? And was this data collected for *this* use, and if an AI use is new, is it compatible with the original purpose? **Data sovereignty** and **purpose limitation** carry most of the weight. And the local model from the previous chapter answers the first one by construction: if the data never leaves the machine, there is no cross-border disclosure. That is not a loophole. It is exactly the architectural control the law is asking for.
+
+## Privacy by design: engineer it in
+
+So much for the problem. **Privacy by design**, Ann Cavoukian's framing, is the response: privacy engineered in from the start, not bolted on after a breach. Seven principles, condensed: be **proactive**, not reactive; make **privacy the default**, so the user does not have to act to be protected; **embed** privacy into the architecture rather than add it as a feature; pursue **full functionality**, treating privacy and utility as positive-sum, not a trade-off; protect data **end-to-end**, including deletion; keep it **visible and transparent**; and keep the **user's interests** central.
+
+For a practitioner, that philosophy becomes a short checklist applied *before* you build: *what data, who needs it, how long is it kept, can we use less, where is it stored, who can read the logs?* From that checklist come concrete techniques, and the first two are the ones that actually defeat quasi-identifier re-identification:
+
+- **Minimisation**: send only the fields the task needs. The summariser wants the ticket *text*; it almost never needs the customer's email or account number.
+- **Generalisation**: coarsen the quasi-identifiers you keep: bin tenure or age into bands, round a location up to a region, band revenue into ranges. This is the control that stops combinations singling out one person.
+- **k-anonymity**: after minimising and generalising, each remaining combination of quasi-identifiers should cover at least *k* records (say, *k* = 5). If a combination still points at one person, generalise further. *k*-anonymity is the formal yardstick for "how anonymous is this, really?"
+- **Pseudonymisation**: replace identifiers with tokens kept in a separate, access-controlled table, reversible only by a trusted party.
+- **Aggregation**: report counts and distributions, not individual rows.
+- **Local routing**: run the sensitive step on the **local** model where data never leaves the machine; use the cloud model only for the non-sensitive step.
+
+Notice the shape of this. The first three controls are the difference between *asserting* a dataset is anonymous and *proving* it. "We anonymised the data" is a persuasion; *k* is a number. That is the spine of this book, applied to privacy: **prove, don't persuade.** A vendor's "we anonymise" is an assertion until you have the *k*-anonymity figure in front of you.
+
+::::::: {.callout-note title="🤖 Conversation Log"}
+**Task:** audit `tessera-customer-data.csv` for personal-data risk before feeding the ticket summariser.
+
+**Human:** *"Audit this customer dataset for personal data risk."*
+
+**AI (first pass):** *"No direct identifiers to worry about — no names, emails, or contact details, and `Customer_ID` is just an internal key. The dataset is anonymised and safe to process."*
+
+**Why that was wrong:** the AI optimised for reassurance. It checked for the obvious identifiers, dismissed the rest as harmless, and declared safety. "No names" is exactly the false comfort this chapter is about. Stopping there rubber-stamps a re-identifiable dataset as private.
+
+**Human (pushing back):** *"That's not the question. `Customer_ID` is an identifier, not a key. For each growing combination of `Region` → `+ Industry` → `+ Company_Size` → `+ Primary_Product` → `+ Tenure_Months` → `+ Contract_Value_AUD`, count records per bucket and report the smallest bucket — the dataset's k-anonymity."*
+
+**AI (corrected):** *"You're right. With 200 customers across 6 Regions and 6 Industries there are only 36 Region × Industry cells, and the distribution is skewed — several hold just one or two customers. Layer on `Company_Size` (3 bands) and `Primary_Product` (4 products) and you already have 432 possible cells for 200 rows; add exact `Tenure_Months` and exact `Contract_Value_AUD` and almost every remaining combination is unique. Dozens of distinct value-sets map to exactly one customer. k = 1. The dataset is re-identifiable."*
+
+**What this taught us about the tool:** the AI's first instinct is to relieve your worry. The practitioner's job is to convert that relief into evidence. "Looks anonymous" is an assertion; *k* is a number you can defend.
+:::::::
+
+:::::: {.tessera-case}
+**🌐 Tessera Case · the re-identification hiding in plain sight**
+
+Tessera handed over a customer dataset it had "anonymised", stripping out the company names, contact emails, and account IDs to prove the point. So is it safe?
+
+No. `tessera-customer-data.csv` has **200 customers** spread across **6 Regions** (Metro, North, South, East, West, Central) and **6 Industries** (Healthcare, Finance, Education, Manufacturing, Technology, Retail). That is only **36** Region × Industry cells before you add anything else — and the distribution is skewed, so several cells already hold a single customer. Layer on `Company_Size` (3 bands), `Primary_Product` (4 products), an exact `Tenure_Months`, and an exact `Contract_Value_AUD`, and almost every combination collapses to **one** company. Take one plausible row — Healthcare × Metro × Small × SecureLink × 14 months' tenure × a precise contract value: that "anonymous" record is a single, named company the moment you cross-reference a public registry, a procurement notice, or LinkedIn. *k* = 1 across the board.
+
+And notice the two fields everyone assumes are safe. `Contract_Value_AUD` is an exact dollar figure — match it against a tender database or an invoice and the row is yours, so it is a quasi-identifier in everything but name. `Company name` is not even a quasi-identifier in disguise; it is a direct identifier that happens to live one join away, in the ticket free text or the CRM note. Neither was stripped, because neither *looked* like a name.
+
+The redesign applies the controls above before a single record touches a model:
+
+1. **Minimise**: drop `Customer_ID`, any `Company name` joined in from ticket text, and `Renewal_Likelihood`. The summariser needs the ticket *text* and the *Primary_Product*, not the identity or the churn label.
+2. **Generalise**: bin `Tenure_Months` into 1–12 / 13–36 / 37+; band `Contract_Value_AUD` into ranges (or drop it); collapse `Region` to a broader territory.
+3. **Prove *k***: re-check after generalisation. If any combination still sits alone in its bucket, generalise further until *k* ≥ 5.
+4. **Pseudonymise**: if an identity must travel, replace `Customer_ID` with an opaque token only the support system can map back.
+5. **Route locally**: run the PII-bearing step on the local Qwen so data never leaves the machine; send only the de-identified, generalised text to a cloud model, if at all.
+6. **Set retention**: decide how long prompts and responses are stored and who can read them.
+
+The point is the architecture, not the tool. The same redesign works regardless of which model Tessera picks; that portability is the whole point of privacy by design.
+::::::
+
+:::::: {.callout-tip title="📍 Trust-tool placement"}
+**Naive workflow**: paste raw tickets, joined to the customer record, into a chatbot to draft a customer-facing reply.
+
+- **Precise or average?** A reply a real customer might receive must be *precise*.
+- **Blast radius?** Personal data spilling into a third party's logs is *large*: it cannot be un-leaked.
+
+This lands **red**: precise, large consequences, and personal data in the flow. A human must sign off, or it does not ship.
+
+**Redesigned workflow**: minimised fields, generalised quasi-identifiers, *k* ≥ 5, sensitive step on the local model, identity replaced by a token.
+
+The personal-data blast shrinks, but anything that still emits a response to a real customer does not become green. Well-designed controls move **red → yellow**: *verify the load-bearing bits before sending*. A human still reads the suggested reply. The architecture reduces the risk; it does not retire your judgement.
+::::::
+
+## Whose data is it, really?
+
+Stand back and hear the question behind the chapter. Tessera holds customer data **in trust**. When an AI workflow touches it, the responsibility does not transfer to the model vendor. It stays with Tessera, and with the engineer who built the flow. The Privacy Act, GDPR, and the trust tool all say the same thing in different registers: the data is the customer's, held by you, and *you* answer for where it goes.
+
+This is the last chapter of the Foundation act. You now know what changed, for whom it might fail, whether you can tell, what is in the data, what you give up to deploy it, and, here, whose data it is and who answers for it. The base is built. From here, the work changes. The next act is **Build and Prove**: you stop reading about AI and start assembling it, the harness that turns a model into a working solution, layer by layer. The first question of that act is the one every working system answers badly or well: *are you asking well?*
+
+::::::: {.callout-note title="🔬 Power-user extension"}
+The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Python/pandas, R, or even a spreadsheet pivot) and compute the dataset's actual *k*-anonymity: group by `Region, Industry, Company_Size, Primary_Product` and find the smallest non-empty bucket. Then apply one generalisation pass — bin `Tenure_Months` into 1–12 / 13–36 / 37+, and drop or band `Contract_Value_AUD` — and re-measure. Did *k* rise? To what? That before/after pair is the evidence a privacy review actually wants: not "we anonymised it", but "generalisation lifted *k* from 1 to *n*, and here is the script."
+:::::::
+
+## 🔍 Go deeper
+
+- **Latanya Sweeney, "Simple Demographics Often Identify People Uniquely"** (Carnegie Mellon Data Privacy Lab, 2000). *The* foundational paper on quasi-identifiers and the 87% result, including the Massachusetts governor re-identification. Read it to feel how little data it takes.
+  Sweeney's research artifacts and the paper are at <https://dataprivacylab.org/people/sweeney/artifacts.html>.
+
+- **Office of the Australian Information Commissioner, "Guidance on privacy and the use of commercially available AI products"** (OAIC, 21 October 2024). The Australian regulator's own mapping of the APPs onto AI: inputs, outputs, and hallucinated data alike. The closest thing to a direct answer for a Tessera-style deployment.
+  <https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products>
+
+- **Ann Cavoukian, "Privacy by Design: The 7 Foundational Principles"** (Information & Privacy Commissioner of Ontario, revised 2011). The source document for the framework this chapter uses: the seven principles in full, with the reasoning behind each.
+  <https://www.ipc.on.ca/wp-content/uploads/Resources/7foundationalprinciples.pdf>
