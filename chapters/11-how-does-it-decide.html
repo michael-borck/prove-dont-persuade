@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; How does it decide? – Prove, Don't Persuade</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/12-what-comes-next.html" rel="next">
+<link href="../chapters/10-can-it-do-the-whole-job.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/11-how-does-it-decide.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Prove, Don’t Persuade</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: The Proof Mindset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Act I · Foundation: what changed, and for whom</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-what-changed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What changed?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-for-whom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">For whom?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-can-you-tell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Can you tell?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-whats-in-the-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What’s in the data?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Act II · Build and Prove: does it actually work?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-are-you-asking-well.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Are you asking well?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-what-is-it-saying.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What is it saying?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-does-it-actually-work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Does it actually work?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-what-comes-next.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What comes next?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-the-trust-tool.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A. The Trust Tool</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-conversation-log-format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">B. The Conversation Log Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C. What You Build</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-prototype-to-production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">D. From Prototype to Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../acknowledgments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About the Author</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-decision-inside-the-box" id="toc-the-decision-inside-the-box" class="nav-link active" data-scroll-target="#the-decision-inside-the-box"><span class="header-section-number">11.1</span> The decision inside the box</a></li>
+  <li><a href="#the-honest-question-the-data-does-not-answer" id="toc-the-honest-question-the-data-does-not-answer" class="nav-link" data-scroll-target="#the-honest-question-the-data-does-not-answer"><span class="header-section-number">11.2</span> The honest question the data does not answer</a></li>
+  <li><a href="#a-4-bit-model-that-wins-on-your-task" id="toc-a-4-bit-model-that-wins-on-your-task" class="nav-link" data-scroll-target="#a-4-bit-model-that-wins-on-your-task"><span class="header-section-number">11.3</span> A 4-bit model that wins on your task</a></li>
+  <li><a href="#when-the-data-eats-itself" id="toc-when-the-data-eats-itself" class="nav-link" data-scroll-target="#when-the-data-eats-itself"><span class="header-section-number">11.4</span> When the data eats itself</a></li>
+  <li><a href="#the-polished-black-box-you-can-now-read" id="toc-the-polished-black-box-you-can-now-read" class="nav-link" data-scroll-target="#the-polished-black-box-you-can-now-read"><span class="header-section-number">11.5</span> The polished black box you can now read</a></li>
+  <li><a href="#what-you-can-now-defend" id="toc-what-you-can-now-defend" class="nav-link" data-scroll-target="#what-you-can-now-defend"><span class="header-section-number">11.6</span> What you can now defend</a></li>
+  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">11.7</span> 🔍 Go deeper</a></li>
+  </ul>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/11-how-does-it-decide.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The chatbot you talk to is a (very large) neural network. Say that sentence slowly, because it does two things at once. It demotes the chatbot from magic to mechanism, a thing with parts you could, in principle, point at. And it reveals that the neural network is just one family of model, sitting beside two older, plainer cousins you have already met in Orange. This is the chapter where you stop asking <em>what does the model say?</em> and start asking <em>how does it decide?</em>, because the second question is the one a CEO will ask you before signing the cheque.</p>
+<p>Tessera’s churn problem is the test bed. You will open three models on the same customer data, watch them decide differently, and discover that the most accurate model is rarely the one you can defend. Then you will turn to NotebookLM (Google’s polished retrieval system) and ask the harder question: now that you have built the rough version by hand, can you read the polished one underneath?</p>
+<section id="the-decision-inside-the-box" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="the-decision-inside-the-box"><span class="header-section-number">11.1</span> The decision inside the box</h2>
+<p>Before there was ever a chat interface, the same decide-and-predict mechanics ran in three classic forms. They share one loop:</p>
+<ol type="1">
+<li><strong>Split</strong> the data into train and test. You never test on what you trained on. That is marking your own homework, and it is the single most common way an AI prototype lies about how good it is.</li>
+<li><strong>Fit</strong> the model on the train set: it learns the relationship between inputs (tenure, region, satisfaction, contract value) and the target (did the customer churn?).</li>
+<li><strong>Predict</strong> on the test set, the data it has never seen.</li>
+<li><strong>Evaluate</strong>: how often was it right, how wrong, and in which direction?</li>
+</ol>
+<p>The four steps are identical for every model you will build this week. The only thing that differs is step two: <em>how it fits.</em></p>
+<p>A <strong>logistic regression</strong> learns a weight for each input (a positive weight for short tenure, a negative weight for high satisfaction), adds them up, and squashes the total into a probability of churn. The beauty is that the weights are readable. You can point at a coefficient and say “this is the single biggest churn driver the model found.” The limit is that it only captures straight-line, linear relationships.</p>
+<p>A <strong>decision tree</strong> learns a chain of yes/no questions: <em>tenure under six months? a recent complaint? predict churn.</em> You can trace any single prediction down the branches, and explain it to a stakeholder in plain English. A random forest is just many trees voting, which trades a little readability for a lot of sturdiness. A single tree’s weakness is that it can overfit, memorising the training data instead of learning the pattern.</p>
+<p>A <strong>neural network</strong> is layers of artificial neurons, every connection weighted, trained by nudging the weights to reduce error over many passes. It is far more flexible (it can capture patterns the other two cannot) at the cost of being nearly impossible to explain. This is the family the chatbot belongs to, scaled up until the individual decisions disappear into billions of weights.</p>
+<p>There is no free lunch. The table tells the whole story:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Family</th>
+<th>Interpretability</th>
+<th>Flexibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logistic regression</td>
+<td>High: read the weights</td>
+<td>Low: linear only</td>
+</tr>
+<tr class="even">
+<td>Decision tree</td>
+<td>High: trace the branches</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td>Neural network</td>
+<td>Low: a black-ish box</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>A model that is easy to explain is often less flexible; a model that is very flexible is hard to explain. <strong>In business, the interpretability column is frequently the one that matters</strong>, because a model you cannot explain is a model you cannot defend to a stakeholder, or to a regulator. When the decision touches money, the question is rarely “which is smartest?” It is “which can I justify?”</p>
+<div class="tessera-case">
+<p><strong>🌐 Tessera Case</strong></p>
+<p>You load Tessera’s churn data into Orange (<code>region</code> — Metro/North/South/East/West/Central — plus <code>tenure_months</code>, <code>company_size</code>, <code>satisfaction_score</code>, <code>primary_product</code>, <code>contract_value_aud</code>), and derive the one feature the data does not hand you: <code>satisfaction_band</code> (Low when <code>satisfaction_score</code> ≤ 6, High otherwise). (Your features are never all ready-made; building the right input is half the work.) You split seventy-thirty, build all three models from the same split, and read each against the same held-out test set.</p>
+<p>Then you open each one up. The <strong>logistic regression’s</strong> coefficients name the biggest churn driver in plain numbers; <em>short tenure</em> and <em>low satisfaction</em> light up, and a region segment stands out: the South and Metro territories churn at roughly two to three times the rate of Central, East, or North. The <strong>tree</strong> hands you a flowchart you could walk Henrik, Tessera’s CEO, down in a board meeting: <em>fewer than ~6 satisfaction, under ~12 months tenure → churn.</em> The <strong>neural network</strong> shows you nothing you can read. That opacity is the trade-off made concrete: the most flexible model is the one you cannot defend.</p>
+<p>The second artefact is NotebookLM, fed the same Tessera document folder your Chapter 10 agent retrieved from. You are not using it; you are reading it, reverse-engineering the seven-step pipeline underneath against the rough retrieval you built by hand.</p>
+</div>
+</section>
+<section id="the-honest-question-the-data-does-not-answer" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="the-honest-question-the-data-does-not-answer"><span class="header-section-number">11.2</span> The honest question the data does not answer</h2>
+<p>Three models, three confusion matrices, and one question the data will never answer for you: <em>for Tessera’s churn problem, which error is worse?</em> Predicting churn for a customer who stays means a wasted retention call (cheap, slightly annoying). Missing a customer who leaves means lost revenue you might have prevented. There is no universal answer. The business call shapes which model “wins.” A model with marginally lower accuracy that catches the real churners may be the better model for this decision, even though it looks worse on a leaderboard.</p>
+<p>This is the chapter’s first proof of the spine: <strong>accuracy is an assertion, not evidence of fitness.</strong> A model that is 84% accurate on average can still miss every customer in the segment that actually matters. The figure on the dashboard persuades; the confusion matrix, read against the business’s real cost of each error, is what proves.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🤖 Conversation Log
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You ask an AI assistant to help pick a model for Tessera’s churn problem. It replies, confidently and quickly, with a recommendation: <em>the neural network, highest accuracy at 84%.</em> It even drafts a paragraph for the board paper.</p>
+<p>This is where you push back, because the AI is optimising the wrong objective. You name two things it did not weigh. First, the <em>direction</em> of the error matters more than its size: missing a churner costs more than a wasted retention call, so recall on the at-risk class is the metric to watch, not raw accuracy. Second, Henrik has to <em>defend</em> the retention budget to the board: the coefficients or the tree let him do that; the neural network does not. The AI was treating accuracy as the goal, when the goal is a defensible, explainable churn decision.</p>
+<p>You redirect it: rerun the comparison, weight recall and interpretability, and re-rank. The tree (or the logistic regression) becomes the better model for <em>this</em> decision, at slightly lower accuracy. The lesson lands: an AI will optimise whatever metric you name. Naming the right metric is a business judgement, and that judgement is yours, not the model’s. The machine proposes; you decide what counts as winning.</p>
+</div>
+</div>
+</section>
+<section id="a-4-bit-model-that-wins-on-your-task" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="a-4-bit-model-that-wins-on-your-task"><span class="header-section-number">11.3</span> A 4-bit model that wins on your task</h2>
+<p>You have been running a <strong>4-bit quantised</strong> Qwen locally since Chapter 5. Quantisation means the model’s weights have been compressed, stored in four bits instead of the usual sixteen. You trade a sliver of precision for a large drop in memory and a real gain in speed. On a laptop, that is the difference between <em>won’t run</em> and <em>runs fine.</em></p>
+<p>Here is the counterintuitive part: a 4-bit local model can outperform a much larger cloud model on a specific task. Not because it is smarter (it is not) but because on a narrow, well-scoped job it can be faster (no network round-trip, no token-billing throttle), private (the data never leaves the machine, the Chapter 6 sovereignty argument), cheap to specialise on your domain, and free at the margin so you can run the loop a thousand times. The lesson is not <em>local beats cloud.</em> It is <strong>capability is task-relative.</strong> You pick the model that fits the task and its constraints, and that judgement is yours to make and defend, not the vendor’s to sell you.</p>
+<p>This pairs with an uncomfortable property of models: they are not uniformly good. They are <strong>brilliant at some things and shockingly bad at adjacent things</strong>: write flawless code in one language and fumble a near-identical task in another, ace a reasoning puzzle and fail the same puzzle with the numbers swapped. This <em>jaggedness</em> is why the trust tool asks about the task, not the model: a model’s reputation on average tells you almost nothing about its reliability on the specific claim you are about to act on. The only honest answer is to evaluate on your task, on your data, which is exactly what the three-model comparison forces you to do.</p>
+</section>
+<section id="when-the-data-eats-itself" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="when-the-data-eats-itself"><span class="header-section-number">11.4</span> When the data eats itself</h2>
+<p>There is a slower failure hiding in all of this. When models are trained on text produced by <em>other models</em>, quality can degrade over generations: a slow blurring toward the average, where the rare but real cases quietly disappear. This is <strong>model collapse</strong>, and it matters now because the open web is filling with model-generated text. The risk for a business is specific: a model trained on contaminated synthetic data loses the long tail, exactly the unusual cases that churn analysis or fraud detection most need to catch. The churner who does not look like the average churner is the one you most need to keep, and the one collapse erases first.</p>
+<p>The defence is unglamorous and load-bearing: <strong>know where your training and retrieval data came from.</strong> Ground in human-authored, domain-specific documents (like the Tessera folder) rather than assuming that more data is always better. Provenance is a feature, not a chore.</p>
+</section>
+<section id="the-polished-black-box-you-can-now-read" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="the-polished-black-box-you-can-now-read"><span class="header-section-number">11.5</span> The polished black box you can now read</h2>
+<p>The second half of this chapter turns to a system that hides all of this machinery behind a clean interface: <strong>NotebookLM</strong>, Google’s production-grade retrieval system. You feed it the Tessera document folder, ask a real question (<em>which region is churning most, and what do the documents suggest is driving it?</em>) and it answers, grounding each claim in a specific source it cites.</p>
+<p>The temptation is to be impressed and move on. The discipline is to ask what they built underneath that you built by hand across Chapters 7 and 10. You already know the answer, because you built the rough version: <strong>ingest → chunk → embed → retrieve → rank → generate → cite.</strong> NotebookLM chunks the documents sensibly, ranks which chunk matters for the question, cites a source per claim, and handles the case where nothing matches. Your rough retrieval did one folder and one lookup; the polished one does all seven steps well, in the dark, where you cannot see them.</p>
+<p>This is the point of meeting the polished version <em>after</em> building the rough one. Layer 3 is convenient <em>because</em> it is a black box, and that is exactly why you needed the plain-text and configured layers first. You can trust NotebookLM’s retrieval <strong>more</strong> because you know what retrieval is, not less. The harness is a black box you can now read, because you once built its guts yourself.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two outputs, two placements, and a transparency gap between them.</p>
+<p>The <strong>churn prediction</strong> that a retention budget is spent on is precise (a specific flag acted on) with large consequences (money, a customer relationship). That is the red quadrant: a human signs off, no exceptions. The Orange models’ transparency <em>helps</em> (you can show Henrik the coefficient or the branch), but it does not remove the obligation. The decision still crosses a human desk.</p>
+<p>NotebookLM’s answer on <em>which region is churning</em> is average-acceptable for the framing, but precise wherever it cites a figure or a document, so yellow: trust the framing, verify the load-bearing citations against their sources. Note the asymmetry. Orange shows you <em>how</em> it decided; NotebookLM hides the retrieval that fed its answer. Both demand placement on the grid. Neither earns trust by default, not even the shiny one.</p>
+</div>
+</div>
+</section>
+<section id="what-you-can-now-defend" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="what-you-can-now-defend"><span class="header-section-number">11.6</span> What you can now defend</h2>
+<p>You came in asking <em>how does it decide?</em> You leave able to answer it three ways: by reading the weights, by tracing the tree, or by admitting you cannot read the network at all, and choosing accordingly. You know that capability is task-relative, that a smaller local model can win on a narrow job, that models are jagged and must be evaluated on your terms, and that data provenance is the quiet defence against collapse. And you can read a production retrieval system for what it is, because you built its rough ancestor.</p>
+<p>This is the practitioner’s moat made concrete. The machine produces the model. You supply the judgement about which model to trust, on which task, with how much oversight, and the evidence to defend it. But a harder question is now unavoidable. If a smaller local model can win on a specific task, and the defensible advantage is shifting from the model to the data and harness around it, then <em>what is the human’s role in choosing and defending a model, and is that role stable?</em> That is the question the final chapter turns to.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔬 Power-user extension
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>Core</strong> path is the NotebookLM deconstruction in the case box: build a side-by-side comparison table — your rough hand-rolled RAG against NotebookLM’s polished retrieval — with one row per pipeline stage (<em>ingest, chunk, embed, retrieve, rank, generate, cite</em>) and a note on which stage each system performs visibly versus in the dark. That table alone shows you what you are paying Google for. Doing only this is complete and correct.</p>
+<p>To go further, run the same discipline on the Orange side. Re-open the three churn models and read them properly: the <strong>ROC curve</strong> and <strong>AUC</strong> in <em>Test &amp; Score</em> tell you how cleanly the classes separate; the <strong>confusion matrix</strong> widget shows the <em>direction</em> of the errors, which matters more than headline accuracy (as the conversation log showed). Then tune <strong>one hyperparameter</strong> — the tree’s <em>minimum instances in leaves</em>, or the logistic regression’s regularisation strength — and watch the bias–variance trade-off move in real time: the tree memorises, then blurs; AUC rises, then falls. Sketch the full <em>ingest → chunk → embed → retrieve → rank → generate → cite</em> pipeline on a whiteboard while you do, and you will see both systems — yours and NotebookLM’s — as the same machine, built to different tolerances.</p>
+</div>
+</div>
+</section>
+<section id="go-deeper" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">11.7</span> 🔍 Go deeper</h2>
+<ul>
+<li><p><strong>Ilia Shumailov et al., “AI models collapse when trained on recursively generated data,” <em>Nature</em> 631 (2024).</strong> <a href="https://www.nature.com/articles/s41586-024-07566-y" class="uri">https://www.nature.com/articles/s41586-024-07566-y</a>. <em>Why read this:</em> the paper that put model collapse on solid ground, proving the long tail disappears as a statistical inevitability, not a guess. Read it for the mechanism behind the chapter’s warning on synthetic data.</p></li>
+<li><p><strong>3Blue1Brown, “But what is a neural network? | Deep learning, chapter 1” (video, ~18 min).</strong> <a href="https://www.3blue1brown.com/lessons/neural-networks" class="uri">https://www.3blue1brown.com/lessons/neural-networks</a>. <em>Why watch this:</em> the clearest visual unpacking of layers, weights, and activation you will find, no code required. It makes “a stack of weighted connections” something you can actually see.</p></li>
+<li><p><strong>Andrej Karpathy, “Intro to Large Language Models” (video).</strong> <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" class="uri">https://www.youtube.com/watch?v=zjkBMFhNj_g</a>. <em>Why watch this:</em> the LLM-as-operating-system analogy, where retrieval (RAG) is <em>disk access</em>, the single best mental model for deconstructing what NotebookLM is doing underneath its clean interface.</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/10-can-it-do-the-whole-job.html" class="pagination-link" aria-label="Can it do the whole job?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/12-what-comes-next.html" class="pagination-link" aria-label="What comes next?">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What comes next?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

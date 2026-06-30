@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Are you asking well? – Prove, Don't Persuade</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/08-what-is-it-saying.html" rel="next">
+<link href="../chapters/06-whose-data-is-it.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Are you asking well?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Prove, Don’t Persuade</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: The Proof Mindset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Act I · Foundation: what changed, and for whom</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-what-changed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What changed?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-for-whom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">For whom?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-can-you-tell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Can you tell?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-whats-in-the-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What’s in the data?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Act II · Build and Prove: does it actually work?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-are-you-asking-well.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Are you asking well?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-what-is-it-saying.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What is it saying?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-does-it-actually-work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Does it actually work?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-what-comes-next.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What comes next?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-the-trust-tool.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A. The Trust Tool</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-conversation-log-format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">B. The Conversation Log Format</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C. What You Build</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-prototype-to-production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">D. From Prototype to Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../acknowledgments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About the Author</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#rtcf-is-the-floor-you-are-standing-on" id="toc-rtcf-is-the-floor-you-are-standing-on" class="nav-link active" data-scroll-target="#rtcf-is-the-floor-you-are-standing-on"><span class="header-section-number">7.1</span> RTCF is the floor you are standing on</a></li>
+  <li><a href="#when-one-prompt-is-not-enough-chaining" id="toc-when-one-prompt-is-not-enough-chaining" class="nav-link" data-scroll-target="#when-one-prompt-is-not-enough-chaining"><span class="header-section-number">7.2</span> When one prompt is not enough: chaining</a></li>
+  <li><a href="#the-deeper-move-you-have-been-blaming-the-wrong-layer" id="toc-the-deeper-move-you-have-been-blaming-the-wrong-layer" class="nav-link" data-scroll-target="#the-deeper-move-you-have-been-blaming-the-wrong-layer"><span class="header-section-number">7.3</span> The deeper move: you have been blaming the wrong layer</a></li>
+  <li><a href="#the-demystification-a-harness-is-plain-text-on-disk" id="toc-the-demystification-a-harness-is-plain-text-on-disk" class="nav-link" data-scroll-target="#the-demystification-a-harness-is-plain-text-on-disk"><span class="header-section-number">7.4</span> The demystification: a harness is plain text on disk</a></li>
+  <li><a href="#you-build-rough-before-you-are-handed-finished" id="toc-you-build-rough-before-you-are-handed-finished" class="nav-link" data-scroll-target="#you-build-rough-before-you-are-handed-finished"><span class="header-section-number">7.5</span> You build rough before you are handed finished</a></li>
+  <li><a href="#lands-on-tessera-building-rough-rag" id="toc-lands-on-tessera-building-rough-rag" class="nav-link" data-scroll-target="#lands-on-tessera-building-rough-rag"><span class="header-section-number">7.6</span> Lands on Tessera: building rough RAG</a></li>
+  </ul>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Are you asking well?</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Are you asking well?</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>You typed the same words your colleague typed. You got the better answer. Naturally you concluded you were the sharper prompter, and you went off to refine your prompts some more.</p>
+<p>Hold that conclusion. It is half right, and the half that is wrong is the more interesting half. The gap between your answer and your colleague’s was not (only) the words. It was everything those words travelled through before they reached the model: the standing instructions neither of you wrote down, the documents one of you had attached, the tools one of you had switched on, the model setting one of you had left at default. You have been improving the question and ignoring the room the question is asked in.</p>
+<p>By the end of the chapter you will have built both, against Tessera, and you will know which one moved the answer further.</p>
+<section id="rtcf-is-the-floor-you-are-standing-on" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="rtcf-is-the-floor-you-are-standing-on"><span class="header-section-number">7.1</span> RTCF is the floor you are standing on</h2>
+<p>You have used <strong>RTCF</strong> (Role, Task, Context, Format) in every exercise since Chapter 1. There is no need to recap the four parts here; they are the smallest structure that turns a vague request into a useful one. What matters now is the move that comes <em>after</em> RTCF, because most people stop too early.</p>
+<p>Two habits separate a developing prompter from a novice, and neither of them is a cleverer Role.</p>
+<p>The first is <strong>iterate, don’t restart.</strong> Treat the first response as a draft. Push back on it, narrow it, ask for the format you forgot to specify the first time. The second and third prompts in a conversation usually do more work than the first; the model has now seen what you do and do not want, and your follow-up is sharper for it.</p>
+<p>The second is <strong>verify against the trust tool before you act.</strong> RTCF does not exempt a red-quadrant task from human review. A perfectly structured prompt for a task that touches a customer or a contract is still a red-quadrant task. RTCF gets you a competent first response; it does not get you out of the discipline of placing that response on the grid and checking the load-bearing bits. The prompt is a floor, not a ceiling.</p>
+</section>
+<section id="when-one-prompt-is-not-enough-chaining" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="when-one-prompt-is-not-enough-chaining"><span class="header-section-number">7.2</span> When one prompt is not enough: chaining</h2>
+<p>Some jobs are too big, too uncertain, or too consequential for a single prompt. Ask a model to “analyse these support tickets and recommend a strategy” in one shot and it will skim: it has to, because the job contains four jobs and you asked for one. <strong>Prompt chaining</strong> breaks the work into a sequence where each prompt’s output feeds the next. You have done tiny versions of this without naming it; now name it.</p>
+<p>Chaining earns its keep in four ways. It <strong>decomposes</strong>: asked to <em>first</em> extract themes, <em>then</em> quantify, <em>then</em> recommend, the model goes deeper at each step than it could in a single pass. It <strong>verifies at each step</strong>: a bad extraction caught at link two never reaches link four. It <strong>specialises</strong>: each link can carry a different Role and Format tuned to its sub-task. And it <strong>routes</strong>: an early link can decide which later link to run at all (“is this a billing issue or a technical one?” sends the ticket to different drafters).</p>
+<p>Picture a Tessera support chain, four links:</p>
+<ol type="1">
+<li><strong>Classify</strong>: <em>“Given this ticket, classify it (billing / technical / account / other) and state your confidence.”</em> → a label.</li>
+<li><strong>Extract</strong>: <em>“List the concrete facts in this ticket (product, error, what was attempted).”</em> → a structured list.</li>
+<li><strong>Draft</strong>: <em>“Using only these extracted facts, draft a first-response email.”</em> → a draft.</li>
+<li><strong>Critique</strong>: <em>“Read this draft as the customer. What would make you trust it less?”</em> → a revision list.</li>
+</ol>
+<p>Here is the part that matters for this book: each link is small and verifiable, and each link is placed on the trust tool <em>individually</em>. The classification might be green: a wrong label is cheap to catch at the next step. The customer-facing draft is red: it goes to a person before it goes anywhere near a customer. Chaining lets you treat them differently instead of blobbing the whole job into one placement and then trusting all of it or none of it.</p>
+<p>Chain when the task has distinct stages that benefit from separate checking, or when a single prompt’s output keeps drifting. Do not chain when the job is genuinely one step; over-chaining adds latency and fresh failure points for no gain. And keep the honest limit in view: a perfect chain on a red-quadrant task still needs a human in the loop. Chaining makes the steps <em>inspectable</em>; it does not make them <em>trustworthy by default</em>.</p>
+</section>
+<section id="the-deeper-move-you-have-been-blaming-the-wrong-layer" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="the-deeper-move-you-have-been-blaming-the-wrong-layer"><span class="header-section-number">7.3</span> The deeper move: you have been blaming the wrong layer</h2>
+<p>Everything above assumes the words you send travel through a neutral pipe straight to the model. They do not. When you open a chat tool and type a message, you are not talking to a bare model. You are talking to a <strong>harness</strong>, the wrapper around the model that decides, before your words are ever answered:</p>
+<ul>
+<li>what <strong>standing instructions</strong> (the system prompt) frame every reply,</li>
+<li>what <strong>context</strong> gets attached to your message: retrieved documents, memory, prior turns,</li>
+<li>which <strong>tools</strong> the model can call: search, code execution, file reads,</li>
+<li>and which <strong>inference engine</strong>, which model at which settings, answers.</li>
+</ul>
+<p>Change any one of those four and you change the output, <em>without touching the prompt you typed</em>. That is the real reason two people can type the same words and get different answers: their harnesses differ. One has a system prompt telling the model to be terse; the other does not. One has a folder of company documents attached; the other does not. One is on a frontier model at low temperature; the other is on a local model at default. Same words in, different answers out; and the prompt had nothing to do with it.</p>
+<p>Think of the harness as four layers stacked around the model:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>What it is</th>
+<th>In Open WebUI terms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prompt</strong></td>
+<td>The standing instructions + your message</td>
+<td>System prompt + your chat</td>
+</tr>
+<tr class="even">
+<td><strong>Retrieval</strong></td>
+<td>The documents the model can see</td>
+<td>A knowledge / document folder (RAG)</td>
+</tr>
+<tr class="odd">
+<td><strong>Tool</strong></td>
+<td>Capabilities beyond text generation</td>
+<td>Functions, web search, file tools</td>
+</tr>
+<tr class="even">
+<td><strong>Inference</strong></td>
+<td>The model itself + its settings</td>
+<td>Model selector, temperature, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>The same four pieces exist whether the harness is a consumer chatbot, an enterprise agent, or the local Qwen stack you installed in Chapter 5. Naming them is what lets you <em>design</em> one instead of only ever using one.</p>
+</section>
+<section id="the-demystification-a-harness-is-plain-text-on-disk" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="the-demystification-a-harness-is-plain-text-on-disk"><span class="header-section-number">7.4</span> The demystification: a harness is plain text on disk</h2>
+<p>Here is the move that changes how you see all of this. Every one of those four layers is, at bottom, <strong>text and configuration</strong>.</p>
+<p>The system prompt is a string of text. The retrieved documents are files on disk. A tool description is text telling the model what the tool does. Model selection is a setting. So a harness is a <strong>folder of markdown files plus a bit of wiring</strong>. That is it. There is no secret sauce.</p>
+<p>When you open Pi’s skills folder in this chapter’s exercise, you will see exactly this: directories of markdown. A “skill” is a well-written markdown file in a named folder. You can read it. You can edit it. You can delete it. It is just text, and once you can see the seams, you can change any of them. The “system prompt” you keep hearing about is simply the standing-instructions section of a file like that.</p>
+<p>This reframes what you are actually learning to be portable at. The portable skill is <strong>designing the markdown files and the folder structure</strong> (the system prompt, the knowledge documents, the tool descriptions), not operating any particular tool. Three reasons that matters for a business team:</p>
+<ol type="1">
+<li><strong>It travels.</strong> Design the folder well and any capable model can use it: Pi, Qwen, Claude, whatever ships next quarter. You are not building a dependency on one vendor’s pricing or survival.</li>
+<li><strong>It is auditable.</strong> Plain text on disk is something a privacy reviewer, a compliance team, or your future self can actually read. Recall Chapter 6: this is <em>visibility and transparency</em> made literal.</li>
+<li><strong>It is teachable without code.</strong> You can design, edit, and reason about a harness without writing a line of code. The skill is in the <em>writing</em>, and you already know how to write.</li>
+</ol>
+</section>
+<section id="you-build-rough-before-you-are-handed-finished" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="you-build-rough-before-you-are-handed-finished"><span class="header-section-number">7.5</span> You build rough before you are handed finished</h2>
+<p>This book teaches the harness across three layers of increasing abstraction, deliberately, so the concept is demystified before it is ever hidden behind a user interface.</p>
+<p><strong>Layer 1 (this chapter, in Pi):</strong> the harness as raw files on disk. Maximum transparency: you read every instruction the model reads.</p>
+<p><strong>Layer 2 (later in this chapter, and in Chapters 5 and 10, in Open WebUI):</strong> the same architecture operated through a settings panel: system prompt, document folder, model selector. You control it; the retrieval is partly opaque.</p>
+<p><strong>Layer 3 (Chapter 11, NotebookLM):</strong> a polished, production-grade harness you did not build. You arrive at it <em>after</em> building the rough version yourself, so the question is not <em>what is this?</em> but <em>what did they build underneath it, and could I build it too?</em></p>
+<p>The ordering is the whole point. You are building, in sequence, the thing you will later be handed finished. Seeing the polished version after constructing the rough one is far more instructive than seeing it first. When a vendor shows you a slick RAG chatbot in Chapter 11, you will not be impressed into silence. You will recognise the seams, because you stitched them yourself.</p>
+</section>
+<section id="lands-on-tessera-building-rough-rag" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="lands-on-tessera-building-rough-rag"><span class="header-section-number">7.6</span> Lands on Tessera: building rough RAG</h2>
+<p>Now the proof. Tessera wants an assistant that can answer questions only Tessera’s own documents would know: what the four core products are, who sits on the leadership team, what each stakeholder wants from an analyst. A bare model cannot know any of that. Ask it cold and it will do one of three things: refuse, guess, or hallucinate with confidence. Ask it cold and you have a trust-tool disaster on your hands: a confident answer to a question the model cannot actually know is the classic red-quadrant trap.</p>
+<p>This is where the harness earns its keep, and where you prove it does. The move is small and entirely literal. In Open WebUI you create a knowledge folder, drop in Tessera’s company profile and stakeholder briefs, set a short RTCF-style system prompt (<em>“You are an analyst helping Tessera. Answer using only the attached documents; if the answer isn’t there, say so.”</em>), and ask the same impossible question again. What you have built is <strong>retrieval-augmented generation, RAG</strong>: the model reads your files before it answers. That is all RAG is, and having wired it with your own hands you will never find it mysterious again.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Watch out: a confident answer is not a sourced answer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Watch out: a confident answer is not a sourced answer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The hardest trap in Layer-2 RAG is that a retrieved answer <em>sounds</em> sourced when it is not. The model has read your documents, produced a fluent paragraph, and left you unable to see exactly which chunk of which file it pulled. A precise-sounding answer that grabbed the wrong paragraph is still wrong. The fix is cheap: ask the model to quote the sentence it used. If it cannot, or the quote does not match, you have caught it. Retrieval is a yellow-quadrant output until you verify the source.</p>
+</div>
+</div>
+<p>Remember the spine of this book. The before-and-after of that impossible question is not a demo to admire; it is evidence. The baseline answer is the assertion. The retrieved answer is the answer with a source you can check. Neither one is “the truth” until you have verified which document the retrieved answer actually came from.</p>
+<p>So which lever moved the Tessera answer further toward trustworthy: the rewrite of the <em>words</em>, or the change to the <em>harness</em>? Hold that question. It is the one this chapter’s field journal asks you to answer with a specific change named and a specific move on the trust tool explained. For most people who do this chapter honestly, the answer is the harness, and that answer reframes every chapter that follows.</p>
+<p>In the next chapter you stop asking one document at a time and start asking a whole corpus. Tessera has a pile of customer feedback, and the question becomes <em>what is it saying across all of it?</em> The harness idea stays useful: notice how a retrieved document, the move you made this chapter, differs from a <em>pattern found across many documents</em>, the move you are about to make. The folder is still your unit of work. The question just gets bigger.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🤖 Conversation Log
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Goal.</strong> Design the system prompt for Tessera’s RAG assistant, the standing instruction that frames every retrieved answer.</p>
+<p><strong>What I asked.</strong> I used the model as a drafting partner: <em>“Draft a system prompt for an Open WebUI assistant answering questions about Tessera from an attached document folder.”</em></p>
+<p><strong>Where the AI got it wrong.</strong> Its first draft was smooth and plausible, and quietly dangerous. It read: <em>“You are a Tessera expert. Use your knowledge of the company and the attached documents to give comprehensive answers.”</em> That phrase <em>use your knowledge of the company</em> is exactly the trap. It licenses the model to fill gaps from its training, which is precisely what a hallucination needs. A harness that invites the model to confabulate will confabulate, fluently, on every question the folder does not quite cover.</p>
+<p><strong>How I corrected it.</strong> I struck that clause and rewrote the standing instruction to <em>“You are an analyst helping Tessera. Answer using ONLY the attached documents. If the answer is not in the documents, say so; do not guess.”</em> The model pushed back (“this will make answers terse”); I held the line. The harness, not the prompt, was the load-bearing decision here, and the AI had drafted the wrong harness.</p>
+<p><strong>What I decided to trust.</strong> The corrected instruction, re-asked against the Tessera folder, correctly refused two questions the documents did not cover and answered three it did. The refusal was the evidence the harness was doing its job.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter produced three outputs, and they sit in three different cells.</p>
+<ul>
+<li><strong>The skill markdown file you sketched</strong> (Role, standing instructions, format) is <strong>green</strong>: average is fine, small consequences. It is a draft structure; skim it and move on.</li>
+<li><strong>The retrieved Tessera answer</strong> is <strong>yellow</strong>. It needs to be roughly right (precise-ish, sourced), and the blast radius of a wrong product name in a stakeholder briefing is real but recoverable. Verify the load-bearing source (the quoted sentence), and let the rest stand.</li>
+<li><strong>The baseline answer from the bare model</strong> is <strong>red</strong>, even though nothing reached a customer. A confident answer to a question the model cannot know is the failure mode this whole book exists to catch. The point of asking it cold is to <em>see</em> the red quadrant, then build the harness that moves the same question to yellow.</li>
+</ul>
+<p>The lesson: one chapter, three placements. Never blob a workflow into a single cell.</p>
+</div>
+</div>
+<div class="tessera-case">
+<p><strong>🌐 Tessera Case · the no-code Core</strong></p>
+<p><strong>The artefact:</strong> a Tessera knowledge folder (company profile, four stakeholder briefs, a sample support ticket), wired into an Open WebUI assistant with a one-line RTCF system prompt.</p>
+<p><strong>The proof move:</strong> ask the impossible question twice. First to the bare Qwen model (<em>“What are Tessera’s four core products, and which office is the HQ?”</em>), and save the confident guess. Then attach the folder, ask the same words, and watch the answer move from confabulated to sourced.</p>
+<p><strong>What it teaches:</strong> RAG is not a product category; it is “the model reads your files before answering.” Having built it from a folder and a sentence of instruction, you can read every other RAG system (vendor demos, NotebookLM, the enterprise chatbot a supplier is pitching Tessera) as the same four layers in a nicer box. That is the demystification, and it is your edge: the supplier’s demo persuades; your before-and-after proves.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔬 Power-user extension
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Core above is the no-code path: a knowledge folder plus a one-line system prompt in Open WebUI. Both moves below are optional depth — doing only the Core is complete and correct.</p>
+<ul>
+<li><strong>Author the harness as raw markdown on disk.</strong> This is the Layer-1 idea, taken literally. Create the knowledge folder and the system-prompt file by hand, read every instruction the model will read, and point Pi (or any local runtime) at the directory. You see every seam because you wrote each one.</li>
+<li><strong>Self-host the stack.</strong> Run Ollama locally and point Open WebUI at your own model, then wire the same folder through it. Now the inference layer is yours too — no vendor rate-limit, no data leaving your machine. The sovereignty question this book keeps asking becomes something you operate, not just argue.</li>
+</ul>
+<p>Either path makes the four layers move under your own hand.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="🔍 Go deeper">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🔍 Go deeper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Anthropic, “Building Effective Agents”</strong>: <a href="https://www.anthropic.com/research/building-effective-agents" class="uri">https://www.anthropic.com/research/building-effective-agents</a>. <em>Why read this:</em> the clearest industry statement of the move this chapter makes, that the building block of any agent is an LLM enhanced with retrieval, tools, and memory, and that you should reach for chains and multi-step workflows only when a simpler harness falls short. Read it for prompt chaining, routing, and the argument against premature abstraction.</p></li>
+<li><p><strong>Patrick Lewis et al., “Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks” (2020)</strong>: <a href="https://arxiv.org/abs/2005.11401" class="uri">https://arxiv.org/abs/2005.11401</a>. <em>Why read this:</em> the paper that named RAG. The term you demystified this chapter was coined here, and reading the original shows the idea was never magic, just a model conditioned on retrieved passages, exactly what you wired up with a folder.</p></li>
+<li><p><strong>OpenAI, “Prompt engineering”</strong>: <a href="https://platform.openai.com/docs/guides/prompt-engineering" class="uri">https://platform.openai.com/docs/guides/prompt-engineering</a>. <em>Why read this:</em> a vendor’s own treatment of RTCF-shaped fundamentals: be clear, be specific, show examples, iterate, test. Useful as a cross-check that the floor you have been standing on since Chapter 1 is the same floor the frontier labs describe.</p></li>
+</ul>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/06-whose-data-is-it.html" class="pagination-link" aria-label="Whose data is it?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/08-what-is-it-saying.html" class="pagination-link" aria-label="What is it saying?">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What is it saying?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
