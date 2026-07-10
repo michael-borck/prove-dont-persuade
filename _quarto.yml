@@ -8,6 +8,7 @@ book:
   author: "Michael Borck"
   date: today
   license: "CC BY"
+  favicon: favicon.svg
   page-navigation: true
   chapters:
     - index.qmd
@@ -62,6 +63,7 @@ format:
       light: cosmo
       dark: darkly
     css: styles.css
+    include-after-body: chatbot.html
     toc: true
     toc-depth: 3
     number-sections: true
