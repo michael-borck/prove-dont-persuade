@@ -47,14 +47,14 @@ Run the pipeline on `tessera-support-data.csv` and the clusters name themselves 
 
 That is a finding. *"Customers complain about Analytics Pro and SecureLink"* is a vibe; *"Analytics Pro and SecureLink skew more negative than the rest of the portfolio, and most sharply in the South and Metro territories"* is something a product decision could rest on. The clustering did the finding. You did the naming. Neither is ground truth; both are starting points that tell a human where to look.
 
-And notice what this finding is *not* standing on: one method, one time. Tessera's churn model in Chapter 4 surfaced the same two products — Analytics Pro and SecureLink — as the ones customers leave. Two independent methods, different data, same problem products. That convergence is cross-validation, and it is the kind of agreement that earns trust: not because either analysis is perfect, but because each corroborates the other without being designed to.
+And notice what this finding is *not* standing on: one method, one time. Tessera's churn model in Chapter 4 surfaced the same two products, Analytics Pro and SecureLink, as the ones customers leave. Two independent methods, different data, same problem products. That convergence is cross-validation, and it is the kind of agreement that earns trust: not because either analysis is perfect, but because each corroborates the other without being designed to.
 
 Now hold the tension the chapter is built to teach. The same analysis that surfaced a real pattern also handed you a sentiment number that is, in the lexicon's hands, partly fictional. Re-score the same Analytics Pro and SecureLink tickets with a second, model-based scorer and join the two columns side by side. Filter to the disagreements. Read eight or ten of them. Those tickets (the sarcastic *"love paying for outages"*, the negated *"not happy with Analytics Pro"*, the infrastructure *"cheap"* the lexicon read as praise) are exactly where the scorer silently failed. The *size* of that disagreement is your evidence for how far a single sentiment number can be trusted in a Tessera decision. Most of the time, the answer is: not far enough to act on alone.
 
 :::::: {.tessera-case}
 **🌐 Tessera Case**
 
-**The artefact** is not the cluster screenshot. It is two things together: the named theme maps (DataVault and CloudSync praise — reliability and sovereignty; Analytics Pro and SecureLink complaint clusters — accuracy and connectivity) *and* the **disagreement set**, the same Analytics Pro and SecureLink tickets re-scored lexicon-then-model, filtered to where the two scorers part ways, with eight to ten of those tickets read in full. The headline finding is *"Analytics Pro and SecureLink skew most negative in the portfolio, sharpest in the South and Metro territories."* But the defensible artefact, the thing a consultant report can actually stand behind, is the disagreement set, because it is the evidence that a single sentiment number is not enough to act on. The screenshot persuades; the disagreement set proves.
+**The artefact** is not the cluster screenshot. It is two things together: the named theme maps (DataVault and CloudSync praise for reliability and sovereignty; Analytics Pro and SecureLink complaint clusters for accuracy and connectivity) *and* the **disagreement set**, the same Analytics Pro and SecureLink tickets re-scored lexicon-then-model, filtered to where the two scorers part ways, with eight to ten of those tickets read in full. The headline finding is *"Analytics Pro and SecureLink skew most negative in the portfolio, sharpest in the South and Metro territories."* But the defensible artefact is the disagreement set, the thing a consultant report can actually stand behind. It is the evidence that a single sentiment number is not enough to act on. The screenshot persuades; the disagreement set proves.
 ::::::
 
 ## The number is not the decision
@@ -82,7 +82,7 @@ What text mining gave Tessera is genuine: themes a human would have taken a week
 The sentiment number lied to you in predictable, nameable ways, and you caught it because you went looking for the lie. That habit (expect the failure, measure it, name its size) is the whole posture the next chapter formalises. "Does it actually work?" stops being a question you ask of one output and becomes a discipline you apply to the whole solution: a threshold stated up front, an honest measurement against it, and a record of who it fails. The cluster map and the sentiment gap were the easy part. Proving the thing works is what earns this book its title.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-The **Core** path — Corpus → Preprocess Text → TF-IDF → Distances → Hierarchical Clustering, then Sentiment grouped by product and region — is complete and correct on its own. To push further, add the **second scorer**: train a model-based sentiment classifier (Orange's Logistic Regression or SVM on a small hand-labelled slice of tickets), score the same documents, and join it beside the lexicon column. Now the work is the **disagreement set** — filter to where the two scorers part ways, read the tickets, and *quantify the error*: what share of Analytics Pro tickets does the lexicon mis-score, and is that share the same for SecureLink? Compute the **worst-group error** — which product's sentiment is least reliable — and put that number in the report. A sentiment finding that names its own weakest group is the difference between a number and an honest number.
+The **Core** path, Corpus → Preprocess Text → TF-IDF → Distances → Hierarchical Clustering, then Sentiment grouped by product and region, is complete and correct on its own. To push further, add the **second scorer**: train a model-based sentiment classifier (Orange's Logistic Regression or SVM on a small hand-labelled slice of tickets), score the same documents, and join it beside the lexicon column. Now the work is the **disagreement set**: filter to where the two scorers part ways, read the tickets, and *quantify the error*: what share of Analytics Pro tickets does the lexicon mis-score, and is that share the same for SecureLink? Compute the **worst-group error**, which product's sentiment is least reliable, and put that number in the report. A sentiment finding that names its own weakest group is the difference between a number and an honest number.
 ::::::
 
 ## 🔍 Go deeper
@@ -92,3 +92,23 @@ The **Core** path — Corpus → Preprocess Text → TF-IDF → Distances → Hi
 - **Christopher D. Manning, Prabhakar Raghavan & Hinrich Schütze, *Introduction to Information Retrieval*** (Cambridge University Press, 2008), free online, <https://nlp.stanford.edu/IR-book/>. *Why read this:* the canonical, no-paywall text behind everything in this chapter: TF-IDF and term weighting (ch. 6), cosine similarity, and flat and hierarchical clustering (chs. 16–17). When you want to know not just *that* cosine distance separates text better than Euclidean, but *why*.
 
 - **Orange Data Mining, "Text Mining" tutorial playlist** (YouTube), <https://www.youtube.com/playlist?list=PLmNPvQr9Tf-bxmjlFRg0AGjMzzd1y8_kB>. *Why watch this:* the no-code, hands-on companion to exactly the workflow in this chapter (Corpus → Preprocess Text → Bag of Words / TF-IDF → Distances → Hierarchical Clustering), plus a dedicated sentiment-analysis walkthrough. See the pipeline move before you build it.
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Give the AI a sarcastic sentence and ask for a lexicon scorer's verdict alongside its own. The disagreement is the evidence this chapter is built on.
+2. Ask it to name a cluster from documents you supply, then ask what it collapsed to get there. A tidy label usually merges two grievances into the more marketable one.
+3. Ask when a sentiment number is safe to act on. Any answer that does not separate the aggregate from the individual score has missed the chapter.
+
+**Keywords to steer with.** unsupervised clustering · *k*-means · hierarchical clustering · cosine distance · tokenise, stopwords, normalise · bag of words · TF-IDF · lexicon versus model-based sentiment · negation · sarcasm · domain shift · mixed sentiment · disagreement set · worst-group error
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are a customer-insight analyst who does not trust sentiment scores and has the receipts.
+>
+> **Task:** Score the feedback I paste, then tell me which of your own scores you would not defend, and why.
+>
+> **Context:** I have read a chapter on where lexicon sentiment fails: negation, sarcasm, domain shift and mixed sentiment. Here is the feedback: [paste ten to twenty items]. Score each, then flag the ones where a word-counting scorer would disagree with you.
+>
+> **Format:** A table: item | your score | what a lexicon scorer would say | which failure mode explains the gap. Then one paragraph on what share of this sample a lexicon score would get wrong, and what that implies about acting on the aggregate.

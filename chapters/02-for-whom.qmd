@@ -28,9 +28,9 @@ The pattern is the point. The interesting question is never *does AI work here?*
 
 None of this is abstract. It is sitting in your own team.
 
-Picture a team where everyone uses whatever AI subscription they can personally afford. Within a week the team splits: some members have a frontier model that reasons, codes, and reads documents; others have a free tier that rate-limits, refuses, or lags. Same brief, same standard, different capability — and the difference tracks household budget, not effort or talent. That is the whole problem in miniature.
+Picture a team where everyone uses whatever AI subscription they can personally afford. Within a week the team splits: some members have a frontier model that reasons, codes, and reads documents; others have a free tier that rate-limits, refuses, or lags. Same brief, same standard, different capability, and the difference tracks household budget, not effort or talent. That is the whole problem in miniature.
 
-This is exactly why a careful team standardises on a model like Qwen, run locally and on a shared hosted instance. Everyone gets the same model, the same context window, the same refusal behaviour. The playing field is level by design. And notice what this is *not*: it is not a cost workaround. Running a model locally and comparing it to a frontier model is itself a discipline — it makes the sovereignty, privacy, and equity questions tangible rather than theoretical. The local model is the cheapest way to put the equity argument in your hands.
+This is exactly why a careful team standardises on a model like Qwen, run locally and on a shared hosted instance. Everyone gets the same model, the same context window, the same refusal behaviour. The playing field is level by design. And notice what this is *not*: it is not a cost workaround. Running a model locally and comparing it to a frontier model is itself a discipline, because it makes the sovereignty, privacy, and equity questions tangible rather than theoretical. The local model is the cheapest way to put the equity argument in your hands.
 
 You felt the gap then. The frontier model was slicker; the local Qwen was rougher. Notice your instinct: *the slicker one is better.* Now ask the question this book keeps asking: better **for whom**, and at what cost? For a team, the cost of *better-for-some* is a tier of colleagues who cannot do the work. The local model is a deliberate bet: *same-for-everyone and slightly rough* beats *great-for-some and absent-for-others*. That bet is the equity argument, and it is the same argument a careful Tessera analyst makes when choosing a deployment for a customer base that cannot all afford the frontier tier.
 
@@ -57,9 +57,9 @@ The resolution is not to pick a side. It is to notice *which people each framing
 
 Tessera ships one renewal model to its ~600 clients: one artefact, one satisfaction threshold, one green tick on the dashboard.
 
-The model was trained on the churn Tessera could *see*: the large enterprise accounts that renew loudly, with complaint spikes and contract-renewal drama. It predicts those well. What it does not predict well is the quiet churn — the customers whose leaving looks nothing like the training set. Disaggregate the score and the failure concentrates, hard: the **South** and **Metro** territories run ~94% and ~85% at-risk; **Education** and **Healthcare** run ~94% and ~85%; **Small** companies run ~47%. Central, East and North, Finance and Manufacturing and Retail, and Large companies sit near zero. One model, one green tick — and a map of who it quietly fails.
+The model was trained on the churn Tessera could *see*: the large enterprise accounts that renew loudly, with complaint spikes and contract-renewal drama. It predicts those well. What it does not predict well is the quiet churn, the customers whose leaving looks nothing like the training set. Disaggregate the score and the failure concentrates, hard: the **South** and **Metro** territories run ~94% and ~85% at-risk; **Education** and **Healthcare** run ~94% and ~85%; **Small** companies run ~47%. Central, East and North, Finance and Manufacturing and Retail, and Large companies sit near zero. One model, one green tick, and a map of who it quietly fails.
 
-The model's aggregate accuracy is a green tick. The disaggregated accuracy by segment is the audit no one ran. *For whom does this model work?* For the large, the loud, and the well-represented. *Whom does it quietly leave out?* The South, Metro, Education, Healthcare, and Small — everyone whose leaving made no noise.
+The model's aggregate accuracy is a green tick. The disaggregated accuracy by segment is the audit no one ran. *For whom does this model work?* For the large, the loud, and the well-represented. *Whom does it quietly leave out?* The South, Metro, Education, Healthcare, and Small: everyone whose leaving made no noise.
 ::::::
 
 This is where the proof mindset starts to bite. "For whom does Tessera's churn model work?" is not a question the dashboard answers. The dashboard shows aggregate accuracy, a green tick, a model that *works*. The proof is the disaggregated one: break it down by region, by segment, by the customers who leave quietly, and you find the people the average quietly buried. That is the evidence the demo never showed you, and it is the difference between a deployment and a demo pretending to be one.
@@ -87,7 +87,7 @@ The moment the analysis touches a real person (a customer segment, a region, a d
 :::::: {.callout-tip title="🔬 Power-user extension"}
 The **Core** of this chapter is the no-code move you just read: take the renewal model's headline accuracy, ask *for whom does it fail*, and disaggregate by segment until the green tick breaks. That alone is the discipline.
 
-**Go deeper (optional, code):** open `tessera-customer-data.csv` and compute the at-risk rate yourself. Group by `Region`, `Industry`, and `Company_Size`; in each group count the `Renewal_Likelihood = Low` rows and divide by the group total. You will reproduce the pattern by hand — South ~94% and Metro ~85%, Education ~94% and Healthcare ~85%, Small ~47%, the rest near zero. Then cross two slicings (Region × Industry) and look for a sparse cell where the rate is high but the count is tiny: that is the small-cell noise a careful analyst discards rather than ships. Want a second model? Train a simple decision tree (Chapter 4 does this in Orange) and compare its disaggregated gaps to the renewal threshold — two methods agreeing on the same failing segments is the cross-validation that earns trust.
+**Go deeper (optional, code):** open `tessera-customer-data.csv` and compute the at-risk rate yourself. Group by `Region`, `Industry`, and `Company_Size`; in each group count the `Renewal_Likelihood = Low` rows and divide by the group total. You will reproduce the pattern by hand: South ~94% and Metro ~85%, Education ~94% and Healthcare ~85%, Small ~47%, the rest near zero. Then cross two slicings (Region × Industry) and look for a sparse cell where the rate is high but the count is tiny: that is the small-cell noise a careful analyst discards rather than ships. Want a second model? Train a simple decision tree (Chapter 4 does this in Orange) and compare its disaggregated gaps to the renewal threshold, because two methods agreeing on the same failing segments is the cross-validation that earns trust.
 ::::::
 
 ## 🔍 Go deeper
@@ -97,3 +97,23 @@ The **Core** of this chapter is the no-code move you just read: take the renewal
 - **"Better to Ask in English: Evaluation of Large Language Models on English, Low-resource and Cross-Lingual Settings"** (Ahmadi et al., 2024; arXiv:2410.13153). <https://arxiv.org/abs/2410.13153>. An empirical benchmark of how much worse the *same* model performs the moment the query leaves English. *Why read:* it turns "frontier felt better" into a measured equity gap, exactly the gap a deliberate local-model choice exists to surface.
 
 - **"Iason Gabriel on Foundational Philosophical Questions in AI Alignment,"** Future of Life Institute Podcast (2022). <https://futureoflife.org/podcast/iason-gabriel-on-foundational-philosophical-questions-in-ai-alignment/>. An accessible conversation on fair alignment across cultures and why *"whose values?"* is the question that won't go away. *Why listen:* the paper made rigorous; the podcast makes it human.
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI who a tool you use every day was optimised for, then ask who pays for that optimisation. The second answer is where the equity argument actually lives.
+2. Ask it to describe its own weakest users. It will hedge. Push for language, region and phrasing, then check the claim against your own experience of it.
+3. Give it an aggregate accuracy figure and ask what that figure could be hiding. Then ask which disaggregation you should run first, and why that one before the others.
+
+**Keywords to steer with.** aggregate versus disaggregated accuracy · quiet churn · coordination problem · training-data lopsidedness · low-resource language · unit of decision · access gap · worst-group performance · target set
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are an evaluation lead whose job is to find the group a model fails before a journalist does.
+>
+> **Task:** Given the model and the population I describe, tell me which disaggregations to run and in what order, and what result would count as a real failure rather than noise.
+>
+> **Context:** I have read a chapter arguing that "average" hides a choice about who was in the training data. The model does [describe the task]. The users are [describe the population, including the parts of it that are small]. Small groups matter here, so tell me when a cell is too thin to conclude anything from.
+>
+> **Format:** A ranked list of disaggregations with the reason for each rank. For each: the failure threshold, the minimum group size you would accept, and what to do when the group is smaller than that.

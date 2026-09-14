@@ -114,9 +114,9 @@ The provocation, on the desk of everyone who built it: if this digest ships ever
 ::::::
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-**Core (no-code).** Build the digest yourself from the skills-folder idea: three short markdown files — a ticket-clusterer, a knowledge-searcher, a brief-drafter — dropped into an Open WebUI skills folder, with one model pointed at Tessera's support-tickets and knowledge folders. Run the plan-retrieve-draft loop, then place your checkpoint between *search* and *draft*.
+**Core (no-code).** Build the digest yourself from the skills-folder idea: three short markdown files (a ticket-clusterer, a knowledge-searcher, a brief-drafter) dropped into an Open WebUI skills folder, with one model pointed at Tessera's support-tickets and knowledge folders. Run the plan-retrieve-draft loop, then place your checkpoint between *search* and *draft*.
 
-**Power-user.** Take it further one of two ways. *Add a real tool-calling step*: give the knowledge-searcher a retrieval tool over the knowledge folder and require it to return the source filename and a verbatim quote with every claim — the citation check the case box enforces by hand, now done inside the loop. *Or instrument the loop*: log, at each step, whether the retrieved source actually contains the phrase the drafter went on to quote, so drift becomes a number you can watch compound instead of a surprise in the finished brief.
+**Power-user.** Take it further one of two ways. *Add a real tool-calling step*: give the knowledge-searcher a retrieval tool over the knowledge folder and require it to return the source filename and a verbatim quote with every claim: the citation check the case box enforces by hand, now done inside the loop. *Or instrument the loop*: log, at each step, whether the retrieved source actually contains the phrase the drafter went on to quote, so drift becomes a number you can watch compound instead of a surprise in the finished brief.
 ::::::
 
 ## Where this leaves you
@@ -134,3 +134,23 @@ But there is a question underneath this one we have not yet opened. You have bui
 - **How we built our multi-agent research system**: Anthropic Engineering, `anthropic.com/engineering/multi-agent-research-system`. A rare, honest production write-up of exactly the sub-agent-spawning pattern this chapter uses: a lead agent dispatching specialised sub-agents from a folder. Read it for two numbers worth carrying: multi-agent systems use roughly **10–15× the tokens** of a single agent (do the cost maths before you commit), and the system is evaluated by an LLM judge scoring *factual accuracy against sources*, the same citation check the Tessera checkpoint enforces by hand.
 
 - **Model Context Protocol: Introduction**: `modelcontextprotocol.io/docs/getting-started/intro`. The official MCP documentation, which itself uses the USB analogy. Read it to demystify the standard: tools, resources, and prompts are the three primitives, and "the agent reached into our CRM" is a vendor phrase you should now be able to translate into a concrete, auditable tool call.
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to list every action an agent you describe can take. If neither of you can enumerate the tool list, the agent has not been evaluated, whatever the vendor says.
+2. Ask where the checkpoint goes and, harder, why *there* and not one step later. The justification is the deliverable, not the placement.
+3. Ask how you would tell an agent that retrieved from one that only appeared to. To the reader of the finished prose they look identical, which is the whole problem.
+
+**Keywords to steer with.** agent loop · plan, act, observe, repeat · tool call as structured output · Model Context Protocol · skills folder · sub-agent · read-only versus write tools · compounding drift · approval gate · review checkpoint · confidence threshold · dry-run then execute · grounding as a property of the tool call
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are a safety reviewer who signs off on agent deployments and has refused several.
+>
+> **Task:** Take the agent I describe, tell me at which step its output becomes load-bearing or irreversible, then place the checkpoint and defend the placement.
+>
+> **Context:** I have read a chapter arguing that the blast radius lives in the tool list rather than the model, and that drift compounds across steps. The agent does [describe the steps in order]. The tools it can call are [list them honestly, including the read-only ones]. The output goes to [say who acts on it].
+>
+> **Format:** The loop step by step with a risk note on each. Then the checkpoint, with a paragraph defending why there rather than one step later. End with the one tool you would remove entirely, and what capability that costs.

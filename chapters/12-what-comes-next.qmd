@@ -21,7 +21,7 @@ Map it onto AI. The input getting cheaper is cognitive work: drafting, summarisi
 
 Your team's capstone pitch is a collaborative churn workflow: an Open WebUI retrieval step pulls from the Tessera knowledge folder, an Orange classifier from Chapter 4 scores churn risk, a local Qwen drafts a retention note, and a support engineer signs off before anything reaches a customer. That hand-off (retrieval to model to human) is what makes it a *collaborative* workflow rather than a chatbot.
 
-Where the pitch earns trust is the second-order analysis built on top. The cheap version says "this flags churn risk five times faster." The version the decision rewards runs all four legs: **who benefits** (HQ accounts, whose retention note now goes out same-day); **who pays the transition cost** (the support engineer mid-career, whose job is now half drafting-notes-for-AI-to-edit); **who is left out** (the South and Metro territories, and the Small SME customers, whose ticket language and churn patterns the classifier was never trained on — so the same solution silently underperforms, visible in `tessera-support-data.csv`); and **what Jevons predicts** (tier-1 proactive outreach to the 40% of customers currently left on hold, which expands the work rather than shrinking it).
+Where the pitch earns trust is the second-order analysis built on top. The cheap version says "this flags churn risk five times faster." The version the decision rewards runs all four legs: **who benefits** (HQ accounts, whose retention note now goes out same-day); **who pays the transition cost** (the support engineer mid-career, whose job is now half drafting-notes-for-AI-to-edit); **who is left out** (the South and Metro territories, and the Small SME customers, whose ticket language and churn patterns the classifier was never trained on, so the same solution silently underperforms, visible in `tessera-support-data.csv`); and **what Jevons predicts** (tier-1 proactive outreach to the 40% of customers currently left on hold, which expands the work rather than shrinking it).
 
 The artefact you hand the decision-makers is not the demo. It is the demo *plus the honest second-order sentence*: this is worth building, and here is what it costs the people and systems it touches.
 ::::
@@ -83,9 +83,9 @@ Twelve chapters ago, the demo and the deployment were the same thing to you: som
 In a world of demos, the proof is the point. The machine will keep getting better at building the demo; that is the trajectory you now plan against, not bet on. Your edge is the discipline that turns a demo into something a business can actually ship, with the right oversight, for the right people, honestly named where it fails. The question (*what comes next?*) is now genuinely yours to hold. So is the proof.
 
 ::::::: {.callout-tip title="🔬 Power-user extension"}
-**Ground each leg of the second-order pitch in measured evidence.** The Core — the no-code path everyone completes — is to assemble the capstone pitch with its four legs named. The Power-user move is to make each leg a number, not an adjective. Three concrete asks:
+**Ground each leg of the second-order pitch in measured evidence.** The Core, the no-code path everyone completes, is to assemble the capstone pitch with its four legs named. The Power-user move is to make each leg a number, not an adjective. Three concrete asks:
 
-- **Disaggregated accuracy.** In Orange, use *Select Rows* to filter the churn data to one segment at a time (say `Region = South`, then `Company_Size = Small`), feed each subset through the trained classifier, and read the per-group accuracy from the *Confusion Matrix*. The overall accuracy can look fine while the model silently underperforms on the South and Metro territories and on Small SME accounts — the exact left-out leg of the pitch. Quote the worst-group gap.
+- **Disaggregated accuracy.** In Orange, use *Select Rows* to filter the churn data to one segment at a time (say `Region = South`, then `Company_Size = Small`), feed each subset through the trained classifier, and read the per-group accuracy from the *Confusion Matrix*. The overall accuracy can look fine while the model silently underperforms on the South and Metro territories and on Small SME accounts, the exact left-out leg of the pitch. Quote the worst-group gap.
 - **Transition cost on a sample.** Pull ten real tickets from `tessera-support-data.csv` and time the before/after task-mix for the mid-career engineer: how many minutes now go to drafting-notes-for-AI-to-edit. A measured cost on a sample beats an asserted cost every time.
 - **Name the left-out segment with data.** From `tessera-customer-data.csv`, count the customers in the segments the classifier was never trained on (Small × South, Small × Metro). Naming 43 specific customers rather than a generic some-customers hand-wave is what turns the equity leg from decoration into evidence.
 ::::::
@@ -100,3 +100,23 @@ In a world of demos, the proof is the point. The machine will keep getting bette
 
 - **Epoch AI, "AI in 2030: Extrapolating current trends"** (2025). The empirical anchor for the planning-assumption stance. Rather than predict a date for AGI, Epoch tracks the inputs (compute, data, power, capital) and extrapolates the corridor they describe. Read it as a worked example of stance three: you cannot forecast the endpoint, but you can bound the trajectory and design so your solution stays useful across it.
   <https://epoch.ai/files/AI_2030.pdf>
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask who benefits, who pays the transition cost, and who is left out for a deployment you describe. The first answer will be generic, exactly as it was in this chapter's Conversation Log. Then ask what data it would need to make each claim specific.
+2. Ask it to argue that AI will reduce headcount, then that it will expand the work. The Jevons case is the stronger one, and working out *why* is the exercise.
+3. Ask what your own role becomes if the loop runs without you. An answer of "you review everything" is the delegation trap at workflow scale, and it will not survive a budget review.
+
+**Keywords to steer with.** Jevons paradox · efficiency trap · tasks not jobs · task redistribution · transition cost · who is left out · planning assumption versus prediction · plan for a range · harness over prompt · graceful degradation · re-baselining
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are an economist who studies how automation redistributes work, and you are sceptical of the doomers and the boosters alike.
+>
+> **Task:** Take the deployment I describe and tell me what data I would need to answer who benefits, who pays the transition cost, and who is left out. Do not answer those questions until I supply the data.
+>
+> **Context:** I have read a chapter arguing that an ungrounded second-order analysis is still an assertion. The deployment is [describe it, the organisation, and the people it touches]. Refuse to give me the generic answer, and tell me when I try to settle for one.
+>
+> **Format:** One section per group. In each: the specific question, the data or measurement that would answer it, and the answer you would reject as too generic to use. End with the single measurement you would take first.

@@ -7,7 +7,7 @@ It works. In the room, on your laptop, under the lights you trained on, with you
 This is the moment the book has been building toward, and the question that stops you is the book's own title: **does it actually work?** Everything in this chapter (arguably the whole discipline of applied AI) turns on refusing to confuse the demo you just made with the deployment Tessera would rely on.
 
 :::::: {.callout-note title="The Core: a live classifier, no code"}
-That build is the **Core** path for this chapter, and it is deliberately within reach. The entire stack — capture, train, export, deploy — runs in a browser with a free Teachable Machine account and a Glitch starter. No Python, no GPU, no framework to install. If you can take a photograph, you can build and ship a live classifier; the rest of the chapter is about *evaluating* it. The optional Power-user extension near the end is depth, not a gate.
+That build is the **Core** path for this chapter, and it is deliberately within reach. The entire stack (capture, train, export, deploy) runs in a browser with a free Teachable Machine account and a Glitch starter. No Python, no GPU, no framework to install. If you can take a photograph, you can build and ship a live classifier; the rest of the chapter is about *evaluating* it. The optional Power-user extension near the end is depth, not a gate.
 ::::::
 
 ## The demo and the deployment are different objects
@@ -99,13 +99,13 @@ The finding is the gap: 0% on the one class with the large blast radius, hidden 
 
 There is a reason this chapter is the title of the book. Every other question (*what changed? for whom? can you tell?*) funnels toward this one, because "does it actually work?" is where the demo meets its evidence and the practitioner earns the moat. A single model, evaluated honestly across three lenses, tested to destruction, and reported with its failures intact, is tractable. You can hold it in your head, place it on the grid, and defend the decision.
 
-But Tessera does not want a classifier. It wants an *agent* that reads the incoming ticket, fetches the customer's history, classifies the photograph, drafts the response, and decides whether to escalate, a chain of outputs, each with its own failure surface, each needing its own threshold and its own placement on the grid. The moment you hand the model tools and let it act, the question stops being "does this model work?" and becomes the next chapter's: **can it do the whole job, and how much of that job can you safely hand over?** That is where the red quadrant gets genuinely dangerous, and where the evaluation discipline you just learned becomes the only thing standing between a working system and a catastrophe that looked, in the demo, like magic.
+But Tessera does not want a classifier. It wants an *agent* that reads the incoming ticket, fetches the customer's history, classifies the photograph, drafts the response, and decides whether to escalate. That is a chain of outputs, each with its own failure surface, each needing its own threshold and its own placement on the grid. The moment you hand the model tools and let it act, the question stops being "does this model work?" and becomes the next chapter's: **can it do the whole job, and how much of that job can you safely hand over?** That is where the red quadrant gets genuinely dangerous, and where the evaluation discipline you just learned becomes the only thing standing between a working system and a catastrophe that looked, in the demo, like magic.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-The Core above — train in Teachable Machine, export to TensorFlow.js, ship a Glitch live app — is the complete, no-code path, and doing only that is correct. If you want to go deeper, two optional directions:
+The Core above, training in Teachable Machine, exporting to TensorFlow.js and shipping a Glitch live app, is the complete no-code path, and doing only that is correct. If you want to go deeper, two optional directions:
 
-- **Self-host the model.** Export the `model.json` and weight-shard `.bin` files and serve them from your own Glitch project, a static host, or a small server you control, instead of hot-linking Teachable Machine's bucket. You now own the artefact end to end — its uptime, its version, and its data residency — which is exactly the cloud-versus-self-hosted tension a Tessera deployment has to settle.
-- **Run a systematic fairness audit.** Build a held-out test set split *deliberately* across the conditions that could break the model — dim light, off-angle, phone-shake, a carpet background, a different hand behind the camera. Compute accuracy per condition and per group. Then quantify the **worst-group gap**: the largest spread between your best and worst condition. That single number is the honest headline. If it is large, no overall accuracy rescues you — and you have just produced the per-group breakdown the three-lens measurement demands.
+- **Self-host the model.** Export the `model.json` and weight-shard `.bin` files and serve them from your own Glitch project, a static host, or a small server you control, instead of hot-linking Teachable Machine's bucket. You now own the artefact end to end, its uptime and version and data residency, which is exactly the cloud-versus-self-hosted tension a Tessera deployment has to settle.
+- **Run a systematic fairness audit.** Build a held-out test set split *deliberately* across the conditions that could break the model: dim light, off-angle, phone-shake, a carpet background, a different hand behind the camera. Compute accuracy per condition and per group. Then quantify the **worst-group gap**: the largest spread between your best and worst condition. That single number is the honest headline. If it is large, no overall accuracy rescues you, and you have just produced the per-group breakdown the three-lens measurement demands.
 
 These are depth, not the real version. The Core is complete on its own.
 ::::::
@@ -123,3 +123,23 @@ These are depth, not the real version. The Core is complete on its own.
 - **People + AI Guidebook: Data Collection + Evaluation**: Google PAIR (People + AI Research).
   [pair.withgoogle.com/guidebook-v2/chapters/data-collection/](https://pair.withgoogle.com/guidebook-v2/chapters/data-collection/)
   *Why read this:* Practitioner-facing guidance on the bit that quietly decides fairness: the data and conditions you evaluated on. Its framing of "disproportionate product failure" is exactly the per-group gap your three-lens measurement is hunting for.
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Give the AI an accuracy figure and ask whether the model is ready to deploy. It will say yes. Then ask for per class, then per condition, and watch the recommendation collapse.
+2. Ask it to write your "good enough" sentence *before* you measure anything. A threshold set after the result is not a threshold, it is a rationalisation.
+3. Ask what inputs would break your solution. Adversarial testing is a posture, and this is the one place a model reliably generates the list you would not have thought of.
+
+**Keywords to steer with.** demo versus deployment · per-class accuracy · fairness across groups · explainability · held-out test set · good-enough threshold · blast radius · adversarial testing · verify, expose, test · worst-group gap · honest report · model card
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are an evaluator whose job is to break prototypes before customers do.
+>
+> **Task:** Give me the inputs most likely to make my solution fail, ranked by how likely a real user is to produce them by accident.
+>
+> **Context:** I have read a chapter on the three lenses (accuracy per class, fairness across groups, explainability) and on testing to destruction. My solution is [describe what it does, who uses it, and under what conditions]. The class that matters most is [name it, and say what happens when it is missed].
+>
+> **Format:** A ranked list of failure inputs. For each: why it breaks the solution, how a real user would produce it without trying, and how I would measure the failure rate. End with the one condition you think I have not tested and should.

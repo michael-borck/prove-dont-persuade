@@ -79,7 +79,7 @@ These are separate questions, and a good practitioner answers both. Choosing loc
 :::::: {.tessera-case}
 **🌐 Tessera Case**
 
-Tessera runs its multi-tenant SaaS on AWS — workload primary region **ap-southeast-2 (Sydney)**, declared standby **ap-southeast-1 (Singapore)**. The data that matters is sensitive: tenant support tickets full of customer detail, billing signals, the contract clauses a churn model reads. Two of Tessera's internal AI services — an AI summarisation service and a support AI assistant — do their work by calling a **third-party model vendor** over TLS. That call is the cross-border tension: the vendor's region is unknown and likely overseas, and it sits outside Tessera's pinned AWS regions. Pick the churn problem (*which tenants are at risk, and why?*) and run the deployment decision through it.
+Tessera runs its multi-tenant SaaS on AWS, with workload primary region **ap-southeast-2 (Sydney)**, declared standby **ap-southeast-1 (Singapore)**. The data that matters is sensitive: tenant support tickets full of customer detail, billing signals, the contract clauses a churn model reads. Two of Tessera's internal AI services (an AI summarisation service and a support AI assistant) do their work by calling a **third-party model vendor** over TLS. That call is the cross-border tension: the vendor's region is unknown and likely overseas, and it sits outside Tessera's pinned AWS regions. Pick the churn problem (*which tenants are at risk, and why?*) and run the deployment decision through it.
 
 | Deployment | Where the prompt goes | Sovereignty posture | Tessera gives up… |
 |---|---|---|---|
@@ -113,11 +113,11 @@ The **output** (say, the local model's summary of which Tessera tenants are chur
 So far we have treated "the data" as if it were a single thing you either protect or send abroad. It is not. Customer data is a layered object: some of it is identifying, some of it is sensitive, some of it can be de-identified and some of it cannot, and some of it, stripped of the obvious names, can still be matched back to a person with enough cross-referencing. Naming where data travels is half the discipline. The other half is knowing whose data it is, what you are allowed to do with it, and what the law says when it goes wrong. That is the next chapter.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-The **Core** above — installing Ollama and Open WebUI on your own laptop and watching the local model answer with the network unplugged — is the whole sovereignty argument made physical. Both sides of the trade have a deeper path worth taking once.
+The **Core** above, installing Ollama and Open WebUI on your own laptop and watching the local model answer with the network unplugged, is the whole sovereignty argument made physical. Both sides of the trade have a deeper path worth taking once.
 
-On the **self-hosting** side: do not stop at your laptop. Stand Ollama up on a real box — a desktop with a consumer GPU, or a bare-metal host on-prem — and point Open WebUI at it over the LAN. You now have a *Tessera-shaped* private inference endpoint that never touches a vendor, and you can put several colleagues on the same model at once: the same "shared floor" argument, at team scale. Measure tokens per second and concurrent users until it breaks, and you have felt the ops cost the VPS row of the table only names.
+On the **self-hosting** side: do not stop at your laptop. Stand Ollama up on a real box, a desktop with a consumer GPU or a bare-metal host on-prem, and point Open WebUI at it over the LAN. You now have a *Tessera-shaped* private inference endpoint that never touches a vendor, and you can put several colleagues on the same model at once: the same "shared floor" argument, at team scale. Measure tokens per second and concurrent users until it breaks, and you have felt the ops cost the VPS row of the table only names.
 
-On the **procurement** side: take the cloud-SaaS row and turn "data-processing agreement" from a phrase into a one-page checklist — *what fields may leave, to which region, under what lawful basis, with what retention, what sub-processor access, what breach-notification window, and what exit/return/deletion looks like*. Run it against a real vendor's DPA. The sovereignty trade stops being abstract the moment you have to sign it.
+On the **procurement** side: take the cloud-SaaS row and turn "data-processing agreement" from a phrase into a one-page checklist: *what fields may leave, to which region, under what lawful basis, with what retention, what sub-processor access, what breach-notification window, and what exit/return/deletion looks like*. Run it against a real vendor's DPA. The sovereignty trade stops being abstract the moment you have to sign it.
 ::::::
 
 ## 🔍 Go deeper
@@ -125,3 +125,23 @@ On the **procurement** side: take the cloud-SaaS row and turn "data-processing a
 - **The US CLOUD Act: Frequently Asked Questions** (Cross-Border Data Forum). A clear, authoritative explainer of the 2018 law that lets US law enforcement compel US-based providers to hand over data held abroad, the reason a Sydney server run by a US company is not fully sovereign. Read it to understand the sharpest edge of the sovereignty trade: *https://www.crossborderdataforum.org/cloudactfaqs/*
 - **"Open-weight models lag state-of-the-art by around three months on average"** (Epoch AI). The research outfit that tracks AI capabilities quantifies, with data, exactly how much capability you give up by choosing an open-weight or local model instead of the frontier. If "what are you giving up?" is the chapter's question, this is the answer in months. *https://epoch.ai/data-insights/open-weights-vs-closed-weights-models*
 - **"Best practices to avoid AI vendor lock-in"** (TechTarget). A practitioner-facing rundown of the lock-in traps (API coupling, egress fees, model deprecation, data-format lock-in) and how to design for portability before you are trapped. Read it before you wire a production system to a single vendor's API. *https://www.techtarget.com/searchenterpriseai/tip/Best-practices-to-avoid-AI-vendor-lock-in*
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to recommend cloud, VPS or local for a workload you describe. Count how many axes it scores on. One axis almost always means capability, which is the failure in this chapter's Conversation Log.
+2. Ask what a data-processing agreement should actually say, then check the answer against a real vendor's terms. The gap between the two is the exercise.
+3. Ask it to explain why AI spend rises while per-token prices fall. The Jevons answer is the right one, and a good model should reach it without being handed the name.
+
+**Keywords to steer with.** deployment model · cloud SaaS, VPS, local · sovereignty versus residency · CLOUD Act · consumer versus enterprise tier · train-on-inputs toggle · lock-in · open weights · quantisation · Jevons paradox · inputs versus outputs
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are a procurement lead who has to sign the data-processing agreement personally.
+>
+> **Task:** Score the three deployment options for the workload I describe on capability, speed and sovereignty, and tell me which axis I am being asked to lose on.
+>
+> **Context:** I have read a chapter arguing that every deployment choice is a trade with two sides, and that the *input* question (where the prompt travels) is separate from the *output* question (whether the answer is right). The workload is [describe the data, its sensitivity, the volume, and the jurisdiction].
+>
+> **Format:** A three-row table, one row per option, a column per axis, and an explicit "what we give up" cell. Then name the axis that is non-negotiable for this data, and say what evidence would change your mind.

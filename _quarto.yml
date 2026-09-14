@@ -44,12 +44,18 @@ book:
     - text: Download EPUB
       icon: book
       href: prove-dont-persuade.epub
+    - text: Download llm.txt
+      icon: robot
+      href: llm.txt
     - text: Tessera case site
       icon: building
       href: https://tessera.locoensayo.org
     - text: GitHub
       icon: github
       href: https://github.com/michael-borck/prove-dont-persuade
+    - text: DeepWiki
+      icon: search
+      href: https://deepwiki.com/michael-borck/prove-dont-persuade
     - text: "Companion: Conversation, Not Delegation"
       icon: chat-left-text
       href: https://michael-borck.github.io/conversation-not-delegation/

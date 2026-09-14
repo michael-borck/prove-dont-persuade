@@ -28,7 +28,7 @@ Tessera's naive ticket-summariser hits all five at once. A production ticket car
 
 ## What the law says (and why it agrees with the architecture)
 
-Tessera has offices in Perth, Sydney and Malaga, with a standby region in Singapore, and customers across industries and regions, so it cannot pick one law. Its baseline is the **Australian Privacy Act 1988** and its **Notifiable Data Breaches (NDB) scheme**, administered by the **Office of the Australian Information Commissioner (OAIC)** — a scheme Tessera knows from the inside, having notified the OAIC of its own TSR-INC-2025-031 breach in early 2025. The operational heart of the Act is the **thirteen Australian Privacy Principles (APPs)**. You do not memorise thirteen. You recognise the four that bite hardest on an AI deployment:
+Tessera has offices in Perth, Sydney and Malaga, with a standby region in Singapore, and customers across industries and regions, so it cannot pick one law. Its baseline is the **Australian Privacy Act 1988** and its **Notifiable Data Breaches (NDB) scheme**, administered by the **Office of the Australian Information Commissioner (OAIC)**, a scheme Tessera knows from the inside, having notified the OAIC of its own TSR-INC-2025-031 breach in early 2025. The operational heart of the Act is the **thirteen Australian Privacy Principles (APPs)**. You do not memorise thirteen. You recognise the four that bite hardest on an AI deployment:
 
 - **APP 3**: collect personal information only for a lawful, *necessary* purpose. You do not harvest ticket data "in case it's useful" for a future model.
 - **APP 6**: use or disclose it only for the purpose it was collected for. A ticket collected for support cannot quietly train a marketing model.
@@ -39,7 +39,7 @@ The word *reasonable* in APP 11 is doing heavy lifting, and it moves with the te
 
 Then come the stricter cousins. The EU's **General Data Protection Regulation (GDPR)** is the benchmark the rest of the world measures against, and it is stricter in several load-bearing ways. It requires a **lawful basis** for every processing activity: there is no default "we can because we have it." It grants **data-subject rights** (access, rectification, erasure, portability, objection) that have to be operationally answerable. It makes **privacy by design and by default** a *legal requirement* (Article 25), not best practice. It mandates **Data Protection Impact Assessments** for high-risk processing, which large-scale AI profiling usually is. It reaches **extraterritorially**: any company offering goods or services to people in the EU is caught, Aus…
 
-California's CCPA/CPRA, Singapore's PDPA, and China's PIPL add their own consent, breach-notification, and cross-border-transfer rules. A global AI deployment hits several at once. The pragmatic response most organisations adopt is the **highest-common-denominator approach**: build to the strictest applicable standard, usually GDPR, so a single pipeline is defensible everywhere, rather than running five. For a company of Tessera's size — roughly 210 staff serving around 600 clients — that is usually the only affordable answer.
+California's CCPA/CPRA, Singapore's PDPA, and China's PIPL add their own consent, breach-notification, and cross-border-transfer rules. A global AI deployment hits several at once. The pragmatic response most organisations adopt is the **highest-common-denominator approach**: build to the strictest applicable standard, usually GDPR, so a single pipeline is defensible everywhere, rather than running five. For a company of Tessera's size, roughly 210 staff serving around 600 clients, that is usually the only affordable answer.
 
 Notice what survives every framework. Two auditable questions recur, and they map directly onto architecture: *where* is the data stored and processed, and does that movement across borders trigger disclosure obligations (APP 8, GDPR transfer rules)? And was this data collected for *this* use, and if an AI use is new, is it compatible with the original purpose? **Data sovereignty** and **purpose limitation** carry most of the weight. And the local model from the previous chapter answers the first one by construction: if the data never leaves the machine, there is no cross-border disclosure. That is not a loophole. It is exactly the architectural control the law is asking for.
 
@@ -63,13 +63,13 @@ Notice the shape of this. The first three controls are the difference between *a
 
 **Human:** *"Audit this customer dataset for personal data risk."*
 
-**AI (first pass):** *"No direct identifiers to worry about — no names, emails, or contact details, and `Customer_ID` is just an internal key. The dataset is anonymised and safe to process."*
+**AI (first pass):** *"No direct identifiers to worry about: no names, emails, or contact details, and `Customer_ID` is just an internal key. The dataset is anonymised and safe to process."*
 
 **Why that was wrong:** the AI optimised for reassurance. It checked for the obvious identifiers, dismissed the rest as harmless, and declared safety. "No names" is exactly the false comfort this chapter is about. Stopping there rubber-stamps a re-identifiable dataset as private.
 
-**Human (pushing back):** *"That's not the question. `Customer_ID` is an identifier, not a key. For each growing combination of `Region` → `+ Industry` → `+ Company_Size` → `+ Primary_Product` → `+ Tenure_Months` → `+ Contract_Value_AUD`, count records per bucket and report the smallest bucket — the dataset's k-anonymity."*
+**Human (pushing back):** *"That's not the question. `Customer_ID` is an identifier, not a key. For each growing combination of `Region` → `+ Industry` → `+ Company_Size` → `+ Primary_Product` → `+ Tenure_Months` → `+ Contract_Value_AUD`, count records per bucket and report the smallest bucket, the dataset's k-anonymity."*
 
-**AI (corrected):** *"You're right. With 200 customers across 6 Regions and 6 Industries there are only 36 Region × Industry cells, and the distribution is skewed — several hold just one or two customers. Layer on `Company_Size` (3 bands) and `Primary_Product` (4 products) and you already have 432 possible cells for 200 rows; add exact `Tenure_Months` and exact `Contract_Value_AUD` and almost every remaining combination is unique. Dozens of distinct value-sets map to exactly one customer. k = 1. The dataset is re-identifiable."*
+**AI (corrected):** *"You're right. With 200 customers across 6 Regions and 6 Industries there are only 36 Region × Industry cells, and the distribution is skewed, so several hold just one or two customers. Layer on `Company_Size` (3 bands) and `Primary_Product` (4 products) and you already have 432 possible cells for 200 rows; add exact `Tenure_Months` and exact `Contract_Value_AUD` and almost every remaining combination is unique. Dozens of distinct value-sets map to exactly one customer. k = 1. The dataset is re-identifiable."*
 
 **What this taught us about the tool:** the AI's first instinct is to relieve your worry. The practitioner's job is to convert that relief into evidence. "Looks anonymous" is an assertion; *k* is a number you can defend.
 :::::::
@@ -79,9 +79,9 @@ Notice the shape of this. The first three controls are the difference between *a
 
 Tessera handed over a customer dataset it had "anonymised", stripping out the company names, contact emails, and account IDs to prove the point. So is it safe?
 
-No. `tessera-customer-data.csv` has **200 customers** spread across **6 Regions** (Metro, North, South, East, West, Central) and **6 Industries** (Healthcare, Finance, Education, Manufacturing, Technology, Retail). That is only **36** Region × Industry cells before you add anything else — and the distribution is skewed, so several cells already hold a single customer. Layer on `Company_Size` (3 bands), `Primary_Product` (4 products), an exact `Tenure_Months`, and an exact `Contract_Value_AUD`, and almost every combination collapses to **one** company. Take one plausible row — Healthcare × Metro × Small × SecureLink × 14 months' tenure × a precise contract value: that "anonymous" record is a single, named company the moment you cross-reference a public registry, a procurement notice, or LinkedIn. *k* = 1 across the board.
+No. `tessera-customer-data.csv` has **200 customers** spread across **6 Regions** (Metro, North, South, East, West, Central) and **6 Industries** (Healthcare, Finance, Education, Manufacturing, Technology, Retail). That is only **36** Region × Industry cells before you add anything else, and the distribution is skewed, so several cells already hold a single customer. Layer on `Company_Size` (3 bands), `Primary_Product` (4 products), an exact `Tenure_Months`, and an exact `Contract_Value_AUD`, and almost every combination collapses to **one** company. Take one plausible row, Healthcare × Metro × Small × SecureLink × 14 months' tenure × a precise contract value: that "anonymous" record is a single, named company the moment you cross-reference a public registry, a procurement notice, or LinkedIn. *k* = 1 across the board.
 
-And notice the two fields everyone assumes are safe. `Contract_Value_AUD` is an exact dollar figure — match it against a tender database or an invoice and the row is yours, so it is a quasi-identifier in everything but name. `Company name` is not even a quasi-identifier in disguise; it is a direct identifier that happens to live one join away, in the ticket free text or the CRM note. Neither was stripped, because neither *looked* like a name.
+And notice the two fields everyone assumes are safe. `Contract_Value_AUD` is an exact dollar figure: match it against a tender database or an invoice and the row is yours, so it is a quasi-identifier in everything but name. `Company name` is not even a quasi-identifier in disguise; it is a direct identifier that happens to live one join away, in the ticket free text or the CRM note. Neither was stripped, because neither *looked* like a name.
 
 The redesign applies the controls above before a single record touches a model:
 
@@ -115,7 +115,7 @@ Stand back and hear the question behind the chapter. Tessera holds customer data
 This is the last chapter of the Foundation act. You now know what changed, for whom it might fail, whether you can tell, what is in the data, what you give up to deploy it, and, here, whose data it is and who answers for it. The base is built. From here, the work changes. The next act is **Build and Prove**: you stop reading about AI and start assembling it, the harness that turns a model into a working solution, layer by layer. The first question of that act is the one every working system answers badly or well: *are you asking well?*
 
 ::::::: {.callout-note title="🔬 Power-user extension"}
-The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Python/pandas, R, or even a spreadsheet pivot) and compute the dataset's actual *k*-anonymity: group by `Region, Industry, Company_Size, Primary_Product` and find the smallest non-empty bucket. Then apply one generalisation pass — bin `Tenure_Months` into 1–12 / 13–36 / 37+, and drop or band `Contract_Value_AUD` — and re-measure. Did *k* rise? To what? That before/after pair is the evidence a privacy review actually wants: not "we anonymised it", but "generalisation lifted *k* from 1 to *n*, and here is the script."
+The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Python/pandas, R, or even a spreadsheet pivot) and compute the dataset's actual *k*-anonymity: group by `Region, Industry, Company_Size, Primary_Product` and find the smallest non-empty bucket. Then apply one generalisation pass: bin `Tenure_Months` into 1–12 / 13–36 / 37+, and drop or band `Contract_Value_AUD`, then re-measure. Did *k* rise? To what? That before/after pair is the evidence a privacy review actually wants: not "we anonymised it", but "generalisation lifted *k* from 1 to *n*, and here is the script."
 :::::::
 
 ## 🔍 Go deeper
@@ -128,3 +128,23 @@ The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Py
 
 - **Ann Cavoukian, "Privacy by Design: The 7 Foundational Principles"** (Information & Privacy Commissioner of Ontario, revised 2011). The source document for the framework this chapter uses: the seven principles in full, with the reasoning behind each.
   <https://www.ipc.on.ca/wp-content/uploads/Resources/7foundationalprinciples.pdf>
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI whether a dataset you describe is anonymised. The first answer will be reassuring. Then ask for the *k*-anonymity and watch the answer change, exactly as it did in this chapter's Conversation Log.
+2. Ask which fields in a schema you supply are quasi-identifiers. Then ask why an exact dollar figure counts as one. The reasoning matters more than the list.
+3. Ask where personal data hides in an AI pipeline. There are five surfaces, and logs are the one people forget.
+
+**Keywords to steer with.** de-identified versus anonymised · direct identifier · quasi-identifier · *k*-anonymity · minimisation · generalisation · pseudonymisation · aggregation · APP 3, 6, 8, 11 · GDPR lawful basis · privacy by design · retention · re-identification by linkage
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are a privacy engineer who has re-identified "anonymous" datasets for a living.
+>
+> **Task:** Take the schema I give you and tell me how you would re-identify one individual in it, then tell me what would stop you.
+>
+> **Context:** I have read a chapter on quasi-identifiers, *k*-anonymity and privacy by design. The schema is [list the columns, the row count, and what each column contains]. Assume you can buy or scrape one public dataset of your choosing, and name which one you would use.
+>
+> **Format:** The attack first: which columns you would combine, what external source you would join to, and roughly how many rows you think would be unique. Then the defence: which fields to drop, which to generalise, and what *k* you would target.

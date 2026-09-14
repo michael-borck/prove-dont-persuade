@@ -130,10 +130,10 @@ The lesson: one chapter, three placements. Never blob a workflow into a single c
 :::::
 
 ::::::: {.callout-tip title="🔬 Power-user extension"}
-The Core above is the no-code path: a knowledge folder plus a one-line system prompt in Open WebUI. Both moves below are optional depth — doing only the Core is complete and correct.
+The Core above is the no-code path: a knowledge folder plus a one-line system prompt in Open WebUI. Both moves below are optional depth; doing only the Core is complete and correct.
 
 - **Author the harness as raw markdown on disk.** This is the Layer-1 idea, taken literally. Create the knowledge folder and the system-prompt file by hand, read every instruction the model will read, and point Pi (or any local runtime) at the directory. You see every seam because you wrote each one.
-- **Self-host the stack.** Run Ollama locally and point Open WebUI at your own model, then wire the same folder through it. Now the inference layer is yours too — no vendor rate-limit, no data leaving your machine. The sovereignty question this book keeps asking becomes something you operate, not just argue.
+- **Self-host the stack.** Run Ollama locally and point Open WebUI at your own model, then wire the same folder through it. Now the inference layer is yours too: no vendor rate-limit, no data leaving your machine. The sovereignty question this book keeps asking becomes something you operate, not just argue.
 
 Either path makes the four layers move under your own hand.
 :::::::
@@ -145,3 +145,23 @@ Either path makes the four layers move under your own hand.
 
 - **OpenAI, "Prompt engineering"**: <https://platform.openai.com/docs/guides/prompt-engineering>. *Why read this:* a vendor's own treatment of RTCF-shaped fundamentals: be clear, be specific, show examples, iterate, test. Useful as a cross-check that the floor you have been standing on since Chapter 1 is the same floor the frontier labs describe.
 ::::::
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Run the same prompt twice under different system prompts, then ask the AI to explain the difference in its own two answers. The harness, not your wording, did the work.
+2. Ask it to write a system prompt for a document assistant, then hunt for a clause that licenses it to use its own knowledge. That clause is where hallucination gets formally invited in.
+3. Ask a retrieval-backed assistant to quote the sentence it used. If it cannot produce the quote, or the quote does not match, you have caught it.
+
+**Keywords to steer with.** RTCF · iterate, don't restart · prompt chaining · routing · harness · system prompt · retrieval · RAG · tool layer · inference settings · grounding · citation check · skills as markdown
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are an engineer who builds retrieval assistants and has watched every one of them hallucinate at least once.
+>
+> **Task:** Write me a system prompt for an assistant that answers only from an attached document folder, then attack your own prompt and show me where it leaks.
+>
+> **Context:** I have read a chapter on the four harness layers: standing instructions, retrieval, tools, and inference settings. The assistant answers questions about [describe the documents and who asks them]. I want it to refuse when the documents do not cover the question.
+>
+> **Format:** The system prompt in full. Then a list of the exact questions that would make it answer from training data instead of the documents, and the specific wording change that closes each hole.

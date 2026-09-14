@@ -34,7 +34,7 @@ A model that is easy to explain is often less flexible; a model that is very fle
 ::::: {.tessera-case}
 **🌐 Tessera Case**
 
-You load Tessera’s churn data into Orange (`region` — Metro/North/South/East/West/Central — plus `tenure_months`, `company_size`, `satisfaction_score`, `primary_product`, `contract_value_aud`), and derive the one feature the data does not hand you: `satisfaction_band` (Low when `satisfaction_score` ≤ 6, High otherwise). (Your features are never all ready-made; building the right input is half the work.) You split seventy-thirty, build all three models from the same split, and read each against the same held-out test set.
+You load Tessera’s churn data into Orange (`region`, meaning Metro/North/South/East/West/Central, plus `tenure_months`, `company_size`, `satisfaction_score`, `primary_product`, `contract_value_aud`), and derive the one feature the data does not hand you: `satisfaction_band` (Low when `satisfaction_score` ≤ 6, High otherwise). (Your features are never all ready-made; building the right input is half the work.) You split seventy-thirty, build all three models from the same split, and read each against the same held-out test set.
 
 Then you open each one up. The **logistic regression’s** coefficients name the biggest churn driver in plain numbers; *short tenure* and *low satisfaction* light up, and a region segment stands out: the South and Metro territories churn at roughly two to three times the rate of Central, East, or North. The **tree** hands you a flowchart you could walk Henrik, Tessera’s CEO, down in a board meeting: *fewer than ~6 satisfaction, under ~12 months tenure → churn.* The **neural network** shows you nothing you can read. That opacity is the trade-off made concrete: the most flexible model is the one you cannot defend.
 
@@ -92,9 +92,9 @@ You came in asking *how does it decide?* You leave able to answer it three ways:
 This is the practitioner’s moat made concrete. The machine produces the model. You supply the judgement about which model to trust, on which task, with how much oversight, and the evidence to defend it. But a harder question is now unavoidable. If a smaller local model can win on a specific task, and the defensible advantage is shifting from the model to the data and harness around it, then *what is the human’s role in choosing and defending a model, and is that role stable?* That is the question the final chapter turns to.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-The **Core** path is the NotebookLM deconstruction in the case box: build a side-by-side comparison table — your rough hand-rolled RAG against NotebookLM’s polished retrieval — with one row per pipeline stage (*ingest, chunk, embed, retrieve, rank, generate, cite*) and a note on which stage each system performs visibly versus in the dark. That table alone shows you what you are paying Google for. Doing only this is complete and correct.
+The **Core** path is the NotebookLM deconstruction in the case box: build a side-by-side comparison table, your rough hand-rolled RAG against NotebookLM’s polished retrieval, with one row per pipeline stage (*ingest, chunk, embed, retrieve, rank, generate, cite*) and a note on which stage each system performs visibly versus in the dark. That table alone shows you what you are paying Google for. Doing only this is complete and correct.
 
-To go further, run the same discipline on the Orange side. Re-open the three churn models and read them properly: the **ROC curve** and **AUC** in *Test & Score* tell you how cleanly the classes separate; the **confusion matrix** widget shows the *direction* of the errors, which matters more than headline accuracy (as the conversation log showed). Then tune **one hyperparameter** — the tree’s *minimum instances in leaves*, or the logistic regression’s regularisation strength — and watch the bias–variance trade-off move in real time: the tree memorises, then blurs; AUC rises, then falls. Sketch the full *ingest → chunk → embed → retrieve → rank → generate → cite* pipeline on a whiteboard while you do, and you will see both systems — yours and NotebookLM’s — as the same machine, built to different tolerances.
+To go further, run the same discipline on the Orange side. Re-open the three churn models and read them properly: the **ROC curve** and **AUC** in *Test & Score* tell you how cleanly the classes separate; the **confusion matrix** widget shows the *direction* of the errors, which matters more than headline accuracy (as the conversation log showed). Then tune **one hyperparameter**, the tree’s *minimum instances in leaves* or the logistic regression’s regularisation strength, and watch the bias–variance trade-off move in real time: the tree memorises, then blurs; AUC rises, then falls. Sketch the full *ingest → chunk → embed → retrieve → rank → generate → cite* pipeline on a whiteboard while you do, and you will see both systems, yours and NotebookLM’s, as the same machine, built to different tolerances.
 ::::::
 
 ## 🔍 Go deeper
@@ -104,3 +104,23 @@ To go further, run the same discipline on the Orange side. Re-open the three chu
 - **3Blue1Brown, “But what is a neural network? | Deep learning, chapter 1” (video, ~18 min).** <https://www.3blue1brown.com/lessons/neural-networks>. *Why watch this:* the clearest visual unpacking of layers, weights, and activation you will find, no code required. It makes “a stack of weighted connections” something you can actually see.
 
 - **Andrej Karpathy, “Intro to Large Language Models” (video).** <https://www.youtube.com/watch?v=zjkBMFhNj_g>. *Why watch this:* the LLM-as-operating-system analogy, where retrieval (RAG) is *disk access*, the single best mental model for deconstructing what NotebookLM is doing underneath its clean interface.
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to pick a model for a decision you describe. It will optimise accuracy. Ask which error is worse for the business, then make it re-rank on that.
+2. Ask it to explain a prediction to a non-technical executive, then ask what it had to leave out to make the explanation work. What it dropped is the interpretability cost, made visible.
+3. Ask what a smaller local model beats a frontier model at, and why. A good answer is about the task and its constraints, not about the model.
+
+**Keywords to steer with.** train/test split · logistic-regression coefficients · decision-tree branches · random forest · neural-network opacity · interpretability versus flexibility · confusion matrix · recall on the class that matters · quantisation · jagged capability · model collapse · data provenance · ingest, chunk, embed, retrieve, rank, generate, cite
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are a modelling lead who has to defend a model choice to a board, not to a leaderboard.
+>
+> **Task:** Compare three model families for the decision I describe, and rank them by *defensibility* rather than accuracy.
+>
+> **Context:** I have read a chapter on the interpretability-flexibility trade and on why the direction of an error matters more than its size. The decision is [describe it]. A false positive costs [state it]. A false negative costs [state it]. The person who has to defend the decision is [describe their background].
+>
+> **Format:** A table: family | what it would let me say to that person | which error it makes more of | why I would or would not pick it. End with the model you would choose and the single sentence you would use to defend it.

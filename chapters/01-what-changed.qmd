@@ -24,7 +24,7 @@ This is also where the practitioner's moat opens up. If building a demo is the w
 
 One more axis, and it is easy to misplace. "Multimodal" is not a fourth paradigm sitting on top of the other three; it runs *sideways* across them. It means the model handles more than text as input: image, audio, video, document. A narrow model can be multimodal (speech-to-text). A general model can be multimodal (describe this screenshot). The word describes *inputs*, not capability class.
 
-It matters in business for a blunt reason: the real world is not text-only. A Tessera support ticket often arrives with a screenshot of an error. A contract is a PDF, not a paragraph. A customer complaint might be a thirty-second voice note. A tool that can look at the actual artefact beats a tool that forces you to summarise the artefact into text first, because the summary is where you, the human, quietly smuggle in your own reading, and the model never sees the original. Later in this chapter you will change exactly one thing about a prompt (adding an image) and watch what the model can and cannot do with it.
+It matters in business for a blunt reason: the real world is not text-only. A Tessera support ticket often arrives with a screenshot of an error. A contract is a PDF, not a paragraph. A customer complaint might be a thirty-second voice note. A tool that can look at the actual artefact beats a tool that forces you to summarise the artefact into text first. The summary is where you, the human, quietly smuggle in your own reading, and the model never sees the original. Later in this chapter you will change exactly one thing about a prompt (adding an image) and watch what the model can and cannot do with it.
 
 ## First contact: a local model and a frontier model
 
@@ -70,7 +70,7 @@ The frontier model's fluency does not move an output from red to green. Neither 
 :::
 
 ::: {.callout-note title="🔬 Power-user extension · vary the RTCF prompt, not the model"}
-The Core compares two models on one prompt. The Power-user path holds the model fixed and changes the *prompt*. Take the same churn brief and run it four times, altering one RTCF axis at a time: drop the *Role*; change *Task* from "candidate drivers" to "the single biggest driver"; cut *Context* back to one sentence; switch *Format* from a list to a one-paragraph executive summary. Paste all four alongside your original. You will see the output walk across the trust tool — the prompt stripped of Context drifts towards specific, unverifiable numbers (towards red); the prompt that forces a single answer pushes confidence ahead of evidence. The model is fixed; the *harness you write around it* is what moves an output between quadrants.
+The Core compares two models on one prompt. The Power-user path holds the model fixed and changes the *prompt*. Take the same churn brief and run it four times, altering one RTCF axis at a time: drop the *Role*; change *Task* from "candidate drivers" to "the single biggest driver"; cut *Context* back to one sentence; switch *Format* from a list to a one-paragraph executive summary. Paste all four alongside your original. You will see the output walk across the trust tool: the prompt stripped of Context drifts towards specific, unverifiable numbers (towards red); the prompt that forces a single answer pushes confidence ahead of evidence. The model is fixed; the *harness you write around it* is what moves an output between quadrants.
 :::
 
 ## Where this is going
@@ -86,3 +86,23 @@ That is the question the next chapter turns to: *for whom?* Before you trust an 
 - **Andrew Ng, *Agentic AI* (DeepLearning.AI, free short course).** [learn.deeplearning.ai/courses/agentic-ai](https://learn.deeplearning.ai/courses/agentic-ai): Ng's case that agentic workflows (reflection, tool use, planning, multi-agent collaboration) will drive more progress than the next generation of foundation models. *Why watch it:* the clearest statement of the *arrow* this chapter is built on, models that take steps, not just give answers.
 
 - **Simon Willison's weblog, *local-llms* tag.** [simonwillison.net/tags/local-llms](https://simonwillison.net/tags/local-llms/): a respected practitioner's running notes on running open-weight models locally (Ollama and friends). *Why read it:* the local-versus-frontier terrain you touched in this chapter, written by someone who lives in it and distrusts hype as a matter of habit.
+
+## 🗣️ Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to classify five AI systems you actually use as narrow, general-purpose or agentic. Then ask which classification it was least sure about, and why the boundary is fuzzy there.
+2. Ask it to argue that the narrow / general / agentic distinction does not matter for a business decision. The rebuttal you have to construct is the thing worth keeping.
+3. Ask it for a number about AI adoption, then ask for the source and the year. Watch how often a confident figure arrives with neither. It is the same move that produced the \$340k confabulation in the Conversation Log.
+
+**Keywords to steer with.** narrow AI · general-purpose AI · agentic AI · harness · tool call · multimodality · confabulation · blast radius · trust tool · local versus frontier · open weights
+
+**A starting prompt (RTCF).**
+
+> **Role:** You are a technology analyst who has lived through three hype cycles and is tired of all of them.
+>
+> **Task:** Place five AI systems I name on the narrow-to-agentic spectrum, then tell me what changes about the oversight each one needs.
+>
+> **Context:** I have read a chapter distinguishing narrow, general-purpose and agentic AI, and arguing that the arrow matters because the more a system *acts*, the larger the blast radius when it is wrong. The systems are [list five you actually use].
+>
+> **Format:** A table: system | where it sits | what it can do without asking | who notices when it is wrong. Then one paragraph on the one you would worry about most, and why.
