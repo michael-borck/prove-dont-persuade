@@ -38,7 +38,7 @@ You load Tessera’s churn data into Orange (`region`, meaning Metro/North/South
 
 Then you open each one up. The **logistic regression’s** coefficients name the biggest churn driver in plain numbers; *short tenure* and *low satisfaction* light up, and a region segment stands out: the South and Metro territories churn at roughly two to three times the rate of Central, East, or North. The **tree** hands you a flowchart you could walk Henrik, Tessera’s CEO, down in a board meeting: *fewer than ~6 satisfaction, under ~12 months tenure → churn.* The **neural network** shows you nothing you can read. That opacity is the trade-off made concrete: the most flexible model is the one you cannot defend.
 
-The second artefact is NotebookLM, fed the same Tessera document folder your Chapter 10 agent retrieved from. You are not using it; you are reading it, reverse-engineering the seven-step pipeline underneath against the rough retrieval you built by hand.
+The second artefact is NotebookLM, fed the same Tessera document collection used in Chapter 7. Compare its observable answers and citations with the rough retrieval you built there; the interface does not reveal the implementation underneath.
 :::::
 
 ## The honest question the data does not answer
@@ -57,9 +57,9 @@ You redirect it: rerun the comparison, weight recall and interpretability, and r
 
 ## A 4-bit model that wins on your task
 
-You have been running a **4-bit quantised** Qwen locally since Chapter 5. Quantisation means the model’s weights have been compressed, stored in four bits instead of the usual sixteen. You trade a sliver of precision for a large drop in memory and a real gain in speed. On a laptop, that is the difference between *won’t run* and *runs fine.*
+You have been running a **4-bit quantised** Qwen locally since Chapter 6. Quantisation means the model’s weights have been compressed, stored in four bits instead of the usual sixteen. You trade a sliver of precision for a large drop in memory and a real gain in speed. On a laptop, that is the difference between *won’t run* and *runs fine.*
 
-Here is the counterintuitive part: a 4-bit local model can outperform a much larger cloud model on a specific task. Not because it is smarter (it is not) but because on a narrow, well-scoped job it can be faster (no network round-trip, no token-billing throttle), private (the data never leaves the machine, the Chapter 6 sovereignty argument), cheap to specialise on your domain, and free at the margin so you can run the loop a thousand times. The lesson is not *local beats cloud.* It is **capability is task-relative.** You pick the model that fits the task and its constraints, and that judgement is yours to make and defend, not the vendor’s to sell you.
+Here is the counterintuitive part: a 4-bit local model can outperform a much larger cloud model on a specific task. Not because it is smarter (it is not) but because on a narrow, well-scoped job it can be faster (no network round-trip, no token-billing throttle), private (the data never leaves the machine, the Chapter 5 sovereignty argument), cheap to specialise on your domain, and free at the margin so you can run the loop a thousand times. The lesson is not *local beats cloud.* It is **capability is task-relative.** You pick the model that fits the task and its constraints, and that judgement is yours to make and defend, not the vendor’s to sell you.
 
 This pairs with an uncomfortable property of models: they are not uniformly good. They are **brilliant at some things and shockingly bad at adjacent things**: write flawless code in one language and fumble a near-identical task in another, ace a reasoning puzzle and fail the same puzzle with the numbers swapped. This *jaggedness* is why the trust tool asks about the task, not the model: a model’s reputation on average tells you almost nothing about its reliability on the specific claim you are about to act on. The only honest answer is to evaluate on your task, on your data, which is exactly what the three-model comparison forces you to do.
 
@@ -73,9 +73,9 @@ The defence is unglamorous and load-bearing: **know where your training and retr
 
 The second half of this chapter turns to a system that hides all of this machinery behind a clean interface: **NotebookLM**, Google’s production-grade retrieval system. You feed it the Tessera document folder, ask a real question (*which region is churning most, and what do the documents suggest is driving it?*) and it answers, grounding each claim in a specific source it cites.
 
-The temptation is to be impressed and move on. The discipline is to ask what they built underneath that you built by hand across Chapters 7 and 10. You already know the answer, because you built the rough version: **ingest → chunk → embed → retrieve → rank → generate → cite.** NotebookLM chunks the documents sensibly, ranks which chunk matters for the question, cites a source per claim, and handles the case where nothing matches. Your rough retrieval did one folder and one lookup; the polished one does all seven steps well, in the dark, where you cannot see them.
+Use a retrieval pipeline as a **hypothesis**, not a description of hidden product internals: ingest, chunk, embed, retrieve, rank, generate, cite. Systems can implement those jobs differently or combine them. From an interface you can observe an answer, a cited passage, an omission, or an unsupported claim; you cannot infer a particular chunking or ranking algorithm from a polished response.
 
-This is the point of meeting the polished version *after* building the rough one. Layer 3 is convenient *because* it is a black box, and that is exactly why you needed the plain-text and configured layers first. You can trust NotebookLM’s retrieval **more** because you know what retrieval is, not less. The harness is a black box you can now read, because you once built its guts yourself.
+Ask both systems the same questions against the same saved source set. Include an answerable question, a conflict between sources, and a question the sources cannot answer. Check whether each citation actually supports the associated claim. Record the product and date, because behaviour can change. Better-looking output earns no automatic increase in trust.
 
 :::::: {.callout-tip title="📍 Trust-tool placement"}
 Two outputs, two placements, and a transparency gap between them.
@@ -87,9 +87,9 @@ NotebookLM’s answer on *which region is churning* is average-acceptable for th
 
 ## What you can now defend
 
-You came in asking *how does it decide?* You leave able to answer it three ways: by reading the weights, by tracing the tree, or by admitting you cannot read the network at all, and choosing accordingly. You know that capability is task-relative, that a smaller local model can win on a narrow job, that models are jagged and must be evaluated on your terms, and that data provenance is the quiet defence against collapse. And you can read a production retrieval system for what it is, because you built its rough ancestor.
+You came in asking *how does it decide?* You leave able to answer it three ways: by reading the weights, by tracing the tree, or by admitting you cannot read the network at all, and choosing accordingly. You know that capability is task-relative, that a smaller local model can win on a narrow job, that models are jagged and must be evaluated on your terms, and that data provenance is the quiet defence against collapse. And you can test a retrieval system's observable behaviour while being honest about the internals you cannot inspect.
 
-This is the practitioner’s moat made concrete. The machine produces the model. You supply the judgement about which model to trust, on which task, with how much oversight, and the evidence to defend it. But a harder question is now unavoidable. If a smaller local model can win on a specific task, and the defensible advantage is shifting from the model to the data and harness around it, then *what is the human’s role in choosing and defending a model, and is that role stable?* That is the question the final chapter turns to.
+Keep a comparison sheet in your dossier: intended task, shared test cases, baseline, failures, cost, data boundary, and explanation limits. If neither candidate meets the brief, choose neither. Next, *Can it do the whole job?* adds tools and actions to the selected workflow. The model comparison is a prerequisite, not permission to automate.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
 The **Core** path is the NotebookLM deconstruction in the case box: build a side-by-side comparison table, your rough hand-rolled RAG against NotebookLM’s polished retrieval, with one row per pipeline stage (*ingest, chunk, embed, retrieve, rank, generate, cite*) and a note on which stage each system performs visibly versus in the dark. That table alone shows you what you are paying Google for. Doing only this is complete and correct.

@@ -55,14 +55,15 @@ The resolution is not to pick a side. It is to notice *which people each framing
 :::::: {.tessera-case}
 **🌐 Tessera Case**
 
-Tessera ships one renewal model to its ~600 clients: one artefact, one satisfaction threshold, one green tick on the dashboard.
+Suppose Tessera's dashboard shows a reassuring overall accuracy for a renewal model. That number alone does not establish who the model serves well.
 
-The model was trained on the churn Tessera could *see*: the large enterprise accounts that renew loudly, with complaint spikes and contract-renewal drama. It predicts those well. What it does not predict well is the quiet churn, the customers whose leaving looks nothing like the training set. Disaggregate the score and the failure concentrates, hard: the **South** and **Metro** territories run ~94% and ~85% at-risk; **Education** and **Healthcare** run ~94% and ~85%; **Small** companies run ~47%. Central, East and North, Finance and Manufacturing and Retail, and Large companies sit near zero. One model, one green tick, and a map of who it quietly fails.
+The case's customer dataset includes a field called `Renewal_Likelihood`. Counting “Low” values by region describes the **distribution of an at-risk label**. It does not measure prediction errors, prove that anyone actually left, or show which groups were excluded from training. A group with many low-renewal labels could be easy or difficult for a model to predict.
 
-The model's aggregate accuracy is a green tick. The disaggregated accuracy by segment is the audit no one ran. *For whom does this model work?* For the large, the loud, and the well-represented. *Whom does it quietly leave out?* The South, Metro, Education, Healthcare, and Small: everyone whose leaving made no noise.
+To evaluate the model, request a separate record of predictions and verified outcomes, including when each was recorded, which cases were held out, and how many examples each group contains. Then compare false alarms and missed cases by group. Until that evidence exists, “the model fails South customers” is a hypothesis, not a finding.
+
 ::::::
 
-This is where the proof mindset starts to bite. "For whom does Tessera's churn model work?" is not a question the dashboard answers. The dashboard shows aggregate accuracy, a green tick, a model that *works*. The proof is the disaggregated one: break it down by region, by segment, by the customers who leave quietly, and you find the people the average quietly buried. That is the evidence the demo never showed you, and it is the difference between a deployment and a demo pretending to be one.
+The practical move is to distinguish **who carries the underlying risk** from **who receives an incorrect prediction**. Both matter, but they need different evidence. Record the affected groups and the missing measurements in your proof brief; do not turn a descriptive distribution into a fairness verdict.
 
 And it sets up the next chapter's harder question. Once you can see *for whom* a system fails, you have to be able to *tell*: to detect the bias and the shadow systems it hides behind, to resist the delegation trap, and to refuse the rubber-stamp. That is where the next chapter goes. But it starts here, with the discipline of naming the people a tool was never built for.
 
@@ -71,11 +72,12 @@ And it sets up the next chapter's harder question. Once you can see *for whom* a
 
 I asked the model: *"Tessera ships one renewal model to all ~600 clients. For whom is this optimised, and who pays?"*
 
-**Where the AI was useful.** It surfaced the right categories fast: the model is tuned on the customers who generate the most *signal* (usually the largest, loudest churners) and a single "global" threshold flattens regional behaviour. That gave me a structure to push on.
+**Where the AI was useful.** It proposed comparing regions, industries, and company sizes. Those were sensible candidates for an audit, not evidence of a disparity.
 
-**Where the AI got it wrong, and I corrected it.** The model concluded the churn model was "broadly fair across regions" because its overall accuracy was high. I pushed back: aggregate accuracy is exactly the thing that hides the gap. I asked it to disaggregate: accuracy by region, and accuracy for customers who churn *quietly* (no complaint, no support spike) versus those who churn loudly. The honest answer flipped: the model is fair for Central, East and North and for loud churners, and materially worse for South and Metro and for the quiet leavers. The AI's first answer was the dashboard's answer. The disaggregation was mine.
+**Where the AI got it wrong.** In this constructed dialogue, the model treated a high proportion of low-renewal labels in one region as proof of poor predictive performance there.
 
-**What I trusted, and why.** That *"the average is fair"* is the claim most likely to hide a regional or segment failure, and that it must be owned by a human, because the model will not volunteer it. The line I would act on: *for this output the model optimised for loud, well-represented churners; I trusted the disaggregated finding because the aggregate accuracy was the exact claim hiding the gap, and I verified it by region.*
+**The correction.** The practitioner asked for predicted labels alongside independently established outcomes. Those records were not available in the example, so the verdict became “not established.” The dossier retained the descriptive pattern and the request for a proper error analysis. Refusing an unsupported conclusion was the useful result.
+
 ::::::
 
 :::::: {.callout-tip title="📍 Trust-tool placement"}
@@ -85,9 +87,10 @@ The moment the analysis touches a real person (a customer segment, a region, a d
 ::::::
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-The **Core** of this chapter is the no-code move you just read: take the renewal model's headline accuracy, ask *for whom does it fail*, and disaggregate by segment until the green tick breaks. That alone is the discipline.
+The **Core** is to identify the people a proposed use affects, the errors they could bear, and the records needed to test those errors. Add that map to the proof brief.
 
-**Go deeper (optional, code):** open `tessera-customer-data.csv` and compute the at-risk rate yourself. Group by `Region`, `Industry`, and `Company_Size`; in each group count the `Renewal_Likelihood = Low` rows and divide by the group total. You will reproduce the pattern by hand: South ~94% and Metro ~85%, Education ~94% and Healthcare ~85%, Small ~47%, the rest near zero. Then cross two slicings (Region × Industry) and look for a sparse cell where the rate is high but the count is tiny: that is the small-cell noise a careful analyst discards rather than ships. Want a second model? Train a simple decision tree (Chapter 4 does this in Orange) and compare its disaggregated gaps to the renewal threshold, because two methods agreeing on the same failing segments is the cross-validation that earns trust.
+**Optional data exercise:** if the external customer CSV is available, group it by Region, Industry, and Company_Size. Count the `Renewal_Likelihood = Low` rows and divide by each group's total. Report the denominator and call this a label distribution, not accuracy. Inspect small cells and explain why their rates are uncertain. Comparing two methods that reproduce the same proxy label is not independent validation against actual renewal outcomes.
+
 ::::::
 
 ## 🔍 Go deeper

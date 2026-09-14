@@ -110,7 +110,7 @@ The **output** (say, the local model's summary of which Tessera tenants are chur
 
 ## What this leaves open
 
-So far we have treated "the data" as if it were a single thing you either protect or send abroad. It is not. Customer data is a layered object: some of it is identifying, some of it is sensitive, some of it can be de-identified and some of it cannot, and some of it, stripped of the obvious names, can still be matched back to a person with enough cross-referencing. Naming where data travels is half the discipline. The other half is knowing whose data it is, what you are allowed to do with it, and what the law says when it goes wrong. That is the next chapter.
+This closes the Foundation act. Use the privacy constraints from the previous chapter to justify a deployment choice, record its costs and unresolved approvals, and keep a rejected alternative in the dossier. Act II starts with *Are you asking well?*: assembling instructions, context, retrieval, and checks into a workflow whose behaviour you can test.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
 The **Core** above, installing Ollama and Open WebUI on your own laptop and watching the local model answer with the network unplugged, is the whole sovereignty argument made physical. Both sides of the trade have a deeper path worth taking once.

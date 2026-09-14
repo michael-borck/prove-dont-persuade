@@ -18,15 +18,15 @@ book:
         - chapters/02-for-whom.qmd
         - chapters/03-can-you-tell.qmd
         - chapters/04-whats-in-the-data.qmd
-        - chapters/05-what-are-you-giving-up.qmd
         - chapters/06-whose-data-is-it.qmd
+        - chapters/05-what-are-you-giving-up.qmd
     - part: "Act II · Build and Prove: does it actually work?"
       chapters:
         - chapters/07-are-you-asking-well.qmd
         - chapters/08-what-is-it-saying.qmd
         - chapters/09-does-it-actually-work.qmd
-        - chapters/10-can-it-do-the-whole-job.qmd
         - chapters/11-how-does-it-decide.qmd
+        - chapters/10-can-it-do-the-whole-job.qmd
         - chapters/12-what-comes-next.qmd
   appendices:
     - appendices/a-the-trust-tool.qmd

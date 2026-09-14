@@ -35,35 +35,26 @@ Before you build or evaluate anything, you need one small idea you will use in e
 
 That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). Almost every public AI failure (the chatbot that gave wrong legal advice, the hallucinated citation in a filed court document) is someone treating a red-quadrant output as green. The model rarely fails uniquely; the *placement* fails. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.
 
-## Prove, don't persuade
+## Write the proof brief before you build {#sec-proof-brief}
 
-**Prove, don't persuade** is the spine of this book and the habit it builds. Every claim about an AI solution is an assertion until evidence supports it. An accuracy figure on the training data is an assertion. A dashboard of green ticks is an assertion. A manager's assurance that "we tested it" is an assertion. None of it is evidence until you have seen the solution work (and fail) on terms you set, in a form you can defend.
+Choose one proposed use and open a **proof dossier**: a folder or notebook that keeps the decision, its evidence, and its limits together. Start with a one-page brief. Keep the original when you revise it; a changed threshold is a new decision to explain, not a way to rescue a disappointing score.
 
-This sounds obvious. In practice it is hard, because demos are persuasive and proof is laborious. Tessera is written to be plausible: impressive in its prototypes, rougher underneath, exactly like the real systems you will build for and evaluate. Good practice does not assume the worst. It does something more disciplined: it proves what is actually there, names what is missing, and lets the evidence set the decision.
+| Brief field | What to record before testing |
+|---|---|
+| Intended use | The decision this system supports, its users, and one use it must not perform |
+| Affected people | Who benefits, who bears an error, and who can challenge a decision |
+| Baseline | The existing process or simple rule the proposed system must improve on |
+| Acceptance rule | A measurable threshold, the denominator, and the cost of each important error |
+| Evaluation plan | Unseen test cases, relevant groups or conditions, and data kept separate from development |
+| Data boundary | What may enter the system, permitted destinations, and approval still needed |
+| Stop and escalation | A condition that halts use, the person responsible, and the manual fallback |
+| Evidence record | Inputs, outputs, counts, sources, versions, date, reviewer, and final decision |
 
-By the end of this book you will have done exactly that, one chapter at a time, against Tessera.
+For example, Tessera might propose **routing suggestions for a human support reviewer**, with no authority to close a ticket. For a classroom prototype, set a provisional rule: identify at least 9 of 10 fault examples in *each* lighting condition, and show every proposed route to the reviewer. These are teaching thresholds, not a production safety standard. A false-clear can leave a customer offline; a false alarm costs review time. Record both, not just overall accuracy. The small test can reveal a failure but cannot establish a reliable real-world rate.
 
-## The practitioner's moat in the age of AI
+Your first brief will contain unknowns. Write “not yet established” beside them and name the evidence needed. Do not invent a baseline or an approval. By the end of Act I, you should be able to explain the affected groups, data restrictions, and deployment constraints. By the end of Act II, you should be able to test a candidate, compare it with a baseline, and defend a go, revise, or stop decision.
 
-Here is the harder question this book takes seriously: *what is a human practitioner actually for when a machine can build the demo?*
-
-The answer is not "the same thing, faster." The book takes a deliberately pragmatic stance on AI (clear of both alarmism and hype) and lands it on the practitioner's desk. Four moves make the argument.
-
-### The demo is being commoditised
-
-Spinning up a classifier. Wiring a RAG chatbot to a document folder. Drafting a churn analysis. This is the craft of building AI prototypes, and it is exactly the work generative AI is rapidly commoditising. An AI can produce a plausible-looking solution faster than any junior practitioner. If the only thing you do is *build* the demo, you have no edge. Every vendor's deck now has one.
-
-### Evidence is the moat
-
-If an AI can build a generic solution for anyone, a generic solution gives no one an advantage. The edge comes from variation: human judgement about *whether it works, for whom, and under what conditions*. That judgement shows up as **evaluation**: stating a threshold, measuring against it, naming who it fails for, and deciding how much a human must stay in the loop. The machine produces the demo. The practitioner supplies the proof. That proof is the moat.
-
-### From builder to evaluator
-
-As AI moves from chatbots to agentic systems that take actions on their own, the practitioner's job shifts: from maker of slick prototypes to **expert evaluator** of AI-generated work. You will read AI-drafted analyses, AI-built pipelines, AI-shipped models, and your value will be in spotting where they are generic, where they confabulated success, and where the edge-case they smoothed over was the whole point. This book makes that discipline explicit and teaches it.
-
-### Augmentation, not automation
-
-The stance is proactive. Use these tools for **augmentation and personalised learning**, not passive automation that quietly atrophies the judgement the field depends on. Efficiency is never the goal; *defensible, evidence-based confidence* is. If you use AI to skip the evaluation, you have done the work wrong, no matter how good the demo looks. The companion book, *Conversation, Not Delegation*, teaches the craft of working with AI well; this book teaches what you must prove once the building is done.
+[Appendix C](appendices/c-what-you-build.qmd) supplies the dossier structure and capstone criteria. Start it now; do not reconstruct your reasoning after seeing the results.
 
 :::::: {.callout-warning title="Watch out: your own AI hygiene"}
 The AI you use is a third party. Do not paste Tessera's customer or tenant data, contracts, or PII into a consumer AI tool. That is a disclosure you cannot take back, and it may breach the Privacy Act and Tessera's obligations. Use approved or enterprise tooling, or a locally hosted model. The same scepticism you apply to Tessera's AI applies to your own: the tool is a thinking partner, not a safe drop box for secrets.
@@ -85,8 +76,8 @@ The arc has two acts:
 
 | Act | Chapters | What it does |
 |---|---|---|
-| **I · Foundation** | 1–6 | What changed, for whom: landscape, ethics, data, deployment, responsibility |
-| **II · Build and Prove** | 7–12 | Does it actually work: prompting, NLP, build-and-evaluate, agentic, model comparison, the future |
+| **I · Foundation** | 1–6 | What changed, for whom: landscape, ethics, data, privacy constraints, deployment |
+| **II · Build and Prove** | 7–12 | Does it actually work: prompting, NLP, evaluation, model comparison, agents, the future |
 
 Act I builds the base: the concepts and the stance. Act II is where the book earns its title: you build, you break, and you prove.
 
@@ -94,17 +85,19 @@ Running through both acts is the **conversation log**: the cumulative record of 
 
 ### A no-code floor, and a ceiling for those who want it
 
-Every chapter has a hands-on activity, and every one of them has a **no-code Core** path that anyone can complete with free tools: Orange Data Mining, Google Teachable Machine, NotebookLM, Ollama, and Open WebUI. You do not need to write a line of code to do the work this book asks of you. That is deliberate: the same capability should be available to every reader, regardless of background.
+There are two routes. **Self-study readers** can develop the proof brief and dossier, audit the supplied examples, and complete the paper-based activities without an AI account. That route practises evaluation and decision-making; it does not claim that you have built or operated a model. **Build-along readers** also use the tools in Appendix F and obtain the external case materials for the relevant lab. These activities are no-code in their analysis, but local model setup can require a terminal, suitable hardware, or a facilitator.
 
-For readers who want to go further, each chapter also carries an optional **🔬 Power-user extension**: the same concept taken deeper, through measurement, a second model, self-hosting, or a touch of code. The Core is complete and correct on its own. The extension is there for those who want the ceiling as well as the floor. Appendix F is the quick-start guide to the whole no-code toolkit if you are setting up from scratch.
+The optional **🔬 Power-user extensions** add measurement, a second model, self-hosting, or code. Install tools only when needed. If a build-along resource is unavailable, mark the build as not attempted and continue with the worked case; do not report its illustrative results as your own measurements.
 
 ### A living case: the Tessera site
 
-Tessera is fictional, but it is also *real*, in a useful way: the company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. You can read its policies, browse its customer and support data, and even "interview" its staff through AI personas. Nothing in this book depends on visiting the site, because every dataset and document the chapters use is described in full right here, but if you learn by exploring, Appendix E maps the site's artefacts to the chapters so you can go deeper on any one of them. Treat it as an extended reality for the case, not a prerequisite.
+Tessera is fictional. Its companion site, **tessera.locoensayo.org**, extends the teaching case with documents, datasets, and staff personas. This edition does **not** bundle the full customer CSV, support CSV, policy collection, or router photographs. The prose describes those materials but is not a substitute for the files needed to reproduce a build. Appendix E maps the external dependencies. Save the files and record their retrieval date and version before starting a lab; the site may change.
+
+The paper-based activities contain their own inputs. Case dialogue and numerical results are constructed teaching examples unless an accompanying source and run record explicitly identify a measurement. Your results can differ. A useful dossier distinguishes **observed**, **illustrative**, and **not tested** evidence.
 
 ## The companion book
 
-*Conversation, Not Delegation* (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the *what we prove*), that book teaches *how to work with the machine well*: the conversation loop, the trust tool in full, staying in the loop, compensating for AI's predictable weaknesses. The two are complementary. Every chapter here assumes you are using AI, and assumes you are using it the way that book describes: as a thinking partner, not a delegate.
+*Conversation, Not Delegation* (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the *what we prove*), that book teaches *how to work with the machine well*: the conversation loop, the trust tool in full, staying in the loop, compensating for AI's predictable weaknesses. The two are complementary. When you use AI here, use it as a thinking partner whose claims need checking. The paper-based route lets you practise that checking without a model.
 
 ## Conventions used in this book
 
@@ -126,7 +119,7 @@ Every chapter carries the same recurring features so you learn to recognise them
 
 You will also see **🔍 Go deeper** at the end of each chapter (one to three curated resources (a paper, a podcast, a video) for currency and breadth), the optional **🔬 Power-user extension** (a deeper take on the chapter's hands-on work), and standard callouts: **Watch out** (yellow) for traps that look right but aren't.
 
-Each chapter then closes with **🗣️ Take it to the AI**. Where the Conversation Log shows you a worked example of the author pushing back on a model, this section hands the conversation over: a few questions worth arguing about, the keywords that let you steer a conversation you cannot yet phrase, and a starting prompt written out in full RTCF. Write all four parts (Role, Task, Context, Format) if you are running a small model on your own machine, the kind with a few billion parameters that fits on a laptop; its defaults come from a narrower range, and the structure is doing work the model will not do for you. On a current frontier model the Task and Context lines are usually enough on their own, and the rest is a checklist for your own thinking. Either way, the first answer is where the conversation starts, and the spine of this book applies to it as much as to Tessera: the fluent output is an assertion until you have checked it. The AI-hygiene warning above holds without exception. Rehearse on Tessera or on scenarios you invent, never on real customer data.
+Chapter practice varies between conversations, independent audits, calculations, and decision memos. Where a full starting prompt is useful, **RTCF** means Role, Task, Context, and Format. Adapt it to the job rather than repeating four labels mechanically. Preserve the original output, your checks, and your decision in the dossier. Use only invented or approved data; an exercise never authorises uploading real customer records.
 
 ## How this book came to be
 

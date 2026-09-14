@@ -1,8 +1,8 @@
 # E. The Tessera Case: A Living Example {.unnumbered}
 
-Tessera is fictional. It is also, deliberately, *real enough to explore*. The company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. Nothing in this book depends on visiting it, because every dataset, document, and decision the chapters use is described in full right here. But if you learn by poking at things, the site turns the case from a thought experiment into an extended reality you can walk around in.
+Tessera is fictional. It is also, deliberately, *real enough to explore*. The company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. The paper-based activities are self-contained, but reproducing the dataset and retrieval labs requires external files. This edition does not bundle the full customer or support CSVs, policy collection, or router photographs. The descriptions below are a map, not a versioned resource manifest.
 
-This appendix is the map. Use it to go deeper on any chapter, or ignore it entirely.
+This appendix is the map. For each build, save the input files, source location, retrieval date, and version or checksum in your dossier. Check that the columns and row counts match the exercise before relying on a quoted finding. If a file is unavailable or differs, record that limitation; do not substitute invented data and claim to have reproduced the example.
 
 ## The company, in one paragraph
 
@@ -19,7 +19,7 @@ That incident is *not* the subject of this book. It is the backdrop. It is the r
 | Site artefact | Where to find it | Chapters it enriches |
 |---|---|---|
 | **Company overview & leadership**: the company profile, the org chart, the leadership team | *About* page; *Company Files → Internal Records* | 1, 2, 12 |
-| **Customer dataset** (`tessera-customer-data.csv`, 200 clients): industry, size, tenure, product, satisfaction, renewal, region, contract value | *data/* folder | 2, 4, 6, 11 |
+| **Customer dataset** (`tessera-customer-data.csv`, 200 clients): industry, size, tenure, product, satisfaction, renewal, region, contract value | *data/* folder | 2, 4, 5, 10 |
 | **Support dataset** (`tessera-support-data.csv`, 100 tickets): category, priority, resolution time, satisfaction, follow-up | *data/* folder | 8 |
 | **Sales, HR, and finance datasets**: sales by region/product, leavers, budget, forecast | *data/* folder | 2, 4, 12 |
 | **Policies**: privacy, access control, breach response, data classification, acceptable use | *Company Files → Policies* | 3, 5, 6 |
@@ -33,7 +33,7 @@ The most distinctive thing on the site is the cast. Tessera's senior team are no
 A few worth knowing:
 
 - **Henrik Larsson**: cEO. Carries the board mandate and the weight of the 23 lost clients.
-- **Adrian Vasquez**: cIO. Owns the infrastructure and the procurement questions (Chapter 5).
+- **Adrian Vasquez**: cIO. Owns the infrastructure and the procurement questions (Chapter 6).
 - **Isabella Ferreira**: cISO. Led the breach response; uncomfortable with self-attested controls.
 - **Priya Nair**: cFO. The numbers behind the breach and the certification budget.
 - **Grace Sullivan**: cOO. Service delivery, SLAs, the customer-experience side.
@@ -44,6 +44,6 @@ Interviewing a persona is itself a small lesson in the trust tool: a fluent, in-
 
 ## How to use it
 
-Pick a chapter, find its row in the table above, and go and look at the real artefact. Read the actual privacy policy before you design the Chapter 6 architecture. Pull the customer dataset into Orange and check the Chapter 4 findings against your own tree. Ask the CISO how she would defend an AI summariser that sends tenant data to a third-party model vendor. The site is there to make the case textured, not to test you on it. If you never visit it, you lose nothing essential. If you do, the company stops being a name and becomes a place.
+Pick a chapter, find its row in the table above, and go and look at the real artefact. Read the actual privacy policy before you design the Chapter 5 architecture. Pull the customer dataset into Orange and check the Chapter 4 findings against your own tree. Ask the CISO how she would defend an AI summariser that sends tenant data to a third-party model vendor. Without those resources, continue with the paper route and mark the corresponding build as not attempted. The dossier should make that distinction visible.
 
 > Tessera is a fictional company created for teaching. Its data, documents, and people are fabricated for learning; any resemblance to a real organisation is incidental.

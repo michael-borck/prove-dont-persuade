@@ -1,8 +1,18 @@
 # D. From Prototype to Production {.unnumbered}
 
-Every artefact in Appendix C is, at the moment you finish it, a working prototype. It runs. It passed the evaluation you designed for it. You placed it on the trust grid and named its limits. That is a long way from a demo, and it is still not the same thing as a system a business can rely on, live, with its reputation on the line.
+The dossier may end with a working prototype, a failed evaluation, or a decision not to build. None is production approval. This appendix describes the evidence needed to move a candidate forward, and the conditions under which it should stay where it is.
 
 This appendix is about the gap between *proved it works* and *keeps working in production*. It is the layer the twelve chapters point at but do not build out, because it belongs to the operational lifetime of a system, not to the act of building one. The thesis does not change: *prove, don't persuade*. It just does not stop at launch.
+
+## Three gates, not one launch
+
+| Gate | Evidence needed to proceed | If it is missing |
+|---|---|---|
+| Prototype to bounded pilot | Defined use, held-out evaluation against the brief, data/security review, named owner, tested fallback, limits on users, actions, duration, and volume | Keep it in development; a separate shadow study may be proposed with no effect on customer decisions |
+| Pilot to production | Results from representative pilot conditions, measured review workload, incident/rollback rehearsal, monitoring and access controls, approvals from the responsible teams | Extend, redesign, or stop the pilot; do not quietly widen its scope |
+| Continued operation | Scheduled and change-triggered evaluation, monitoring of relevant failures, current ownership and approvals, action on breaches of thresholds | Pause the affected use and revert to the manual process until reviewed |
+
+These are decision gates, not universal numerical standards. Set their thresholds for the specific use and risks. Re-baselining after a model, prompt, source, or workflow change means preserving the old evidence and running a new comparison, not rewriting the old acceptance rule.
 
 ## The honest boundary
 
@@ -20,7 +30,7 @@ A prototype has to run. A production system has to do four things a prototype ne
 
 **Someone has to own it.** A prototype is yours. A production system needs an owner, an on-call, and a named human who signs off on the red-quadrant outputs. "The model does this" is not an operating model; it is the shadow system from Chapter 3, now running in production. Name the owner before you ship, or the ownership defaults to nobody.
 
-**The legal and security questions become gates.** In a prototype, the Privacy Act questions (Chapter 6) and the injection defences (Chapter 3) are things you considered. In production they are gates a launch does not pass without: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 5 chose where the prompt may travel; production makes that choice auditable and enforced.
+**The legal and security questions become gates.** In a prototype, the Privacy Act questions (Chapter 5) and the injection defences (Chapter 7) are things you considered. In production they are gates a launch does not pass without: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 6 chose where the prompt may travel; production makes that choice auditable and enforced.
 
 ## A production checklist (for a no-code practitioner)
 
@@ -31,18 +41,15 @@ This is what to demand of any system you move from proved prototype to live, phr
 - **Have a kill switch, and know who can pull it.** If the system cannot be turned off fast, it is not production-ready. Name the person, the channel, and the threshold at which they act.
 - **Make the human-in-the-loop a design, not a promise.** A checkpoint that survives Monday-morning volume and deadline pressure is the only one that counts. The Delegation Trap (Chapter 3) does not disappear at launch; it intensifies, because production volume is exactly the pressure that turns a reviewer into a rubber stamp. Design the checkpoint so that rubber-stamping is hard, not easy.
 - **Log for audit, not for curiosity.** Keep the records that let you answer, after a complaint, *what did the system do, why, and who decided to trust it*. The conversation log (Appendix B) is the prototype version of this discipline; production makes it a requirement.
-- **Sign off at go-live, on paper.** The deployment decision (Chapter 5), the privacy architecture (Chapter 6), the security baseline (Chapter 3): each needs a named sign-off before launch, not a nod. A launch memo that records what was checked, by whom, and what the known limits are, is the artefact that separates a responsible deployment from a hopeful one.
+- **Sign off at go-live, on paper.** The deployment decision (Chapter 6), the privacy architecture (Chapter 5), the security baseline (Chapters 7 and 11): each needs a named sign-off before launch, not a nod. A launch memo that records what was checked, by whom, and what the known limits are, is the artefact that separates a responsible deployment from a hopeful one.
 
-## Worked example: the router classifier, live
+## Worked example: the router classifier at the gate
 
-Take the Chapter 9 classifier to production. The evaluation already did the hard part: it found the fault class collapses to 0% under dim light, and you placed fault confirmation as red (a human verifies) and triage as green. Production does not re-litigate that; it operationalises it.
+The constructed evaluation in Chapter 9 fails the fault-detection criterion in both lighting conditions. It does **not** earn a move into customer-facing routing. Tessera should revise and retest, or propose a separately approved shadow study in which predictions cannot close, route, or delay a real ticket.
 
-- **Monitoring:** track the fault-detection rate and the false-clear rate over time, sliced by lighting condition, because dim-light faults are exactly where this model breaks.
-- **Re-evaluation:** re-run the held-out evaluation whenever the fleet gets a new LED design, a firmware update, or a new product line, because any of those shifts the input distribution the model was trained on.
-- **Checkpoint:** the human-verify-fault step is the load-bearing control. It must survive the volume of real tickets, which means it has to be fast and specific (show the human the photo and the model's call, ask one question), not a generic "please review."
-- **Kill switch:** if the false-clear rate climbs past a threshold, auto-clearing of faults stops and everything routes to a human until the model is re-evaluated.
+In that shadow study, a reviewer checks every suggestion against the normal support process. Checking only suggestions labelled fault would miss the very failure the evaluation found: actual faults labelled healthy or degraded. Track the error counts and the time needed for review. If the review cannot keep up, stop the study rather than letting unchecked suggestions become actions.
 
-The model did not change between prototype and production. What changed is that the proof became continuous, the oversight became enforced, and the failure that was once caught in an evaluation is now caught by a system that keeps looking for it.
+A later candidate that meets the agreed criteria still needs the next gate's evidence: representative data, a workable checkpoint, controlled access, monitoring, and a rehearsed fallback. Passing a small teaching test is not a reason to assume those controls exist.
 
 ## Where this book stops
 

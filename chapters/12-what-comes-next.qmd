@@ -66,7 +66,7 @@ And then the pitch's second-order analysis (the *who benefits, who pays, who is 
 
 And then there is the trajectory. There is a cottage industry in predicting *when* artificial general intelligence arrives. The dates range from "it's already here" to "never," and the people making the predictions have been wrong, in both directions, for sixty years. This chapter is not about joining that industry. There is a different, more useful discipline: **planning assumptions.**
 
-A prediction is a claim about what *will* happen. A planning assumption is a stance about what you do *given that you don't know.* Practitioners live in the second register. You do not get to wait for the forecast to settle before you build, hire, or govern. For planning purposes, the philosophical definition of AGI matters less than the **capability trajectory**: models keep getting better at a widening set of economically useful tasks, the cost per unit of cognitive work keeps falling, and the rate of both has repeatedly surprised people who expected a plateau. You felt this trajectory in the book itself. In Chapter 1 you ran the same prompt on a local Qwen and a frontier model and saw the gap. By Chapter 10 you were wiring that same local model into a multi-step agentic loop. The gap between what a free local model can do and what a frontier model can do is not fixed; it moves. That movement is the planning assumption.
+A prediction is a claim about what *will* happen. A planning assumption is a stance about what you do *given that you don't know.* Practitioners live in the second register. You do not get to wait for the forecast to settle before you build, hire, or govern. For planning purposes, the philosophical definition of AGI matters less than the **capability trajectory**: models keep getting better at a widening set of economically useful tasks, the cost per unit of cognitive work keeps falling, and the rate of both has repeatedly surprised people who expected a plateau. You felt this trajectory in the book itself. In Chapter 1 you ran the same prompt on a local Qwen and a frontier model and saw the gap. By Chapter 11 you were wiring that same local model into a multi-step agentic loop. The gap between what a free local model can do and what a frontier model can do is not fixed; it moves. That movement is the planning assumption.
 
 There are three stances, and only two survive contact with reality. **Plan for stasis**: assume the capability you deploy today is the capability you will have. Comforting, and almost always wrong; systems designed around one model's quirks break when the model improves, and prompts that exploit a weakness stop working when the weakness is patched. **Plan for a specific date**: assume "AGI by 20XX" and build for that. This is a prediction dressed as a plan; be wrong by two years and you have built too early or too late, and spent the political capital of being a doomer or a laggard. **Plan for a range**: assume capability improves along a corridor, design so the system stays useful and safe across that corridor, and re-baseline regularly. This is the only durable stance. It treats the trajectory as a weather system you sail through, not a wall you hit.
 
@@ -101,22 +101,17 @@ In a world of demos, the proof is the point. The machine will keep getting bette
 - **Epoch AI, "AI in 2030: Extrapolating current trends"** (2025). The empirical anchor for the planning-assumption stance. Rather than predict a date for AGI, Epoch tracks the inputs (compute, data, power, capital) and extrapolates the corridor they describe. Read it as a worked example of stance three: you cannot forecast the endpoint, but you can bound the trajectory and design so your solution stays useful across it.
   <https://epoch.ai/files/AI_2030.pdf>
 
-## 🗣️ Take it to the AI
+## Independent capstone: defend the decision
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+**Time:** 45–60 minutes. **Inputs:** your original proof brief, the evidence dossier, and the four-part second-order analysis from this chapter. No model is required. If you followed the paper route, use the supplied fictional router results and label the whole submission a case analysis, not a completed build.
 
-1. Ask who benefits, who pays the transition cost, and who is left out for a deployment you describe. The first answer will be generic, exactly as it was in this chapter's Conversation Log. Then ask what data it would need to make each claim specific.
-2. Ask it to argue that AI will reduce headcount, then that it will expand the work. The Jevons case is the stronger one, and working out *why* is the exercise.
-3. Ask what your own role becomes if the loop runs without you. An answer of "you review everything" is the delegation trap at workflow scale, and it will not survive a budget review.
+Write a two-page decision memo for Tessera's board:
 
-**Keywords to steer with.** Jevons paradox · efficiency trap · tasks not jobs · task redistribution · transition cost · who is left out · planning assumption versus prediction · plan for a range · harness over prompt · graceful degradation · re-baselining
+1. State the intended use and forbidden use. Show the original acceptance rules beside the actual evidence; explain any change to the brief.
+2. Compare with a baseline or explain why that comparison remains untested. Include counts and subgroup or condition failures, not just favourable averages.
+3. Name who benefits, who bears mistakes or transition costs, and whose experience has not been measured. Separate evidence from forecasts.
+4. Recommend **go to a bounded pilot**, **revise and retest**, or **stop**. Specify the human checkpoint, stop condition, accountable role, and next review.
 
-**A starting prompt (RTCF).**
+Then read it as a sceptical colleague. Find one sentence that claims more than the evidence permits and rewrite it. An optional AI critique comes *after* this independent review.
 
-> **Role:** You are an economist who studies how automation redistributes work, and you are sceptical of the doomers and the boosters alike.
->
-> **Task:** Take the deployment I describe and tell me what data I would need to answer who benefits, who pays the transition cost, and who is left out. Do not answer those questions until I supply the data.
->
-> **Context:** I have read a chapter arguing that an ungrounded second-order analysis is still an assertion. The deployment is [describe it, the organisation, and the people it touches]. Refuse to give me the generic answer, and tell me when I try to settle for one.
->
-> **Format:** One section per group. In each: the specific question, the data or measurement that would answer it, and the answer you would reject as too generic to use. End with the single measurement you would take first.
+**Success:** another reader can trace the decision to the evidence and identify what remains unknown. Use the acceptance checklist in [Appendix C](../appendices/c-what-you-build.qmd) and the stage gates in [Appendix D](../appendices/d-prototype-to-production.qmd). An honest stop decision can meet every criterion; an impressive demo without the record cannot.

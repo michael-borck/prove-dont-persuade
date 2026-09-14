@@ -1,14 +1,22 @@
 # Does it actually work?
 
-You have just trained a neural network in a browser. No code. You pointed your laptop's camera at a Tessera home router, captured twenty photographs of its status LED glowing green, twenty glowing amber, twenty pulsing red, clicked *Train Model*, and watched a machine learn in seconds. You exported it, pasted one URL into a Glitch starter, and now it is live on your phone. A customer points their camera at a router and your app says *healthy* or *fault*.
+Suppose you train an image classifier on photographs of green, amber, and red router status lights. Its preview looks convincing. That is the point at which the work changes: can you defend its use on photographs from a different room, camera, or lighting condition?
 
-It works. In the room, on your laptop, under the lights you trained on, with your hand holding the phone, it works every time. If this were a vendor pitch, you would stop here, applaud, and ship.
+Reopen the proof brief you wrote in the Introduction. Record the intended decision, error costs, baseline, acceptance threshold, and held-out test plan **before** building or inspecting results. This chapter executes that plan; it does not choose the target after seeing the score.
 
-This is the moment the book has been building toward, and the question that stops you is the book's own title: **does it actually work?** Everything in this chapter (arguably the whole discipline of applied AI) turns on refusing to confuse the demo you just made with the deployment Tessera would rely on.
+## Choose your route
 
-:::::: {.callout-note title="The Core: a live classifier, no code"}
-That build is the **Core** path for this chapter, and it is deliberately within reach. The entire stack (capture, train, export, deploy) runs in a browser with a free Teachable Machine account and a Glitch starter. No Python, no GPU, no framework to install. If you can take a photograph, you can build and ship a live classifier; the rest of the chapter is about *evaluating* it. The optional Power-user extension near the end is depth, not a gate.
-::::::
+**Paper-based Core, 30 minutes:** use the complete fictional counts in the Tessera case below. Calculate per-class and per-condition results, compare them with the stated threshold, and write a decision. A calculator or spreadsheet is enough. This tests your evaluation reasoning, not your ability to train a model.
+
+**Build-along, allow 60–90 minutes plus setup:** use Teachable Machine's image-project training and preview. Collect your own harmless teaching images; coloured cards labelled healthy, degraded, and fault can stand in for a router. Record that this is a proxy task, not a validated router detector. No customer equipment or photographs are supplied.
+
+1. Define the three labels and write a provisional threshold for each relevant condition.
+2. Collect at least 20 development images per class across several angles and backgrounds. Separately reserve 10 fresh images per class per lighting condition, from a different capture session. Never put the reserved images in training.
+3. Train on the development images and test the reserved images through the preview. Record the actual label, predicted label, lighting condition, and model version for each. Keep the counts, including errors.
+4. Compare with a simple baseline, such as always predicting the most common class. Report its fault-detection performance as well as accuracy.
+5. After any change prompted by these results, treat this test set as development evidence. Collect a new held-out set for a final claim.
+
+These small counts are an exercise design, not evidence of production reliability. Stay within the browser preview: publishing an app is not required. If the interface or hardware prevents completion, use the paper route and label the build “not attempted.” Tool setup is in [Appendix F](../appendices/f-no-code-toolkit.qmd).
 
 ## The demo and the deployment are different objects
 
@@ -65,11 +73,13 @@ Here is the part that feels counter-intuitive and is, in fact, the point. A repo
 This is not a consolation prize for a model that under-performed. It is the integrity gate. A report that only shows successes has told the reader nothing useful, because every demo can be made to succeed on its own training data. The thing a business cannot buy from a vendor's deck is the honest map of where the solution breaks, and that map is the practitioner's actual deliverable. *Prove, don't persuade* stops being a slogan the moment you write down a threshold your solution misses and ship the report anyway.
 
 :::::: {.callout-note title="🤖 Conversation Log"}
-Evaluating the shipped router classifier, you ask an AI assistant to draft the assessment. You feed it the results. It returns: *"The model performs well and is ready for deployment: 85% overall accuracy across all classes."*
+This is a constructed dialogue using the counts below, not a transcript of a measured run.
 
-That is the moment to push back, because the AI has done what AIs do: it read the headline and composed a confident conclusion. You reply: *"Show me per-class, then per condition. Overall accuracy is not the deliverable."* It produces the breakdown: healthy 94%, degraded 80%, **fault 38%**. The fault class, the one with the large blast radius, is where the model collapses, and the headline hid it completely.
+**Draft:** “The classifier gets 41 of 60 images right. Most predictions are correct, so it is ready for deployment.”
 
-Then you ask the question the AI did not think to ask: *"And under dim light?"* Fault drops to **0%**. The AI's first draft ("ready to deploy") would have shipped a red-quadrant failure as a green-quadrant success. The correction was not a flourish; it was the refusal to accept an average, the demand for the per-class and then the per-condition view, and the willingness to keep pulling until the model broke. That challenge, logged unedited, is the integrity gate, and it is also what separates a defensible evaluation from a rubber-stamped one.
+**Review:** the practitioner checks the arithmetic against the table, then asks for the fault-class denominator. Only 6 of 20 faults were correctly identified; under dim light it was 0 of 10. The original brief required at least 9 of 10 fault detections in each lighting condition.
+
+**Decision:** reject unattended routing or closure. The result supports further development and, if separately approved, a shadow exercise whose suggestions cannot affect customers. The dossier retains the original draft, the count table, the failed threshold, and the corrected decision.
 ::::::
 
 ## What the measurement earned
@@ -77,34 +87,38 @@ Then you ask the question the AI did not think to ask: *"And under dim light?"* 
 You now know enough to place the model, and the placement is not a label you choose, it is a consequence of what you measured. This is the trust tool doing its real work: turning evidence into a decision about how much human oversight the deployment needs.
 
 :::::: {.callout-tip title="📍 Trust-tool placement"}
-The router classifier feeds two different decisions, and they sit on different squares of the grid.
-
-- **Routing a *healthy* or *degraded* ticket**: average is fine, blast radius is small (a wrong route costs a human a glance): **🟢 green**, light review, the model can triage on its own.
-- **Clearing a *fault***: must be precise (catch every fault), blast radius is large (a missed fault leaves a customer offline): **🔴 red**, human-in-the-loop, non-negotiable.
-
-The honest placement is therefore *split*: green for triage, red for fault confirmation. And because your measurement showed the model fails exactly on the red-quadrant class (0% on faults under dim light), the placement is *earned*, not assumed. You did not decide to keep a human in the loop on faults because it felt responsible; you decided because the evidence demanded it. A model that quietly creeps up to 99% next year could move that red square to yellow, but only if a future evaluation proves it, per class, under the conditions that broke it this time.
+Routing a suggestion to a reviewer and clearing a customer fault are different uses. The latter can leave a customer without help and requires stronger evidence and controls. With the results below, do not allow automatic closure or assume a healthy prediction is safe: a missed fault arrives under the wrong label. Review **all** suggestions in any approved shadow exercise, not only predictions labelled fault.
 ::::::
 
 ::::: {.tessera-case}
-**🌐 Tessera Case**
+**🌐 Tessera Case: a checkable evaluation**
 
-**The router-status classifier, evaluated to destruction.** You trained the model in Teachable Machine on twenty photographs per class (green (healthy), amber (degraded), red (fault)), varying angle and background on purpose, exported it as TensorFlow.js, and shipped it to a live Glitch web app a customer can open on their phone.
+The following counts are **invented for this exercise**, not measurements from Tessera, Teachable Machine, or a particular model. Each row contains ten distinct held-out examples. An incorrect prediction is either of the other two classes; the table does not specify which. You can calculate recall for each class, but not precision or a complete confusion matrix.
 
-In the room it was untouchable: 96% accurate. Then you held back five photographs per class that the model had never seen, and ran all three lenses. Accuracy, per class: healthy 94%, degraded 80%, **fault 38%**, the headline still read 85%, the arithmetic of an imbalanced reality. Fairness, sliced by condition: under dim light the fault class fell to **0%**. The model called a red LED *healthy* because it had never trained on a dim red, and customers photograph faults at midnight, in cupboards, exactly when the light is worst. Explainability: a neural net is a black box; you could not tell the CEO *why* it said healthy, only that it did, and on the fault class that limit is not acceptable.
+| Actual class | Lighting | Tested | Correct |
+|---|---|---:|---:|
+| Healthy | Normal | 10 | 10 |
+| Healthy | Dim | 10 | 9 |
+| Degraded | Normal | 10 | 9 |
+| Degraded | Dim | 10 | 7 |
+| Fault | Normal | 10 | 6 |
+| Fault | Dim | 10 | 0 |
 
-The finding is the gap: 0% on the one class with the large blast radius, hidden behind an 85% headline. The decision, written into the report: ship it for triage routing, with a human confirming every fault the model clears, until the training data covers the conditions that broke it. That is not a failed prototype. It is an *evaluated* one, and it is the only kind Tessera should ever rely on. What it takes to run an evaluated prototype live, with oversight that survives real volume, is the subject of Appendix D.
+**Work it through.** Overall accuracy is 41/60, or 68.3%. Per-class recall is healthy 19/20 (95%), degraded 16/20 (80%), and fault 6/20 (30%). The dim-light result is 16/30 (53.3%), with fault recall 0/10. An always-healthy baseline gets 20/60 (33.3%) overall and detects no faults. Beating that weak baseline is insufficient: the candidate fails the brief's fault threshold in both lighting conditions.
+
+**Your task:** verify every denominator, then write a 150-word go/revise/stop memo. State the intended use, the failed criterion, who could be harmed, what remains unknown, and the next test. Do not attribute the failure to a specific training defect without evidence; insufficient lighting coverage is a hypothesis to investigate.
+
+**Success:** the memo rejects unattended customer decisions, retains the failed results, and distinguishes the observed counts from a claim about future reliability. Zero successes out of ten is a serious warning; it does not establish that the true detection rate is exactly zero. Add this memo to the dossier. Appendix D explains the gates a later candidate must pass.
 :::::
 
-## From one model to the whole job
+## Compare before adding autonomy
 
-There is a reason this chapter is the title of the book. Every other question (*what changed? for whom? can you tell?*) funnels toward this one, because "does it actually work?" is where the demo meets its evidence and the practitioner earns the moat. A single model, evaluated honestly across three lenses, tested to destruction, and reported with its failures intact, is tractable. You can hold it in your head, place it on the grid, and defend the decision.
-
-But Tessera does not want a classifier. It wants an *agent* that reads the incoming ticket, fetches the customer's history, classifies the photograph, drafts the response, and decides whether to escalate. That is a chain of outputs, each with its own failure surface, each needing its own threshold and its own placement on the grid. The moment you hand the model tools and let it act, the question stops being "does this model work?" and becomes the next chapter's: **can it do the whole job, and how much of that job can you safely hand over?** That is where the red quadrant gets genuinely dangerous, and where the evaluation discipline you just learned becomes the only thing standing between a working system and a catastrophe that looked, in the demo, like magic.
+The evaluation tells you where this candidate fails. The next chapter asks whether a different model or a more inspectable method fits the same brief better. Keep the test conditions and acceptance rules comparable. Only after that comparison will we add tools and actions in *Can it do the whole job?* A weak component does not become reliable because it sits inside an agent.
 
 :::::: {.callout-tip title="🔬 Power-user extension"}
-The Core above, training in Teachable Machine, exporting to TensorFlow.js and shipping a Glitch live app, is the complete no-code path, and doing only that is correct. If you want to go deeper, two optional directions:
+The paper evaluation and browser build have different deliverables. If you completed the build and want to go further:
 
-- **Self-host the model.** Export the `model.json` and weight-shard `.bin` files and serve them from your own Glitch project, a static host, or a small server you control, instead of hot-linking Teachable Machine's bucket. You now own the artefact end to end, its uptime and version and data residency, which is exactly the cloud-versus-self-hosted tension a Tessera deployment has to settle.
+- **Self-host the model.** Export the `model.json` and weight-shard `.bin` files and serve them from a static host or small server you control, after checking the current export documentation and hosting requirements. Serving an exported model is an optional deployment exercise, not production approval. Account for dependencies, access, retention, and monitoring as well as the model files.
 - **Run a systematic fairness audit.** Build a held-out test set split *deliberately* across the conditions that could break the model: dim light, off-angle, phone-shake, a carpet background, a different hand behind the camera. Compute accuracy per condition and per group. Then quantify the **worst-group gap**: the largest spread between your best and worst condition. That single number is the honest headline. If it is large, no overall accuracy rescues you, and you have just produced the per-group breakdown the three-lens measurement demands.
 
 These are depth, not the real version. The Core is complete on its own.

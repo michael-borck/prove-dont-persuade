@@ -1,193 +1,54 @@
-# prove-dont-persuade
+# Prove, Don't Persuade
 
-A comprehensive Quarto book exploring why proof and evidence beat persuasion and demos in applied AI projects.
+A Quarto book by Michael Borck about evaluating applied AI: whether it works, for whom, and under which conditions.
 
-## About
+The free source and online edition are the primary versions. Tessera is a fictional teaching company, not a real client engagement.
 
-"Prove, Don't Persuade" is a technical book that challenges conventional approaches to demonstrating AI value. Instead of relying on impressive demos and persuasive narratives, this book advocates for building concrete proof through practical, measurable implementations. It provides frameworks, case studies, and actionable guidance for data scientists, AI practitioners, and business leaders seeking to validate AI initiatives effectively.
+## Reading and exercises
 
-This repository contains the complete source code for the book, written in Quarto format, enabling reproducible research and transparent documentation of concepts and examples.
+Start with the proof brief in `index.qmd`. Build one cumulative evidence dossier using Appendix C, then use Appendix D's prototype, pilot, and production gates to defend your decision.
 
-## Features
+- **Paper route:** self-contained bias, privacy, evaluation, agent-design, and capstone activities; no AI account is required.
+- **Build-along route:** tool-based labs may require external Tessera datasets/documents, suitable hardware, and setup help. The full CSVs, policy collection, and router photographs are not bundled.
+- **Evidence:** illustrative case results are not measurements of your build. Preserve actual inputs, outputs, versions, and failures; label unexecuted work honestly.
 
-- Comprehensive framework for validating AI projects through proof rather than persuasion
-- Practical case studies and real-world applications
-- Reproducible examples and implementation guides
-- Trust-building tools and conversation logs for stakeholder engagement
-- From prototype to production guidance
-- Appendices covering specialized topics (Trust Tool, Tessera Case Study, etc.)
+Appendices E and F explain external resources and setup limits. Source filenames retain their original numeric prefixes for URL stability; `_quarto.yml` defines the reading order.
 
-## Prerequisites
+## Build
 
-- [Quarto](https://quarto.org/) (version 1.3 or later)
-- [R](https://www.r-project.org/) (recommended for executing code examples)
-- A text editor or IDE (VS Code, RStudio, or similar)
-- Git (for cloning the repository)
+Install Quarto and use:
 
-## Installation
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/michael-borck/prove-dont-persuade.git
-cd prove-dont-persuade
-```
-
-### Install Quarto
-
-If you haven't already installed Quarto, download it from [quarto.org](https://quarto.org/docs/get-started/):
-
-```bash
-# macOS
-brew install quarto
-
-# Ubuntu/Debian
-sudo apt-get install quarto
-
-# Windows
-choco install quarto
-```
-
-### Install R Dependencies (Optional)
-
-If running code examples, install required R packages:
-
-```bash
-Rscript -e "install.packages(c('tidyverse', 'ggplot2', 'knitr'))"
-```
-
-## Usage
-
-### Rendering the Book
-
-To render the entire book in HTML format:
-
-```bash
-quarto render
-```
-
-To render as PDF:
-
-```bash
-quarto render --to pdf
-```
-
-To render in a specific format:
-
-```bash
+```sh
 quarto render --to html
-quarto render --to docx
-quarto render --to epub
-```
-
-### Development Mode
-
-For interactive development with live preview:
-
-```bash
 quarto preview
 ```
 
-This command starts a local server and automatically reloads the preview whenever you save changes to the source files.
+The shared publisher prepares the separate print source and copies canonical PDF/EPUB downloads back into the HTML output. From the parent books workspace:
 
-### Building Specific Chapters
-
-To render an individual chapter:
-
-```bash
-quarto render chapters/01-introduction.qmd
+```sh
+python book-publisher/publish.py --book prove --llm --preprocess --render
 ```
 
-### Viewing the Output
+This builds locally; it does not push commits, publish GitHub Pages, or upload to KDP. PDF rendering also requires the configured TeX toolchain. `print-config.yml` preserves the 6 × 9 inch print layout.
 
-After rendering, open the generated files:
+Do not edit generated `_print_source/`, `_book/`, or `llm.txt` as manuscript sources.
 
-```bash
-# HTML output
-open _book/index.html
+## Checks and editorial status
 
-# PDF output
-open _book/prove-dont-persuade.pdf
+```sh
+python scripts/check_manuscript.py
 ```
 
-## Project Structure
+These checks cover configured source files, explicit local chapter links, reading-order dependencies, and the arithmetic of the supplied evaluation case. They do not certify factual accuracy, legal compliance, external lab reproducibility, or print layout.
 
-```
-prove-dont-persuade/
-├── _quarto.yml                 # Quarto configuration file
-├── index.qmd                   # Book introduction/cover
-├── about-author.qmd            # Author biography
-├── acknowledgments.qmd         # Acknowledgments section
-├── chapters/                   # Main book chapters
-│   └── [chapter files]
-├── appendices/                 # Book appendices
-│   ├── a-the-trust-tool.qmd
-│   ├── b-conversation-log-format.qmd
-│   ├── c-what-you-build.qmd
-│   ├── d-prototype-to-production.qmd
-│   └── e-the-tessera-case.qmd
-├── images/                     # Figures, diagrams, and images
-├── CHAPTER_OUTLINE.md          # Detailed chapter outline
-├── .gitignore                  # Git ignore patterns
-└── README.md                   # This file
-```
+See [EDITORIAL-REVISION.md](EDITORIAL-REVISION.md) for completed changes, validation results, and remaining audit work.
 
-## Key Sections
+## Links
 
-### Chapters
+- [Online book](https://michael-borck.github.io/prove-dont-persuade/)
+- [Tessera companion](https://tessera.locoensayo.org)
+- [DeepWiki](https://deepwiki.com/michael-borck/prove-dont-persuade)
+- [Conversation, Not Delegation](https://michael-borck.github.io/conversation-not-delegation/)
+- [All books](https://books.borck.education)
 
-The main narrative is organized into sequential chapters covering foundational concepts through advanced implementation strategies for applied AI projects.
-
-### Appendices
-
-- **Appendix A**: The Trust Tool — A framework for building stakeholder trust
-- **Appendix B**: Conversation Log Format — Templates for documenting discussions
-- **Appendix C**: What You Build — Guidance on building proof of concepts
-- **Appendix D**: Prototype to Production — Transitioning from proof to deployment
-- **Appendix E**: The Tessera Case — A detailed real-world case study
-
-## Configuration
-
-The book configuration is managed in `_quarto.yml`. Key settings include:
-
-- Output formats (HTML, PDF, ePub)
-- Table of contents structure
-- Theme and styling preferences
-- Code execution options
-
-To customize rendering, edit `_quarto.yml` according to [Quarto documentation](https://quarto.org/docs/books/).
-
-## Contributing
-
-While this is a published work by Michael Borck, corrections and suggestions are welcome. Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b fix/correction`)
-3. Commit your changes (`git commit -m 'Fix typo in chapter 3'`)
-4. Push to the branch (`git push origin fix/correction`)
-5. Open a Pull Request
-
-## License
-
-This work is licensed under a custom license. Please see the LICENSE file for details.
-
-## Author
-
-**Michael Borck** — Data Science and AI thought leader focused on practical, evidence-based approaches to implementing AI in organizations.
-
-## Resources
-
-- [Quarto Documentation](https://quarto.org/)
-- [Quarto Books Guide](https://quarto.org/docs/books/)
-- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-
-## Support
-
-For questions, issues, or suggestions regarding this book:
-
-- Open an issue on [GitHub Issues](https://github.com/michael-borck/prove-dont-persuade/issues)
-- Contact the author for specific inquiries
-
-## Acknowledgments
-
-See `acknowledgments.qmd` for a complete list of individuals and organizations that contributed to this work.
+Corrections and reproducible issue reports are welcome through this repository. The book metadata currently declares a CC BY licence.

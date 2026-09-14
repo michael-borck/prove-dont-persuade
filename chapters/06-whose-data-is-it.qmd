@@ -41,7 +41,7 @@ Then come the stricter cousins. The EU's **General Data Protection Regulation (G
 
 California's CCPA/CPRA, Singapore's PDPA, and China's PIPL add their own consent, breach-notification, and cross-border-transfer rules. A global AI deployment hits several at once. The pragmatic response most organisations adopt is the **highest-common-denominator approach**: build to the strictest applicable standard, usually GDPR, so a single pipeline is defensible everywhere, rather than running five. For a company of Tessera's size, roughly 210 staff serving around 600 clients, that is usually the only affordable answer.
 
-Notice what survives every framework. Two auditable questions recur, and they map directly onto architecture: *where* is the data stored and processed, and does that movement across borders trigger disclosure obligations (APP 8, GDPR transfer rules)? And was this data collected for *this* use, and if an AI use is new, is it compatible with the original purpose? **Data sovereignty** and **purpose limitation** carry most of the weight. And the local model from the previous chapter answers the first one by construction: if the data never leaves the machine, there is no cross-border disclosure. That is not a loophole. It is exactly the architectural control the law is asking for.
+Notice what survives every framework. Two auditable questions recur, and they map directly onto architecture: *where* is the data stored and processed, and does that movement across borders trigger disclosure obligations (APP 8, GDPR transfer rules)? And was this data collected for *this* use, and if an AI use is new, is it compatible with the original purpose? **Data sovereignty** and **purpose limitation** carry most of the weight. Keeping processing local may reduce some transfer risks, but only if the whole data flow stays local. Check connectors, logs, backups, access, and support arrangements too. The next chapter compares deployment choices against these constraints; a local model is not an exemption from privacy obligations.
 
 ## Privacy by design: engineer it in
 
@@ -112,10 +112,10 @@ The personal-data blast shrinks, but anything that still emits a response to a r
 
 Stand back and hear the question behind the chapter. Tessera holds customer data **in trust**. When an AI workflow touches it, the responsibility does not transfer to the model vendor. It stays with Tessera, and with the engineer who built the flow. The Privacy Act, GDPR, and the trust tool all say the same thing in different registers: the data is the customer's, held by you, and *you* answer for where it goes.
 
-This is the last chapter of the Foundation act. You now know what changed, for whom it might fail, whether you can tell, what is in the data, what you give up to deploy it, and, here, whose data it is and who answers for it. The base is built. From here, the work changes. The next act is **Build and Prove**: you stop reading about AI and start assembling it, the harness that turns a model into a working solution, layer by layer. The first question of that act is the one every working system answers badly or well: *are you asking well?*
+Carry the data map and unresolved approvals into the next chapter, *What are you giving up?* You can now compare deployment options against explicit constraints instead of choosing a convenient tool and asking about privacy afterwards.
 
 ::::::: {.callout-note title="🔬 Power-user extension"}
-The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Python/pandas, R, or even a spreadsheet pivot) and compute the dataset's actual *k*-anonymity: group by `Region, Industry, Company_Size, Primary_Product` and find the smallest non-empty bucket. Then apply one generalisation pass: bin `Tenure_Months` into 1–12 / 13–36 / 37+, and drop or band `Contract_Value_AUD`, then re-measure. Did *k* rise? To what? That before/after pair is the evidence a privacy review actually wants: not "we anonymised it", but "generalisation lifted *k* from 1 to *n*, and here is the script."
+The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Python/pandas, R, or even a spreadsheet pivot) and compute the dataset's actual *k*-anonymity: group by `Region, Industry, Company_Size, Primary_Product` and find the smallest non-empty bucket. Then generalise one of the fields in that grouping and re-measure using the transformed grouping. Changes to tenure or contract value cannot change these four-field bucket sizes, because those fields were not in the calculation. Audit them separately as additional potential identifiers. Did the minimum group size rise, and what analytical detail did you lose? That before/after pair is the evidence a privacy review actually wants: not "we anonymised it", but "generalisation lifted *k* from 1 to *n*, and here is the script."
 :::::::
 
 ## 🔍 Go deeper
@@ -129,22 +129,20 @@ The Tessera Case asserts *k* = 1. Prove it. Load `tessera-customer-data.csv` (Py
 - **Ann Cavoukian, "Privacy by Design: The 7 Foundational Principles"** (Information & Privacy Commissioner of Ontario, revised 2011). The source document for the framework this chapter uses: the seven principles in full, with the reasoning behind each.
   <https://www.ipc.on.ca/wp-content/uploads/Resources/7foundationalprinciples.pdf>
 
-## 🗣️ Take it to the AI
+## Independent practice: a small linkage audit
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+**Time:** 20 minutes. **Input:** these four invented customer records. The row labels are for this exercise only.
 
-1. Ask the AI whether a dataset you describe is anonymised. The first answer will be reassuring. Then ask for the *k*-anonymity and watch the answer change, exactly as it did in this chapter's Conversation Log.
-2. Ask which fields in a schema you supply are quasi-identifiers. Then ask why an exact dollar figure counts as one. The reasoning matters more than the list.
-3. Ask where personal data hides in an AI pipeline. There are five surfaces, and logs are the one people forget.
+| Row | Region | Industry | Contract value |
+|---|---|---|---:|
+| A | South | Education | 41,200 |
+| B | South | Education | 58,900 |
+| C | Metro | Education | 47,500 |
+| D | Metro | Retail | 62,300 |
 
-**Keywords to steer with.** de-identified versus anonymised · direct identifier · quasi-identifier · *k*-anonymity · minimisation · generalisation · pseudonymisation · aggregation · APP 3, 6, 8, 11 · GDPR lawful basis · privacy by design · retention · re-identification by linkage
+1. Group by Region and Industry. Count the records in each non-empty group: 2, 1, and 1. The smallest group has one member.
+2. Suppress Industry and calculate the group sizes using Region alone: 2 and 2. Explain which business question becomes harder to answer.
+3. Now retain exact Contract value as another potential matching field. What happens to uniqueness in this tiny table?
+4. Draw the proposed flow from source to prompt, output, log, and backup. Mark what is known, what is assumed, and who must approve the next step.
 
-**A starting prompt (RTCF).**
-
-> **Role:** You are a privacy engineer who has re-identified "anonymous" datasets for a living.
->
-> **Task:** Take the schema I give you and tell me how you would re-identify one individual in it, then tell me what would stop you.
->
-> **Context:** I have read a chapter on quasi-identifiers, *k*-anonymity and privacy by design. The schema is [list the columns, the row count, and what each column contains]. Assume you can buy or scrape one public dataset of your choosing, and name which one you would use.
->
-> **Format:** The attack first: which columns you would combine, what external source you would join to, and roughly how many rows you think would be unique. Then the defence: which fields to drop, which to generalise, and what *k* you would target.
+**Artefact:** a data-boundary sheet in the dossier. **Success:** show the counts and explain why removing names, or achieving groups of two on selected fields, does not prove anonymity. Actual linkage risk depends on other available information and the release context. Do not attempt to identify real people. This is a reasoning exercise, not a legal compliance determination.
