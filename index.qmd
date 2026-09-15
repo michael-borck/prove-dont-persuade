@@ -28,12 +28,12 @@ Answering it well is not a vibe. It is a discipline: state what "good enough" me
 
 ## The trust tool
 
-Before you build or evaluate anything, you need one small idea you will use in every chapter: the **trust tool**. It comes from the companion book, *Conversation, Not Delegation*, and it asks two questions of any AI output, *before you act on it*:
+Before you build or evaluate anything, you need one small idea you will use in every chapter: the **trust tool**. It extends the companion book's checking habits into an applied-AI review aid, and asks two questions of any AI output, *before you act on it*:
 
 1. Does this need to be **precise**, or is **average** fine?
 2. If it's wrong, how big is the **blast radius**, small or large?
 
-That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). Almost every public AI failure (the chatbot that gave wrong legal advice, the hallucinated citation in a filed court document) is someone treating a red-quadrant output as green. The model rarely fails uniquely; the *placement* fails. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.
+That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). The grid is a teaching aid for deciding how much checking a use requires, not a complete safety assessment. Permissions, source quality, and the review process also matter. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.
 
 ## Write the proof brief before you build {#sec-proof-brief}
 
@@ -57,7 +57,7 @@ Your first brief will contain unknowns. Write “not yet established” beside t
 [Appendix C](appendices/c-what-you-build.qmd) supplies the dossier structure and capstone criteria. Start it now; do not reconstruct your reasoning after seeing the results.
 
 :::::: {.callout-warning title="Watch out: your own AI hygiene"}
-The AI you use is a third party. Do not paste Tessera's customer or tenant data, contracts, or PII into a consumer AI tool. That is a disclosure you cannot take back, and it may breach the Privacy Act and Tessera's obligations. Use approved or enterprise tooling, or a locally hosted model. The same scepticism you apply to Tessera's AI applies to your own: the tool is a thinking partner, not a safe drop box for secrets.
+Use the invented inputs supplied here. For real work, do not submit confidential or personal information to an unapproved destination. Check the product, plan, configuration, connected tools, and applicable obligations; an enterprise label or local model alone does not establish permission or privacy. Chapters 5–6 develop those checks.
 ::::::
 
 This premise is the thread that runs through every chapter.
@@ -91,24 +91,24 @@ The optional **🔬 Power-user extensions** add measurement, a second model, sel
 
 ### A living case: the Tessera site
 
-Tessera is fictional. Its companion site, **tessera.locoensayo.org**, extends the teaching case with documents, datasets, and staff personas. This edition does **not** bundle the full customer CSV, support CSV, policy collection, or router photographs. The prose describes those materials but is not a substitute for the files needed to reproduce a build. Appendix E maps the external dependencies. Save the files and record their retrieval date and version before starting a lab; the site may change.
+Tessera is fictional. Its companion site, **tessera.locoensayo.org**, extends the teaching case with documents, datasets, and staff personas. This edition bundles a small synthetic lab-v1 pack in Appendix G. It does **not** bundle the full companion-site customer CSV, support CSV, policy collection, or router photographs. The prose describes those materials but is not a substitute for the files needed to reproduce a build. Appendix E maps the external dependencies. Save the files and record their retrieval date and version before starting a lab; the site may change.
 
-The paper-based activities contain their own inputs. Case dialogue and numerical results are constructed teaching examples unless an accompanying source and run record explicitly identify a measurement. Your results can differ. A useful dossier distinguishes **observed**, **illustrative**, and **not tested** evidence.
+The core activities contain their own inputs or use the complete printed and downloadable lab-v1 pack in [Appendix G](appendices/g-reproducible-lab.qmd). Case dialogue and numerical results are constructed teaching examples unless an accompanying source and run record explicitly identify a measurement. Your results can differ. A useful dossier distinguishes **observed**, **illustrative**, and **not tested** evidence.
 
 ## The companion book
 
-*Conversation, Not Delegation* (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the *what we prove*), that book teaches *how to work with the machine well*: the conversation loop, the trust tool in full, staying in the loop, compensating for AI's predictable weaknesses. The two are complementary. When you use AI here, use it as a thinking partner whose claims need checking. The paper-based route lets you practise that checking without a model.
+*Conversation, Not Delegation* (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the *what we prove*), that book teaches *how to work with the machine well*: the conversation loop, VET, and choosing appropriate assistance and checks. Appendix A here contains the trust grid in full. The two are complementary. When you use AI here, use it as a thinking partner whose claims need checking. The paper-based route lets you practise that checking without a model.
 
 ## Conventions used in this book
 
-Every chapter carries the same recurring features so you learn to recognise them.
+Chapters use a selection of the following features, alongside worked calculations and independent tasks.
 
 :::::: {.callout-note title="🤖 Conversation Log"}
 **Blue boxes** show AI used as a thinking partner for the chapter's task: a worked example against Tessera, including, crucially, where the AI got it wrong and how the practitioner corrected it.
 ::::::
 
 :::::: {.callout-tip title="📍 Trust-tool placement"}
-**Green boxes** place the chapter's output on the Average/Precise × Small/Large grid, and say what that means for human oversight. This book's spine, made explicit every chapter.
+**Green boxes** place the chapter's output on the Average/Precise × Small/Large grid, and say what that means for human oversight. The grid concerns the intended use, not a permanent property of a model.
 ::::::
 
 ::::: {.tessera-case}
@@ -117,7 +117,7 @@ Every chapter carries the same recurring features so you learn to recognise them
 **Shaded boxes** carry the running Tessera engagement: the concrete artefact each chapter lands on. Tessera is written to be plausible: impressive in its prototypes, rougher underneath. Good practice does not assume the worst. It proves what is there.
 :::::
 
-You will also see **🔍 Go deeper** at the end of each chapter (one to three curated resources (a paper, a podcast, a video) for currency and breadth), the optional **🔬 Power-user extension** (a deeper take on the chapter's hands-on work), and standard callouts: **Watch out** (yellow) for traps that look right but aren't.
+You will also see **🔍 Go deeper** in selected chapters, with other sources linked beside the claims they support, the optional **🔬 Power-user extension** (a deeper take on the chapter's hands-on work), and standard callouts: **Watch out** (yellow) for traps that look right but aren't.
 
 Chapter practice varies between conversations, independent audits, calculations, and decision memos. Where a full starting prompt is useful, **RTCF** means Role, Task, Context, and Format. Adapt it to the job rather than repeating four labels mechanically. Preserve the original output, your checks, and your decision in the dossier. Use only invented or approved data; an exercise never authorises uploading real customer records.
 
@@ -129,4 +129,4 @@ It was written using the methodology its companion describes. AI tools were used
 
 ## A note on where this book is at
 
-This is an open-access book. The full text is drafted: an Introduction, twelve chapters across two acts, and six appendices. The online edition is always the most current, and passages are revised as the field moves.
+This is an open-access book. The full text is drafted: an Introduction, twelve chapters across two acts, and seven appendices. The online edition is always the most current, and passages are revised as the field moves.

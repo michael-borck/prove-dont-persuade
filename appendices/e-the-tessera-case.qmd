@@ -1,6 +1,6 @@
 # E. The Tessera Case: A Living Example {.unnumbered}
 
-Tessera is fictional. It is also, deliberately, *real enough to explore*. The company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. The paper-based activities are self-contained, but reproducing the dataset and retrieval labs requires external files. This edition does not bundle the full customer or support CSVs, policy collection, or router photographs. The descriptions below are a map, not a versioned resource manifest.
+Tessera is fictional. It is also, deliberately, *real enough to explore*. The company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. The core activities use the complete synthetic lab-v1 pack in Appendix G. Larger companion-site analyses require external files. This edition does not bundle the full customer or support CSVs, policy collection, or router photographs. The descriptions below are a map, not a versioned resource manifest.
 
 This appendix is the map. For each build, save the input files, source location, retrieval date, and version or checksum in your dossier. Check that the columns and row counts match the exercise before relying on a quoted finding. If a file is unavailable or differs, record that limitation; do not substitute invented data and claim to have reproduced the example.
 

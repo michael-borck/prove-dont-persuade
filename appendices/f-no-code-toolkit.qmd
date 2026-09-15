@@ -19,7 +19,7 @@ Interfaces, access conditions, and hardware requirements change. Record the tool
 
 Start from the [official download page](https://orangedatamining.com/download). Load an approved CSV into a File widget, connect a Data Table, and inspect column types and missing values before fitting anything. For a predictive task, identify the target and reserve test data before model selection. Keep the same split when comparing candidates.
 
-The external Tessera CSVs are not bundled with this edition. If unavailable, analyse the worked case and state that you did not run the workflow. Do not reconstruct a dataset from the chapter's reported findings and then treat agreement as verification.
+The full external Tessera CSVs are not bundled. Use the small, explicitly synthetic lab-v1 files from Appendix G for the core exercises; keep external data as a separately versioned extension. Do not confuse either with observed customer outcomes.
 
 ## Teachable Machine: preview before deployment
 

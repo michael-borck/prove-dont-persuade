@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: _book
+  resources:
+    - resources/lab-v1/**
 
 book:
   title: "Prove, Don't Persuade"
@@ -35,15 +37,16 @@ book:
     - appendices/d-prototype-to-production.qmd
     - appendices/e-the-tessera-case.qmd
     - appendices/f-no-code-toolkit.qmd
+    - appendices/g-reproducible-lab.qmd
     - acknowledgments.qmd
     - about-author.qmd
   other-links:
     - text: Download PDF
       icon: file-pdf
-      href: prove-dont-persuade.pdf
+      href: /prove-dont-persuade.pdf
     - text: Download EPUB
       icon: book
-      href: prove-dont-persuade.epub
+      href: /prove-dont-persuade.epub
     - text: Download llm.txt
       icon: robot
       href: llm.txt

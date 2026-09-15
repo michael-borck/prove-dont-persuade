@@ -6,9 +6,9 @@ What changed in the last few years is not that AI arrived. It is that the word g
 
 ## Three things that share a name
 
-**Narrow AI** does one job well. It classifies an image, predicts churn, ranks a feed, transcribes speech. It cannot do anything outside its training: the churn model will not write you a poem, and the spam filter has no opinions about your calendar. Unsexy, and quietly running most of the economy. This is the AI that flags a Tessera support ticket as likely to escalate, the AI that ranks which contract a lawyer sees first. When you build a classifier in Orange Data Mining later in this book, this is what you are building. It is, by a wide margin, the AI that is actually deployed in business.
+**Narrow AI** does one job well. It classifies an image, predicts churn, ranks a feed, transcribes speech. Its interface and training constrain its intended role: the churn model will not write you a poem, and the spam filter has no opinions about your calendar. Unsexy, and quietly running most of the economy. This is the AI that flags a Tessera support ticket as likely to escalate, the AI that ranks which contract a lawyer sees first. When you build a classifier in Orange Data Mining later in this book, this is what you are building. It is one common form of deployed AI.
 
-**General-purpose AI** is the chatbot era. Large language models (ChatGPT, Claude, Qwen) trained on broad data so they can be pointed at many tasks through language. They feel general because you ask in English. Underneath they are still doing something narrow (predicting the next token), but the surface is broad enough to be useful almost anywhere: draft a policy, summarise a contract, brainstorm why customers leave. The catch is precise, and it is the reason this book exists. These models are *confidently wrong in exactly the spots a human would trust*. A hallucinated citation reads like a real one. A plausible churn driver reads like a measured finding. This is why you need the trust tool, and why every claim about what these models produce is an assert…
+**General-purpose AI** is the chatbot era. Large language models (ChatGPT, Claude, Qwen) trained on broad data so they can be pointed at many tasks through language. They feel general because you ask in English. Underneath they are still doing something narrow (predicting the next token), but the surface is broad enough to be useful almost anywhere: draft a policy, summarise a contract, brainstorm why customers leave. The catch is precise, and it is the reason this book exists. These models are *confidently wrong in exactly the spots a human would trust*. A hallucinated citation reads like a real one. A plausible churn driver reads like a measured finding. This is why you need the trust tool, and why consequential claims in their answers need independent checking.
 
 **Agentic AI** is the newest, and it is the one that changed the stakes. Take a general-purpose model and wire it to tools and a loop: let it call an API, read a folder, run code, and decide its next step. The model itself has not changed; the **harness** around it has. Ask an agent to read Tessera's tickets folder, cluster them, and email you the top three themes, and it will go away and do a sequence of things. The more steps in the loop, the more places it can drift. Agentic does not mean autonomous. It means *more steps between you and the consequence*, which is a different and harder problem than a chatbot presents.
 
@@ -22,7 +22,7 @@ This is also where the practitioner's moat opens up. If building a demo is the w
 
 ## Multimodality runs sideways
 
-One more axis, and it is easy to misplace. "Multimodal" is not a fourth paradigm sitting on top of the other three; it runs *sideways* across them. It means the model handles more than text as input: image, audio, video, document. A narrow model can be multimodal (speech-to-text). A general model can be multimodal (describe this screenshot). The word describes *inputs*, not capability class.
+One more axis, and it is easy to misplace. "Multimodal" is not a fourth paradigm sitting on top of the other three; it runs *sideways* across them. It means the model handles more than text as input: image, audio, video, document. A narrow model can be multimodal (speech-to-text). A general model can be multimodal (describe this screenshot). The word describes the modalities handled at input or output, not a capability ranking.
 
 It matters in business for a blunt reason: the real world is not text-only. A Tessera support ticket often arrives with a screenshot of an error. A contract is a PDF, not a paragraph. A customer complaint might be a thirty-second voice note. A tool that can look at the actual artefact beats a tool that forces you to summarise the artefact into text first. The summary is where you, the human, quietly smuggle in your own reading, and the model never sees the original. Later in this chapter you will change exactly one thing about a prompt (adding an image) and watch what the model can and cannot do with it.
 
@@ -86,6 +86,14 @@ That is the question the next chapter turns to: *for whom?* Before you trust an 
 - **Andrew Ng, *Agentic AI* (DeepLearning.AI, free short course).** [learn.deeplearning.ai/courses/agentic-ai](https://learn.deeplearning.ai/courses/agentic-ai): Ng's case that agentic workflows (reflection, tool use, planning, multi-agent collaboration) will drive more progress than the next generation of foundation models. *Why watch it:* the clearest statement of the *arrow* this chapter is built on, models that take steps, not just give answers.
 
 - **Simon Willison's weblog, *local-llms* tag.** [simonwillison.net/tags/local-llms](https://simonwillison.net/tags/local-llms/): a respected practitioner's running notes on running open-weight models locally (Ollama and friends). *Why read it:* the local-versus-frontier terrain you touched in this chapter, written by someone who lives in it and distrusts hype as a matter of habit.
+
+## Core: inventory the proposed system
+
+**Time:** 15 minutes. **Inputs:** three invented proposals: a rule labels a ticket, a model drafts a reply, and an agent drafts and sends it.
+
+For each, record what enters, what leaves, what action can occur, and who can be harmed by an error. Name one piece of evidence you would require before permitting that action. The three categories can overlap; explain the capability and permission rather than arguing about the marketing label.
+
+**Artefact:** a three-row system inventory. **Success:** distinguish generating a draft from authority to send it, and note that even read-only processing can expose private data. Add the proposed use to your proof brief.
 
 ## 🗣️ Take it to the AI
 

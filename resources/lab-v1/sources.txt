@@ -1,0 +1,9 @@
+LAB-V1: FICTIONAL TEACHING DOCUMENTS
+These records are invented for this book, not original Tessera policies.
+R1 — Fault review, version 1
+A red status light requires human fault review. A suggested route must not close a ticket.
+R2 — Service check, version 1
+Check service telemetry before recommending a route change. A latency report alone does not confirm congestion.
+R3 — Refund authority, version 1
+A support draft must not promise a refund. The designated human reviewer decides whether to escalate a refund request.
+No document supplies a refund amount, a response-time guarantee, or observed customer churn.

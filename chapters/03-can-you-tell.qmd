@@ -20,7 +20,7 @@ At step three you have delegated, not conversed. You have also handed your judge
 
 It is tempting to file rubber-stamping (accepting an AI output without genuine review) under “lazy” or “low quality.” It is more serious than that, and the framing matters because it changes what you do about it.
 
-When you rubber-stamp, three things happen at once, and all of them are ethical. **Responsibility has been offloaded to a system that has none.** A model cannot be held accountable. The moment you ship its output unchanged, the *human* accountability vanishes into the workflow, and “the system said so” becomes a defence nobody can challenge, because there is no person behind it to challenge. **Harm is distributed, not avoided.** A biased churn flag, a screening decision, a customer reply: the harm does not disappear; it lands on a real person who never consented to be graded by an unreviewed model. And the failure is **invisible to the rubber-stamper.** The output reads fine. There is no alarm. Nothing in the prose tells you to look.
+When you rubber-stamp, three things happen at once, and all of them are ethical. **Responsibility has been offloaded to a system that has none.** A model cannot be held accountable. Uncritical acceptance can obscure who made the decision, but it does not erase the responsibilities of the people or organisation using it. **Harm is distributed, not avoided.** A biased churn flag, a screening decision, a customer reply: the harm does not disappear; it lands on a real person who never consented to be graded by an unreviewed model. And the failure is **invisible to the rubber-stamper.** The output reads fine. There is no alarm. Nothing in the prose tells you to look.
 
 That last point is the whole reason the trust tool exists. The tool forces a *conscious* placement *before* you act, precisely because the surface will never warn you. There is a simple honest test you can apply to any review you do this week: if your review could be replaced by the word *“approved”* without you changing a thing, it is not review. It is rubber-stamping. And if the output touches a person, that is an ethical failure, not a stylistic one.
 
@@ -52,32 +52,24 @@ Representativeness and Harm tell you the **blast radius**: small or large. Accou
 
 Tessera’s Head of Customer Success wants to know, fast, who is at risk of churning. A practitioner prompts the shared AI stack: *“Draft a profile of our typical at-risk churn customer for the South territory.”* The model returns a polished persona, confident, structured, ready to drop into a slide.
 
-Run against the four lenses, the evidence stacks up. **Representativeness:** the profile defaults to a specific industry (Education), a company size (under 50 staff), and a tone that quietly excludes Tessera’s larger enterprise and Metro customers, who churn for different reasons the profile never mentions. **Harm:** if this persona drives a retention campaign, the customers it misses get no outreach at all, and they never learn they were filtered out by a profile. **Accountability:** nobody signed the persona; “the model generated it” is the only provenance. **Transparency:** a reasonable person could not tell how the profile was produced: it states its defaults as facts.
+Treat this as a constructed persona, not a finding about actual customers. **Representativeness:** its focus on Education and small organisations may omit relevant groups; request evidence before claiming that it describes all at-risk customers. **Harm:** a campaign based only on that profile could miss other customers. **Accountability:** name who approves the campaign. **Transparency:** show which statements are supported and which are assumptions.
 
-The same prompt is run on the local Qwen and the frontier model. The frontier model hides its bias better: smoother prose, softer edges, no tell-tale hedging. The local model surfaces its assumptions more plainly. The lesson lands hard: **a more fluent model is not a less biased one; it is a harder-to-spot biased one.** The audit is the discipline of looking anyway.
+Comparing drafts from two models may reveal different assumptions, but smoother prose does not establish either less bias or more bias. Test the outputs against relevant evidence. The lab contains proxy labels, not actual churn outcomes, so it cannot establish why a real customer left.
 ::::
 
 ## A separate problem: hostile source material
 
-A fair-looking answer can also have been influenced by instructions hidden in a source document. That is a security problem, distinct from the bias and accountability audit here. We will test **prompt injection** after building a retrieval workflow in [Are you asking well?](07-are-you-asking-well.qmd#sec-untrusted-sources), where the boundary between a source and an instruction is visible.
+A fair-looking answer can also have been influenced by instructions hidden in a source document. That is a security problem, distinct from the bias and accountability audit here. We will examine **prompt injection** alongside the optional retrieval build in [Are you asking well?](07-are-you-asking-well.qmd#sec-untrusted-sources), where the boundary between a source and an instruction is visible.
 
-## The red quadrant becomes the centre of gravity
+## Keep the verdict within the evidence
 
-This is the chapter where the red quadrant stops being one cell of a grid and becomes the default for anything that touches a person. A hiring screen. A churn flag. A customer persona. A support reply. Each is red: human-in-the-loop, non-negotiable, *regardless of how polished it looks.* Bias is invisible in confident prose. Injection is invisible in a helpful answer. The trust tool exists precisely because you cannot tell from the surface, so you place first, and verify before it touches anything real.
+A persona used privately to brainstorm questions differs from one used to exclude customers from outreach. Place the proposed use with Appendix A's precision-and-consequence questions, then specify the necessary evidence and approval. A human signature alone does not make a weak evaluation adequate.
 
-The rule to carry out of this chapter fits on one line: **an output that touches a person is red until a human has checked it, and "the model said so" is never a defence.** That rule runs under every remaining chapter. It is also the standard any consultant report or pitch is ultimately judged against, because it is the standard applied AI is actually held to once it leaves the demo.
+In a constructed self-review, the model calls its persona “balanced and inclusive” without providing data. The practitioner should reject that unsupported assurance, not claim to have proved a disparity from tone alone.
 
-::: {.callout-note title="🤖 Conversation Log"}
-Auditing a Tessera churn persona, the practitioner asks the model to *help*, not to produce the verdict, but to surface candidates. The model drafts the at-risk profile, then the practitioner asks it to audit its own output for bias.
+An appropriate record says: “The draft assumes a narrow customer profile. I cannot verify that profile from observed churn data in this lab because no such outcomes are supplied. Before it informs outreach, the responsible reviewer needs representative records, a stated selection rule, and an error analysis.”
 
-**Where the AI got it wrong.** The model declared its own persona "balanced and inclusive," citing the very fluency that was hiding the bias. It could not see that the profile defaulted to one industry and company size, because the polished prose disarmed its own self-review too. This is the key correction: **a model is a poor auditor of its own bias**, because the same fluency that hides the bias from a human hides it from the model.
-
-**The human correction.** The practitioner ran the four lenses by hand, wrote one evidence sentence per lens from the actual text, and found the representativeness failure the model had smoothed over. The conversation log records: *"I placed this output in the red quadrant because it touches customers and could drive a retention decision. I verified the industry and size assumptions against the actual churn data and refused to trust the persona's framing until a human checks which segments it excludes."* The model produced the draft. The practitioner supplied the proof, the correction, and the defensible refusal to ship it unchanged.
-:::
-
-::: {.callout-tip title="📍 Trust-tool placement"}
-A customer persona, a churn flag, a screening ranking, anything that touches a person or drives a decision, sits in the 🔴 **red quadrant**: precise (the answer must be right), large blast radius (it lands on a real person). That placement does not change when the output is fluent. If anything, fluency raises the stakes, because it lowers the chance anyone checks. Placement is a *conscious act before you act*: the surface will never warn you, so the audit has to. The green quadrant is for drafts, brainstorming, first-pass summaries. This chapter’s outputs are none of those.
-:::
+The audit has identified a consequential gap. That is a defensible result; it does not need an invented measurement to become useful.
 
 ## Independent practice: audit a persona
 

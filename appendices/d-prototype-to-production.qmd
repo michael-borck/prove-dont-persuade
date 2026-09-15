@@ -16,7 +16,7 @@ These are decision gates, not universal numerical standards. Set their threshold
 
 ## The honest boundary
 
-The no-code tools in this book (Orange, Open WebUI, Teachable Machine, an agent framework) will get you to a deployable prototype: something that works, that you have evaluated honestly, and that you can defend. They will not, on their own, run a hardened production system. Production is where software engineering begins: monitoring, rollback, access control, incident response, scaling, cost management.
+The no-code tools in this book (Orange, Open WebUI, Teachable Machine, an agent framework) can help you build a candidate prototype for evaluation; a failed or paper-only exercise is also a valid dossier outcome. They will not, on their own, run a hardened production system. Engineering is needed during prototyping too; production adds operational demands such as monitoring, rollback, access control, incident response, scaling, cost management.
 
 Knowing where that line sits is itself the practitioner's edge. The dangerous practitioner is the one who ships a polished prototype as if it were a production system, because they cannot see the line. The useful practitioner can say, for any artefact: this far I can build, evaluate, and defend; from here, engineering and operations take it, and here is exactly what they must not drop. This appendix is a map of that handoff, not a course in it.
 
@@ -30,7 +30,7 @@ A prototype has to run. A production system has to do four things a prototype ne
 
 **Someone has to own it.** A prototype is yours. A production system needs an owner, an on-call, and a named human who signs off on the red-quadrant outputs. "The model does this" is not an operating model; it is the shadow system from Chapter 3, now running in production. Name the owner before you ship, or the ownership defaults to nobody.
 
-**The legal and security questions become gates.** In a prototype, the Privacy Act questions (Chapter 5) and the injection defences (Chapter 7) are things you considered. In production they are gates a launch does not pass without: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 6 chose where the prompt may travel; production makes that choice auditable and enforced.
+**The legal and security questions become gates.** Privacy and security obligations can apply during prototyping, before any production launch. Review the specific scope with the responsible specialists. Production readiness also needs documented controls: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 6 chose where the prompt may travel; production makes that choice auditable and enforced.
 
 ## A production checklist (for a no-code practitioner)
 
@@ -53,6 +53,6 @@ A later candidate that meets the agreed criteria still needs the next gate's evi
 
 ## Where this book stops
 
-This book teaches you to build a prototype that works, evaluate it until it breaks, and defend the decision about how much to trust it. It stops short of teaching you to run it in production, because that is a different discipline, and pretending otherwise would be the demo mindset this book exists to resist.
+This book teaches you to specify a candidate, examine evidence and failures, and defend a bounded decision about its use. It stops short of teaching you to run it in production, because that is a different discipline, and pretending otherwise would be the demo mindset this book exists to resist.
 
 What it does give you is the ability to see the line, to hand the system over with its limits honestly named, and to specify the oversight that must travel with it. A practitioner who can do that is the one a business trusts to deploy AI. A practitioner who cannot is the one who ships a demo and calls it production, and the cost of the difference lands on the customer, the regulator, and the reputation that was on the line all along.

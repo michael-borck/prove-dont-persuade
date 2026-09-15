@@ -16,8 +16,8 @@ Michael builds educational software and resources, and writes about the 80/20 pr
 
 **Connect**
 
-- [michaelborck.dev](https://michaelborck.dev): Professional work and projects
-- [michaelborck.education](https://michaelborck.education): Educational software and resources
+- [GitHub projects](https://github.com/michael-borck): Software and educational resources
+- [Free book collection](https://books.borck.education): Current online editions and downloads
 - [8020workshop.com](https://8020workshop.com): Passion projects and workshops
 - [LinkedIn](https://linkedin.com/in/michaelborck)
 

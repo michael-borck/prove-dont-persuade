@@ -1,0 +1,95 @@
+# G. A Small, Reproducible Lab {.unnumbered}
+
+This **lab-v1** pack is an intentionally small, synthetic substitute for the external Tessera materials. It was authored for this edition, not collected from customers or copied from the companion site. The full inputs are printed here; the online edition also supplies [customer CSV](../resources/lab-v1/customers.csv), [support CSV](../resources/lab-v1/support.csv), and [source documents](../resources/lab-v1/sources.txt). No account, model, or network is required for the core exercises.
+
+Keep this version unchanged when comparing results. These examples are too small to validate a production system. Their purpose is to make your reasoning and arithmetic inspectable.
+
+## Customer-label exercise
+
+The label is an invented assessment of renewal likelihood. It is **not actual churn**. The data contains no observed renewal outcome, date of departure, or record of an intervention. IDs identify fictional rows only.
+
+```{=latex}
+\clearpage
+```
+
+| ID | Region | Tenure months | Satisfaction | Label | Split |
+|---|---|---:|---:|---|---|
+| A01 | South | 2 | 3 | Low | Development |
+| A02 | South | 4 | 5 | Low | Development |
+| A03 | Metro | 6 | 4 | Low | Development |
+| A04 | Metro | 8 | 8 | High | Development |
+| A05 | North | 12 | 8 | High | Development |
+| A06 | North | 24 | 9 | High | Development |
+| A07 | South | 18 | 7 | High | Development |
+| A08 | Metro | 36 | 2 | Low | Development |
+| T01 | South | 3 | 7 | Low | Test |
+| T02 | Metro | 10 | 5 | High | Test |
+| T03 | North | 30 | 9 | High | Test |
+| T04 | South | 20 | 4 | Low | Test |
+
+For descriptive practice, use all twelve rows: six carry a Low label. South has 4/5 Low, Metro 2/4, and North 0/3. These are label distributions, not model error rates. A zero in three examples does not make a region safe.
+
+For model comparison, cover the four test labels until you have written your rule and acceptance criterion. Use these two **predefined rules**, not claims about fitted commercial models:
+
+- **Rule A:** predict Low if satisfaction is 6 or below; otherwise High.
+- **Rule B:** predict Low if tenure is 6 months or below; otherwise High.
+- **Baseline:** always predict High.
+
+The exercise brief requires at least three correct predictions out of four **and** detection of both Low-labelled test cases. These are teaching criteria, not an operational standard.
+
+On T01–T04, A predicts High, Low, High, Low: 2/4 correct. B predicts Low, High, High, High: 3/4 correct. The baseline gets 2/4 correct. Both rules detect only 1/2 Low cases, so **neither meets the brief**. A has one false alarm and one missed Low; B has no false alarms but still misses one Low. Knowing the rules makes these errors explainable; it does not make them acceptable.
+
+An independent transfer task: propose a third rule using only the development rows. Write it down before scoring the test rows. Once you have seen these answers, those four rows are no longer unseen data for your own model selection. A final performance claim needs a new sample with independently established outcomes. Do not relabel the supplied test set as fresh.
+
+## Language exercise
+
+These six messages and reference readings are constructed examples. The readings are a discussion key, not indisputable ground truth.
+
+| ID | Message | Reference theme | Reference tone |
+|---|---|---|---|
+| S1 | Wonderful, another outage during my presentation. | Availability | Negative |
+| S2 | The invoice was corrected. Thank you. | Billing | Positive |
+| S3 | The new dashboard is clear, but exports still fail. | Mixed | Mixed |
+| S4 | Please explain the renewal date. | Contract | Neutral |
+| S5 | No more login errors after the patch. | Access | Positive |
+| S6 | Support was polite. My service is still down. | Availability | Mixed |
+
+Cover the last two columns and classify the messages yourself. Underline the words supporting each decision. Use this deliberately crude baseline: count “wonderful”, “thank”, “clear”, and “polite” as positive; count “outage”, “fail”, “errors”, and “down” as negative. Compare counts; label a tie neutral. Match whole words, case-insensitively, and do not add a negation rule halfway through the test.
+
+The baseline returns neutral, positive, neutral, neutral, negative, neutral. It cannot express mixed tone and mishandles the negation in S5. Under this exact scoring convention it agrees with the reference tone on 2/6 messages. That result describes this toy scorer and key, not all lexicon methods. Keep reasonable disagreements with the key rather than forcing agreement.
+
+## Retrieval and action exercise
+
+Use these complete source excerpts:
+
+- **R1 — Fault review, version 1:** “A red status light requires human fault review. A suggested route must not close a ticket.”
+- **R2 — Service check, version 1:** “Check service telemetry before recommending a route change. A latency report alone does not confirm congestion.”
+- **R3 — Refund authority, version 1:** “A support draft must not promise a refund. The designated human reviewer decides whether to escalate a refund request.”
+
+Ask three questions:
+
+1. What happens after a red status light? Cite R1 and retain the human review.
+2. Does a latency report prove congestion? R2 says it does not; telemetry is needed.
+3. What refund amount is guaranteed? None is specified. An amount would be invented.
+
+First answer on paper. Optionally give the same sources and questions to an approved model, preserving its exact output. The answer key is the same in either route. For the injection exercise in Chapter 7, use that chapter's disposable synthetic excerpts; do not modify a live knowledge base.
+
+## One end-to-end dossier
+
+Select either the label classifier or the source-grounded support assistant. Preserve the original brief, inputs/version, baseline, results, failures, decision, review role, and next evidence needed. If using only this appendix, describe the deliverable as a **worked case analysis**, not a production model.
+
+For the classifier, the correct decision under the supplied brief is revise or stop. For the assistant, a supported answer to three questions is only a small functional check; it provides no measured security, privacy, or reliability guarantee. Both can support a good capstone when those limits remain visible.
+
+A peer should be able to reproduce your arithmetic or trace your answers from the printed inputs without installing software. Repository maintainers can also run `python scripts/check_manuscript.py`; it checks these fixtures and the matching printed tables, not the quality of an optional model run.
+
+### Worked decision memo: the label classifier
+
+**Scope and brief.** This is a case analysis of lab-v1's fictional renewal labels, not a churn predictor. The intended task is to compare two predefined rules; customer contact and automated decisions are forbidden. Preserve the supplied acceptance rule: at least 3/4 test predictions correct and both Low-labelled cases detected.
+
+**Evidence.** The source is the twelve printed customer rows, with A01–A08 designated development and T01–T04 test. Rule A scores 2/4 correct and detects 1/2 Low cases; Rule B scores 3/4 and detects 1/2. Always-High scores 2/4 and detects 0/2. These are reproducible calculations on invented inputs, not measurements of a deployed model. Once read, the test answers cannot serve as unseen evidence for tuning a new rule.
+
+**Decision.** Revise and retest, or stop this candidate. The highest overall score does not meet the full brief. A missed Low-labelled case is the relevant failure here; actual customer consequences and regional error rates are not established by this tiny test. Do not translate the label into a claim that a customer will leave.
+
+**Responsibility and next gate.** The fictional evaluation owner retains the failed results and original threshold. The support owner keeps the existing manual process; no model recommendation reaches a customer. Before any pilot proposal, obtain approved, representative records with independently established outcomes, reserve fresh test data, agree the relevant error costs, and test the review workload and fallback. No staffing or savings claim is justified by this exercise.
+
+The memo meets the dossier's eight criteria by exposing evidence and limits. It does not pass the prototype-to-pilot gate. Use its structure on a different case; copying this answer is not an independent evaluation.

@@ -1,0 +1,13 @@
+id,region,tenure_months,satisfaction,renewal_label,split
+A01,South,2,3,Low,development
+A02,South,4,5,Low,development
+A03,Metro,6,4,Low,development
+A04,Metro,8,8,High,development
+A05,North,12,8,High,development
+A06,North,24,9,High,development
+A07,South,18,7,High,development
+A08,Metro,36,2,Low,development
+T01,South,3,7,Low,test
+T02,Metro,10,5,High,test
+T03,North,30,9,High,test
+T04,South,20,4,Low,test

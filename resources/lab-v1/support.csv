@@ -1,0 +1,7 @@
+id,text,reference_theme,reference_tone
+S1,"Wonderful, another outage during my presentation.",availability,negative
+S2,"The invoice was corrected. Thank you.",billing,positive
+S3,"The new dashboard is clear, but exports still fail.",mixed,mixed
+S4,"Please explain the renewal date.",contract,neutral
+S5,"No more login errors after the patch.",access,positive
+S6,"Support was polite. My service is still down.",availability,mixed
