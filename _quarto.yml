@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: _book
   resources:
+    - LICENSE
+    - LICENSE-CONTENT.md
+    - LICENSE-CODE.md
     - resources/lab-v1/**
 
 book:
@@ -9,11 +12,12 @@ book:
   subtitle: "Why Proof Beats the Demo in Applied AI"
   author: "Michael Borck"
   date: today
-  license: "CC BY"
+  license: "CC BY 4.0 International"
   favicon: favicon.svg
   page-navigation: true
   chapters:
     - index.qmd
+    - copyright.qmd
     - part: "Act I · Foundation: what changed, and for whom"
       chapters:
         - chapters/01-what-changed.qmd

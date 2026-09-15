@@ -33,7 +33,7 @@ class ManuscriptChecks(unittest.TestCase):
 
     def test_configured_files_exist_and_are_unique(self):
         files = configured_files()
-        self.assertEqual(len(files), 22)
+        self.assertEqual(len(files), 23)
         self.assertEqual(len(files), len(set(files)))
         for name in files:
             with self.subTest(file=name):

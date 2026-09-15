@@ -51,4 +51,12 @@ See [EDITORIAL-REVISION.md](EDITORIAL-REVISION.md) for completed changes, valida
 - [Conversation, Not Delegation](https://michael-borck.github.io/conversation-not-delegation/)
 - [All books](https://books.borck.education)
 
-Corrections and reproducible issue reports are welcome through this repository. The book metadata currently declares a CC BY licence.
+Corrections and reproducible issue reports are welcome through this repository.
+
+## Licence
+
+Book content is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0 International)](https://creativecommons.org/licenses/by/4.0/). Original code examples and accompanying software are licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+These grants cover material the author has authority to license. Separately credited third-party material retains its stated terms. Give appropriate credit, link the content licence and indicate changes; retain the MIT notice when reusing code.
+
+See [LICENSE](LICENSE), [LICENSE-CONTENT.md](LICENSE-CONTENT.md) and [LICENSE-CODE.md](LICENSE-CODE.md) for scope and full terms.
