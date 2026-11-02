@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,20 +38,21 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../appendices/e-the-tessera-case.html" rel="next">
 <link href="../appendices/c-what-you-build.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,13 +466,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-honest-boundary" id="toc-the-honest-boundary" class="nav-link active" data-scroll-target="#the-honest-boundary">The honest boundary</a></li>
+  <li><a href="#three-gates-not-one-launch" id="toc-three-gates-not-one-launch" class="nav-link active" data-scroll-target="#three-gates-not-one-launch">Three gates, not one launch</a></li>
+  <li><a href="#the-honest-boundary" id="toc-the-honest-boundary" class="nav-link" data-scroll-target="#the-honest-boundary">The honest boundary</a></li>
   <li><a href="#what-changes-when-you-go-live" id="toc-what-changes-when-you-go-live" class="nav-link" data-scroll-target="#what-changes-when-you-go-live">What changes when you go live</a></li>
   <li><a href="#a-production-checklist-for-a-no-code-practitioner" id="toc-a-production-checklist-for-a-no-code-practitioner" class="nav-link" data-scroll-target="#a-production-checklist-for-a-no-code-practitioner">A production checklist (for a no-code practitioner)</a></li>
-  <li><a href="#worked-example-the-router-classifier-live" id="toc-worked-example-the-router-classifier-live" class="nav-link" data-scroll-target="#worked-example-the-router-classifier-live">Worked example: the router classifier, live</a></li>
+  <li><a href="#worked-example-the-router-classifier-at-the-gate" id="toc-worked-example-the-router-classifier-at-the-gate" class="nav-link" data-scroll-target="#worked-example-the-router-classifier-at-the-gate">Worked example: the router classifier at the gate</a></li>
   <li><a href="#where-this-book-stops" id="toc-where-this-book-stops" class="nav-link" data-scroll-target="#where-this-book-stops">Where this book stops</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -480,12 +498,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Every artefact in Appendix C is, at the moment you finish it, a working prototype. It runs. It passed the evaluation you designed for it. You placed it on the trust grid and named its limits. That is a long way from a demo, and it is still not the same thing as a system a business can rely on, live, with its reputation on the line.</p>
-<p>This appendix is about the gap between <em>proved it works</em> and <em>keeps working in production</em>. It is the layer the twelve chapters point at but do not build out, because it belongs to the operational lifetime of a system, not to the act of building one. The thesis does not change: <em>prove, don’t persuade</em>. It just does not stop at launch.</p>
+<p>The dossier may end with a working prototype, a failed evaluation, or a decision not to build. None is production approval. This appendix describes the evidence needed to move a candidate forward, and the conditions under which it should stay where it is.</p>
+<p>This appendix is about the gap between <em>proved it works</em> and <em>keeps working in production</em>. It is the layer the twelve chapters point at but do not build out, because it belongs to the operational lifetime of a system, not to the act of building one.</p>
+<section id="three-gates-not-one-launch" class="level2">
+<h2 class="anchored" data-anchor-id="three-gates-not-one-launch">Three gates, not one launch</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gate</th>
+<th>Evidence needed to proceed</th>
+<th>If it is missing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Prototype to bounded pilot</td>
+<td>Defined use, held-out evaluation against the brief, data/security review, named owner, tested fallback, limits on users, actions, duration, and volume</td>
+<td>Keep it in development; a separate shadow study may be proposed with no effect on customer decisions</td>
+</tr>
+<tr class="even">
+<td>Pilot to production</td>
+<td>Results from representative pilot conditions, measured review workload, incident/rollback rehearsal, monitoring and access controls, approvals from the responsible teams</td>
+<td>Extend, redesign, or stop the pilot; do not quietly widen its scope</td>
+</tr>
+<tr class="odd">
+<td>Continued operation</td>
+<td>Scheduled and change-triggered evaluation, monitoring of relevant failures, current ownership and approvals, action on breaches of thresholds</td>
+<td>Pause the affected use and revert to the manual process until reviewed</td>
+</tr>
+</tbody>
+</table>
+<p>These are decision gates, not universal numerical standards. Set their thresholds for the specific use and risks. Re-baselining after a model, prompt, source, or workflow change means preserving the old evidence and running a new comparison, not rewriting the old acceptance rule.</p>
+</section>
 <section id="the-honest-boundary" class="level2">
 <h2 class="anchored" data-anchor-id="the-honest-boundary">The honest boundary</h2>
-<p>The no-code tools in this book (Orange, Open WebUI, Teachable Machine, an agent framework) will get you to a deployable prototype: something that works, that you have evaluated honestly, and that you can defend. They will not, on their own, run a hardened production system. Production is where software engineering begins: monitoring, rollback, access control, incident response, scaling, cost management.</p>
-<p>Knowing where that line sits is itself the practitioner’s edge. The dangerous practitioner is the one who ships a polished prototype as if it were a production system, because they cannot see the line. The useful practitioner can say, for any artefact: this far I can build, evaluate, and defend; from here, engineering and operations take it, and here is exactly what they must not drop. This appendix is a map of that handoff, not a course in it.</p>
+<p>The no-code tools in this book (Orange, Open WebUI, Teachable Machine, an agent framework) can help you build a candidate prototype for evaluation; a failed or paper-only exercise is also a valid dossier outcome. They will not, on their own, run a hardened production system. Engineering is needed during prototyping too; production adds operational demands such as monitoring, rollback, access control, incident response, scaling, cost management.</p>
+<p>The dangerous practitioner is the one who ships a polished prototype as if it were a production system, because they cannot see the line. The useful practitioner can say, for any artefact: this far I can build, evaluate, and defend; from here, engineering and operations take it, and here is exactly what they must not drop.</p>
 </section>
 <section id="what-changes-when-you-go-live" class="level2">
 <h2 class="anchored" data-anchor-id="what-changes-when-you-go-live">What changes when you go live</h2>
@@ -493,7 +546,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>It has to keep working.</strong> The model that scored well in your evaluation is not frozen. The world drifts: customers behave differently, the input distribution shifts, a vendor swaps the model under your API. An accuracy figure measured once is a photograph, not a guarantee. The question stops being <em>does it work?</em> and becomes <em>is it still working, and how would I know if it stopped?</em></p>
 <p><strong>It has to fail visibly.</strong> A prototype fails on your laptop, where you see it. A production system fails in front of customers, quietly, and the worst failure is the one nobody notices until a complaint arrives. You need telemetry that surfaces the failure, not a dashboard of green ticks that hides it. Chapter 3’s lesson scales up: the dangerous output is the fluent one nobody checked, and the dangerous system is the one whose failures are invisible to the team that owns it.</p>
 <p><strong>Someone has to own it.</strong> A prototype is yours. A production system needs an owner, an on-call, and a named human who signs off on the red-quadrant outputs. “The model does this” is not an operating model; it is the shadow system from Chapter 3, now running in production. Name the owner before you ship, or the ownership defaults to nobody.</p>
-<p><strong>The legal and security questions become gates.</strong> In a prototype, the Privacy Act questions (Chapter 6) and the injection defences (Chapter 3) are things you considered. In production they are gates a launch does not pass without: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 5 chose where the prompt may travel; production makes that choice auditable and enforced.</p>
+<p><strong>The legal and security questions become gates.</strong> Privacy and security obligations can apply during prototyping, before any production launch. Review the specific scope with the responsible specialists. Production readiness also needs documented controls: data-processing agreements in place, cross-border transfers lawful for the regions you serve, least-privilege tooling on any agent, and a human approval step on every action that is hard to reverse. Chapter 6 chose where the prompt may travel; production makes that choice auditable and enforced.</p>
 </section>
 <section id="a-production-checklist-for-a-no-code-practitioner" class="level2">
 <h2 class="anchored" data-anchor-id="a-production-checklist-for-a-no-code-practitioner">A production checklist (for a no-code practitioner)</h2>
@@ -504,29 +557,26 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Have a kill switch, and know who can pull it.</strong> If the system cannot be turned off fast, it is not production-ready. Name the person, the channel, and the threshold at which they act.</li>
 <li><strong>Make the human-in-the-loop a design, not a promise.</strong> A checkpoint that survives Monday-morning volume and deadline pressure is the only one that counts. The Delegation Trap (Chapter 3) does not disappear at launch; it intensifies, because production volume is exactly the pressure that turns a reviewer into a rubber stamp. Design the checkpoint so that rubber-stamping is hard, not easy.</li>
 <li><strong>Log for audit, not for curiosity.</strong> Keep the records that let you answer, after a complaint, <em>what did the system do, why, and who decided to trust it</em>. The conversation log (Appendix B) is the prototype version of this discipline; production makes it a requirement.</li>
-<li><strong>Sign off at go-live, on paper.</strong> The deployment decision (Chapter 5), the privacy architecture (Chapter 6), the security baseline (Chapter 3): each needs a named sign-off before launch, not a nod. A launch memo that records what was checked, by whom, and what the known limits are, is the artefact that separates a responsible deployment from a hopeful one.</li>
+<li><strong>Sign off at go-live, on paper.</strong> The deployment decision (Chapter 6), the privacy architecture (Chapter 5), the security baseline (Chapters 7 and 11): each needs a named sign-off before launch, not a nod. A launch memo that records what was checked, by whom, and what the known limits are, is the artefact that separates a responsible deployment from a hopeful one.</li>
 </ul>
 </section>
-<section id="worked-example-the-router-classifier-live" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-the-router-classifier-live">Worked example: the router classifier, live</h2>
-<p>Take the Chapter 9 classifier to production. The evaluation already did the hard part: it found the fault class collapses to 0% under dim light, and you placed fault confirmation as red (a human verifies) and triage as green. Production does not re-litigate that; it operationalises it.</p>
-<ul>
-<li><strong>Monitoring:</strong> track the fault-detection rate and the false-clear rate over time, sliced by lighting condition, because dim-light faults are exactly where this model breaks.</li>
-<li><strong>Re-evaluation:</strong> re-run the held-out evaluation whenever the fleet gets a new LED design, a firmware update, or a new product line, because any of those shifts the input distribution the model was trained on.</li>
-<li><strong>Checkpoint:</strong> the human-verify-fault step is the load-bearing control. It must survive the volume of real tickets, which means it has to be fast and specific (show the human the photo and the model’s call, ask one question), not a generic “please review.”</li>
-<li><strong>Kill switch:</strong> if the false-clear rate climbs past a threshold, auto-clearing of faults stops and everything routes to a human until the model is re-evaluated.</li>
-</ul>
-<p>The model did not change between prototype and production. What changed is that the proof became continuous, the oversight became enforced, and the failure that was once caught in an evaluation is now caught by a system that keeps looking for it.</p>
+<section id="worked-example-the-router-classifier-at-the-gate" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-the-router-classifier-at-the-gate">Worked example: the router classifier at the gate</h2>
+<p>The constructed evaluation in Chapter 9 fails the fault-detection criterion in both lighting conditions. It does <strong>not</strong> earn a move into customer-facing routing. Tessera should revise and retest, or propose a separately approved shadow study in which predictions cannot close, route, or delay a real ticket.</p>
+<p>In that shadow study, a reviewer checks every suggestion against the normal support process. Checking only suggestions labelled fault would miss the very failure the evaluation found: actual faults labelled healthy or degraded. Track the error counts and the time needed for review. If the review cannot keep up, stop the study rather than letting unchecked suggestions become actions.</p>
+<p>A later candidate that meets the agreed criteria still needs the next gate’s evidence: representative data, a workable checkpoint, controlled access, monitoring, and a rehearsed fallback. Passing a small teaching test is not a reason to assume those controls exist.</p>
 </section>
 <section id="where-this-book-stops" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-book-stops">Where this book stops</h2>
-<p>This book teaches you to build a prototype that works, evaluate it until it breaks, and defend the decision about how much to trust it. It stops short of teaching you to run it in production, because that is a different discipline, and pretending otherwise would be the demo mindset this book exists to resist.</p>
-<p>What it does give you is the ability to see the line, to hand the system over with its limits honestly named, and to specify the oversight that must travel with it. A practitioner who can do that is the one a business trusts to deploy AI. A practitioner who cannot is the one who ships a demo and calls it production, and the cost of the difference lands on the customer, the regulator, and the reputation that was on the line all along.</p>
+<p>This book teaches you to specify a candidate, examine evidence and failures, and defend a bounded decision about its use. It stops short of teaching you to run it in production, because that is a different discipline.</p>
+<p>What it does give you is the ability to see the line, to hand the system over with its limits honestly named, and to specify the oversight that must travel with it.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -942,13 +992,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../appendices/c-what-you-build.html" class="pagination-link" aria-label="C. What You Build">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">C. What You Build</span>
+      <a href="../appendices/c-what-you-build.html" class="pagination-link" aria-label="C. The Proof Dossier: What You Build">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">C. The Proof Dossier: What You Build</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendices/e-the-tessera-case.html" class="pagination-link" aria-label="E. The Tessera Case — A Living Example">
-        <span class="nav-page-text">E. The Tessera Case — A Living Example</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../appendices/e-the-tessera-case.html" class="pagination-link" aria-label="E. The Tessera Case: A Living Example">
+        <span class="nav-page-text">E. The Tessera Case: A Living Example</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

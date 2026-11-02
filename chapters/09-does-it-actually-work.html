@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,22 +36,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/10-can-it-do-the-whole-job.html" rel="next">
+<link href="../chapters/11-how-does-it-decide.html" rel="next">
 <link href="../chapters/08-what-is-it-saying.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,16 +466,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-demo-and-the-deployment-are-different-objects" id="toc-the-demo-and-the-deployment-are-different-objects" class="nav-link active" data-scroll-target="#the-demo-and-the-deployment-are-different-objects"><span class="header-section-number">9.1</span> The demo and the deployment are different objects</a></li>
-  <li><a href="#three-lenses-not-one-number" id="toc-three-lenses-not-one-number" class="nav-link" data-scroll-target="#three-lenses-not-one-number"><span class="header-section-number">9.2</span> Three lenses, not one number</a></li>
-  <li><a href="#good-enough-is-a-judgement-not-a-number" id="toc-good-enough-is-a-judgement-not-a-number" class="nav-link" data-scroll-target="#good-enough-is-a-judgement-not-a-number"><span class="header-section-number">9.3</span> “Good enough” is a judgement, not a number</a></li>
-  <li><a href="#test-to-destruction" id="toc-test-to-destruction" class="nav-link" data-scroll-target="#test-to-destruction"><span class="header-section-number">9.4</span> Test to destruction</a></li>
-  <li><a href="#the-honest-report" id="toc-the-honest-report" class="nav-link" data-scroll-target="#the-honest-report"><span class="header-section-number">9.5</span> The honest report</a></li>
-  <li><a href="#what-the-measurement-earned" id="toc-what-the-measurement-earned" class="nav-link" data-scroll-target="#what-the-measurement-earned"><span class="header-section-number">9.6</span> What the measurement earned</a></li>
-  <li><a href="#from-one-model-to-the-whole-job" id="toc-from-one-model-to-the-whole-job" class="nav-link" data-scroll-target="#from-one-model-to-the-whole-job"><span class="header-section-number">9.7</span> From one model to the whole job</a></li>
-  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">9.8</span> 🔍 Go deeper</a></li>
+  <li><a href="#choose-your-route" id="toc-choose-your-route" class="nav-link active" data-scroll-target="#choose-your-route"><span class="header-section-number">9.1</span> Choose your route</a></li>
+  <li><a href="#the-demo-and-the-deployment-are-different-objects" id="toc-the-demo-and-the-deployment-are-different-objects" class="nav-link" data-scroll-target="#the-demo-and-the-deployment-are-different-objects"><span class="header-section-number">9.2</span> The demo and the deployment are different objects</a></li>
+  <li><a href="#three-lenses-not-one-number" id="toc-three-lenses-not-one-number" class="nav-link" data-scroll-target="#three-lenses-not-one-number"><span class="header-section-number">9.3</span> Three lenses, not one number</a></li>
+  <li><a href="#good-enough-is-a-judgement-not-a-number" id="toc-good-enough-is-a-judgement-not-a-number" class="nav-link" data-scroll-target="#good-enough-is-a-judgement-not-a-number"><span class="header-section-number">9.4</span> “Good enough” is a judgement, not a number</a></li>
+  <li><a href="#test-to-destruction" id="toc-test-to-destruction" class="nav-link" data-scroll-target="#test-to-destruction"><span class="header-section-number">9.5</span> Test to destruction</a></li>
+  <li><a href="#the-honest-report" id="toc-the-honest-report" class="nav-link" data-scroll-target="#the-honest-report"><span class="header-section-number">9.6</span> The honest report</a></li>
+  <li><a href="#what-the-measurement-earned" id="toc-what-the-measurement-earned" class="nav-link" data-scroll-target="#what-the-measurement-earned"><span class="header-section-number">9.7</span> What the measurement earned</a></li>
+  <li><a href="#compare-before-adding-autonomy" id="toc-compare-before-adding-autonomy" class="nav-link" data-scroll-target="#compare-before-adding-autonomy"><span class="header-section-number">9.8</span> Compare before adding autonomy</a></li>
+  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">9.9</span> 🔍 Go deeper</a></li>
+  <li><a href="#close-the-evaluation-record" id="toc-close-the-evaluation-record" class="nav-link" data-scroll-target="#close-the-evaluation-record"><span class="header-section-number">9.10</span> Close the evaluation record</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -483,29 +502,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>You have just trained a neural network in a browser. No code. You pointed your laptop’s camera at a Tessera home router, captured twenty photographs of its status LED glowing green, twenty glowing amber, twenty pulsing red, clicked <em>Train Model</em>, and watched a machine learn in seconds. You exported it, pasted one URL into a Glitch starter, and now it is live on your phone. A customer points their camera at a router and your app says <em>healthy</em> or <em>fault</em>.</p>
-<p>It works. In the room, on your laptop, under the lights you trained on, with your hand holding the phone, it works every time. If this were a vendor pitch, you would stop here, applaud, and ship.</p>
-<p>This is the moment the book has been building toward, and the question that stops you is the book’s own title: <strong>does it actually work?</strong> Everything in this chapter (arguably the whole discipline of applied AI) turns on refusing to confuse the demo you just made with the deployment Tessera would rely on.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="The Core: a live classifier, no code">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>The Core: a live classifier, no code
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>That build is the <strong>Core</strong> path for this chapter, and it is deliberately within reach. The entire stack — capture, train, export, deploy — runs in a browser with a free Teachable Machine account and a Glitch starter. No Python, no GPU, no framework to install. If you can take a photograph, you can build and ship a live classifier; the rest of the chapter is about <em>evaluating</em> it. The optional Power-user extension near the end is depth, not a gate.</p>
-</div>
-</div>
-<section id="the-demo-and-the-deployment-are-different-objects" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="the-demo-and-the-deployment-are-different-objects"><span class="header-section-number">9.1</span> The demo and the deployment are different objects</h2>
-<p>A working demo proves one thing: the solution <em>runs</em>. It says nothing about whether Tessera should <em>rely</em> on it, and reliance is the only question that matters once a model touches a customer. The gap between <em>runs</em> and <em>reliable</em> is where applied AI actually lives, and it is not a gap you close with a more impressive model. You close it by <em>evaluating</em>: stating what good enough means, measuring against it honestly, and naming where it fails.</p>
-<p>That sounds plain. It is meant to. The most expensive failure mode in applied AI is not a buggy model; it is a slick model that nobody ever bothered to break. Evaluation is the discipline of breaking it on purpose, before a real user, or a real adversary, does it for you.</p>
+<p>Suppose you train an image classifier on photographs of green, amber, and red router status lights. Its preview looks convincing. That is the point at which the work changes: can you defend its use on photographs from a different room, camera, or lighting condition?</p>
+<p>Reopen the proof brief you wrote in the Introduction. Record the intended decision, error costs, baseline, acceptance threshold, and held-out test plan <strong>before</strong> building or inspecting results. This chapter executes that plan; it does not choose the target after seeing the score.</p>
+<section id="choose-your-route" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="choose-your-route"><span class="header-section-number">9.1</span> Choose your route</h2>
+<p><strong>Paper-based Core, 30 minutes:</strong> use the complete fictional counts in the Tessera case below. Calculate per-class and per-condition results, compare them with the stated threshold, and write a decision. A calculator or spreadsheet is enough. This tests your evaluation reasoning, not your ability to train a model.</p>
+<p><strong>Build-along, allow 60–90 minutes plus setup:</strong> use Teachable Machine’s image-project training and preview. Collect your own harmless teaching images; coloured cards labelled healthy, degraded, and fault can stand in for a router. Record that this is a proxy task, not a validated router detector. No customer equipment or photographs are supplied.</p>
+<ol type="1">
+<li>Define the three labels and write a provisional threshold for each relevant condition.</li>
+<li>Collect at least 20 development images per class across several angles and backgrounds. Separately reserve 10 fresh images per class per lighting condition, from a different capture session. Never put the reserved images in training.</li>
+<li>Train on the development images and test the reserved images through the preview. Record the actual label, predicted label, lighting condition, and model version for each. Keep the counts, including errors.</li>
+<li>Compare with a simple baseline, such as always predicting the most common class. Report its fault-detection performance as well as accuracy.</li>
+<li>After any change prompted by these results, treat this test set as development evidence. Collect a new held-out set for a final claim.</li>
+</ol>
+<p>These small counts are an exercise design, not evidence of production reliability. Stay within the browser preview: publishing an app is not required. If the interface or hardware prevents completion, use the paper route and label the build “not attempted.” Tool setup is in <a href="../appendices/f-no-code-toolkit.html">Appendix F</a>.</p>
 </section>
-<section id="three-lenses-not-one-number" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="three-lenses-not-one-number"><span class="header-section-number">9.2</span> Three lenses, not one number</h2>
+<section id="the-demo-and-the-deployment-are-different-objects" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="the-demo-and-the-deployment-are-different-objects"><span class="header-section-number">9.2</span> The demo and the deployment are different objects</h2>
+<p>A working demo proves one thing: the solution <em>runs</em>. It says nothing about whether Tessera should <em>rely</em> on it, and reliance is the only question that matters once a model touches a customer. The gap between <em>runs</em> and <em>reliable</em> is where applied AI actually lives, and it is not a gap you close with a more impressive model. You close it by <em>evaluating</em>: stating what good enough means, measuring against it honestly, and naming where it fails.</p>
+<p>The most expensive failure mode in applied AI is not a buggy model; it is a slick model that nobody ever bothered to break. Evaluation is the discipline of breaking it on purpose, before a real user, or a real adversary, does it for you.</p>
+</section>
+<section id="three-lenses-not-one-number" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="three-lenses-not-one-number"><span class="header-section-number">9.3</span> Three lenses, not one number</h2>
 <p>When you ask “does it work?”, the first answer people reach for is accuracy: <em>it got 90% right.</em> Accuracy is the obvious lens, and it is the one people stop at, which is exactly why it misleads. Headline accuracy is an assertion, not evidence. The question that turns it into evidence is <em>90% on which class, at what cost to the others?</em></p>
 <p>A router-status classifier that is 90% accurate overall but misses seven in ten <em>faults</em> is useless for triage, because the fault class is the only one that matters and it is the one being sacrificed to keep the headline up. Look at the class that matters, not the headline. Measure <strong>per class</strong>, always.</p>
 <p>Accuracy alone never settles “does it work?” A working evaluation holds the solution up to <strong>three lenses</strong>:</p>
@@ -514,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Fairness</strong>: does it work <em>equally across the groups it serves</em>? The same model can be accurate overall and quietly wrong for a subgroup: a lighting condition, a region, a hand that is not yours.</li>
 <li><strong>Explainability</strong>: could you tell Tessera’s CEO, Henrik Larsson, <em>why</em> it flagged this customer, in words a non-technical person would accept? “The model says so” is not an answer; it is the cap on how much anyone should trust it.</li>
 </ul>
-<p>The three lenses are not a checklist to tick. They are three different questions that a single number (accuracy) pretends to answer all at once. Read them as a demand: <em>prove it works on the class that matters, for the people it could fail, in a way you can defend.</em></p>
+<p>The three lenses are not a checklist to tick. They are three different questions that a single number (accuracy) pretends to answer all at once.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Watch out: the headline is a hiding place">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -529,29 +547,29 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="good-enough-is-a-judgement-not-a-number" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="good-enough-is-a-judgement-not-a-number"><span class="header-section-number">9.3</span> “Good enough” is a judgement, not a number</h2>
-<p>Here is the idea that turns evaluation from arithmetic into judgement: the same model can be fine in one place and dangerous in another, at exactly the same accuracy. Fitness for purpose is set by the decision the solution feeds, and the threshold is set by <strong>the blast radius of being wrong</strong>.</p>
+<section id="good-enough-is-a-judgement-not-a-number" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="good-enough-is-a-judgement-not-a-number"><span class="header-section-number">9.4</span> “Good enough” is a judgement, not a number</h2>
+<p>The same model can be fine in one place and dangerous in another, at exactly the same accuracy. Fitness for purpose is set by the decision the solution feeds, and the threshold is set by <strong>the blast radius of being wrong</strong>.</p>
 <p>If your router classifier mis-routes a <em>healthy</em> ticket to the wrong queue, a human glances at it and moves it along. Small blast radius; an average solution is tolerable. But if it silently calls a <em>fault</em> healthy, an angry customer waits while their router stays down. That is a large, hard-to-reverse blast radius, and the same 80%-accurate model that was fine for the first job is dangerous for the second.</p>
 <p>This is the trust tool from the Introduction in another form. Small blast radius tolerates an average solution; large blast radius demands precision and a human in the loop. So before you measure anything, you write one sentence: <em>“For [decision], good enough means [threshold], because [blast radius].”</em> A model without a stated threshold is a demo, not an evaluation. The threshold is the thing you measure against, and the thing you cannot quietly move after the fact to make a weak result look strong.</p>
 </section>
-<section id="test-to-destruction" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="test-to-destruction"><span class="header-section-number">9.4</span> Test to destruction</h2>
+<section id="test-to-destruction" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="test-to-destruction"><span class="header-section-number">9.5</span> Test to destruction</h2>
 <p>Most testing asks “does it work on normal inputs?” <strong>Adversarial testing</strong> asks the opposite: <em>what inputs make it fail?</em> You are not being cruel to your model. You are finding its edges before a real user does.</p>
-<p>Every solution has a failure surface. The light is dim. The hand is shaky. The background is a carpet instead of a desk. A customer photographs the router in a dark cupboard at midnight, because that is when the fault showed up. A demo evaluated only on the happy path has proven nothing about the conditions that will actually bite.</p>
+<p>Every solution has a failure surface. The light is dim, the hand is shaky, and the background is a carpet instead of a desk. A customer photographs the router in a dark cupboard at midnight, because that is when the fault showed up. A demo evaluated only on the happy path has proven nothing about the conditions that will actually bite.</p>
 <p>Adversarial testing is a posture, not a technique: take every assumption your model is making and feed it the opposite. For a vision classifier, that is lighting, angle, distance, background, a photograph of nothing at all. For a churn model, it is a customer with missing fields, or one sitting right on the decision boundary where flipping a single input flips the prediction. For a RAG setup, it is a question the documents don’t answer, and watching whether it admits ignorance or invents a confident lie.</p>
 <p>Then there is <strong>VET</strong>, a three-move self-adversarial check you run on your own outputs, borrowed from the companion book:</p>
 <ul>
 <li><strong>Verify.</strong> Re-derive the load-bearing claim <em>independently</em>. Asking the model “is this right?” is not verification; the thing that produced the answer cannot be the thing that confirms it. Check it against the data, the source documents, a photograph it has never seen.</li>
-<li><strong>Expose.</strong> Name <em>what would have to be true</em> for the output to be wrong, and <em>who it could fail</em>. This is the fairness lens, made personal: you are stating your assumptions out loud before the model breaks them for you.</li>
+<li><strong>Explain.</strong> Explain the result in your own words, including what the test measured, the assumptions it relies on, and who it could fail. An explanation copied from the model does not demonstrate your understanding.</li>
 <li><strong>Test.</strong> Feed it the cases most likely to break it. The ones that fail go straight into your report.</li>
 </ul>
-<p>VET is the discipline that stops you rubber-stamping your own work. It is the trust tool as an <em>action</em>, not a label: verify the claim, expose the assumption, test to destruction.</p>
+<p>VET is the discipline that stops you rubber-stamping your own work.</p>
 </section>
-<section id="the-honest-report" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="the-honest-report"><span class="header-section-number">9.5</span> The honest report</h2>
-<p>Here is the part that feels counter-intuitive and is, in fact, the point. A report that says <em>“82% overall, but only 61% under dim light, below our 80% threshold on the only class that matters”</em> is a <strong>stronger</strong> report than one that claims the model works. Finding a real failure, naming it, and saying what a human must do about it is worth more than a flawless demo.</p>
-<p>This is not a consolation prize for a model that under-performed. It is the integrity gate. A report that only shows successes has told the reader nothing useful, because every demo can be made to succeed on its own training data. The thing a business cannot buy from a vendor’s deck is the honest map of where the solution breaks, and that map is the practitioner’s actual deliverable. <em>Prove, don’t persuade</em> stops being a slogan the moment you write down a threshold your solution misses and ship the report anyway.</p>
+<section id="the-honest-report" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="the-honest-report"><span class="header-section-number">9.6</span> The honest report</h2>
+<p>A report that says <em>“82% overall, but only 61% under dim light, below our 80% threshold on the only class that matters”</em> is a <strong>stronger</strong> report than one that claims the model works. Finding a real failure, naming it, and saying what a human must do about it is worth more than a flawless demo.</p>
+<p>A report that only shows successes has told the reader nothing useful, because every demo can be made to succeed on its own training data. The thing a business cannot buy from a vendor’s deck is the honest map of where the solution breaks, and that map is the practitioner’s actual deliverable. <em>Prove, don’t persuade</em> stops being a slogan the moment you write down a threshold your solution misses and ship the report anyway.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -562,15 +580,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Evaluating the shipped router classifier, you ask an AI assistant to draft the assessment. You feed it the results. It returns: <em>“The model performs well and is ready for deployment: 85% overall accuracy across all classes.”</em></p>
-<p>That is the moment to push back, because the AI has done what AIs do: it read the headline and composed a confident conclusion. You reply: <em>“Show me per-class, then per condition. Overall accuracy is not the deliverable.”</em> It produces the breakdown: healthy 94%, degraded 80%, <strong>fault 38%</strong>. The fault class, the one with the large blast radius, is where the model collapses, and the headline hid it completely.</p>
-<p>Then you ask the question the AI did not think to ask: <em>“And under dim light?”</em> Fault drops to <strong>0%</strong>. The AI’s first draft (“ready to deploy”) would have shipped a red-quadrant failure as a green-quadrant success. The correction was not a flourish; it was the refusal to accept an average, the demand for the per-class and then the per-condition view, and the willingness to keep pulling until the model broke. That challenge, logged unedited, is the integrity gate, and it is also what separates a defensible evaluation from a rubber-stamped one.</p>
+<p>This is a constructed dialogue using the counts below, not a transcript of a measured run.</p>
+<p><strong>Draft:</strong> “The classifier gets 41 of 60 images right. Most predictions are correct, so it is ready for deployment.”</p>
+<p><strong>Review:</strong> the practitioner checks the arithmetic against the table, then asks for the fault-class denominator. Only 6 of 20 faults were correctly identified; under dim light it was 0 of 10. The original brief required at least 9 of 10 fault detections in each lighting condition.</p>
+<p><strong>Decision:</strong> reject unattended routing or closure. The result supports further development and, if separately approved, a shadow exercise whose suggestions cannot affect customers. The dossier retains the original draft, the count table, the failed threshold, and the corrected decision.</p>
 </div>
 </div>
 </section>
-<section id="what-the-measurement-earned" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="what-the-measurement-earned"><span class="header-section-number">9.6</span> What the measurement earned</h2>
-<p>You now know enough to place the model, and the placement is not a label you choose, it is a consequence of what you measured. This is the trust tool doing its real work: turning evidence into a decision about how much human oversight the deployment needs.</p>
+<section id="what-the-measurement-earned" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="what-the-measurement-earned"><span class="header-section-number">9.7</span> What the measurement earned</h2>
+<p>Placement follows from what you measured: the evidence determines how much human oversight the deployment needs.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,25 +600,69 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The router classifier feeds two different decisions, and they sit on different squares of the grid.</p>
-<ul>
-<li><strong>Routing a <em>healthy</em> or <em>degraded</em> ticket</strong>: average is fine, blast radius is small (a wrong route costs a human a glance): <strong>🟢 green</strong>, light review, the model can triage on its own.</li>
-<li><strong>Clearing a <em>fault</em></strong>: must be precise (catch every fault), blast radius is large (a missed fault leaves a customer offline): <strong>🔴 red</strong>, human-in-the-loop, non-negotiable.</li>
-</ul>
-<p>The honest placement is therefore <em>split</em>: green for triage, red for fault confirmation. And because your measurement showed the model fails exactly on the red-quadrant class (0% on faults under dim light), the placement is <em>earned</em>, not assumed. You did not decide to keep a human in the loop on faults because it felt responsible; you decided because the evidence demanded it. A model that quietly creeps up to 99% next year could move that red square to yellow, but only if a future evaluation proves it, per class, under the conditions that broke it this time.</p>
+<p>Routing a suggestion to a reviewer and clearing a customer fault are different uses. The latter can leave a customer without help and requires stronger evidence and controls. With the results below, do not allow automatic closure or assume a healthy prediction is safe: a missed fault arrives under the wrong label. Review <strong>all</strong> suggestions in any approved shadow exercise, not only predictions labelled fault.</p>
 </div>
 </div>
 <div class="tessera-case">
-<p><strong>🌐 Tessera Case</strong></p>
-<p><strong>The router-status classifier, evaluated to destruction.</strong> You trained the model in Teachable Machine on twenty photographs per class (green (healthy), amber (degraded), red (fault)), varying angle and background on purpose, exported it as TensorFlow.js, and shipped it to a live Glitch web app a customer can open on their phone.</p>
-<p>In the room it was untouchable: 96% accurate. Then you held back five photographs per class that the model had never seen, and ran all three lenses. Accuracy, per class: healthy 94%, degraded 80%, <strong>fault 38%</strong>, the headline still read 85%, the arithmetic of an imbalanced reality. Fairness, sliced by condition: under dim light the fault class fell to <strong>0%</strong>. The model called a red LED <em>healthy</em> because it had never trained on a dim red, and customers photograph faults at midnight, in cupboards, exactly when the light is worst. Explainability: a neural net is a black box; you could not tell the CEO <em>why</em> it said healthy, only that it did, and on the fault class that limit is not acceptable.</p>
-<p>The finding is the gap: 0% on the one class with the large blast radius, hidden behind an 85% headline. The decision, written into the report: ship it for triage routing, with a human confirming every fault the model clears, until the training data covers the conditions that broke it. That is not a failed prototype. It is an <em>evaluated</em> one, and it is the only kind Tessera should ever rely on. What it takes to run an evaluated prototype live, with oversight that survives real volume, is the subject of Appendix D.</p>
+<p><strong>🌐 Tessera Case: a checkable evaluation</strong></p>
+<p><strong>Time:</strong> 25 minutes. <strong>Inputs:</strong> the complete count table below and the brief requiring at least 9/10 fault detections in each lighting condition. No AI tool is required.</p>
+<p>The following counts are <strong>invented for this exercise</strong>, not measurements from Tessera, Teachable Machine, or a particular model. Each row contains ten distinct held-out examples. An incorrect prediction is either of the other two classes; the table does not specify which. You can calculate recall for each class, but not precision or a complete confusion matrix.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Actual class</th>
+<th>Lighting</th>
+<th style="text-align: right;">Tested</th>
+<th style="text-align: right;">Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Healthy</td>
+<td>Normal</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td>Healthy</td>
+<td>Dim</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td>Degraded</td>
+<td>Normal</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td>Degraded</td>
+<td>Dim</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>Fault</td>
+<td>Normal</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td>Fault</td>
+<td>Dim</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Work it through.</strong> Overall accuracy is 41/60, or 68.3%. Per-class recall is healthy 19/20 (95%), degraded 16/20 (80%), and fault 6/20 (30%). The dim-light result is 16/30 (53.3%), with fault recall 0/10. An always-healthy baseline gets 20/60 (33.3%) overall and detects no faults. Beating that weak baseline is insufficient: the candidate fails the brief’s fault threshold in both lighting conditions.</p>
+<p><strong>Your task:</strong> verify every denominator, then write a 150-word go/revise/stop memo. State the intended use, the failed criterion, who could be harmed, what remains unknown, and the next test. Do not attribute the failure to a specific training defect without evidence; insufficient lighting coverage is a hypothesis to investigate.</p>
+<p><strong>Success:</strong> the memo rejects unattended customer decisions, retains the failed results, and distinguishes the observed counts from a claim about future reliability. Zero successes out of ten is a serious warning; it does not establish that the true detection rate is exactly zero. Add this memo to the dossier. Appendix D explains the gates a later candidate must pass.</p>
 </div>
 </section>
-<section id="from-one-model-to-the-whole-job" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="from-one-model-to-the-whole-job"><span class="header-section-number">9.7</span> From one model to the whole job</h2>
-<p>There is a reason this chapter is the title of the book. Every other question (<em>what changed? for whom? can you tell?</em>) funnels toward this one, because “does it actually work?” is where the demo meets its evidence and the practitioner earns the moat. A single model, evaluated honestly across three lenses, tested to destruction, and reported with its failures intact, is tractable. You can hold it in your head, place it on the grid, and defend the decision.</p>
-<p>But Tessera does not want a classifier. It wants an <em>agent</em> that reads the incoming ticket, fetches the customer’s history, classifies the photograph, drafts the response, and decides whether to escalate, a chain of outputs, each with its own failure surface, each needing its own threshold and its own placement on the grid. The moment you hand the model tools and let it act, the question stops being “does this model work?” and becomes the next chapter’s: <strong>can it do the whole job, and how much of that job can you safely hand over?</strong> That is where the red quadrant gets genuinely dangerous, and where the evaluation discipline you just learned becomes the only thing standing between a working system and a catastrophe that looked, in the demo, like magic.</p>
+<section id="compare-before-adding-autonomy" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="compare-before-adding-autonomy"><span class="header-section-number">9.8</span> Compare before adding autonomy</h2>
+<p>The evaluation tells you where this candidate fails. The next chapter asks whether a different model or a more inspectable method fits the same brief better. Keep the test conditions and acceptance rules comparable. Only after that comparison will we add tools and actions in <em>Can it do the whole job?</em> A weak component does not become reliable because it sits inside an agent.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -610,27 +673,33 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The Core above — train in Teachable Machine, export to TensorFlow.js, ship a Glitch live app — is the complete, no-code path, and doing only that is correct. If you want to go deeper, two optional directions:</p>
+<p>The paper evaluation and browser build have different deliverables. If you completed the build and want to go further:</p>
 <ul>
-<li><strong>Self-host the model.</strong> Export the <code>model.json</code> and weight-shard <code>.bin</code> files and serve them from your own Glitch project, a static host, or a small server you control, instead of hot-linking Teachable Machine’s bucket. You now own the artefact end to end — its uptime, its version, and its data residency — which is exactly the cloud-versus-self-hosted tension a Tessera deployment has to settle.</li>
-<li><strong>Run a systematic fairness audit.</strong> Build a held-out test set split <em>deliberately</em> across the conditions that could break the model — dim light, off-angle, phone-shake, a carpet background, a different hand behind the camera. Compute accuracy per condition and per group. Then quantify the <strong>worst-group gap</strong>: the largest spread between your best and worst condition. That single number is the honest headline. If it is large, no overall accuracy rescues you — and you have just produced the per-group breakdown the three-lens measurement demands.</li>
+<li><strong>Self-host the model.</strong> Export the <code>model.json</code> and weight-shard <code>.bin</code> files and serve them from a static host or small server you control, after checking the current export documentation and hosting requirements. Serving an exported model is an optional deployment exercise, not production approval. Account for dependencies, access, retention, and monitoring as well as the model files.</li>
+<li><strong>Run a systematic fairness audit.</strong> Build a held-out test set split <em>deliberately</em> across the conditions that could break the model: dim light, off-angle, phone-shake, a carpet background, a different hand behind the camera. Compute accuracy per condition and per group. Then quantify the <strong>worst-group gap</strong>: the largest spread between your best and worst condition. That single number is the honest headline. If it is large, no overall accuracy rescues you, and you have just produced the per-group breakdown the three-lens measurement demands.</li>
 </ul>
 <p>These are depth, not the real version. The Core is complete on its own.</p>
 </div>
 </div>
 </section>
-<section id="go-deeper" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">9.8</span> 🔍 Go deeper</h2>
+<section id="go-deeper" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">9.9</span> 🔍 Go deeper</h2>
 <ul>
-<li><p><strong>Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification</strong>: Joy Buolamwini &amp; Timnit Gebru (Proceedings of Machine Learning Research, 2018). <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">proceedings.mlr.press/v81/buolamwini18a.html</a> <em>Why read this:</em> The canonical study of fairness failing under real conditions: commercial vision classifiers up to 34% wrong on darker-skinned women while near-perfect on lighter-skinned men, all hidden behind a strong headline accuracy. This is your router classifier’s story, at scale, with consequences.</p></li>
-<li><p><strong>Model Cards for Model Reporting</strong>: Margaret Mitchell et al.&nbsp;(FAT* 2019). <a href="https://arxiv.org/abs/1810.03993">arxiv.org/abs/1810.03993</a> <em>Why read this:</em> The paper that made “report honestly” a practice. A model card forces you to publish intended use, evaluation data, and per-group performance <em>before</em> release, the same discipline your honest report is built on, turned into a standard you can adopt.</p></li>
+<li><p><strong>Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification</strong>: Joy Buolamwini &amp; Timnit Gebru (Proceedings of Machine Learning Research, 2018). <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">proceedings.mlr.press/v81/buolamwini18a.html</a> <em>Why read this:</em> A study of fairness failing under real conditions: commercial vision classifiers up to 34% wrong on darker-skinned women while near-perfect on lighter-skinned men, all hidden behind a strong headline accuracy. This is your router classifier’s story, at scale, with consequences.</p></li>
+<li><p><strong>Model Cards for Model Reporting</strong>: Margaret Mitchell et al.&nbsp;(FAT* 2019). <a href="https://arxiv.org/abs/1810.03993">arxiv.org/abs/1810.03993</a> <em>Why read this:</em> A model card forces you to publish intended use, evaluation data, and per-group performance <em>before</em> release, the same discipline your honest report is built on, turned into a standard you can adopt.</p></li>
 <li><p><strong>People + AI Guidebook: Data Collection + Evaluation</strong>: Google PAIR (People + AI Research). <a href="https://pair.withgoogle.com/guidebook-v2/chapters/data-collection/">pair.withgoogle.com/guidebook-v2/chapters/data-collection/</a> <em>Why read this:</em> Practitioner-facing guidance on the bit that quietly decides fairness: the data and conditions you evaluated on. Its framing of “disproportionate product failure” is exactly the per-group gap your three-lens measurement is hunting for.</p></li>
 </ul>
+</section>
+<section id="close-the-evaluation-record" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="close-the-evaluation-record"><span class="header-section-number">9.10</span> Close the evaluation record</h2>
+<p>Before leaving the chapter, exchange your memo with a colleague or perform a separate self-review. Recalculate the counts without looking at the worked answer. Identify the failed threshold and trace the recommendation to it. Keep unresolved questions in the dossier. Asking a model to agree with your decision does not replace that check.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1051,8 +1120,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/10-can-it-do-the-whole-job.html" class="pagination-link" aria-label="Can it do the whole job?">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/11-how-does-it-decide.html" class="pagination-link" aria-label="How does it decide?">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

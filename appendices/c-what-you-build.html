@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>C. What You Build – Prove, Don’t Persuade</title>
+<title>C. The Proof Dossier: What You Build – Prove, Don’t Persuade</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,20 +38,21 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../appendices/d-prototype-to-production.html" rel="next">
 <link href="../appendices/b-conversation-log-format.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/c-what-you-build.html">C. What You Build</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/c-what-you-build.html">C. The Proof Dossier: What You Build</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -284,6 +289,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,19 +466,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-artefacts-by-chapter" id="toc-the-artefacts-by-chapter" class="nav-link active" data-scroll-target="#the-artefacts-by-chapter">The artefacts, by chapter</a></li>
-  <li><a href="#two-things-run-through-all-of-them" id="toc-two-things-run-through-all-of-them" class="nav-link" data-scroll-target="#two-things-run-through-all-of-them">Two things run through all of them</a></li>
-  <li><a href="#how-it-assembles-into-a-body-of-work" id="toc-how-it-assembles-into-a-body-of-work" class="nav-link" data-scroll-target="#how-it-assembles-into-a-body-of-work">How it assembles into a body of work</a></li>
+  <li><a href="#start-before-building" id="toc-start-before-building" class="nav-link active" data-scroll-target="#start-before-building">Start before building</a></li>
+  <li><a href="#what-each-chapter-contributes" id="toc-what-each-chapter-contributes" class="nav-link" data-scroll-target="#what-each-chapter-contributes">What each chapter contributes</a></li>
+  <li><a href="#capstone-acceptance-checklist" id="toc-capstone-acceptance-checklist" class="nav-link" data-scroll-target="#capstone-acceptance-checklist">Capstone acceptance checklist</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/c-what-you-build.html">C. What You Build</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/c-what-you-build.html">C. The Proof Dossier: What You Build</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">C. What You Build</h1>
+<h1 class="title">C. The Proof Dossier: What You Build</h1>
 </div>
 
 
@@ -478,137 +495,153 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This appendix is the inventory of what you produce across the twelve chapters: the artefacts, the tools, where each sits on the trust grid, and what each one proved. Not every chapter produces a thing you would call a build. Some produce an audit, a decision, or a proof. They are all here, because each is an artefact you can point to, defend, and place in your body of work.</p>
-<p>The pattern underneath them is the one this book keeps returning to. The machine can produce the demo for any of them in an afternoon. The thing that is yours, and the thing you must be able to defend, is the proof: the placement, the evaluation, the correction, and the defensible line you would act on.</p>
-<section id="the-artefacts-by-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="the-artefacts-by-chapter">The artefacts, by chapter</h2>
+<p>The dossier is one cumulative record, not a pile of unrelated chapter exercises. It preserves the original brief, the evidence gathered against it, and the decision that follows. A folder of documents or a paper notebook is sufficient.</p>
+<section id="start-before-building" class="level2">
+<h2 class="anchored" data-anchor-id="start-before-building">Start before building</h2>
+<p>Copy the proof brief from the Introduction. Give it a date and version. Select one main use for your capstone; the other chapter artefacts are supporting exercises, not a requirement to combine every model into one system.</p>
+<p>Use these sections throughout:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Chapter</th>
-<th>Artefact</th>
-<th>Tool</th>
-<th>Trust placement</th>
-<th>What you proved</th>
+<th>Section</th>
+<th>Contents</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>Candidate churn-driver brainstorm</td>
-<td>chat (frontier + local, RTCF)</td>
-<td>🟢 green, flips to 🔴</td>
-<td>a model invents specific figures it cannot know</td>
+<td>1. Brief</td>
+<td>Intended and forbidden use, affected people, baseline, acceptance thresholds, stop rule</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>Disaggregated fairness analysis</td>
-<td>reasoning over the data</td>
-<td>🟡 yellow</td>
-<td>the average hid a regional failure</td>
+<td>2. Sources and boundaries</td>
+<td>Data provenance, permissions, versions, transformations, missing resources, permitted destinations</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>Four-lens bias audit of a churn persona</td>
-<td>the four lenses, by hand</td>
-<td>🔴 red</td>
-<td>a model is a poor auditor of its own bias</td>
+<td>3. Design</td>
+<td>Candidate workflow, alternatives rejected, model and prompt versions, human checkpoints</td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td>Churn analysis: decision tree + clustering</td>
-<td>Orange</td>
-<td>🟢 segment / 🔴 score</td>
-<td>a split is a correlation, not a cause</td>
+<td>4. Evaluation</td>
+<td>Test plan, separation from development data, inputs and outputs, counts, failures, baseline comparison</td>
 </tr>
 <tr class="odd">
-<td>5</td>
-<td>Deployment decision (sovereignty map)</td>
-<td>reasoning + local model</td>
-<td>input axis (separate)</td>
-<td>capability is one axis of three</td>
+<td>5. Review</td>
+<td>Conversation logs where used, independent checks, corrections, unresolved objections</td>
 </tr>
 <tr class="even">
-<td>6</td>
-<td>Privacy-by-design architecture</td>
-<td>architecture</td>
-<td>🔴 → 🟡</td>
-<td>k-anonymity; controls move red toward yellow</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>RAG assistant over Tessera docs</td>
-<td>Open WebUI</td>
-<td>🟡 yellow</td>
-<td>a confident answer is not a sourced answer</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Sentiment + theme analysis, with disagreement set</td>
-<td>Orange + model scorer</td>
-<td>🟡 → 🔴</td>
-<td>the lexicon reads sarcasm as praise</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>Router-status classifier, live on a phone</td>
-<td>Teachable Machine → TF.js → Glitch</td>
-<td>🟢 triage / 🔴 fault</td>
-<td>0% on faults under dim light</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>Support-digest agent</td>
-<td>agent framework + RAG</td>
-<td>🔴 at the brief</td>
-<td>the checkpoint between search and draft is the design</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>Model comparison: hand-built vs NotebookLM</td>
-<td>Orange + NotebookLM</td>
-<td>🟡 framing / 🔴 citations</td>
-<td>capability is task-relative</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>Capstone pitch + second-order analysis</td>
-<td>synthesis</td>
-<td>🔴 (the analysis)</td>
-<td>the gains and costs do not fall on the same people</td>
+<td>6. Decision and handover</td>
+<td>Go/revise/stop memo, limitations, owner, fallback, pilot conditions, next review</td>
 </tr>
 </tbody>
 </table>
+<p>Label each piece of evidence <strong>observed</strong>, <strong>illustrative</strong>, or <strong>not tested</strong>. Record whether an outcome came from your own run, a cited external study, or a constructed case in this book. A conversation log shows how you reasoned; it is not a substitute for test results or independent verification.</p>
 </section>
-<section id="two-things-run-through-all-of-them" class="level2">
-<h2 class="anchored" data-anchor-id="two-things-run-through-all-of-them">Two things run through all of them</h2>
-<p>Every artefact above carries the same two companions, and together they are what turn a build into something defensible.</p>
-<ul>
-<li><strong>The trust tool (Appendix A)</strong> places each artefact before you act on it. Several sit in two cells at once (green and red a line apart), and the placement is the act that stops the red one slipping through as green.</li>
-<li><strong>The conversation log (Appendix B)</strong> records the thinking that produced each artefact, including where the AI was wrong and how you corrected it. It is the evidence the artefact was proved, not persuaded.</li>
-</ul>
+<section id="what-each-chapter-contributes" class="level2">
+<h2 class="anchored" data-anchor-id="what-each-chapter-contributes">What each chapter contributes</h2>
+<p>Chapter numbers below follow reading order, not source filenames.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Chapter</th>
+<th>Contribution to the dossier</th>
+<th>Evidence to retain</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. What changed?</td>
+<td>Initial use and capability hypothesis</td>
+<td>Proposed task, unsupported claims, questions to test</td>
+</tr>
+<tr class="even">
+<td>2. For whom?</td>
+<td>Stakeholder and subgroup map</td>
+<td>Who is represented, who is missing, error costs</td>
+</tr>
+<tr class="odd">
+<td>3. Can you tell?</td>
+<td>Four-lens audit</td>
+<td>Quoted claims, missing provenance, review owner</td>
+</tr>
+<tr class="even">
+<td>4. What’s in the data?</td>
+<td>Data analysis, or a critique of the worked case</td>
+<td>Dataset version, transformations, patterns versus causal claims</td>
+</tr>
+<tr class="odd">
+<td>5. Whose data is it?</td>
+<td>Data-boundary sheet</td>
+<td>Direct and potential identifiers, group counts, unresolved approvals</td>
+</tr>
+<tr class="even">
+<td>6. What are you giving up?</td>
+<td>Deployment comparison</td>
+<td>Data destinations, costs, constraints, rejected alternative</td>
+</tr>
+<tr class="odd">
+<td>7. Are you asking well?</td>
+<td>Retrieval design and injection-boundary check</td>
+<td>Source support, exact test inputs/outputs, tool permissions</td>
+</tr>
+<tr class="even">
+<td>8. What is it saying?</td>
+<td>Language-analysis disagreement set</td>
+<td>Cases where scoring and human reading differ</td>
+</tr>
+<tr class="odd">
+<td>9. Does it actually work?</td>
+<td>Evaluation report</td>
+<td>Counts by class and condition, failed thresholds, baseline</td>
+</tr>
+<tr class="even">
+<td>10. How does it decide?</td>
+<td>Model comparison</td>
+<td>Shared tests, explanation limits, reasons for selecting neither if needed</td>
+</tr>
+<tr class="odd">
+<td>11. Can it do the whole job?</td>
+<td>Action and checkpoint map</td>
+<td>Permissions, failure propagation, stop and escalation design</td>
+</tr>
+<tr class="even">
+<td>12. What comes next?</td>
+<td>Capstone decision memo</td>
+<td>Benefits, transition costs, exclusions, decision and next evidence</td>
+</tr>
+</tbody>
+</table>
+<p>The paper route produces analysis and design records. Build-along work adds executable artefacts and measured runs where the required resources are available. Do not mark a build completed because you read its example.</p>
 </section>
-<section id="how-it-assembles-into-a-body-of-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-it-assembles-into-a-body-of-work">How it assembles into a body of work</h2>
-<p>Your body of work has two halves, and this appendix is the spine of the first.</p>
+<section id="capstone-acceptance-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="capstone-acceptance-checklist">Capstone acceptance checklist</h2>
+<p>Ask a peer to review the dossier, or perform a separate self-review before submitting it. A criterion is met only when the reviewer can point to the relevant evidence.</p>
 <ul>
-<li><strong>The build.</strong> The artefacts in the table above, each with its evaluation and its placement. A reader should be able to take any one of them and see what it does, where it fails, and how much oversight it needs.</li>
-<li><strong>The thinking.</strong> The conversation logs (Appendix B) that produced them, showing the pushback and the corrections.</li>
-<li><strong>The capstone (Chapter 12).</strong> The pitch that synthesises the whole engagement against Tessera, including the second-order analysis the decision actually rests on.</li>
+<li><strong>Scope:</strong> the intended use, affected users, and forbidden use are explicit.</li>
+<li><strong>Precommitment:</strong> the original threshold and test plan survive alongside any explained revisions.</li>
+<li><strong>Traceability:</strong> sources, versions, inputs, outputs, and calculations can be followed.</li>
+<li><strong>Honest evaluation:</strong> baseline, denominators, failures, and relevant groups or conditions are shown; missing tests are labelled.</li>
+<li><strong>Decision quality:</strong> the recommendation follows the evidence, including a revise or stop decision where warranted.</li>
+<li><strong>Human responsibility:</strong> checkpoint, accountable role, fallback, and stop condition are named.</li>
+<li><strong>Limits:</strong> illustrative numbers, untested assumptions, and generalisation limits are not presented as measured facts.</li>
+<li><strong>Next gate:</strong> the memo states what evidence is needed before the next stage in Appendix D.</li>
 </ul>
-<p>The moat was never in building these. A chatbot can produce most of them in minutes. The moat is in reading each one correctly: placing it, evaluating it, catching where it is generic or wrong, and defending the decision you made about it. That is what <em>prove, don’t persuade</em> looks like as a body of work.</p>
+<p>A dossier meets the exercise standard when all eight are present and no critical unknown is concealed. This is a learning rubric, not certification of safety or legal compliance. Keep the reviewer’s objections and your responses with the final memo.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

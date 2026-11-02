@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,20 +38,21 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../appendices/b-conversation-log-format.html" rel="next">
 <link href="../chapters/12-what-comes-next.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,15 +466,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-two-questions" id="toc-the-two-questions" class="nav-link active" data-scroll-target="#the-two-questions">The two questions</a></li>
-  <li><a href="#the-grid" id="toc-the-grid" class="nav-link" data-scroll-target="#the-grid">The grid</a></li>
-  <li><a href="#what-each-placement-tells-you-to-do" id="toc-what-each-placement-tells-you-to-do" class="nav-link" data-scroll-target="#what-each-placement-tells-you-to-do">What each placement tells you to do</a></li>
-  <li><a href="#how-to-place-well" id="toc-how-to-place-well" class="nav-link" data-scroll-target="#how-to-place-well">How to place well</a></li>
-  <li><a href="#when-yellow-or-red-the-four-lenses" id="toc-when-yellow-or-red-the-four-lenses" class="nav-link" data-scroll-target="#when-yellow-or-red-the-four-lenses">When yellow or red: the four lenses</a></li>
-  <li><a href="#worked-placements-across-tessera" id="toc-worked-placements-across-tessera" class="nav-link" data-scroll-target="#worked-placements-across-tessera">Worked placements across Tessera</a></li>
-  <li><a href="#the-two-mistakes-to-avoid" id="toc-the-two-mistakes-to-avoid" class="nav-link" data-scroll-target="#the-two-mistakes-to-avoid">The two mistakes to avoid</a></li>
+  <li><a href="#place-the-intended-use" id="toc-place-the-intended-use" class="nav-link active" data-scroll-target="#place-the-intended-use">Place the intended use</a></li>
+  <li><a href="#make-the-check-concrete" id="toc-make-the-check-concrete" class="nav-link" data-scroll-target="#make-the-check-concrete">Make the check concrete</a></li>
+  <li><a href="#keep-risk-separate-from-measured-quality" id="toc-keep-risk-separate-from-measured-quality" class="nav-link" data-scroll-target="#keep-risk-separate-from-measured-quality">Keep risk separate from measured quality</a></li>
+  <li><a href="#worked-placements" id="toc-worked-placements" class="nav-link" data-scroll-target="#worked-placements">Worked placements</a></li>
+  <li><a href="#use-the-four-lenses" id="toc-use-the-four-lenses" class="nav-link" data-scroll-target="#use-the-four-lenses">Use the four lenses</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -482,173 +497,114 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The <strong>trust tool</strong> is the one idea this book uses in every chapter. It is small enough to fit on a sticky note and general enough to survive any model swap. Before you act on any AI output, you place it on a grid by answering two questions, and the grid tells you what to do next: skim it, check the load-bearing bit, or send it through a human before it touches anything real.</p>
-<p>Almost every public AI failure is a placement failure. The chatbot that gave wrong legal advice, the hallucinated citation in a filed court document, the churn flag nobody checked: each is someone treating a red-quadrant output as green. The model rarely fails uniquely. The <em>placement</em> fails, because nobody made it a conscious act. This appendix is the tool in full.</p>
-<section id="the-two-questions" class="level2">
-<h2 class="anchored" data-anchor-id="the-two-questions">The two questions</h2>
+<p>Use this practitioner checklist to decide how much checking an output needs before its intended use. It does not calculate risk, guarantee safety, or replace legal, security, or professional review. AI failures can arise from data, design, implementation, incentives, and operations as well as misplaced trust.</p>
+<section id="place-the-intended-use" class="level2">
+<h2 class="anchored" data-anchor-id="place-the-intended-use">Place the intended use</h2>
+<p>Ask two questions:</p>
 <ol type="1">
-<li>Does this output need to be <strong>precise</strong>, or is <strong>average</strong> fine?
-<ul>
-<li><em>Average</em> means roughly right is good enough: a brainstorm, a first draft, a summary that points you where to look. If it is a little off, the cost is small.</li>
-<li><em>Precise</em> means the answer has to be right, because someone or something will act on it: a customer gets called, a contract clause gets relied on, a fault gets cleared.</li>
-</ul></li>
-<li>If it is wrong, how big is the <strong>blast radius</strong>, small or large?
-<ul>
-<li><em>Small</em> means a mistake costs a glance or a re-do: a misrouted ticket, a clumsy sentence.</li>
-<li><em>Large</em> means a mistake lands on a real person, a real budget, or a real decision: a churn prediction, a hiring screen, a support reply a customer reads.</li>
-</ul></li>
+<li><strong>How exact must this output be?</strong> A private brainstorm tolerates unsuitable suggestions. A refund amount, diagnostic result, or quoted source may need exact checking.</li>
+<li><strong>What happens if it is wrong?</strong> Consider who is affected, whether the action can be reversed, how quickly errors will be noticed, and whether anyone can challenge the result.</li>
 </ol>
-<p>Answer the two and you have a coordinate on the grid.</p>
-</section>
-<section id="the-grid" class="level2">
-<h2 class="anchored" data-anchor-id="the-grid">The grid</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: center;">Small blast radius</th>
-<th style="text-align: center;">Large blast radius</th>
+<th style="text-align: center;">Small consequences</th>
+<th style="text-align: center;">Large consequences</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Average is fine</strong></td>
-<td style="text-align: center;">🟢 green</td>
-<td style="text-align: center;">🟡 yellow</td>
+<td>Approximation is acceptable</td>
+<td style="text-align: center;">Green</td>
+<td style="text-align: center;">Yellow</td>
 </tr>
 <tr class="even">
-<td><strong>Must be precise</strong></td>
-<td style="text-align: center;">🟡 yellow</td>
-<td style="text-align: center;">🔴 red</td>
+<td>Precision is required</td>
+<td style="text-align: center;">Yellow</td>
+<td style="text-align: center;">Red</td>
 </tr>
 </tbody>
 </table>
-<p>Two of the four cells collapse to the same action, which is why the tool reduces to a traffic light.</p>
+<p>“Average” in the chapters means approximation is acceptable for that use. It is not a claim that a model generates a statistical average of its training documents.</p>
 </section>
-<section id="what-each-placement-tells-you-to-do" class="level2">
-<h2 class="anchored" data-anchor-id="what-each-placement-tells-you-to-do">What each placement tells you to do</h2>
-<ul>
-<li><strong>🟢 Green, skim and use.</strong> The output is roughly right and the cost of being wrong is small. Read it, use it, move on. Drafts, brainstorms, document pulls, triage of low-stakes tickets.</li>
-<li><strong>🟡 Yellow, verify the load-bearing bit.</strong> Most of the output can stand, but one claim carries the weight, and that is the claim you check. A strategic framing, a retrieved answer with a source, a summary that feeds a decision. Find the sentence a decision would rest on, and confirm it.</li>
-<li><strong>🔴 Red, a human signs off before it touches anything real.</strong> The output must be right and a mistake lands on a person. A churn flag acted on, a customer reply sent, a fault cleared, a hire screened. Human-in-the-loop, non-negotiable, and <em>the model said so</em> is never a defence.</li>
-</ul>
+<section id="make-the-check-concrete" class="level2">
+<h2 class="anchored" data-anchor-id="make-the-check-concrete">Make the check concrete</h2>
+<p><strong>Green:</strong> inspect whether the output serves the modest purpose. A list of private brainstorming ideas can be useful without treating every idea as a fact.</p>
+<p><strong>Yellow:</strong> identify and verify every claim the decision depends on. There may be several; “check the load-bearing bit” does not mean checking one convenient sentence and ignoring the rest.</p>
+<p><strong>Red:</strong> require qualified human authorisation and appropriate external controls before consequential use. If no one can evaluate the result, stop or obtain expertise. A signature from an overloaded or unqualified reviewer is not sufficient.</p>
+<p>For high-consequence decisions, this book uses a conservative human-review rule even when approximation is acceptable. The grid is a starting checklist, not permission to bypass an applicable approval process.</p>
 </section>
-<section id="how-to-place-well" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-place-well">How to place well</h2>
-<p>The tool is a discipline, not a formula. These are the moves the chapters rehearse.</p>
-<p><strong>Place before you act.</strong> Placement is a conscious step <em>before</em> you ship, because the surface will never warn you. A fluent, polished output is exactly the one nobody checks, and that is the danger.</p>
-<p><strong>Judge outputs, not models.</strong> A frontier model and a local four-bit Qwen can each produce green-quadrant brilliance and red-quadrant garbage on the same afternoon. You are learning to judge the <em>output in front of you</em>, not the brand on the box. Your judgement has to survive a model swap, because the swap is coming.</p>
-<p><strong>The same screen can hold two placements.</strong> One output can flip quadrant mid-sentence. A brainstorm of candidate churn drivers is green; the instant a specific customer count and revenue figure appears, the same screen is red. A segment description (“Basic-tier customers churn at roughly three times the base rate”) is green; a per-customer score (“flag customer C0xxx for a save call”) is red. Read each claim, not each screen.</p>
-<p><strong>Fluency raises the stakes.</strong> A confident, well-structured output disarms scrutiny. The better the prose, the less likely anyone checks, so the more disciplined your placement has to be. Confidence is a delivery property, not a truth property.</p>
-<p><strong>Anything that touches a person is red until a human has checked it.</strong> A churn flag, a customer persona, a screening ranking, a support reply: each lands on a real person, so each is red regardless of how polished it looks. This is the rule that runs under every chapter.</p>
-<p><strong>Place per step, not per workflow.</strong> The moment you give a model tools and let it act (an agent), placement becomes a decision <em>per step</em>. Clustering might be yellow, retrieval green, the final brief red. Put your checkpoint just before the step that becomes load-bearing or irreversible, and be able to defend why there, and not one step later.</p>
-<p><strong>Controls move red toward yellow; they do not retire your judgement.</strong> Good architecture, privacy-by-design, a sourced retrieval step: these shrink the blast radius or make the claim checkable. They move a red output to yellow (“verify the load-bearing bits before sending”). They do not promote it to green. A human still reads it.</p>
-<p><strong>Re-place as capability shifts.</strong> A model that scores 0% on faults this year might creep to 99% next year, and a red square could move to yellow. But only a fresh evaluation moves it, not hope, and not the vendor’s demo. Re-place on evidence, on a schedule.</p>
+<section id="keep-risk-separate-from-measured-quality" class="level2">
+<h2 class="anchored" data-anchor-id="keep-risk-separate-from-measured-quality">Keep risk separate from measured quality</h2>
+<p>A citation makes a claim easier to check; it does not reduce the harm of acting on a false claim. Better accuracy changes the estimated likelihood of some errors, not necessarily the consequences or required precision. A candidate with a higher score therefore does not automatically move from red to yellow.</p>
+<p>Controls can change a use: a suggestion kept in a shadow study, unable to affect a customer, differs from the same suggestion closing a ticket. Record that changed use, the controls enforcing it, and any residual harm. Do not merely recolour the model.</p>
 </section>
-<section id="when-yellow-or-red-the-four-lenses" class="level2">
-<h2 class="anchored" data-anchor-id="when-yellow-or-red-the-four-lenses">When yellow or red: the four lenses</h2>
-<p>When a placement tells you to verify, Chapter 3’s four lenses turn “check it” into something you can actually do. For each lens, write one sentence of <em>evidence</em> pulled from the actual output, not a vibe.</p>
-<ul>
-<li><strong>Representativeness</strong>: who is in the data or output? Who is missing or thinly drawn?</li>
-<li><strong>Harm</strong>: if this output drove a decision, who could be disadvantaged, and would they know?</li>
-<li><strong>Accountability</strong>: who is responsible if it is wrong? Can they be identified and reached?</li>
-<li><strong>Transparency</strong>: can you see how it produced the answer, and show someone else?</li>
-</ul>
-<p>Representativeness and Harm tell you the <strong>blast radius</strong>. Accountability and Transparency tell you whether a human is genuinely <strong>in the loop</strong>. Fail either pair and the output stays red until it is fixed, not shipped. “It seems a bit biased” is not evidence; “the at-risk profile defaults to one industry and company size, which excludes every customer in the South and Metro territories” is.</p>
-</section>
-<section id="worked-placements-across-tessera" class="level2">
-<h2 class="anchored" data-anchor-id="worked-placements-across-tessera">Worked placements across Tessera</h2>
-<p>The chapters run the same tool over and over. A representative sweep:</p>
+<section id="worked-placements" class="level2">
+<h2 class="anchored" data-anchor-id="worked-placements">Worked placements</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Output</th>
-<th>Placement</th>
-<th>Why</th>
+<th>Output and intended use</th>
+<th>Starting placement and check</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Brainstorm of candidate churn drivers</td>
-<td>🟢 green</td>
-<td>average, small blast; scopes the problem</td>
+<td>Private brainstorm of possible renewal-risk factors</td>
+<td>Green: inspect relevance; do not publish hypotheses as findings</td>
 </tr>
 <tr class="even">
-<td>Segment description, “dissatisfied customers churn well above the base rate”</td>
-<td>🟢 green</td>
-<td>average, nobody gets touched</td>
+<td>Numerical regional comparison in a decision memo</td>
+<td>Yellow: recompute counts, name the proxy label and small sample</td>
 </tr>
 <tr class="odd">
-<td>Routing a <em>healthy</em> or <em>degraded</em> ticket</td>
-<td>🟢 green</td>
-<td>a wrong route costs a human a glance</td>
+<td>Answer grounded in a support policy</td>
+<td>Yellow while drafting: verify the supporting passage and missing information</td>
 </tr>
 <tr class="even">
-<td>Retrieved RAG answer (with a source to quote)</td>
-<td>🟡 yellow</td>
-<td>verify the load-bearing citation</td>
+<td>Suggested ticket category in a shadow study</td>
+<td>Check against the manual process; no live routing, closing, or delay</td>
 </tr>
 <tr class="odd">
-<td>Sentiment gap feeding a product decision</td>
-<td>🟡 yellow → red</td>
-<td>verify against the raw tickets</td>
+<td>A classifier output that could close a fault</td>
+<td>Red: evaluate missed faults, enforce approval and fallback</td>
 </tr>
 <tr class="even">
-<td>“The model works across all our regions”</td>
-<td>🟡 yellow</td>
-<td>plausible prose over an unverified claim</td>
+<td>Customer-facing promise about money or service</td>
+<td>Red: authorised policy check and approval before sending</td>
 </tr>
 <tr class="odd">
-<td>Per-customer churn score, “flag C0xxx”</td>
-<td>🔴 red</td>
-<td>precise, lands on a named person</td>
-</tr>
-<tr class="even">
-<td>Customer persona or screening ranking</td>
-<td>🔴 red</td>
-<td>touches a person, drives a decision</td>
-</tr>
-<tr class="odd">
-<td>Router <em>fault</em> confirmation (under dim light)</td>
-<td>🔴 red</td>
-<td>a missed fault leaves a customer offline</td>
-</tr>
-<tr class="even">
-<td>Support reply a customer reads</td>
-<td>🔴 red</td>
-<td>a human signs off before it sends</td>
+<td>A hiring or eligibility recommendation</td>
+<td>Red: specialist review, applicable obligations, and a way to challenge errors</td>
 </tr>
 </tbody>
 </table>
-<p>Notice how often the same analysis produces a green output and a red one a line apart. That is the discipline: read each claim, place each step.</p>
+<p>A label of “healthy” can conceal a missed fault. Restricting review to predictions labelled “fault” misses this failure. Likewise, a regional summary can influence decisions about a whole group; aggregation does not make it harmless.</p>
 </section>
-<section id="the-two-mistakes-to-avoid" class="level2">
-<h2 class="anchored" data-anchor-id="the-two-mistakes-to-avoid">The two mistakes to avoid</h2>
-<p><strong>Treating red as green</strong> is the failure mode this book exists to catch. It is rarely malicious; it is the natural drift of a polished output nobody made themselves place.</p>
-<p><strong>Blobbing a workflow into one cell</strong> is the agent-era version of the same mistake. An agent is a chain of outputs, each with its own failure surface. One placement for the whole chain means the red step slips through unnamed. Place per step; checkpoint the red ones.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The trust tool comes from the companion book, <em>Conversation, Not Delegation</em>, which teaches it as part of the conversation loop. This appendix is the same tool through the lens of this book: applied AI, where placement is the act that turns a demo into something you can defend.</p>
-</div>
-</div>
+<section id="use-the-four-lenses" class="level2">
+<h2 class="anchored" data-anchor-id="use-the-four-lenses">Use the four lenses</h2>
+<p>For yellow or red uses, Chapter 3 supplies four questions:</p>
+<ul>
+<li><strong>Representativeness:</strong> who appears in the data, and who is missing?</li>
+<li><strong>Harm:</strong> who could be disadvantaged by this particular use?</li>
+<li><strong>Accountability:</strong> who owns the decision and can stop or correct it?</li>
+<li><strong>Transparency:</strong> which inputs, rules, sources, and limitations can be inspected?</li>
+</ul>
+<p>Record evidence and gaps under each lens. These questions do not disclose a model’s internal reasoning or settle fairness by themselves. Unresolved consequential gaps are reasons to withhold approval.</p>
+<p>Place each stage separately, then consider how errors travel between stages. In a classification → extraction → drafting chain, an early label can direct all later work toward the wrong issue. Put a check where it can still prevent that error from becoming an action.</p>
+<p>Keep the placement, evidence, owner, and review date in the dossier. Revisit them when the model, sources, data, use, or controls change.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

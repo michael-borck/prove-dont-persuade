@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Can it do the whole job? – Prove, Don't Persuade</title>
+<title>11&nbsp; Can it do the whole job? – Prove, Don't Persuade</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,22 +36,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/11-how-does-it-decide.html" rel="next">
-<link href="../chapters/09-does-it-actually-work.html" rel="prev">
+<link href="../chapters/12-what-comes-next.html" rel="next">
+<link href="../chapters/11-how-does-it-decide.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/10-can-it-do-the-whole-job.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/10-can-it-do-the-whole-job.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -284,6 +289,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,25 +466,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#from-answering-to-acting" id="toc-from-answering-to-acting" class="nav-link active" data-scroll-target="#from-answering-to-acting"><span class="header-section-number">10.1</span> From answering to acting</a></li>
-  <li><a href="#the-blast-radius-lives-in-the-tools-not-the-model" id="toc-the-blast-radius-lives-in-the-tools-not-the-model" class="nav-link" data-scroll-target="#the-blast-radius-lives-in-the-tools-not-the-model"><span class="header-section-number">10.2</span> The blast radius lives in the tools, not the model</a></li>
-  <li><a href="#mcp-a-standard-plug-for-tools" id="toc-mcp-a-standard-plug-for-tools" class="nav-link" data-scroll-target="#mcp-a-standard-plug-for-tools"><span class="header-section-number">10.3</span> MCP: a standard plug for tools</a></li>
-  <li><a href="#skills-folders-an-organisation-of-agents-in-text" id="toc-skills-folders-an-organisation-of-agents-in-text" class="nav-link" data-scroll-target="#skills-folders-an-organisation-of-agents-in-text"><span class="header-section-number">10.4</span> Skills folders: an organisation of agents, in text</a></li>
-  <li><a href="#the-danger-zone" id="toc-the-danger-zone" class="nav-link" data-scroll-target="#the-danger-zone"><span class="header-section-number">10.5</span> The danger zone</a></li>
-  <li><a href="#what-human-in-the-loop-actually-means" id="toc-what-human-in-the-loop-actually-means" class="nav-link" data-scroll-target="#what-human-in-the-loop-actually-means"><span class="header-section-number">10.6</span> What “human-in-the-loop” actually means</a></li>
-  <li><a href="#the-provocation" id="toc-the-provocation" class="nav-link" data-scroll-target="#the-provocation"><span class="header-section-number">10.7</span> The provocation</a></li>
-  <li><a href="#where-this-leaves-you" id="toc-where-this-leaves-you" class="nav-link" data-scroll-target="#where-this-leaves-you"><span class="header-section-number">10.8</span> Where this leaves you</a></li>
-  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">10.9</span> 🔍 Go deeper</a></li>
+  <li><a href="#from-answering-to-acting" id="toc-from-answering-to-acting" class="nav-link active" data-scroll-target="#from-answering-to-acting"><span class="header-section-number">11.1</span> From answering to acting</a></li>
+  <li><a href="#tools-add-an-action-boundary" id="toc-tools-add-an-action-boundary" class="nav-link" data-scroll-target="#tools-add-an-action-boundary"><span class="header-section-number">11.2</span> Tools add an action boundary</a></li>
+  <li><a href="#mcp-a-standard-plug-for-tools" id="toc-mcp-a-standard-plug-for-tools" class="nav-link" data-scroll-target="#mcp-a-standard-plug-for-tools"><span class="header-section-number">11.3</span> MCP: a standard plug for tools</a></li>
+  <li><a href="#divide-the-work-specify-the-runtime" id="toc-divide-the-work-specify-the-runtime" class="nav-link" data-scroll-target="#divide-the-work-specify-the-runtime"><span class="header-section-number">11.4</span> Divide the work; specify the runtime</a></li>
+  <li><a href="#the-danger-zone" id="toc-the-danger-zone" class="nav-link" data-scroll-target="#the-danger-zone"><span class="header-section-number">11.5</span> The danger zone</a></li>
+  <li><a href="#what-human-in-the-loop-actually-means" id="toc-what-human-in-the-loop-actually-means" class="nav-link" data-scroll-target="#what-human-in-the-loop-actually-means"><span class="header-section-number">11.6</span> What “human-in-the-loop” actually means</a></li>
+  <li><a href="#a-constructed-failure-and-correction" id="toc-a-constructed-failure-and-correction" class="nav-link" data-scroll-target="#a-constructed-failure-and-correction"><span class="header-section-number">11.7</span> A constructed failure and correction</a></li>
+  <li><a href="#core-trace-the-action-boundary-on-paper" id="toc-core-trace-the-action-boundary-on-paper" class="nav-link" data-scroll-target="#core-trace-the-action-boundary-on-paper"><span class="header-section-number">11.8</span> Core: trace the action boundary on paper</a></li>
+  <li><a href="#where-this-leaves-you" id="toc-where-this-leaves-you" class="nav-link" data-scroll-target="#where-this-leaves-you"><span class="header-section-number">11.9</span> Where this leaves you</a></li>
+  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">11.10</span> 🔍 Go deeper</a></li>
+  <li><a href="#take-it-to-the-ai" id="toc-take-it-to-the-ai" class="nav-link" data-scroll-target="#take-it-to-the-ai"><span class="header-section-number">11.11</span> 🗣️ Take it to the AI</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/10-can-it-do-the-whole-job.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/10-can-it-do-the-whole-job.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></h1>
 </div>
 
 
@@ -487,147 +506,118 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p><em>A chatbot answers your question. An agent does your job. That difference (small in words, enormous in blast radius) is what this chapter is about.</em></p>
 </blockquote>
-<section id="from-answering-to-acting" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="from-answering-to-acting"><span class="header-section-number">10.1</span> From answering to acting</h2>
-<p>Every system you have built so far in this book has been a <em>responder</em>. You asked; it answered. A classifier sorted a row. A RAG chatbot pulled a paragraph. A sentiment model labelled a ticket. In every case the human decided what to <em>do</em> with the output. The model produced text; you produced action. That line is the entire safety model of chapters one through nine.</p>
-<p>An agent erases the line. An agent is a model wired to <strong>tools and a loop</strong>, and the loop is the whole difference between “answer my question” and “do this job.” The model has not changed, it is still doing next-token prediction, still the same Qwen you pointed at a document folder in chapter seven. What changes is the <strong>harness</strong> around it. Instead of answering once, the harness lets the model run a cycle:</p>
+<section id="from-answering-to-acting" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="from-answering-to-acting"><span class="header-section-number">11.1</span> From answering to acting</h2>
+<p>The core systems examined so far have been <em>responders</em>. You asked; it answered. A classifier sorted a row. A RAG chatbot pulled a paragraph. A sentiment model labelled a ticket. In every case the human decided what to <em>do</em> with the output. The model produced text; you produced action. That separation is one safeguard; source integrity, data permissions, and evaluation also matter.</p>
+<p>An agent erases the line. An agent is a model wired to <strong>tools and a loop</strong>, and the loop is the whole difference between “answer my question” and “do this job.” The model may be the same as in a chat application. What changes is the <strong>harness</strong> around it. Instead of answering once, the harness lets the model run a cycle:</p>
 <ol type="1">
 <li><strong>Plan</strong>: break the task into steps.</li>
 <li><strong>Act</strong>: call a tool: read a file, search a folder, run a calculation.</li>
 <li><strong>Observe</strong>: read the tool’s result back into its own context.</li>
 <li><strong>Repeat or stop</strong>: until the task is done, or until something tells it to stop.</li>
 </ol>
-<p>That loop is seductive. It is also where every agentic failure you have ever read about was born. The airline chatbot that promised a customer a refund the airline never authorised did not fail because the model was malicious. It failed because the model was inside a loop that let it <em>act</em> (send a message, file a record) on the strength of its own confidence. The blast radius moved from text on a screen to a commitment a company had to honour.</p>
-<p>This chapter is not a warning against agents. It is the opposite: it is how you build one small enough to understand, and then (the actual skill) <em>decide where the human stands inside its loop before you switch it on.</em></p>
+<p>An action-taking loop changes what must be checked. A mistaken answer can mislead a reader; a mistaken tool call can also alter records or communicate on someone’s behalf. Do not infer that a public chatbot failure involved an autonomous tool loop unless the evidence establishes that architecture. Here we will use a constructed support workflow whose permissions are explicit.</p>
+<p>This chapter specifies a small workflow and its checks. The core route is a paper design; an executable agent is an optional extension.</p>
 </section>
-<section id="the-blast-radius-lives-in-the-tools-not-the-model" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="the-blast-radius-lives-in-the-tools-not-the-model"><span class="header-section-number">10.2</span> The blast radius lives in the tools, not the model</h2>
-<p>The single most useful idea in agentic AI is this: a tool call is <strong>structured output, not a paragraph.</strong> When the model decides to act, it does not reach into your file system. It emits something that looks like a function call (<code>search_docs("churn", region="Metro")</code>) and the <strong>harness</strong> executes it, handing the result back. The model proposes; the harness disposes.</p>
-<p>This matters because it tells you exactly where the danger is. A read-only search is low risk: the worst it does is return a slightly-off document. A tool that <em>sends an email</em>, <em>files a support ticket</em>, <em>refunds a payment</em>, or <em>closes an account</em> is high risk, because those actions touch people, money, and records you cannot walk back. You do not control the danger by hoping the model is careful. You control it by controlling <strong>which tools the harness exposes</strong>, and, just as importantly, by reading every exposed tool as a <em>permission</em> you have granted the loop.</p>
-<p>A vendor will tell you their agent is “safe” because the model is aligned. That is persuasion, not proof. The proof is the tool list: what, precisely, have you let this loop do? That list is your risk register. If you cannot name every action the agent can take, you have not evaluated it.</p>
+<section id="tools-add-an-action-boundary" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="tools-add-an-action-boundary"><span class="header-section-number">11.2</span> Tools add an action boundary</h2>
+<p>A tool call is <strong>structured output, not a paragraph.</strong> When the model decides to act, it does not reach into your file system. It emits something that looks like a function call (<code>search_docs("churn", region="Metro")</code>) and the <strong>harness</strong> executes it, handing the result back. The model proposes; the harness disposes.</p>
+<p>A read-only search can still expose confidential information, cross an access boundary, or return injected content. Its risk depends on the data and permissions. A tool that <em>sends an email</em>, <em>files a support ticket</em>, <em>refunds a payment</em>, or <em>closes an account</em> is high risk, because those actions touch people, money, and records you cannot walk back. You do not control the danger by hoping the model is careful. You control it by controlling <strong>which tools the harness exposes</strong>, and, just as importantly, by reading every exposed tool as a <em>permission</em> you have granted the loop.</p>
+<p>A vendor will tell you their agent is “safe” because the model is aligned. That is persuasion, not proof. Start with the tool list: what, precisely, have you let this loop do? Combine it with the data boundaries, evaluation, action validation, and stop controls; a tool inventory alone is not proof of safety. If you cannot name every action the agent can take, you have not evaluated it.</p>
 </section>
-<section id="mcp-a-standard-plug-for-tools" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="mcp-a-standard-plug-for-tools"><span class="header-section-number">10.3</span> MCP: a standard plug for tools</h2>
-<p>Wiring tools to a model used to be bespoke work: one integration per tool, per model, per harness. <strong>Model Context Protocol (MCP)</strong> is an open standard that replaces the tower of custom plumbing with one shared interface. The analogy the spec itself uses is apt: MCP is the USB standard, but for AI tools. Write a tool once as an MCP server, and any MCP-aware model and harness can call it.</p>
+<section id="mcp-a-standard-plug-for-tools" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="mcp-a-standard-plug-for-tools"><span class="header-section-number">11.3</span> MCP: a standard plug for tools</h2>
+<p>Wiring tools to a model used to be bespoke work: one integration per tool, per model, per harness. <strong>Model Context Protocol (MCP)</strong> is an open standard that replaces the tower of custom plumbing with one shared interface. The analogy the spec itself uses is apt: MCP is the USB standard, but for AI tools. An MCP client can connect to a compatible server; supported capabilities, versions, permissions, and authentication still need checking. MCP does not itself authorise access or make a tool safe. <a href="https://modelcontextprotocol.io/docs/getting-started/intro">Official MCP introduction</a></p>
 <p>You will not build an MCP server this chapter, and you do not need to. What you need is to <em>recognise it</em> when a vendor mentions it, because “the agent reached into our CRM” stops being a custom build and becomes a standard pattern the moment MCP is involved. That is convenient. It is also why the tool-list question gets harder, not easier: a standard plug means a standard way to hand the loop a dangerous capability. The convenience and the risk are the same feature.</p>
 </section>
-<section id="skills-folders-an-organisation-of-agents-in-text" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="skills-folders-an-organisation-of-agents-in-text"><span class="header-section-number">10.4</span> Skills folders: an organisation of agents, in text</h2>
-<p>Here is this book’s central agentic idea, and it is simpler and stranger than it sounds. In chapter seven you opened the skills folder and saw <strong>markdown files and folders</strong>. Extend that one step and you have an agent that spawns sub-agents with no infrastructure at all:</p>
-<ul>
-<li>A skill file is an instruction set for <em>one specialised job</em>: “you are the churn-analysis sub-agent; read the customer data, return the top three risk signals, do not speculate beyond the data.”</li>
-<li>The main agent <strong>reads the skills folder, picks the skill that matches its next step, and dispatches the sub-task</strong>, sometimes to itself with a new instruction, sometimes to a fresh model call.</li>
-<li>That is a single agent spawning specialised sub-agents on demand, using nothing but folders and text.</li>
-</ul>
-<p>No orchestration framework. No new infrastructure. The harness you already understand is doing the work. This is Layer 2 of the harness (the prompt layer) extended to carry an organisation. And the insight that travels is this: <strong>you design an agent’s skills folder the way you design a team.</strong> The division of labour <em>is</em> the design decision. A ticket-clusterer, a knowledge-searcher, a brief-drafter: three sub-agents, three skill files, one coherent workflow. Get the division wrong and the whole loop drifts; get it right and any capable model can run it.</p>
-<p>RAG moves inside the loop at the same moment. In chapter seven you built retrieval by pointing the model at a document folder and letting it answer. In an agent, retrieval becomes <strong>one tool among several</strong>: the agent retrieves from the Tessera folder <em>as a step in its loop</em>, then reasons over what it found, then acts. Grounding each action in a real document is precisely what stops the agent inventing a plausible-sounding but wrong internal fact halfway through the workflow. It is also, as you are about to see, the thing that fails first.</p>
+<section id="divide-the-work-specify-the-runtime" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="divide-the-work-specify-the-runtime"><span class="header-section-number">11.4</span> Divide the work; specify the runtime</h2>
+<p>A support digest has at least three jobs: group tickets into themes, retrieve relevant guidance, and draft a brief. You can describe each job in a separate instruction file. That makes the responsibilities reviewable, but the files do not create sub-agents by themselves.</p>
+<p>A running implementation needs software to load instructions, make model calls, pass results, enforce permissions, and stop. Some harnesses provide those capabilities; their configuration is product-specific. Do not assume dropping three files into an interface creates a working agent. Anthropic distinguishes fixed workflows from systems in which a model directs its own tool use; either may suit a task. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a></p>
+<p>For this case, begin with a fixed, inspectable sequence. A separate model call for each job is optional. More agents introduce coordination and cost; they are not a learning objective in themselves. Retrieval inside the sequence must return usable evidence, and the reviewer must check that evidence supports the proposed recommendation.</p>
 </section>
-<section id="the-danger-zone" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="the-danger-zone"><span class="header-section-number">10.5</span> The danger zone</h2>
+<section id="the-danger-zone" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="the-danger-zone"><span class="header-section-number">11.5</span> The danger zone</h2>
 <p>Now pull up the trust tool you have carried since the introduction. Ask the two questions of an agent’s output, <em>before you act on it</em>:</p>
 <ol type="1">
 <li>Does it need to be <strong>precise</strong>, or is <strong>average</strong> fine?</li>
 <li>If it is wrong, how big is the <strong>blast radius</strong>, small or large?</li>
 </ol>
-<p>An agent that <em>takes actions</em> almost always lands in the same cell. It must be <strong>precise</strong>: it is filing, sending, classifying, recommending, and a “pretty good” action that is wrong is still wrong. And its blast radius is <strong>large</strong>: actions touch people, money, records, and decisions you cannot easily walk back. That bottom-right cell, precise and large, is the <strong>danger zone</strong>, and it is the natural home of agentic AI.</p>
-<p>This is not an argument against agents. It is an argument for designing the human in <em>before</em> you switch the loop on. Because here is the thing about a loop: <strong>drift compounds.</strong> Each step the agent takes builds on the last. A slightly-off retrieval in step two becomes a confidently-wrong theme in step three becomes a brief to the COO in step four that is built on a fact nobody ever checked. By the time a human glances at the finished output, several steps of drift have already been baked in, and the human is approving a <em>fait accompli</em>, not making a decision.</p>
+<p>Consequential actions such as sending a customer promise or changing an account need stronger controls than an isolated calculation on synthetic data. Classify the actual action, not every agent under a single risk label.</p>
+<p>Errors can propagate: an unsupported retrieval claim can become a recommendation in the next stage. A check must inspect that dependency before the recommendation is authorised. Do not assume every later stage will notice an earlier mistake.</p>
 </section>
-<section id="what-human-in-the-loop-actually-means" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="what-human-in-the-loop-actually-means"><span class="header-section-number">10.6</span> What “human-in-the-loop” actually means</h2>
-<p>It is not “a human glances at the end.” That is a rubber stamp wearing a safety vest. Human-in-the-loop is a <strong>checkpoint you design into the workflow</strong> so that a human makes the load-bearing decision at the load-bearing moment. Four common patterns, in increasing autonomy:</p>
+<section id="what-human-in-the-loop-actually-means" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="what-human-in-the-loop-actually-means"><span class="header-section-number">11.6</span> What “human-in-the-loop” actually means</h2>
+<p>It is not “a human glances at the end.” That is a rubber stamp wearing a safety vest. Human-in-the-loop is a <strong>checkpoint you design into the workflow</strong> so that a human makes the load-bearing decision at the load-bearing moment. Four possible patterns, whose safety depends on implementation:</p>
 <ol type="1">
-<li><strong>Approval gate.</strong> The agent drafts; a human approves before <em>any</em> action fires. Safest, slowest.</li>
+<li><strong>Approval gate.</strong> The agent drafts; a human approves before <em>any</em> action fires. The reviewer still needs suitable evidence and time.</li>
 <li><strong>Review checkpoint.</strong> The agent runs freely <em>within</em> a sandbox, but must stop and surface its work at a defined point for human review.</li>
-<li><strong>Confidence threshold.</strong> The agent acts on its own when its confidence is high; escalates to a human when it is not. Requires the model to know when it is unsure: use carefully, and never as your only safeguard.</li>
+<li><strong>Confidence threshold.</strong> The agent acts on its own when its confidence is high; escalates to a human when it is not. Requires a validated uncertainty signal; a model’s self-reported confidence alone is insufficient. Do not use this as the only safeguard.</li>
 <li><strong>Dry-run then execute.</strong> The agent produces a <em>plan</em> of actions; a human reviews the plan; only then does execution proceed.</li>
 </ol>
-<p>The skill is not picking the most autonomous pattern. The skill is matching the pattern <em>to the blast radius</em>, and, harder, placing the checkpoint at the right <em>step</em>. The wrong place is “at the very end, after everything is done.” The useful question is the one you should tattoo on this chapter:</p>
+<p>The skill is not picking the most autonomous pattern. The skill is matching the pattern <em>to the blast radius</em>, and, harder, placing the checkpoint at the right <em>step</em>. The wrong place is “at the very end, after everything is done.” Ask:</p>
 <blockquote class="blockquote">
 <p><em>At which step does the output become load-bearing or irreversible?</em></p>
 </blockquote>
-<p>Put the checkpoint <em>just before</em> that step. Everything before it can run fast and cheap. Everything after it carries a human’s decision forward, and you can defend <em>why you put it there, and not one step later.</em> That defence is the actual deliverable. “Put a human here” is easy. Justifying <em>why here and not one step on</em> is the practitioner’s edge.</p>
+<p>Put the checkpoint <em>just before</em> that step. Earlier steps still need access controls and proportionate checking. Everything after it carries a human’s decision forward, and you can defend <em>why you put it there, and not one step later.</em></p>
 </section>
-<section id="the-provocation" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="the-provocation"><span class="header-section-number">10.7</span> The provocation</h2>
-<p>Here is the question the whole book keeps circling, and this chapter it lands hardest:</p>
-<blockquote class="blockquote">
-<p><em>If the loop runs without you (drafts, retrieves, decides, acts) what exactly is your role, and is that role stable?</em></p>
-</blockquote>
-<p>A defensible answer is not “I review everything.” That is the Delegation Trap from chapter three, now at workflow scale: rubber-stamping every output until the stamp loses its meaning, at which point you are not in the loop, you are <em>blocking</em> it, and the pressure to remove you will be enormous. A defensible answer sounds more like this: <em>I design the checkpoints, I own which tools the agent can call, I decide which outputs are red-quadrant, and I can explain why the agent did what it did.</em> Notice how much of that is <strong>design and judgement</strong>, not keystrokes. The work that survives automation is upstream of the loop: choosing the tools, drawing the boundaries, naming what must not run unattended.</p>
-<p>You do not need a final answer this chapter. You need to notice the question, and you will record it in your working log, because it is one of the book’s secondary threads.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🤖 Conversation Log
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Building the Tessera support digest, the agent drifted, and the conversation log is where it got caught.</p>
-<p><strong>Goal.</strong> Have the agent read the week’s new support tickets, find the top three themes, check the internal knowledge folder for a relevant answer to each, and draft a short brief for the COO.</p>
-<p><strong>Where the AI got it right.</strong> It cleanly split the job into three sub-agents (a ticket-clusterer, a knowledge-searcher, a brief-drafter) and dispatched them in order. The skills-folder design was sound.</p>
-<p><strong>Where the AI got it wrong.</strong> The <em>knowledge-searcher</em> sub-agent, asked to find an answer to a theme about “intermittent latency on Premium routes,” returned a confident paragraph that <em>sounded</em> like it came from the runbook. It had not. No retrieval had fired on that step; the sub-agent had drafted from its parametric memory instead of from the Tessera folder, and it did not flag the difference. The <em>brief-drafter</em> then built a recommendation on top of the invented fact. Two steps of compounding drift, invisible in the final prose.</p>
-<p><strong>The human correction.</strong> The checkpoint was placed between <em>search</em> and <em>draft</em>: every knowledge-searcher claim had to cite the document it was retrieved from, and the reviewer checked one citation at random before the drafter was allowed to proceed. The invented fact failed the citation check and was caught. The lesson, written into the log: <strong>grounding is not a property of the model; it is a property of the tool call, and an agent that <em>could</em> retrieve but <em>didn’t</em> looks identical to one that did.</strong> Verify the retrieval, not just the prose.</p>
-<p>What was trusted: the clustering, after a spot-check. What was refused: the recommendation, until the citation was real.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The agent’s brief to the COO lands <strong>red</strong>: precise, large blast radius. A leader may act on it; it is drawn from real customer tickets; getting a theme wrong wastes a week of the customer-success team’s attention, and getting a recommendation wrong routes engineers at the wrong fault. Red means a human signs off, and the sign-off has to be <em>Real</em>, meaning the human checked the load-bearing bit (here, the citations behind each recommendation), not just skimmed the prose.</p>
-<p>The agent’s <em>intermediate</em> steps live elsewhere on the grid: the ticket clustering is yellow (verify the load-bearing bit: did it miss a whole segment?), the raw retrieval is green (skim and use, it is just a document pull). Trust-tool placement is not one decision per agent; it is a decision <em>per step</em>, and the red steps are where your checkpoint goes.</p>
-</div>
-</div>
-<div class="tessera-case">
-<p><strong>🌐 Tessera Case</strong></p>
-<p>Grace Sullivan, Tessera’s COO, wants a weekly digest she can act on: <em>read the new support tickets, find the top three themes, check the internal knowledge folder for a relevant answer to each, and draft a short brief.</em> Your team builds it as a multi-step agent.</p>
-<p>The skills folder carries three sub-agents (a ticket-clusterer, a knowledge-searcher, a brief-drafter) and the main agent runs the plan-retrieve-draft-assemble loop against the Tessera document folder as its RAG tool. It works. It is impressive in the demo. It is also red-quadrant the moment the brief is destined for someone who might act on it.</p>
-<p>The design decision that earns the engagement is not the agent. It is the checkpoint: <strong>between <em>search</em> and <em>draft.</em></strong> Every claim the knowledge-searcher returns must cite the document it was retrieved from; a human checks one citation before the drafter is allowed to proceed. Everything upstream (clustering, retrieval) runs fast and cheap. Everything downstream carries a reviewer’s decision forward.</p>
-<p><strong>What breaks if the checkpoint is removed.</strong> Remove it and the loop runs end to end unattended. Drift compounds across the steps: an unretrieved “fact” in the search step becomes a confident theme in the draft becomes a recommendation a leader acts on. The first time nobody notices is the time the brief is wrong <em>in exactly the way the model is most persuasive</em>: fluent, structured, and ungrounded. The agent has not failed uniquely; the <em>placement</em> has failed, by letting a precise, large-blast-radius output cross the line without a human’s decision attached. Tessera’s reputation, and a week of the customer-success team’s attention, is the blast radius.</p>
-<p>The provocation, on the desk of everyone who built it: if this digest ships every Monday and a human only ever approves it, <em>at what point is the human a rubber stamp?</em> The honest answer is the one your working log should capture, and it is not “we review everything.”</p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔬 Power-user extension
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Core (no-code).</strong> Build the digest yourself from the skills-folder idea: three short markdown files — a ticket-clusterer, a knowledge-searcher, a brief-drafter — dropped into an Open WebUI skills folder, with one model pointed at Tessera’s support-tickets and knowledge folders. Run the plan-retrieve-draft loop, then place your checkpoint between <em>search</em> and <em>draft</em>.</p>
-<p><strong>Power-user.</strong> Take it further one of two ways. <em>Add a real tool-calling step</em>: give the knowledge-searcher a retrieval tool over the knowledge folder and require it to return the source filename and a verbatim quote with every claim — the citation check the case box enforces by hand, now done inside the loop. <em>Or instrument the loop</em>: log, at each step, whether the retrieved source actually contains the phrase the drafter went on to quote, so drift becomes a number you can watch compound instead of a surprise in the finished brief.</p>
-</div>
-</div>
+<section id="a-constructed-failure-and-correction" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="a-constructed-failure-and-correction"><span class="header-section-number">11.7</span> A constructed failure and correction</h2>
+<p>Tessera wants a support digest: group new tickets, retrieve relevant guidance, and draft a brief. The following is a teaching scenario, not a log from an executed system.</p>
+<p>The retrieval stage returns a plausible statement about congestion without a supporting passage. The drafter turns it into a recommendation to change a route. Reading only the final brief hides the gap.</p>
+<p>Place a source check between retrieval and drafting, then check the final recommendation again before distribution. A real citation is not enough: the cited passage must support the action, and an authorised person must approve it. A runbook saying “check telemetry” does not confirm congestion.</p>
+<p>Keep a record of what was retrieved, what was inferred, and what remains untested. A system may be grounded in supplied context without a retrieval call; when evaluating automated retrieval specifically, inspect whether that call occurred and what it returned. Do not infer a mechanism from fluent prose.</p>
 </section>
-<section id="where-this-leaves-you" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="where-this-leaves-you"><span class="header-section-number">10.8</span> Where this leaves you</h2>
-<p>An agent is the harness you already understand, extended to act. Its power is real, and so is its danger, and both live in the same place: the tool list, and the loop that calls it. The discipline this chapter adds to <em>prove, don’t persuade</em> is specific. State, before you switch the loop on, <em>every action the agent can take.</em> Name <em>which steps are red-quadrant.</em> Place a checkpoint <em>just before</em> the output becomes load-bearing or irreversible, and be able to defend why there, and not one step later. Treat an agent that <em>could</em> retrieve but <em>didn’t</em> as identical to one that confabulated, because to the reader they are.</p>
-<p>Do that and you have answered <em>can it do the whole job?</em> honestly: it can do a great deal of it, fast, and cheaply, and the part it cannot do is the part where someone decides whether what it did is true. That part is yours, and it is not going anywhere.</p>
-<p>But there is a question underneath this one we have not yet opened. You have built agents that act, classifiers that sort, models that recommend, and you have treated the model itself as a fixed, opaque thing you point a harness at. <em>How does it actually decide?</em> What is happening inside the weights before the first token ever reaches a chat interface? The next chapter opens the box (quantisation, jagged intelligence, model collapse, and NotebookLM as production-grade RAG to take apart) because you cannot fully prove a system works until you have some handle on what it is doing when it is not being watched.</p>
-</section>
-<section id="go-deeper" class="level2" data-number="10.9">
-<h2 data-number="10.9" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">10.9</span> 🔍 Go deeper</h2>
+<section id="core-trace-the-action-boundary-on-paper" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="core-trace-the-action-boundary-on-paper"><span class="header-section-number">11.8</span> Core: trace the action boundary on paper</h2>
+<p><strong>Time:</strong> 25 minutes. <strong>Inputs:</strong> these invented records:</p>
 <ul>
-<li><p><strong>Building Effective Agents</strong>: Anthropic, <code>anthropic.com/research/building-effective-agents</code>. The canonical practitioner’s primer on the agent loop, tool use, and, crucially, <em>when an agent is overkill and a simple prompt will do</em>. Read it for the discipline of reaching for the loop only when simpler solutions fall short, and for Anthropic’s three principles: keep the design simple, make the planning transparent, and craft the agent-computer interface as carefully as you’d craft a user interface.</p></li>
-<li><p><strong>How we built our multi-agent research system</strong>: Anthropic Engineering, <code>anthropic.com/engineering/multi-agent-research-system</code>. A rare, honest production write-up of exactly the sub-agent-spawning pattern this chapter uses: a lead agent dispatching specialised sub-agents from a folder. Read it for two numbers worth carrying: multi-agent systems use roughly <strong>10–15× the tokens</strong> of a single agent (do the cost maths before you commit), and the system is evaluated by an LLM judge scoring <em>factual accuracy against sources</em>, the same citation check the Tessera checkpoint enforces by hand.</p></li>
-<li><p><strong>Model Context Protocol: Introduction</strong>: <code>modelcontextprotocol.io/docs/getting-started/intro</code>. The official MCP documentation, which itself uses the USB analogy. Read it to demystify the standard: tools, resources, and prompts are the three primitives, and “the agent reached into our CRM” is a vendor phrase you should now be able to translate into a concrete, auditable tool call.</p></li>
+<li>Ticket T1: “Premium route latency rises each evening.”</li>
+<li>Ticket T2: “The same route slows after 18:00.”</li>
+<li>Runbook R1: “Check service telemetry before recommending a route change.”</li>
+<li>Draft brief: “The runbook confirms congestion. Change the route immediately.”</li>
 </ul>
+<p>Draw the sequence: group tickets, retrieve guidance, propose a recommendation, review, and distribute. Mark the inputs, outputs, allowed tools, and stop condition at each step. Identify where the draft exceeds the source: R1 requires a check; it does not confirm a diagnosis or authorise a change.</p>
+<p><strong>Artefact:</strong> an action/checkpoint map and a corrected brief in the dossier. <strong>Success:</strong> require telemetry evidence before a diagnosis, source support before a recommendation, and approval before distribution or operational change. State what happens when a source or reviewer is unavailable.</p>
+<p><strong>Optional implementation:</strong> reproduce the sequence in a disposable, approved sandbox with synthetic files, no live customer integrations, and no send or write permissions. Log whether retrieval actually occurred. Document the required runtime configuration rather than assuming an interface recognises a “skills folder.” Do not remove the checkpoint to test against real people or systems.</p>
+</section>
+<section id="where-this-leaves-you" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="where-this-leaves-you"><span class="header-section-number">11.9</span> Where this leaves you</h2>
+<p>State, before you switch the loop on, <em>every action the agent can take.</em> Name <em>which steps are red-quadrant.</em> Place a checkpoint <em>just before</em> the output becomes load-bearing or irreversible, and be able to defend why there, and not one step later. Treat an agent that <em>could</em> retrieve but <em>didn’t</em> as identical to one that confabulated, because to the reader they are.</p>
+<p>Your design should now say what may run, what requires review, and what is still untested. It does not yet establish the speed, cost, or reliability of an implemented system.</p>
+<p>The final chapter brings the component tests, model comparison, and action boundaries together. Your capstone must explain not only whether a workflow meets its brief, but who gains, who carries the transition cost, and who can stop it. Keep unresolved evidence visible; a persuasive pitch cannot fill the gaps.</p>
+</section>
+<section id="go-deeper" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">11.10</span> 🔍 Go deeper</h2>
+<ul>
+<li><p><strong>Building Effective Agents</strong>: Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents" class="uri">https://www.anthropic.com/engineering/building-effective-agents</a>. A practitioner primer on the agent loop and tool use, including <em>when an agent is overkill and a simple prompt will do</em>. Read it for the discipline of reaching for the loop only when simpler solutions fall short, and for Anthropic’s three principles: keep the design simple, make the planning transparent, and craft the agent-computer interface as carefully as you’d craft a user interface.</p></li>
+<li><p><strong>How we built our multi-agent research system</strong>: <a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic Engineering, June 2025</a>. In that team’s data, agents used about 4× the tokens of chat interactions and multi-agent systems about 15× <strong>chat</strong>, not 15× a single agent. Treat this as a reported result for their workload, not a universal multiplier. The article also describes source-based evaluation and the coordination work behind a running system.</p></li>
+<li><p><strong>Model Context Protocol: Introduction</strong>: <a href="https://modelcontextprotocol.io/docs/getting-started/intro" class="uri">https://modelcontextprotocol.io/docs/getting-started/intro</a>. The official MCP documentation, which itself uses the USB analogy. Read it to demystify the standard: tools, resources, and prompts are the three primitives, and “the agent reached into our CRM” is a vendor phrase you should now be able to translate into a concrete, auditable tool call.</p></li>
+</ul>
+</section>
+<section id="take-it-to-the-ai" class="level2" data-number="11.11">
+<h2 data-number="11.11" class="anchored" data-anchor-id="take-it-to-the-ai"><span class="header-section-number">11.11</span> 🗣️ Take it to the AI</h2>
+<p><strong>Where to start.</strong> Three questions worth arguing about rather than looking up:</p>
+<ol type="1">
+<li>Ask the AI to list every action an agent you describe can take. If neither of you can enumerate the tool list, the agent has not been evaluated, whatever the vendor says.</li>
+<li>Ask where the checkpoint goes and, harder, why <em>there</em> and not one step later. The justification is the deliverable, not the placement.</li>
+<li>Ask how you would tell an agent that retrieved from one that only appeared to. To the reader of the finished prose they look identical, which is the whole problem.</li>
+</ol>
+<p><strong>Keywords to steer with.</strong> agent loop · plan, act, observe, repeat · tool call as structured output · Model Context Protocol · skills folder · sub-agent · read-only versus write tools · compounding drift · approval gate · review checkpoint · confidence threshold · dry-run then execute</p>
+<p><strong>A starting prompt (RTCF).</strong></p>
+<blockquote class="blockquote">
+<p><strong>Role:</strong> You are a safety reviewer who signs off on agent deployments and has refused several.</p>
+<p><strong>Task:</strong> Take the agent I describe, tell me at which step its output becomes load-bearing or irreversible, then place the checkpoint and defend the placement.</p>
+<p><strong>Context:</strong> I have read a chapter arguing that tool permissions create action risks and errors can propagate across steps. The agent does [describe the steps in order]. The tools it can call are [list them honestly, including the read-only ones]. The output goes to [say who acts on it].</p>
+<p><strong>Format:</strong> The loop step by step with a risk note on each. Then the checkpoint, with a paragraph defending why there rather than one step later. End with the one tool you would remove entirely, and what capability that costs.</p>
+</blockquote>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1043,13 +1033,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/09-does-it-actually-work.html" class="pagination-link" aria-label="Does it actually work?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Does it actually work?</span></span>
+      <a href="../chapters/11-how-does-it-decide.html" class="pagination-link" aria-label="How does it decide?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/11-how-does-it-decide.html" class="pagination-link" aria-label="How does it decide?">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/12-what-comes-next.html" class="pagination-link" aria-label="What comes next?">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What comes next?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

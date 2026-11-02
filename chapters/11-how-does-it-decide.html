@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; How does it decide? – Prove, Don't Persuade</title>
+<title>10&nbsp; How does it decide? – Prove, Don't Persuade</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,22 +36,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/12-what-comes-next.html" rel="next">
-<link href="../chapters/10-can-it-do-the-whole-job.html" rel="prev">
+<link href="../chapters/10-can-it-do-the-whole-job.html" rel="next">
+<link href="../chapters/09-does-it-actually-work.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/11-how-does-it-decide.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/11-how-does-it-decide.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -284,6 +289,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,23 +466,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-decision-inside-the-box" id="toc-the-decision-inside-the-box" class="nav-link active" data-scroll-target="#the-decision-inside-the-box"><span class="header-section-number">11.1</span> The decision inside the box</a></li>
-  <li><a href="#the-honest-question-the-data-does-not-answer" id="toc-the-honest-question-the-data-does-not-answer" class="nav-link" data-scroll-target="#the-honest-question-the-data-does-not-answer"><span class="header-section-number">11.2</span> The honest question the data does not answer</a></li>
-  <li><a href="#a-4-bit-model-that-wins-on-your-task" id="toc-a-4-bit-model-that-wins-on-your-task" class="nav-link" data-scroll-target="#a-4-bit-model-that-wins-on-your-task"><span class="header-section-number">11.3</span> A 4-bit model that wins on your task</a></li>
-  <li><a href="#when-the-data-eats-itself" id="toc-when-the-data-eats-itself" class="nav-link" data-scroll-target="#when-the-data-eats-itself"><span class="header-section-number">11.4</span> When the data eats itself</a></li>
-  <li><a href="#the-polished-black-box-you-can-now-read" id="toc-the-polished-black-box-you-can-now-read" class="nav-link" data-scroll-target="#the-polished-black-box-you-can-now-read"><span class="header-section-number">11.5</span> The polished black box you can now read</a></li>
-  <li><a href="#what-you-can-now-defend" id="toc-what-you-can-now-defend" class="nav-link" data-scroll-target="#what-you-can-now-defend"><span class="header-section-number">11.6</span> What you can now defend</a></li>
-  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">11.7</span> 🔍 Go deeper</a></li>
+  <li><a href="#predictive-rules-are-not-causal-explanations" id="toc-predictive-rules-are-not-causal-explanations" class="nav-link active" data-scroll-target="#predictive-rules-are-not-causal-explanations"><span class="header-section-number">10.1</span> Predictive rules are not causal explanations</a></li>
+  <li><a href="#compare-on-the-same-question" id="toc-compare-on-the-same-question" class="nav-link" data-scroll-target="#compare-on-the-same-question"><span class="header-section-number">10.2</span> Compare on the same question</a></li>
+  <li><a href="#tessera-the-comparison-sheet" id="toc-tessera-the-comparison-sheet" class="nav-link" data-scroll-target="#tessera-the-comparison-sheet"><span class="header-section-number">10.3</span> Tessera: the comparison sheet</a></li>
+  <li><a href="#when-a-smaller-model-is-enough" id="toc-when-a-smaller-model-is-enough" class="nav-link" data-scroll-target="#when-a-smaller-model-is-enough"><span class="header-section-number">10.4</span> When a smaller model is enough</a></li>
+  <li><a href="#provenance-and-synthetic-training-data" id="toc-provenance-and-synthetic-training-data" class="nav-link" data-scroll-target="#provenance-and-synthetic-training-data"><span class="header-section-number">10.5</span> Provenance and synthetic training data</a></li>
+  <li><a href="#compare-retrieval-without-inventing-the-internals" id="toc-compare-retrieval-without-inventing-the-internals" class="nav-link" data-scroll-target="#compare-retrieval-without-inventing-the-internals"><span class="header-section-number">10.6</span> Compare retrieval without inventing the internals</a></li>
+  <li><a href="#core-choose-neither-when-necessary" id="toc-core-choose-neither-when-necessary" class="nav-link" data-scroll-target="#core-choose-neither-when-necessary"><span class="header-section-number">10.7</span> Core: choose neither when necessary</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/11-how-does-it-decide.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-are-you-asking-well.html">Act II · Build and Prove: does it actually work?</a></li><li class="breadcrumb-item"><a href="../chapters/11-how-does-it-decide.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></h1>
 </div>
 
 
@@ -482,139 +499,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The chatbot you talk to is a (very large) neural network. Say that sentence slowly, because it does two things at once. It demotes the chatbot from magic to mechanism, a thing with parts you could, in principle, point at. And it reveals that the neural network is just one family of model, sitting beside two older, plainer cousins you have already met in Orange. This is the chapter where you stop asking <em>what does the model say?</em> and start asking <em>how does it decide?</em>, because the second question is the one a CEO will ask you before signing the cheque.</p>
-<p>Tessera’s churn problem is the test bed. You will open three models on the same customer data, watch them decide differently, and discover that the most accurate model is rarely the one you can defend. Then you will turn to NotebookLM (Google’s polished retrieval system) and ask the harder question: now that you have built the rough version by hand, can you read the polished one underneath?</p>
-<section id="the-decision-inside-the-box" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="the-decision-inside-the-box"><span class="header-section-number">11.1</span> The decision inside the box</h2>
-<p>Before there was ever a chat interface, the same decide-and-predict mechanics ran in three classic forms. They share one loop:</p>
-<ol type="1">
-<li><strong>Split</strong> the data into train and test. You never test on what you trained on. That is marking your own homework, and it is the single most common way an AI prototype lies about how good it is.</li>
-<li><strong>Fit</strong> the model on the train set: it learns the relationship between inputs (tenure, region, satisfaction, contract value) and the target (did the customer churn?).</li>
-<li><strong>Predict</strong> on the test set, the data it has never seen.</li>
-<li><strong>Evaluate</strong>: how often was it right, how wrong, and in which direction?</li>
-</ol>
-<p>The four steps are identical for every model you will build this week. The only thing that differs is step two: <em>how it fits.</em></p>
-<p>A <strong>logistic regression</strong> learns a weight for each input (a positive weight for short tenure, a negative weight for high satisfaction), adds them up, and squashes the total into a probability of churn. The beauty is that the weights are readable. You can point at a coefficient and say “this is the single biggest churn driver the model found.” The limit is that it only captures straight-line, linear relationships.</p>
-<p>A <strong>decision tree</strong> learns a chain of yes/no questions: <em>tenure under six months? a recent complaint? predict churn.</em> You can trace any single prediction down the branches, and explain it to a stakeholder in plain English. A random forest is just many trees voting, which trades a little readability for a lot of sturdiness. A single tree’s weakness is that it can overfit, memorising the training data instead of learning the pattern.</p>
-<p>A <strong>neural network</strong> is layers of artificial neurons, every connection weighted, trained by nudging the weights to reduce error over many passes. It is far more flexible (it can capture patterns the other two cannot) at the cost of being nearly impossible to explain. This is the family the chatbot belongs to, scaled up until the individual decisions disappear into billions of weights.</p>
-<p>There is no free lunch. The table tells the whole story:</p>
+<p>Rule B scores three out of four on the lab’s test rows; Rule A scores two out of four. B is easy to explain. It still misses one of the two Low-labelled cases, so neither rule meets the brief.</p>
+<p>That is a model-selection decision you can defend. You know the rules, the inputs, the errors, and the acceptance criteria. A more complex comparison should preserve those same ingredients, even when the model’s internal behaviour is harder to inspect.</p>
+<section id="predictive-rules-are-not-causal-explanations" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="predictive-rules-are-not-causal-explanations"><span class="header-section-number">10.1</span> Predictive rules are not causal explanations</h2>
+<p>A small decision tree exposes a path of conditions leading to a prediction. A logistic regression combines features into a score that is transformed into a probability; it is linear in the log-odds with respect to the supplied features, not necessarily in the resulting probability. Transformations and interactions can extend those features.</p>
+<p>Coefficients need interpretation in context. Their signs and magnitudes depend on coding, scale, correlated variables, regularisation, and the data used to fit them. The largest coefficient is not automatically the strongest business driver, and a coefficient is not evidence that changing that feature causes the outcome.</p>
+<p>A neural network combines learned transformations across layers. Its internal reasoning is generally harder to summarise faithfully than a short tree, but “black box” does not mean nothing can be tested or explained. You can inspect inputs, outputs, error patterns, sensitivity, and the limitations of an explanation method.</p>
+<p>Nor is every tree simple. A very deep tree can be difficult to follow. A random forest combines many trees and sacrifices some direct traceability. Choose an explanation requirement for the actual decision: tracing a prediction, explaining a general pattern, and establishing the effect of an intervention are different jobs.</p>
+<p>These distinctions are developed in the authors’ <a href="https://www.statlearning.com/">Introduction to Statistical Learning</a>. The relevant lesson here is practical: name what your explanation shows and what it does not.</p>
+</section>
+<section id="compare-on-the-same-question" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="compare-on-the-same-question"><span class="header-section-number">10.2</span> Compare on the same question</h2>
+<p>A fair comparison needs a shared target definition, test inputs, acceptance rules, and accounting of costs. A classifier that predicts a Low-renewal label cannot be compared as though it had predicted actual departures. A language model’s elegant explanation is not a substitute for its recorded predictions.</p>
+<p>Use development data to choose features, tune settings, and investigate failures. Reserve a separate evaluation for the claim you intend to make. Where customers recur across records, or the task predicts future events, the split must respect those dependencies. Randomly splitting rows can leak information across the boundary.</p>
+<p>Reusing a held-out set until a candidate wins makes it part of development. Keep that history and obtain fresh evidence for the final claim. The same applies to prompts: repeated revisions against the same questions are model development even if no weights change. <a href="https://scikit-learn.org/stable/common_pitfalls.html">scikit-learn: data leakage and common pitfalls</a></p>
+</section>
+<section id="tessera-the-comparison-sheet" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="tessera-the-comparison-sheet"><span class="header-section-number">10.3</span> Tessera: the comparison sheet</h2>
+<p>Use Appendix G’s four test rows and predefined rules. The predictions are printed so that anyone can reproduce the decision without installing a tool.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 16%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Family</th>
-<th>Interpretability</th>
-<th>Flexibility</th>
+<th>Candidate</th>
+<th style="text-align: right;">Correct / tested</th>
+<th style="text-align: right;">Low cases detected</th>
+<th style="text-align: right;">False Low alarms</th>
+<th>Meets the brief?</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Logistic regression</td>
-<td>High: read the weights</td>
-<td>Low: linear only</td>
+<td>Rule A: satisfaction ≤ 6</td>
+<td style="text-align: right;">2/4</td>
+<td style="text-align: right;">1/2</td>
+<td style="text-align: right;">1</td>
+<td>No</td>
 </tr>
 <tr class="even">
-<td>Decision tree</td>
-<td>High: trace the branches</td>
-<td>Medium</td>
+<td>Rule B: tenure ≤ 6</td>
+<td style="text-align: right;">3/4</td>
+<td style="text-align: right;">1/2</td>
+<td style="text-align: right;">0</td>
+<td>No</td>
 </tr>
 <tr class="odd">
-<td>Neural network</td>
-<td>Low: a black-ish box</td>
-<td>High</td>
+<td>Always High</td>
+<td style="text-align: right;">2/4</td>
+<td style="text-align: right;">0/2</td>
+<td style="text-align: right;">0</td>
+<td>No</td>
 </tr>
 </tbody>
 </table>
-<p>A model that is easy to explain is often less flexible; a model that is very flexible is hard to explain. <strong>In business, the interpretability column is frequently the one that matters</strong>, because a model you cannot explain is a model you cannot defend to a stakeholder, or to a regulator. When the decision touches money, the question is rarely “which is smartest?” It is “which can I justify?”</p>
-<div class="tessera-case">
-<p><strong>🌐 Tessera Case</strong></p>
-<p>You load Tessera’s churn data into Orange (<code>region</code> — Metro/North/South/East/West/Central — plus <code>tenure_months</code>, <code>company_size</code>, <code>satisfaction_score</code>, <code>primary_product</code>, <code>contract_value_aud</code>), and derive the one feature the data does not hand you: <code>satisfaction_band</code> (Low when <code>satisfaction_score</code> ≤ 6, High otherwise). (Your features are never all ready-made; building the right input is half the work.) You split seventy-thirty, build all three models from the same split, and read each against the same held-out test set.</p>
-<p>Then you open each one up. The <strong>logistic regression’s</strong> coefficients name the biggest churn driver in plain numbers; <em>short tenure</em> and <em>low satisfaction</em> light up, and a region segment stands out: the South and Metro territories churn at roughly two to three times the rate of Central, East, or North. The <strong>tree</strong> hands you a flowchart you could walk Henrik, Tessera’s CEO, down in a board meeting: <em>fewer than ~6 satisfaction, under ~12 months tenure → churn.</em> The <strong>neural network</strong> shows you nothing you can read. That opacity is the trade-off made concrete: the most flexible model is the one you cannot defend.</p>
-<p>The second artefact is NotebookLM, fed the same Tessera document folder your Chapter 10 agent retrieved from. You are not using it; you are reading it, reverse-engineering the seven-step pipeline underneath against the rough retrieval you built by hand.</p>
-</div>
+<p>A manager might reasonably ask whether B is worth further development. It is a candidate for another test, not an approved solution. Its higher accuracy does not override the predeclared requirement to detect both Low-labelled cases.</p>
+<p><strong>Constructed review:</strong> an AI drafts “Choose B: best accuracy and no false alarms.” The reviewer adds the missing column: one Low case is missed. The corrected memo recommends further investigation without changing the threshold after seeing the result.</p>
+<p>Even a perfect score on four rows would not establish a dependable real-world rate. The small sample exists to expose the logic of the decision. The dossier should distinguish that teaching result from any claim about future customers.</p>
 </section>
-<section id="the-honest-question-the-data-does-not-answer" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="the-honest-question-the-data-does-not-answer"><span class="header-section-number">11.2</span> The honest question the data does not answer</h2>
-<p>Three models, three confusion matrices, and one question the data will never answer for you: <em>for Tessera’s churn problem, which error is worse?</em> Predicting churn for a customer who stays means a wasted retention call (cheap, slightly annoying). Missing a customer who leaves means lost revenue you might have prevented. There is no universal answer. The business call shapes which model “wins.” A model with marginally lower accuracy that catches the real churners may be the better model for this decision, even though it looks worse on a leaderboard.</p>
-<p>This is the chapter’s first proof of the spine: <strong>accuracy is an assertion, not evidence of fitness.</strong> A model that is 84% accurate on average can still miss every customer in the segment that actually matters. The figure on the dashboard persuades; the confusion matrix, read against the business’s real cost of each error, is what proves.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🤖 Conversation Log
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You ask an AI assistant to help pick a model for Tessera’s churn problem. It replies, confidently and quickly, with a recommendation: <em>the neural network, highest accuracy at 84%.</em> It even drafts a paragraph for the board paper.</p>
-<p>This is where you push back, because the AI is optimising the wrong objective. You name two things it did not weigh. First, the <em>direction</em> of the error matters more than its size: missing a churner costs more than a wasted retention call, so recall on the at-risk class is the metric to watch, not raw accuracy. Second, Henrik has to <em>defend</em> the retention budget to the board: the coefficients or the tree let him do that; the neural network does not. The AI was treating accuracy as the goal, when the goal is a defensible, explainable churn decision.</p>
-<p>You redirect it: rerun the comparison, weight recall and interpretability, and re-rank. The tree (or the logistic regression) becomes the better model for <em>this</em> decision, at slightly lower accuracy. The lesson lands: an AI will optimise whatever metric you name. Naming the right metric is a business judgement, and that judgement is yours, not the model’s. The machine proposes; you decide what counts as winning.</p>
-</div>
-</div>
+<section id="when-a-smaller-model-is-enough" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="when-a-smaller-model-is-enough"><span class="header-section-number">10.4</span> When a smaller model is enough</h2>
+<p>Model size, deployment location, precision format, and task performance are separate variables. A compact model may be sufficient for a narrow task and fit a useful operating budget. It may also fail a critical case that a larger model handles, or run too slowly on the available hardware. Measure rather than infer a winner from the label.</p>
+<p><strong>Quantisation</strong> represents numerical values with reduced precision. It can reduce memory requirements; its effect on speed and quality depends on the method, runtime, hardware, and task. A model file’s size is not the total memory required to run it, especially with a long context or concurrent requests. The experimental literature on post-training quantisation illustrates these trade-offs; it does not promise one universal result. <a href="https://arxiv.org/abs/2210.17323">GPTQ, Frantar et al.</a></p>
+<p>If you compare quantised variants, keep the task and scoring rules fixed. Record the exact model identifiers and settings. Include latency, resource use, and failures alongside quality, and preserve the data-boundary requirements established earlier.</p>
 </section>
-<section id="a-4-bit-model-that-wins-on-your-task" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="a-4-bit-model-that-wins-on-your-task"><span class="header-section-number">11.3</span> A 4-bit model that wins on your task</h2>
-<p>You have been running a <strong>4-bit quantised</strong> Qwen locally since Chapter 5. Quantisation means the model’s weights have been compressed, stored in four bits instead of the usual sixteen. You trade a sliver of precision for a large drop in memory and a real gain in speed. On a laptop, that is the difference between <em>won’t run</em> and <em>runs fine.</em></p>
-<p>Here is the counterintuitive part: a 4-bit local model can outperform a much larger cloud model on a specific task. Not because it is smarter (it is not) but because on a narrow, well-scoped job it can be faster (no network round-trip, no token-billing throttle), private (the data never leaves the machine, the Chapter 6 sovereignty argument), cheap to specialise on your domain, and free at the margin so you can run the loop a thousand times. The lesson is not <em>local beats cloud.</em> It is <strong>capability is task-relative.</strong> You pick the model that fits the task and its constraints, and that judgement is yours to make and defend, not the vendor’s to sell you.</p>
-<p>This pairs with an uncomfortable property of models: they are not uniformly good. They are <strong>brilliant at some things and shockingly bad at adjacent things</strong>: write flawless code in one language and fumble a near-identical task in another, ace a reasoning puzzle and fail the same puzzle with the numbers swapped. This <em>jaggedness</em> is why the trust tool asks about the task, not the model: a model’s reputation on average tells you almost nothing about its reliability on the specific claim you are about to act on. The only honest answer is to evaluate on your task, on your data, which is exactly what the three-model comparison forces you to do.</p>
+<section id="provenance-and-synthetic-training-data" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="provenance-and-synthetic-training-data"><span class="header-section-number">10.5</span> Provenance and synthetic training data</h2>
+<p>Synthetic data is not automatically bad training data. The question is how it was produced, selected, mixed, and evaluated. Shumailov and colleagues demonstrated degradation under recursive model-generated training in the regimes they studied, including loss of distributional tails. That supports a concern about careless replacement of data, not a theorem that every use of synthetic examples ruins a model. <a href="https://www.nature.com/articles/s41586-024-07566-y">Shumailov et al., Nature, 2024</a></p>
+<p>Training degradation is also not the same mechanism as a retrieval assistant reading a wrong document. For retrieval, check source quality, access, currency, coverage, and whether the cited passage supports the answer. Human authorship alone guarantees none of those.</p>
+<p>Keep provenance for both. The lab-v1 fixtures are safe to inspect because they are explicitly invented, not because they represent a population or carry validated outcomes. They teach evaluation; they do not train away the need for it.</p>
 </section>
-<section id="when-the-data-eats-itself" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="when-the-data-eats-itself"><span class="header-section-number">11.4</span> When the data eats itself</h2>
-<p>There is a slower failure hiding in all of this. When models are trained on text produced by <em>other models</em>, quality can degrade over generations: a slow blurring toward the average, where the rare but real cases quietly disappear. This is <strong>model collapse</strong>, and it matters now because the open web is filling with model-generated text. The risk for a business is specific: a model trained on contaminated synthetic data loses the long tail, exactly the unusual cases that churn analysis or fraud detection most need to catch. The churner who does not look like the average churner is the one you most need to keep, and the one collapse erases first.</p>
-<p>The defence is unglamorous and load-bearing: <strong>know where your training and retrieval data came from.</strong> Ground in human-authored, domain-specific documents (like the Tessera folder) rather than assuming that more data is always better. Provenance is a feature, not a chore.</p>
+<section id="compare-retrieval-without-inventing-the-internals" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="compare-retrieval-without-inventing-the-internals"><span class="header-section-number">10.6</span> Compare retrieval without inventing the internals</h2>
+<p>A product such as NotebookLM can be an optional comparison for the source-grounded exercise. You can observe its answers and supporting passages. You cannot infer a specific hidden chunking or ranking algorithm merely because the interface looks polished.</p>
+<p>Use the same saved sources and questions for each candidate. Appendix G provides an answerable fault-review question, a question that requires preserving a limitation, and a refund-amount question that the sources cannot answer. Score support for each consequential claim and the handling of missing evidence.</p>
+<p>A design sketch such as ingest, chunk, embed, retrieve, rank, generate, cite is a useful hypothesis about possible components. It is not a verified account of every retrieval system. The original retrieval-augmented generation work describes one architecture, not all products sold under the label. <a href="https://arxiv.org/abs/2005.11401">Lewis et al., 2020</a></p>
 </section>
-<section id="the-polished-black-box-you-can-now-read" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="the-polished-black-box-you-can-now-read"><span class="header-section-number">11.5</span> The polished black box you can now read</h2>
-<p>The second half of this chapter turns to a system that hides all of this machinery behind a clean interface: <strong>NotebookLM</strong>, Google’s production-grade retrieval system. You feed it the Tessera document folder, ask a real question (<em>which region is churning most, and what do the documents suggest is driving it?</em>) and it answers, grounding each claim in a specific source it cites.</p>
-<p>The temptation is to be impressed and move on. The discipline is to ask what they built underneath that you built by hand across Chapters 7 and 10. You already know the answer, because you built the rough version: <strong>ingest → chunk → embed → retrieve → rank → generate → cite.</strong> NotebookLM chunks the documents sensibly, ranks which chunk matters for the question, cites a source per claim, and handles the case where nothing matches. Your rough retrieval did one folder and one lookup; the polished one does all seven steps well, in the dark, where you cannot see them.</p>
-<p>This is the point of meeting the polished version <em>after</em> building the rough one. Layer 3 is convenient <em>because</em> it is a black box, and that is exactly why you needed the plain-text and configured layers first. You can trust NotebookLM’s retrieval <strong>more</strong> because you know what retrieval is, not less. The harness is a black box you can now read, because you once built its guts yourself.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Two outputs, two placements, and a transparency gap between them.</p>
-<p>The <strong>churn prediction</strong> that a retention budget is spent on is precise (a specific flag acted on) with large consequences (money, a customer relationship). That is the red quadrant: a human signs off, no exceptions. The Orange models’ transparency <em>helps</em> (you can show Henrik the coefficient or the branch), but it does not remove the obligation. The decision still crosses a human desk.</p>
-<p>NotebookLM’s answer on <em>which region is churning</em> is average-acceptable for the framing, but precise wherever it cites a figure or a document, so yellow: trust the framing, verify the load-bearing citations against their sources. Note the asymmetry. Orange shows you <em>how</em> it decided; NotebookLM hides the retrieval that fed its answer. Both demand placement on the grid. Neither earns trust by default, not even the shiny one.</p>
-</div>
-</div>
-</section>
-<section id="what-you-can-now-defend" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="what-you-can-now-defend"><span class="header-section-number">11.6</span> What you can now defend</h2>
-<p>You came in asking <em>how does it decide?</em> You leave able to answer it three ways: by reading the weights, by tracing the tree, or by admitting you cannot read the network at all, and choosing accordingly. You know that capability is task-relative, that a smaller local model can win on a narrow job, that models are jagged and must be evaluated on your terms, and that data provenance is the quiet defence against collapse. And you can read a production retrieval system for what it is, because you built its rough ancestor.</p>
-<p>This is the practitioner’s moat made concrete. The machine produces the model. You supply the judgement about which model to trust, on which task, with how much oversight, and the evidence to defend it. But a harder question is now unavoidable. If a smaller local model can win on a specific task, and the defensible advantage is shifting from the model to the data and harness around it, then <em>what is the human’s role in choosing and defending a model, and is that role stable?</em> That is the question the final chapter turns to.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔬 Power-user extension
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>Core</strong> path is the NotebookLM deconstruction in the case box: build a side-by-side comparison table — your rough hand-rolled RAG against NotebookLM’s polished retrieval — with one row per pipeline stage (<em>ingest, chunk, embed, retrieve, rank, generate, cite</em>) and a note on which stage each system performs visibly versus in the dark. That table alone shows you what you are paying Google for. Doing only this is complete and correct.</p>
-<p>To go further, run the same discipline on the Orange side. Re-open the three churn models and read them properly: the <strong>ROC curve</strong> and <strong>AUC</strong> in <em>Test &amp; Score</em> tell you how cleanly the classes separate; the <strong>confusion matrix</strong> widget shows the <em>direction</em> of the errors, which matters more than headline accuracy (as the conversation log showed). Then tune <strong>one hyperparameter</strong> — the tree’s <em>minimum instances in leaves</em>, or the logistic regression’s regularisation strength — and watch the bias–variance trade-off move in real time: the tree memorises, then blurs; AUC rises, then falls. Sketch the full <em>ingest → chunk → embed → retrieve → rank → generate → cite</em> pipeline on a whiteboard while you do, and you will see both systems — yours and NotebookLM’s — as the same machine, built to different tolerances.</p>
-</div>
-</div>
-</section>
-<section id="go-deeper" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">11.7</span> 🔍 Go deeper</h2>
-<ul>
-<li><p><strong>Ilia Shumailov et al., “AI models collapse when trained on recursively generated data,” <em>Nature</em> 631 (2024).</strong> <a href="https://www.nature.com/articles/s41586-024-07566-y" class="uri">https://www.nature.com/articles/s41586-024-07566-y</a>. <em>Why read this:</em> the paper that put model collapse on solid ground, proving the long tail disappears as a statistical inevitability, not a guess. Read it for the mechanism behind the chapter’s warning on synthetic data.</p></li>
-<li><p><strong>3Blue1Brown, “But what is a neural network? | Deep learning, chapter 1” (video, ~18 min).</strong> <a href="https://www.3blue1brown.com/lessons/neural-networks" class="uri">https://www.3blue1brown.com/lessons/neural-networks</a>. <em>Why watch this:</em> the clearest visual unpacking of layers, weights, and activation you will find, no code required. It makes “a stack of weighted connections” something you can actually see.</p></li>
-<li><p><strong>Andrej Karpathy, “Intro to Large Language Models” (video).</strong> <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" class="uri">https://www.youtube.com/watch?v=zjkBMFhNj_g</a>. <em>Why watch this:</em> the LLM-as-operating-system analogy, where retrieval (RAG) is <em>disk access</em>, the single best mental model for deconstructing what NotebookLM is doing underneath its clean interface.</p></li>
-</ul>
+<section id="core-choose-neither-when-necessary" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="core-choose-neither-when-necessary"><span class="header-section-number">10.7</span> Core: choose neither when necessary</h2>
+<p><strong>Time:</strong> 30 minutes. <strong>Inputs:</strong> Appendix G’s customer rows, rules, and acceptance criterion.</p>
+<ol type="1">
+<li>Reproduce the three rows of the comparison table.</li>
+<li>Trace one error from its inputs through each candidate’s rule.</li>
+<li>Write what that trace explains, and why it establishes no causal effect.</li>
+<li>Recommend select, revise, or stop against the original criterion.</li>
+<li>Specify a fresh test needed after any revision.</li>
+</ol>
+<p><strong>Artefact:</strong> a comparison sheet and short decision in the dossier. <strong>Success:</strong> preserve both denominators, reject all three candidates under the supplied brief, and separate “best among these” from “good enough.”</p>
+<p><strong>Optional build:</strong> compare fitted models with an approved tool, retaining the same splits and target definition. Report what actually happened, including a different ranking. Do not invent a confusion matrix for a model you did not run. For the retrieval alternative, use the printed source-answer key and label any unexecuted candidate “not tested.”</p>
+<p>Next, the agent chapter adds permissions and actions. A selected component is only one part of that system; its comparison does not authorise unattended execution.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1030,13 +1016,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/10-can-it-do-the-whole-job.html" class="pagination-link" aria-label="Can it do the whole job?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span>
+      <a href="../chapters/09-does-it-actually-work.html" class="pagination-link" aria-label="Does it actually work?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Does it actually work?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/12-what-comes-next.html" class="pagination-link" aria-label="What comes next?">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What comes next?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/10-can-it-do-the-whole-job.html" class="pagination-link" aria-label="Can it do the whole job?">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,20 +38,21 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../appendices/c-what-you-build.html" rel="next">
 <link href="../appendices/a-the-trust-tool.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -455,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#a-worked-shape" id="toc-a-worked-shape" class="nav-link" data-scroll-target="#a-worked-shape">A worked shape</a></li>
   <li><a href="#how-it-assembles-into-a-body-of-work" id="toc-how-it-assembles-into-a-body-of-work" class="nav-link" data-scroll-target="#how-it-assembles-into-a-body-of-work">How it assembles into a body of work</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -481,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>A conversation log is the artefact that makes your thinking <em>with</em> AI visible. It is the cumulative record you keep across the book: what you asked, how you pushed back, what you verified, and what you decided to trust. Each chapter’s <strong>Conversation Log</strong> feature is the book version of the same discipline. This appendix is the format in full, so you can keep one of your own.</p>
-<p>The log is where <em>prove, don’t persuade</em> stops being a slogan and becomes a habit. A demo persuades; a log proves, because it shows the work, including the parts where the AI was confidently wrong and you caught it.</p>
+<p>A demo persuades; a log proves, because it shows the work, including the parts where the AI was confidently wrong and you caught it.</p>
 <section id="why-it-exists" class="level2">
 <h2 class="anchored" data-anchor-id="why-it-exists">Why it exists</h2>
 <p>An AI session that goes smoothly proves nothing. If the model agreed with you the whole way and you shipped its answer, you have a transcript of agreement, and agreement is not evidence. The value of a conversation log is in the <strong>corrections</strong>: the moment the model drifted, the claim it smoothed over, the figure it invented, and the specific pushback that put it back on the rails. That is where your judgement becomes visible, and it is the part that shows whether the work is yours.</p>
@@ -502,15 +519,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-a-good-entry-does-and-doesnt" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-good-entry-does-and-doesnt">What a good entry does (and doesn’t)</h2>
 <p>A good entry <strong>shows the friction</strong>. It records the disagreement that produced the insight, places the output honestly, and ends on a defensible line with its evidence named.</p>
-<p>A good entry <strong>does not</strong> log only the agreements, edit the transcript, hide the model’s errors, or present the AI’s fluent first draft as the conclusion. If your log reads as a smooth collaboration where the AI was right every time, you have written persuasion, not proof, and you have missed the point of the book.</p>
+<p>A good entry <strong>does not</strong> log only the agreements, edit the transcript, hide the model’s errors, or present the AI’s fluent first draft as the conclusion. If your log reads as a smooth collaboration where the AI was right every time, you have written persuasion, not proof.</p>
 </section>
 <section id="a-worked-shape" class="level2">
 <h2 class="anchored" data-anchor-id="a-worked-shape">A worked shape</h2>
-<p>The Conversation Log features in Chapters 1 to 12 all follow this shape. The Chapter 4 log is a compact example: the goal (ask an AI partner what Tessera should <em>do</em> with the churn tree), the two errors (reading a correlation as a cause; chasing noise in a sparse segment cell), the corrections (the satisfaction/tenure split is correlation not cause; the small-cell spread is overfitting), and the defensible conclusion (act lightly on satisfaction and tenure; treat the segment spike as a question; discard the sparse-cell split). Two errors, two corrections, one trusted line. That is the whole pattern, and it is the pattern your working log repeats.</p>
+<p>The Conversation Log features in Chapters 1 to 12 all follow this shape. The Chapter 4 log is a compact example: the goal (ask an AI partner what Tessera should <em>do</em> with the churn tree), the two errors (reading a correlation as a cause; chasing noise in a sparse segment cell), the corrections (the satisfaction/tenure split is correlation not cause; the small-cell spread is overfitting), and the defensible conclusion (act lightly on satisfaction and tenure; treat the segment spike as a question; discard the sparse-cell split).</p>
 </section>
 <section id="how-it-assembles-into-a-body-of-work" class="level2">
 <h2 class="anchored" data-anchor-id="how-it-assembles-into-a-body-of-work">How it assembles into a body of work</h2>
-<p>The conversation log is the spine of your working record. Across the twelve chapters it accumulates into the evidence that you can work <em>with</em> AI as a thinking partner and still supply the judgement the machine cannot: placing each output, catching each drift, and defending each decision you acted on. A reader who reads only your logs should be able to tell, for every artefact you built, which claim you trusted, which you verified, and which you refused. That is what <em>prove, don’t persuade</em> looks like on paper.</p>
+<p>The conversation log is the spine of your working record. Across the twelve chapters it accumulates into the evidence that you can work <em>with</em> AI as a thinking partner and still supply the judgement the machine cannot: placing each output, catching each drift, and defending each decision you acted on. A reader who reads only your logs should be able to tell, for every artefact you built, which claim you trusted, which you verified, and which you refused.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -529,6 +546,8 @@ Note
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -949,8 +968,8 @@ Note
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendices/c-what-you-build.html" class="pagination-link" aria-label="C. What You Build">
-        <span class="nav-page-text">C. What You Build</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../appendices/c-what-you-build.html" class="pagination-link" aria-label="C. The Proof Dossier: What You Build">
+        <span class="nav-page-text">C. The Proof Dossier: What You Build</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

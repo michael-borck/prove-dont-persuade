@@ -2,22 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael Borck">
-<meta name="dcterms.date" content="2026-06-30">
+<meta name="dcterms.date" content="2026-11-02">
 
 <title>Prove, Don’t Persuade</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,21 +38,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapters/01-what-changed.html" rel="next">
+<link href="./copyright.html" rel="next">
+<link href="./favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +84,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -287,6 +292,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -322,14 +333,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="./chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="./chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -363,14 +374,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="./chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="./chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -405,7 +416,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -417,13 +428,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -456,14 +473,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-applied-ai-that-works-actually-is" id="toc-what-applied-ai-that-works-actually-is" class="nav-link" data-scroll-target="#what-applied-ai-that-works-actually-is">What “applied AI that works” actually is</a></li>
   <li><a href="#does-it-actually-work" id="toc-does-it-actually-work" class="nav-link" data-scroll-target="#does-it-actually-work">Does it actually work?</a></li>
   <li><a href="#the-trust-tool" id="toc-the-trust-tool" class="nav-link" data-scroll-target="#the-trust-tool">The trust tool</a></li>
-  <li><a href="#prove-dont-persuade" id="toc-prove-dont-persuade" class="nav-link" data-scroll-target="#prove-dont-persuade">Prove, don’t persuade</a></li>
-  <li><a href="#the-practitioners-moat-in-the-age-of-ai" id="toc-the-practitioners-moat-in-the-age-of-ai" class="nav-link" data-scroll-target="#the-practitioners-moat-in-the-age-of-ai">The practitioner’s moat in the age of AI</a>
-  <ul class="collapse">
-  <li><a href="#the-demo-is-being-commoditised" id="toc-the-demo-is-being-commoditised" class="nav-link" data-scroll-target="#the-demo-is-being-commoditised">The demo is being commoditised</a></li>
-  <li><a href="#evidence-is-the-moat" id="toc-evidence-is-the-moat" class="nav-link" data-scroll-target="#evidence-is-the-moat">Evidence is the moat</a></li>
-  <li><a href="#from-builder-to-evaluator" id="toc-from-builder-to-evaluator" class="nav-link" data-scroll-target="#from-builder-to-evaluator">From builder to evaluator</a></li>
-  <li><a href="#augmentation-not-automation" id="toc-augmentation-not-automation" class="nav-link" data-scroll-target="#augmentation-not-automation">Augmentation, not automation</a></li>
-  </ul></li>
+  <li><a href="#sec-proof-brief" id="toc-sec-proof-brief" class="nav-link" data-scroll-target="#sec-proof-brief">Write the proof brief before you build</a></li>
   <li><a href="#who-this-book-is-for" id="toc-who-this-book-is-for" class="nav-link" data-scroll-target="#who-this-book-is-for">Who this book is for</a></li>
   <li><a href="#how-this-book-works" id="toc-how-this-book-works" class="nav-link" data-scroll-target="#how-this-book-works">How this book works</a>
   <ul class="collapse">
@@ -476,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#a-note-on-where-this-book-is-at" id="toc-a-note-on-where-this-book-is-at" class="nav-link" data-scroll-target="#a-note-on-where-this-book-is-at">A note on where this book is at</a></li>
   </ul></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -502,7 +512,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 30, 2026</p>
+      <p class="date">November 2, 2026</p>
     </div>
   </div>
   
@@ -514,8 +524,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+
 <section id="introduction-the-proof-mindset" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction: The Proof Mindset</h1>
+<h1 class="unnumbered">Introduction: The Proof Mindset</h1><p><img src="cover.png" title="Prove, Don't Persuade" class="quarto-cover-image nolightbox img-fluid"></p>
 <blockquote class="blockquote">
 <p><em>Anyone can demo AI. The edge is proving it works.</em></p>
 </blockquote>
@@ -523,14 +534,13 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="the-demo-and-the-deployment">The demo and the deployment</h2>
 <p>Watch any AI vendor for ten minutes and you will see a demo. It is slick, fast, and a little theatrical. A model drafts a policy in seconds. A chatbot answers a customer perfectly. A classifier sorts a tidy spreadsheet into the right piles, every time. The demo is designed to persuade. Read it as a practitioner and it reads as an assertion: a claim that has not yet met its evidence.</p>
 <p><strong>Tessera</strong> has demos like this on its internal wiki. Tessera is an Australian managed-cloud and multi-tenant SaaS provider, founded in Perth, serving more than 600 clients across the SME and enterprise segments, and betting on AI to triage support tickets, flag churn, and summarise contracts. Its AI prototypes are impressive. Somewhere behind those prototypes is a churn model that quietly misses an entire customer segment, a ticket classifier that falls over the moment a customer is sarcastic, and a contract summariser that sounds confident about clauses it invented. Or maybe not. That is the point: nobody knows yet, and neither does Tessera’s board.</p>
-<p>And Tessera has a reason to care that most companies do not. Recently it lived through a data breach — a leaked cloud key that exposed tenant records and cost it customers and trust. One of the lessons it took from that incident is now stitched into its own stated values: <em>evidence over assertion</em>. This book takes that idea seriously, in the place it matters most for an AI-build programme: before you rely on any model, you prove what it actually does.</p>
+<p>And Tessera has a reason to care that most companies do not. Recently it lived through a data breach, a leaked cloud key that exposed tenant records and cost it customers and trust. One of the lessons it took from that incident is now stitched into its own stated values: <em>evidence over assertion</em>. This book takes that idea seriously, in the place it matters most for an AI-build programme: before you rely on any model, you prove what it actually does.</p>
 <p>This book is about closing the gap between the demo and the deployment. It teaches the discipline that does it: <em>prove, don’t persuade.</em></p>
 </section>
 <section id="what-applied-ai-that-works-actually-is" class="level2">
 <h2 class="anchored" data-anchor-id="what-applied-ai-that-works-actually-is">What “applied AI that works” actually is</h2>
 <p>Applied AI is not prompt engineering and it is not model training, though it borrows from both. A prompt engineer coaxes a better answer out of a model. A data scientist trains a model from scratch. An applied-AI practitioner does something messier and more useful: takes a real business problem, assembles a solution from models, data, and a harness, and then <strong>finds out whether it actually works</strong>, well enough, for the right people, under the conditions that will bite.</p>
 <p>The product of applied AI is not a model. It is a <strong>defensible judgement</strong>: this solution, on this problem, for these users, is good enough to ship, with this much human oversight, and these known limits. That judgement is the thing a business cannot buy from a vendor’s demo. A vendor will always show the case where it works. A standard will always describe what good should look like. Only the practitioner says whether the two match, here, now, against the evidence.</p>
-<p>This book’s founding question captures that in four words.</p>
 </section>
 <section id="does-it-actually-work" class="level2">
 <h2 class="anchored" data-anchor-id="does-it-actually-work">Does it actually work?</h2>
@@ -539,38 +549,65 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-trust-tool" class="level2">
 <h2 class="anchored" data-anchor-id="the-trust-tool">The trust tool</h2>
-<p>Before you build or evaluate anything, you need one small idea you will use in every chapter: the <strong>trust tool</strong>. It comes from the companion book, <em>Conversation, Not Delegation</em>, and it asks two questions of any AI output, <em>before you act on it</em>:</p>
+<p>Before you build or evaluate anything, you need one small idea you will use in every chapter: the <strong>trust tool</strong>. It extends the companion book’s checking habits into an applied-AI review aid, and asks two questions of any AI output, <em>before you act on it</em>:</p>
 <ol type="1">
 <li>Does this need to be <strong>precise</strong>, or is <strong>average</strong> fine?</li>
 <li>If it’s wrong, how big is the <strong>blast radius</strong>, small or large?</li>
 </ol>
-<p>That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). Almost every public AI failure (the chatbot that gave wrong legal advice, the hallucinated citation in a filed court document) is someone treating a red-quadrant output as green. The model rarely fails uniquely; the <em>placement</em> fails. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.</p>
+<p>That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). The grid is a teaching aid for deciding how much checking a use requires, not a complete safety assessment. Permissions, source quality, and the review process also matter. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.</p>
 </section>
-<section id="prove-dont-persuade" class="level2">
-<h2 class="anchored" data-anchor-id="prove-dont-persuade">Prove, don’t persuade</h2>
-<p><strong>Prove, don’t persuade</strong> is the spine of this book and the habit it builds. Every claim about an AI solution is an assertion until evidence supports it. An accuracy figure on the training data is an assertion. A dashboard of green ticks is an assertion. A manager’s assurance that “we tested it” is an assertion. None of it is evidence until you have seen the solution work (and fail) on terms you set, in a form you can defend.</p>
-<p>This sounds obvious. In practice it is hard, because demos are persuasive and proof is laborious. Tessera is written to be plausible: impressive in its prototypes, rougher underneath, exactly like the real systems you will build for and evaluate. Good practice does not assume the worst. It does something more disciplined: it proves what is actually there, names what is missing, and lets the evidence set the decision.</p>
-<p>By the end of this book you will have done exactly that, one chapter at a time, against Tessera.</p>
-</section>
-<section id="the-practitioners-moat-in-the-age-of-ai" class="level2">
-<h2 class="anchored" data-anchor-id="the-practitioners-moat-in-the-age-of-ai">The practitioner’s moat in the age of AI</h2>
-<p>Here is the harder question this book takes seriously: <em>what is a human practitioner actually for when a machine can build the demo?</em></p>
-<p>The answer is not “the same thing, faster.” The book takes a deliberately pragmatic stance on AI (clear of both alarmism and hype) and lands it on the practitioner’s desk. Four moves make the argument.</p>
-<section id="the-demo-is-being-commoditised" class="level3">
-<h3 class="anchored" data-anchor-id="the-demo-is-being-commoditised">The demo is being commoditised</h3>
-<p>Spinning up a classifier. Wiring a RAG chatbot to a document folder. Drafting a churn analysis. This is the craft of building AI prototypes, and it is exactly the work generative AI is rapidly commoditising. An AI can produce a plausible-looking solution faster than any junior practitioner. If the only thing you do is <em>build</em> the demo, you have no edge. Every vendor’s deck now has one.</p>
-</section>
-<section id="evidence-is-the-moat" class="level3">
-<h3 class="anchored" data-anchor-id="evidence-is-the-moat">Evidence is the moat</h3>
-<p>If an AI can build a generic solution for anyone, a generic solution gives no one an advantage. The edge comes from variation: human judgement about <em>whether it works, for whom, and under what conditions</em>. That judgement shows up as <strong>evaluation</strong>: stating a threshold, measuring against it, naming who it fails for, and deciding how much a human must stay in the loop. The machine produces the demo. The practitioner supplies the proof. That proof is the moat.</p>
-</section>
-<section id="from-builder-to-evaluator" class="level3">
-<h3 class="anchored" data-anchor-id="from-builder-to-evaluator">From builder to evaluator</h3>
-<p>As AI moves from chatbots to agentic systems that take actions on their own, the practitioner’s job shifts: from maker of slick prototypes to <strong>expert evaluator</strong> of AI-generated work. You will read AI-drafted analyses, AI-built pipelines, AI-shipped models, and your value will be in spotting where they are generic, where they confabulated success, and where the edge-case they smoothed over was the whole point. This book makes that discipline explicit and teaches it.</p>
-</section>
-<section id="augmentation-not-automation" class="level3">
-<h3 class="anchored" data-anchor-id="augmentation-not-automation">Augmentation, not automation</h3>
-<p>The stance is proactive. Use these tools for <strong>augmentation and personalised learning</strong>, not passive automation that quietly atrophies the judgement the field depends on. Efficiency is never the goal; <em>defensible, evidence-based confidence</em> is. If you use AI to skip the evaluation, you have done the work wrong, no matter how good the demo looks. The companion book, <em>Conversation, Not Delegation</em>, teaches the craft of working with AI well; this book teaches what you must prove once the building is done.</p>
+<section id="sec-proof-brief" class="level2">
+<h2 class="anchored" data-anchor-id="sec-proof-brief">Write the proof brief before you build</h2>
+<p>Choose one proposed use and open a <strong>proof dossier</strong>: a folder or notebook that keeps the decision, its evidence, and its limits together. Start with a one-page brief. Keep the original when you revise it; a changed threshold is a new decision to explain, not a way to rescue a disappointing score.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Brief field</th>
+<th>What to record before testing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intended use</td>
+<td>The decision this system supports, its users, and one use it must not perform</td>
+</tr>
+<tr class="even">
+<td>Affected people</td>
+<td>Who benefits, who bears an error, and who can challenge a decision</td>
+</tr>
+<tr class="odd">
+<td>Baseline</td>
+<td>The existing process or simple rule the proposed system must improve on</td>
+</tr>
+<tr class="even">
+<td>Acceptance rule</td>
+<td>A measurable threshold, the denominator, and the cost of each important error</td>
+</tr>
+<tr class="odd">
+<td>Evaluation plan</td>
+<td>Unseen test cases, relevant groups or conditions, and data kept separate from development</td>
+</tr>
+<tr class="even">
+<td>Data boundary</td>
+<td>What may enter the system, permitted destinations, and approval still needed</td>
+</tr>
+<tr class="odd">
+<td>Stop and escalation</td>
+<td>A condition that halts use, the person responsible, and the manual fallback</td>
+</tr>
+<tr class="even">
+<td>Evidence record</td>
+<td>Inputs, outputs, counts, sources, versions, date, reviewer, and final decision</td>
+</tr>
+</tbody>
+</table>
+<p>For example, Tessera might propose <strong>routing suggestions for a human support reviewer</strong>, with no authority to close a ticket. For a classroom prototype, set a provisional rule: identify at least 9 of 10 fault examples in <em>each</em> lighting condition, and show every proposed route to the reviewer. These are teaching thresholds, not a production safety standard. A false-clear can leave a customer offline; a false alarm costs review time. Record both, not just overall accuracy. The small test can reveal a failure but cannot establish a reliable real-world rate.</p>
+<p>Your first brief will contain unknowns. Write “not yet established” beside them and name the evidence needed. Do not invent a baseline or an approval. By the end of Act I, you should be able to explain the affected groups, data restrictions, and deployment constraints. By the end of Act II, you should be able to test a candidate, compare it with a baseline, and defend a go, revise, or stop decision.</p>
+<p><a href="./appendices/c-what-you-build.html">Appendix C</a> supplies the dossier structure and capstone criteria. Start it now; do not reconstruct your reasoning after seeing the results.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Watch out: your own AI hygiene">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,11 +618,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The AI you use is a third party. Do not paste Tessera’s customer or tenant data, contracts, or PII into a consumer AI tool. That is a disclosure you cannot take back, and it may breach the Privacy Act and Tessera’s obligations. Use approved or enterprise tooling, or a locally hosted model. The same scepticism you apply to Tessera’s AI applies to your own: the tool is a thinking partner, not a safe drop box for secrets.</p>
+<p>Use the invented inputs supplied here. For real work, do not submit confidential or personal information to an unapproved destination. Check the product, plan, configuration, connected tools, and applicable obligations; an enterprise label or local model alone does not establish permission or privacy. Chapters 5–6 develop those checks.</p>
 </div>
 </div>
-<p>This premise is the thread that runs through every chapter.</p>
-</section>
 </section>
 <section id="who-this-book-is-for" class="level2">
 <h2 class="anchored" data-anchor-id="who-this-book-is-for">Who this book is for</h2>
@@ -613,34 +648,35 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><strong>I · Foundation</strong></td>
 <td>1–6</td>
-<td>What changed, for whom: landscape, ethics, data, deployment, responsibility</td>
+<td>What changed, for whom: landscape, ethics, data, privacy constraints, deployment</td>
 </tr>
 <tr class="even">
 <td><strong>II · Build and Prove</strong></td>
 <td>7–12</td>
-<td>Does it actually work: prompting, NLP, build-and-evaluate, agentic, model comparison, the future</td>
+<td>Does it actually work: prompting, NLP, evaluation, model comparison, agents, the future</td>
 </tr>
 </tbody>
 </table>
-<p>Act I builds the base: the concepts and the stance. Act II is where the book earns its title: you build, you break, and you prove.</p>
+<p>Act I builds the base: the concepts and the stance.</p>
 <p>Running through both acts is the <strong>conversation log</strong>: the cumulative record of your thinking <em>with</em> AI across the book, where you document what you asked, how you pushed back, and what you decided to trust. Each chapter’s Conversation Log feature is the book version of that discipline.</p>
 <section id="a-no-code-floor-and-a-ceiling-for-those-who-want-it" class="level3">
 <h3 class="anchored" data-anchor-id="a-no-code-floor-and-a-ceiling-for-those-who-want-it">A no-code floor, and a ceiling for those who want it</h3>
-<p>Every chapter has a hands-on activity, and every one of them has a <strong>no-code Core</strong> path that anyone can complete with free tools — Orange Data Mining, Google Teachable Machine, NotebookLM, Ollama, and Open WebUI. You do not need to write a line of code to do the work this book asks of you. That is deliberate: the same capability should be available to every reader, regardless of background.</p>
-<p>For readers who want to go further, each chapter also carries an optional <strong>🔬 Power-user extension</strong> — the same concept taken deeper, through measurement, a second model, self-hosting, or a touch of code. The Core is complete and correct on its own. The extension is there for those who want the ceiling as well as the floor. Appendix F is the quick-start guide to the whole no-code toolkit if you are setting up from scratch.</p>
+<p>There are two routes. <strong>Self-study readers</strong> can develop the proof brief and dossier, audit the supplied examples, and complete the paper-based activities without an AI account. That route practises evaluation and decision-making; it does not claim that you have built or operated a model. <strong>Build-along readers</strong> also use the tools in Appendix F and obtain the external case materials for the relevant lab. These activities are no-code in their analysis, but local model setup can require a terminal, suitable hardware, or a facilitator.</p>
+<p>The optional <strong>🔬 Power-user extensions</strong> add measurement, a second model, self-hosting, or code. Install tools only when needed. If a build-along resource is unavailable, mark the build as not attempted and continue with the worked case; do not report its illustrative results as your own measurements.</p>
 </section>
 <section id="a-living-case-the-tessera-site" class="level3">
 <h3 class="anchored" data-anchor-id="a-living-case-the-tessera-site">A living case: the Tessera site</h3>
-<p>Tessera is fictional, but it is also <em>real</em>, in a useful way: the company, its people, its documents, and its datasets exist as a living companion site at <strong>tessera.locoensayo.org</strong>. You can read its policies, browse its customer and support data, and even “interview” its staff through AI personas. Nothing in this book depends on visiting the site — every dataset and document the chapters use is described in full right here — but if you learn by exploring, Appendix E maps the site’s artefacts to the chapters so you can go deeper on any one of them. Treat it as an extended reality for the case, not a prerequisite.</p>
+<p>Tessera is fictional. Its companion site, <strong>tessera.locoensayo.org</strong>, extends the teaching case with documents, datasets, and staff personas. This edition bundles a small synthetic lab-v1 pack in Appendix G. It does <strong>not</strong> bundle the full companion-site customer CSV, support CSV, policy collection, or router photographs. The prose describes those materials but is not a substitute for the files needed to reproduce a build. Appendix E maps the external dependencies. Save the files and record their retrieval date and version before starting a lab; the site may change.</p>
+<p>The core activities contain their own inputs or use the complete printed and downloadable lab-v1 pack in <a href="./appendices/g-reproducible-lab.html">Appendix G</a>. Case dialogue and numerical results are constructed teaching examples unless an accompanying source and run record explicitly identify a measurement. Your results can differ. A useful dossier distinguishes <strong>observed</strong>, <strong>illustrative</strong>, and <strong>not tested</strong> evidence.</p>
 </section>
 </section>
 <section id="the-companion-book" class="level2">
 <h2 class="anchored" data-anchor-id="the-companion-book">The companion book</h2>
-<p><em>Conversation, Not Delegation</em> (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the <em>what we prove</em>), that book teaches <em>how to work with the machine well</em>: the conversation loop, the trust tool in full, staying in the loop, compensating for AI’s predictable weaknesses. The two are complementary. Every chapter here assumes you are using AI, and assumes you are using it the way that book describes: as a thinking partner, not a delegate.</p>
+<p><em>Conversation, Not Delegation</em> (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the <em>what we prove</em>), that book teaches <em>how to work with the machine well</em>: the conversation loop, VET, and choosing appropriate assistance and checks. Appendix A here contains the trust grid in full. The two are complementary. When you use AI here, use it as a thinking partner whose claims need checking. The paper-based route lets you practise that checking without a model.</p>
 </section>
 <section id="conventions-used-in-this-book" class="level2">
 <h2 class="anchored" data-anchor-id="conventions-used-in-this-book">Conventions used in this book</h2>
-<p>Every chapter carries the same recurring features so you learn to recognise them.</p>
+<p>Chapters use a selection of the following features, alongside worked calculations and independent tasks.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -664,29 +700,32 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Green boxes</strong> place the chapter’s output on the Average/Precise × Small/Large grid, and say what that means for human oversight. This book’s spine, made explicit every chapter.</p>
+<p><strong>Green boxes</strong> place the chapter’s output on the Average/Precise × Small/Large grid, and say what that means for human oversight. The grid concerns the intended use, not a permanent property of a model.</p>
 </div>
 </div>
 <div class="tessera-case">
 <p><strong>🌐 Tessera Case</strong></p>
 <p><strong>Shaded boxes</strong> carry the running Tessera engagement: the concrete artefact each chapter lands on. Tessera is written to be plausible: impressive in its prototypes, rougher underneath. Good practice does not assume the worst. It proves what is there.</p>
 </div>
-<p>You will also see <strong>🔍 Go deeper</strong> at the end of each chapter (one to three curated resources (a paper, a podcast, a video) for currency and breadth), the optional <strong>🔬 Power-user extension</strong> (a deeper take on the chapter’s hands-on work), and standard callouts: <strong>Watch out</strong> (yellow) for traps that look right but aren’t.</p>
+<p>You will also see <strong>🔍 Go deeper</strong> in selected chapters, with other sources linked beside the claims they support, the optional <strong>🔬 Power-user extension</strong> (a deeper take on the chapter’s hands-on work), and standard callouts: <strong>Watch out</strong> (yellow) for traps that look right but aren’t.</p>
+<p>Chapter practice varies between conversations, independent audits, calculations, and decision memos. Where a full starting prompt is useful, <strong>RTCF</strong> means Role, Task, Context, and Format. Adapt it to the job rather than repeating four labels mechanically. Preserve the original output, your checks, and your decision in the dossier. Use only invented or approved data; an exercise never authorises uploading real customer records.</p>
 </section>
 <section id="how-this-book-came-to-be" class="level2">
 <h2 class="anchored" data-anchor-id="how-this-book-came-to-be">How this book came to be</h2>
-<p>This book grew out of years of teaching applied AI to people who do not write code — newcomers and experienced practitioners who needed to build something real, evaluate it honestly, and defend the result. The frustration that shaped it is simple: too much AI education stops at the demo. The discipline this book teaches (<em>prove, don’t persuade</em>) is the one those readers carry into every solution they build and ship. The book stands on its own; where its path happens to align with a course or a classroom, that is a happy coincidence, not a dependency.</p>
-<p>It was written using the methodology its companion describes. AI tools were used as thinking partners at every stage: drafting, stress-testing, and being corrected. The relationship between author and AI in producing this book is exactly what the book argues the practitioner’s relationship to AI-generated work should be. The machine produces the draft; the author supplies the judgement, the evidence, and the defensible conclusion. Every sentence reflects the author’s judgement. The AI made the work faster. It did not do the thinking.</p>
+<p>This book grew out of years of teaching applied AI to people who do not write code: newcomers and experienced practitioners who needed to build something real, evaluate it honestly, and defend the result. The frustration that shaped it is simple: too much AI education stops at the demo. The discipline this book teaches (<em>prove, don’t persuade</em>) is the one those readers carry into every solution they build and ship. The book stands on its own; where its path happens to align with a course or a classroom, that is a happy coincidence, not a dependency.</p>
+<p>It was written using the methodology its companion describes. AI tools were used as thinking partners at every stage: drafting, stress-testing, and being corrected. The relationship between author and AI in producing this book is exactly what the book argues the practitioner’s relationship to AI-generated work should be. The machine produces the draft; the author supplies the judgement, the evidence, and the defensible conclusion. Every sentence reflects the author’s judgement. The AI made the work faster without doing the thinking.</p>
 </section>
 <section id="a-note-on-where-this-book-is-at" class="level2">
 <h2 class="anchored" data-anchor-id="a-note-on-where-this-book-is-at">A note on where this book is at</h2>
-<p>This is an open-access book. The full text is drafted: an Introduction, twelve chapters across two acts, and six appendices. The online edition is always the most current, and passages are revised as the field moves.</p>
+<p>This is an open-access book. The full text is drafted: an Introduction, twelve chapters across two acts, and seven appendices. The online edition is always the most current, and passages are revised as the field moves.</p>
 
 
 </section>
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1104,8 +1143,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/01-what-changed.html" class="pagination-link" aria-label="What changed?">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What changed?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./copyright.html" class="pagination-link" aria-label="Copyright">
+        <span class="nav-page-text">Copyright</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

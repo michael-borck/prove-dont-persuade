@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,20 +38,21 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../chapters/09-does-it-actually-work.html" rel="next">
 <link href="../chapters/07-are-you-asking-well.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,15 +466,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sorting-without-being-told-the-piles" id="toc-sorting-without-being-told-the-piles" class="nav-link active" data-scroll-target="#sorting-without-being-told-the-piles"><span class="header-section-number">8.1</span> Sorting without being told the piles</a></li>
-  <li><a href="#from-words-to-numbers-without-writing-any-code" id="toc-from-words-to-numbers-without-writing-any-code" class="nav-link" data-scroll-target="#from-words-to-numbers-without-writing-any-code"><span class="header-section-number">8.2</span> From words to numbers (without writing any code)</a></li>
-  <li><a href="#the-sentiment-number-and-where-it-lies" id="toc-the-sentiment-number-and-where-it-lies" class="nav-link" data-scroll-target="#the-sentiment-number-and-where-it-lies"><span class="header-section-number">8.3</span> The sentiment number, and where it lies</a></li>
-  <li><a href="#where-tesseras-feedback-actually-lands" id="toc-where-tesseras-feedback-actually-lands" class="nav-link" data-scroll-target="#where-tesseras-feedback-actually-lands"><span class="header-section-number">8.4</span> Where Tessera’s feedback actually lands</a></li>
-  <li><a href="#the-number-is-not-the-decision" id="toc-the-number-is-not-the-decision" class="nav-link" data-scroll-target="#the-number-is-not-the-decision"><span class="header-section-number">8.5</span> The number is not the decision</a></li>
-  <li><a href="#what-this-chapter-proved-and-what-it-didnt" id="toc-what-this-chapter-proved-and-what-it-didnt" class="nav-link" data-scroll-target="#what-this-chapter-proved-and-what-it-didnt"><span class="header-section-number">8.6</span> What this chapter proved, and what it didn’t</a></li>
-  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">8.7</span> 🔍 Go deeper</a></li>
+  <li><a href="#theme-and-tone-answer-different-questions" id="toc-theme-and-tone-answer-different-questions" class="nav-link active" data-scroll-target="#theme-and-tone-answer-different-questions"><span class="header-section-number">8.1</span> Theme and tone answer different questions</a></li>
+  <li><a href="#how-text-becomes-a-comparison" id="toc-how-text-becomes-a-comparison" class="nav-link" data-scroll-target="#how-text-becomes-a-comparison"><span class="header-section-number">8.2</span> How text becomes a comparison</a></li>
+  <li><a href="#clustering-proposes-a-grouping" id="toc-clustering-proposes-a-grouping" class="nav-link" data-scroll-target="#clustering-proposes-a-grouping"><span class="header-section-number">8.3</span> Clustering proposes a grouping</a></li>
+  <li><a href="#a-deliberately-weak-sentiment-baseline" id="toc-a-deliberately-weak-sentiment-baseline" class="nav-link" data-scroll-target="#a-deliberately-weak-sentiment-baseline"><span class="header-section-number">8.4</span> A deliberately weak sentiment baseline</a></li>
+  <li><a href="#build-a-disagreement-set" id="toc-build-a-disagreement-set" class="nav-link" data-scroll-target="#build-a-disagreement-set"><span class="header-section-number">8.5</span> Build a disagreement set</a></li>
+  <li><a href="#aggregate-scores-can-be-wrong-together" id="toc-aggregate-scores-can-be-wrong-together" class="nav-link" data-scroll-target="#aggregate-scores-can-be-wrong-together"><span class="header-section-number">8.6</span> Aggregate scores can be wrong together</a></li>
+  <li><a href="#core-annotate-before-automating" id="toc-core-annotate-before-automating" class="nav-link" data-scroll-target="#core-annotate-before-automating"><span class="header-section-number">8.7</span> Core: annotate before automating</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -482,121 +499,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Tessera collects feedback the way most growing companies do, faster than anyone reads it. Two hundred customer reviews. A backlog of support tickets with free-text fields full of detail. A quarterly net-promoter score that condenses all of it into a single number, trending gently upward. The dashboard is green. The board is reassured. And nobody, including the board, can actually say what the customers are saying.</p>
-<p>This is the chapter’s question, and it is harder than it looks. <em>What is it saying?</em> is not “is it positive or negative?” and not “what’s the average score?” Those are the questions a dashboard answers and a demo performs. The practitioner’s question is the one the dashboard cannot reach: what are these hundreds of voices actually telling us, and where would a tidy number mislead us if we let it?</p>
-<p>Two tools do the job, and both are dangerous in the same way: they produce a number that <em>looks</em> like an answer. <strong>Clustering</strong> finds the themes buried in a wall of text. <strong>Sentiment</strong> scores the tone. Done honestly, each tells you where to look. Done carelessly, each manufactures a confidence the underlying text does not support. And Tessera, like any company under pressure, will act on the confidence either way.</p>
-<section id="sorting-without-being-told-the-piles" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="sorting-without-being-told-the-piles"><span class="header-section-number">8.1</span> Sorting without being told the piles</h2>
-<p>Picture a librarian facing five hundred returned books. They do not read each one cover to cover. They sort, into a migration pile, a billing pile, a “loves the new dashboard” pile. <strong>Clustering is that, automated.</strong> An algorithm measures how alike every item is and forms groups, without anyone telling it the group names in advance. This is <em>unsupervised</em> learning: no labels, no right answer to train towards. The machine finds structure. A human decides what the structure means.</p>
-<p>For the structured data of Chapter 4 (tenure, spend, region), “alike” was a matter of nearby numbers. For text it is a matter of nearby words. Two reviews are alike if they reach for the same vocabulary in the same proportions. <em>“Sync is slow”</em> and <em>“the sync keeps lagging”</em> land beside each other; <em>“great uptime”</em> lands far away. “Distance,” in this space, is just similarity turned into a number, the smaller the distance, the more alike. (For text the standard measure is <em>cosine</em> distance, and you will choose it from a dropdown, not compute it.)</p>
-<p>The grouping itself is almost embarrassingly simple. Tell the algorithm you want <em>k</em> groups; it drops <em>k</em> starting points; every item joins its nearest one; each centre moves to the middle of its new group; repeat until nothing moves. The groups settle because every step only tightens them. That is the whole of <em>k</em>-means. A variant, <em>hierarchical</em> clustering, nests the items into a tree you cut at the level that yields useful themes, so you apply the “how many clusters?” judgement by eye, after you see the groups, instead of committing to it up front.</p>
-<p>There is one catch, and it is a human catch, not a mathematical one. The algorithm will give you <em>exactly</em> the <em>k</em> you ask for, even if <em>k</em> is silly. There is no automatic “right” number of clusters. You judge it the way you judge a good paragraph: enough detail to be useful, few enough groups to hold in your head. Five to eight named themes is almost always more useful than thirty micro-clusters or one giant blob.</p>
-<p>And here is the move that separates a finding from decoration: <strong>a cluster is not an insight until a human names it.</strong> “Group 3” tells you nothing. The work, real work, is opening the group, reading the items inside, and writing a one-line label that captures what they share: <em>“billing-cycle confusion among mid-tenure customers.”</em> The algorithm proposes the grouping. You supply the meaning. Skip the naming and you have produced a screenshot, not an insight.</p>
+<p>“Wonderful, another outage during my presentation.”</p>
+<p>The positive word does not make this a positive experience. A score that loses the complaint can direct attention away from the customer who needs it. This chapter turns a collection of messages into something you can inspect without pretending a tidy number has captured every voice.</p>
+<p>Use the six invented messages in Appendix G. They are a small teaching set, not a sample of Tessera’s customers. You can complete the analysis on paper before using any model.</p>
+<section id="theme-and-tone-answer-different-questions" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="theme-and-tone-answer-different-questions"><span class="header-section-number">8.1</span> Theme and tone answer different questions</h2>
+<p>A theme describes what a message concerns: billing, availability, access, or something else. Tone describes an interpretation of the expression: positive, negative, neutral, mixed, perhaps uncertain. Neither is the customer’s identity or a complete measure of urgency.</p>
+<p>“The invoice was corrected. Thank you” concerns billing and reads positively. “Support was polite. My service is still down” contains praise and an unresolved outage. Reducing the second to a neutral average can hide the operational need.</p>
+<p>Keep the source text attached to each label. A reviewer should be able to challenge the interpretation and identify a message that belongs to several groups. The useful output is a map back to the evidence, not just a coloured chart.</p>
 </section>
-<section id="from-words-to-numbers-without-writing-any-code" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="from-words-to-numbers-without-writing-any-code"><span class="header-section-number">8.2</span> From words to numbers (without writing any code)</h2>
-<p>A machine cannot read a review the way you do. Before any of this works, text has to become numbers, and the route it takes quietly shapes everything downstream. The pipeline is the same one Orange’s Text add-on runs for you: tokenise (split into words), lowercase (so <em>Cloud</em> and <em>cloud</em> match), strip the stopwords (<em>the</em>, <em>and</em>, <em>is</em> carry no signal here), normalise (<em>running</em> becomes <em>run</em>), and finally vectorise (turn each document into a list of word-weights, a point in the space the clustering needs).</p>
-<p>The choice of vectoriser matters more than it sounds. The simplest, <strong>bag of words</strong>, just counts how often each word appears. It works, but it over-weights the ubiquitous words and under-weights the rare, distinctive ones that actually define a theme. <strong>TF-IDF</strong> fixes this: a word earns weight by appearing a lot <em>in one document</em> and <em>in few documents overall</em>. <em>“Sync”</em> turning up in forty of two hundred reviews is distinctive; <em>“service”</em> in a hundred and eighty of them is not. TF-IDF pushes the distinctive words forward, which is exactly what makes clusters separable in the first place.</p>
-<p>You will not compute any of this. You will tick a box marked TF-IDF, re-run with it unticked, and <em>the difference between the two cluster maps is the lesson.</em> The preprocessing is not housekeeping; it is where the meaning is either preserved or quietly flattened.</p>
+<section id="how-text-becomes-a-comparison" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="how-text-becomes-a-comparison"><span class="header-section-number">8.2</span> How text becomes a comparison</h2>
+<p>Text-analysis tools represent messages as numbers. A bag-of-words representation counts terms; TF-IDF adjusts weights according to their frequency within documents and across a collection. Embeddings provide another representation, often bringing some differently worded messages closer together.</p>
+<p>Each representation loses something. Word counts do not preserve every relation between words. Removing stopwords can discard meaningful negation. Similar language does not guarantee the same intent, and different language can describe the same failure.</p>
+<p>A pipeline might lowercase, tokenise, select terms, transform them into vectors, then compare distances. None of those is a universally correct setting. Preserve the original text so you can investigate the effect of each transformation. The author-maintained <a href="https://nlp.stanford.edu/IR-book/">Introduction to Information Retrieval</a> explains term weighting, similarity, and clustering in more detail.</p>
 </section>
-<section id="the-sentiment-number-and-where-it-lies" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="the-sentiment-number-and-where-it-lies"><span class="header-section-number">8.3</span> The sentiment number, and where it lies</h2>
-<p>Once the themes exist, the next reflex is to ask which way they lean. <strong>Sentiment analysis</strong> takes a piece of text and returns a polarity: positive, negative, or neutral, often with a confidence attached. There are two families, and which one you are holding changes everything.</p>
-<p><strong>Lexicon-based</strong> scoring (what Orange’s Sentiment widget does) keeps a dictionary of words tagged positive or negative, and the text’s score is simply the net of its words. It is fast, transparent, and needs no training data. Its virtue is also its blindness: it reads words one at a time and has no idea what they are doing together. <strong>Model-based</strong> scoring trains a classifier on labelled examples. It is smarter about context, but it needs labelled data and arrives in a black box.</p>
-<p>Most of the no-code stack, and most of what you will touch first, is the lexicon kind. So attend carefully to what it cannot see, because this is the load-bearing caveat of the whole chapter:</p>
-<ul>
-<li><strong>Negation.</strong> <em>“Not good”</em> scores as positive, because it contains <em>good</em>.</li>
-<li><strong>Sarcasm.</strong> <em>“Oh, great, another outage”</em> reads positively to a word-counter.</li>
-<li><strong>Domain shift.</strong> <em>“Cheap”</em> is a compliment for a bargain and an insult for infrastructure.</li>
-<li><strong>Mixed sentiment.</strong> <em>“Support is wonderful but the product is broken”</em> has no single polarity, and a single number will average away the very thing that matters.</li>
-</ul>
-<p>None of these are exotic. They are the ordinary texture of how unhappy customers actually write. A sentiment score is a <strong>coarse signal over many documents, never a verdict on one.</strong> Its value lives in the aggregate (<em>“tickets about Analytics Pro and SecureLink skew markedly more negative than the other products”</em>), not in any individual number. Trust the gap between groups; never trust the single score.</p>
+<section id="clustering-proposes-a-grouping" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="clustering-proposes-a-grouping"><span class="header-section-number">8.3</span> Clustering proposes a grouping</h2>
+<p>A clustering method groups items according to the representation and objective you chose. K-means seeks a specified number of clusters under its distance-based objective; hierarchical methods organise nested groups. Neither determines the organisational importance of the resulting themes.</p>
+<p>On six short messages, reading and arranging them yourself is more informative than celebrating a complex visualisation. Group S1 with S6 as availability concerns, then notice that S6 also praises support. Decide whether to allow multiple labels or preserve the mixed content in a note.</p>
+<p>If a large cluster is named “customer dissatisfaction,” ask what decisions that label enables. It may be too broad to help. If every message gets its own cluster, the grouping may not reduce the workload. Choose the granularity for the decision and inspect borderline examples.</p>
+<p>A second grouping method can challenge your view. Agreement between methods is corroboration only to the extent that they bring meaningfully different evidence or assumptions; it is not automatically cross-validation or independent ground truth.</p>
 </section>
-<section id="where-tesseras-feedback-actually-lands" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="where-tesseras-feedback-actually-lands"><span class="header-section-number">8.4</span> Where Tessera’s feedback actually lands</h2>
-<p>Run the pipeline on <code>tessera-support-data.csv</code> and the clusters name themselves once you read them: a DataVault reliability-and-sovereignty praise cluster, a CloudSync uptime-and-performance praise cluster, an Analytics Pro accuracy-and-reliability complaint cluster, a SecureLink security-and-connectivity complaint cluster, a billing-cycle confusion cluster among the mid-tenure customers. Switch the tickets to sentiment and group by product, then by region, and a pattern surfaces that no single review would have shown you: Analytics Pro and SecureLink skew most negative (Analytics Pro a mean rating near 2.1, SecureLink near 2.5), while CloudSync (~4.1) and DataVault (~4.2) are the happy products, and the gap is sharpest in the South and Metro territories. The follow-up rate tells the same story: roughly three in four Analytics Pro tickets and two in three SecureLink tickets need a follow-up, against barely one in ten for DataVault and CloudSync.</p>
-<p>That is a finding. <em>“Customers complain about Analytics Pro and SecureLink”</em> is a vibe; <em>“Analytics Pro and SecureLink skew more negative than the rest of the portfolio, and most sharply in the South and Metro territories”</em> is something a product decision could rest on. The clustering did the finding. You did the naming. Neither is ground truth; both are starting points that tell a human where to look.</p>
-<p>And notice what this finding is <em>not</em> standing on: one method, one time. Tessera’s churn model in Chapter 4 surfaced the same two products — Analytics Pro and SecureLink — as the ones customers leave. Two independent methods, different data, same problem products. That convergence is cross-validation, and it is the kind of agreement that earns trust: not because either analysis is perfect, but because each corroborates the other without being designed to.</p>
-<p>Now hold the tension the chapter is built to teach. The same analysis that surfaced a real pattern also handed you a sentiment number that is, in the lexicon’s hands, partly fictional. Re-score the same Analytics Pro and SecureLink tickets with a second, model-based scorer and join the two columns side by side. Filter to the disagreements. Read eight or ten of them. Those tickets (the sarcastic <em>“love paying for outages”</em>, the negated <em>“not happy with Analytics Pro”</em>, the infrastructure <em>“cheap”</em> the lexicon read as praise) are exactly where the scorer silently failed. The <em>size</em> of that disagreement is your evidence for how far a single sentiment number can be trusted in a Tessera decision. Most of the time, the answer is: not far enough to act on alone.</p>
-<div class="tessera-case">
-<p><strong>🌐 Tessera Case</strong></p>
-<p><strong>The artefact</strong> is not the cluster screenshot. It is two things together: the named theme maps (DataVault and CloudSync praise — reliability and sovereignty; Analytics Pro and SecureLink complaint clusters — accuracy and connectivity) <em>and</em> the <strong>disagreement set</strong>, the same Analytics Pro and SecureLink tickets re-scored lexicon-then-model, filtered to where the two scorers part ways, with eight to ten of those tickets read in full. The headline finding is <em>“Analytics Pro and SecureLink skew most negative in the portfolio, sharpest in the South and Metro territories.”</em> But the defensible artefact, the thing a consultant report can actually stand behind, is the disagreement set, because it is the evidence that a single sentiment number is not enough to act on. The screenshot persuades; the disagreement set proves.</p>
-</div>
+<section id="a-deliberately-weak-sentiment-baseline" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="a-deliberately-weak-sentiment-baseline"><span class="header-section-number">8.4</span> A deliberately weak sentiment baseline</h2>
+<p>Appendix G defines a transparent word-counting scorer. Positive terms are wonderful, thank, clear, and polite. Negative terms are outage, fail, errors, and down. Count whole words without a negation rule; a tie is neutral.</p>
+<p>This scorer returns neutral for S1: wonderful and outage cancel. It calls S5, “No more login errors after the patch,” negative because it counts errors and ignores the phrase that reverses the meaning. It also cannot return mixed, because mixed is not among its possible outputs.</p>
+<p>Under the appendix’s reference key, it agrees on two of six messages. That is the result for <strong>this scorer, these inputs, and this key</strong>. It is not a measured error rate for every lexicon-based method. Some lexicon systems explicitly handle negation, punctuation, or intensity; VADER is an example. <a href="https://github.com/cjhutto/vaderSentiment">VADER, author-maintained implementation</a></p>
+<p>A learned classifier or general-purpose language model may handle these examples better. It may also fail on unfamiliar language, irony, short context, or a different labelling convention. Do not ask it to imagine what another scorer would return and call that a comparison. Run the scorer, or label the estimate as untested.</p>
 </section>
-<section id="the-number-is-not-the-decision" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="the-number-is-not-the-decision"><span class="header-section-number">8.5</span> The number is not the decision</h2>
-<p>This is where the discipline of the book bites. The theme is a summary, so it leans <em>average</em>, and on the trust tool, average usually points towards green. But the <em>decision</em> the theme feeds is a different animal. A finding that justifies sunsetting Analytics Pro or SecureLink in a region is not data analysis you can skim. The model did not make that decision; a human leaning on an un-checked aggregate will. Name the blast radius before you name the recommendation.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Where does the Analytics Pro and SecureLink sentiment gap sit? The theme itself is a summary, so it leans <strong>average</strong>, but the decision it feeds (resource allocation, a region’s product roadmap) has a <strong>large</strong> blast radius. That lands it at <strong>🟡 yellow, sliding towards 🔴 red</strong>: verify the load-bearing claim before anyone acts on it. Concretely, that means reading the raw South and Metro tickets behind the gap, and confirming the lexicon score against a second scorer on the disagreements. The output looks like “safe data analysis” right up until it justifies sunsetting a product in a region, then it is a red-quadrant decision wearing a green-quadrant costume. The placement, not the widget, is what fails.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🤖 Conversation Log
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You sanity-check a cluster label with the shared AI stack, using the RTCF prompt frame. You feed the model eight Analytics Pro tickets and ask for a one-line label. It returns <em>“Analytics Pro pricing and value complaints.”</em> Plausible, except that when you read the eight tickets yourself, four of them are not about price at all; they are about reporting accuracy dressed up in the language of cost (<em>“paying through the nose for dashboards that lie daily”</em>). The model collapsed two distinct grievances, accuracy and value, into the more marketable one. You relabel the cluster <em>“Analytics Pro accuracy-and-reliability complaints, with cost as a proxy for frustration”</em> and split it.</p>
-<p>In the same session you ask the model to score the sarcasm in <em>“love paying for outages.”</em> It flags it correctly as negative, where the lexicon scorer had read it positive. The lesson is not that the AI is wrong, nor that it is right. It is that it is <em>both in the same sitting</em>, and only the human reading decides which is which. The model proposed a tidy label; you supplied the distinction that mattered. That correction (written down, with the tickets that forced it) is exactly what your conversation log entry is for.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Watch out: it's just data analysis, it's safe">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Watch out: it’s just data analysis, it’s safe
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>No, it is not. A sentiment finding that justifies sunsetting a product in a region is a red-quadrant output even though it came out of a harmless-looking Orange widget. The model did not make the decision, but a human leaning on an un-checked aggregate will. The danger is never the tool; it is the confidence the tidy number lends to the recommendation.</p>
-</div>
-</div>
+<section id="build-a-disagreement-set" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="build-a-disagreement-set"><span class="header-section-number">8.5</span> Build a disagreement set</h2>
+<p>A disagreement set preserves examples on which two interpretations differ. It is the start of a review, not a verdict that one system is wrong.</p>
+<p>For each disputed message, retain the original text, each label, the convention used, and a short reason for the final judgement. If two human reviewers reasonably disagree, record that too. Some tasks need an “uncertain” option or a way to represent multiple aspects.</p>
+<p><strong>Constructed exchange:</strong> an assistant calls S6 positive because support was polite. The reviewer points to the unresolved outage. The final annotation preserves both the praise and the service problem. The correction is supported by the words in the message, not by the model conceding the argument.</p>
+<p>The same method scales to a larger sample. Select cases deliberately enough to inspect known risks, but distinguish that challenge set from a representative sample used to estimate an overall rate.</p>
 </section>
-<section id="what-this-chapter-proved-and-what-it-didnt" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="what-this-chapter-proved-and-what-it-didnt"><span class="header-section-number">8.6</span> What this chapter proved, and what it didn’t</h2>
-<p>What text mining gave Tessera is genuine: themes a human would have taken a week to surface, and a sentiment gap sharp enough to act on. What it did <em>not</em> give is certainty. The clusters needed naming, the sentiment number needed a second scorer to check it, and the headline finding needed a human to read the raw tickets before anyone touched a product roadmap. That is not a failure of the tools. It is what the tools are <em>for</em>: accelerating the looking, not replacing the judging.</p>
-<p>The sentiment number lied to you in predictable, nameable ways, and you caught it because you went looking for the lie. That habit (expect the failure, measure it, name its size) is the whole posture the next chapter formalises. “Does it actually work?” stops being a question you ask of one output and becomes a discipline you apply to the whole solution: a threshold stated up front, an honest measurement against it, and a record of who it fails. The cluster map and the sentiment gap were the easy part. Proving the thing works is what earns this book its title.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔬 Power-user extension
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>Core</strong> path — Corpus → Preprocess Text → TF-IDF → Distances → Hierarchical Clustering, then Sentiment grouped by product and region — is complete and correct on its own. To push further, add the <strong>second scorer</strong>: train a model-based sentiment classifier (Orange’s Logistic Regression or SVM on a small hand-labelled slice of tickets), score the same documents, and join it beside the lexicon column. Now the work is the <strong>disagreement set</strong> — filter to where the two scorers part ways, read the tickets, and <em>quantify the error</em>: what share of Analytics Pro tickets does the lexicon mis-score, and is that share the same for SecureLink? Compute the <strong>worst-group error</strong> — which product’s sentiment is least reliable — and put that number in the report. A sentiment finding that names its own weakest group is the difference between a number and an honest number.</p>
-</div>
-</div>
+<section id="aggregate-scores-can-be-wrong-together" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="aggregate-scores-can-be-wrong-together"><span class="header-section-number">8.6</span> Aggregate scores can be wrong together</h2>
+<p>Averaging does not cure systematic errors. If a scorer misses negation in many messages, or handles one language poorly, its aggregate can retain that bias. Nor does a large overall sample make a tiny subgroup estimate reliable.</p>
+<p>Before comparing groups, inspect sample sizes, missing responses, language, time period, product mix, and the suitability of the labels. A difference may be worth investigating without yet being attributable to the product or the model.</p>
+<p>Do not use a sentiment score by itself to close a ticket, downgrade service, or decide a customer’s value. A theme summary can guide attention; a consequential action needs evidence and an accountable decision.</p>
 </section>
-<section id="go-deeper" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">8.7</span> 🔍 Go deeper</h2>
-<ul>
-<li><p><strong>Soujanya Poria, Devamanyu Hazarika, Navonil Majumder &amp; Rada Mihalcea, “Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research”</strong> (2020), arXiv:2005.00357, <a href="https://arxiv.org/abs/2005.00357" class="uri">https://arxiv.org/abs/2005.00357</a>. <em>Why read this:</em> the field-level argument that polarity classification “feels solved” precisely because its hardest cases (sarcasm, implicit and mixed sentiment, context) are the ones lexicons quietly fail. Read it to upgrade your intuition for exactly where the number lies.</p></li>
-<li><p><strong>Christopher D. Manning, Prabhakar Raghavan &amp; Hinrich Schütze, <em>Introduction to Information Retrieval</em></strong> (Cambridge University Press, 2008), free online, <a href="https://nlp.stanford.edu/IR-book/" class="uri">https://nlp.stanford.edu/IR-book/</a>. <em>Why read this:</em> the canonical, no-paywall text behind everything in this chapter: TF-IDF and term weighting (ch.&nbsp;6), cosine similarity, and flat and hierarchical clustering (chs.&nbsp;16–17). When you want to know not just <em>that</em> cosine distance separates text better than Euclidean, but <em>why</em>.</p></li>
-<li><p><strong>Orange Data Mining, “Text Mining” tutorial playlist</strong> (YouTube), <a href="https://www.youtube.com/playlist?list=PLmNPvQr9Tf-bxmjlFRg0AGjMzzd1y8_kB" class="uri">https://www.youtube.com/playlist?list=PLmNPvQr9Tf-bxmjlFRg0AGjMzzd1y8_kB</a>. <em>Why watch this:</em> the no-code, hands-on companion to exactly the workflow in this chapter (Corpus → Preprocess Text → Bag of Words / TF-IDF → Distances → Hierarchical Clustering), plus a dedicated sentiment-analysis walkthrough. See the pipeline move before you build it.</p></li>
-</ul>
+<section id="core-annotate-before-automating" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="core-annotate-before-automating"><span class="header-section-number">8.7</span> Core: annotate before automating</h2>
+<p><strong>Time:</strong> 30 minutes. <strong>Inputs:</strong> Appendix G’s six messages, baseline dictionary, and reference key.</p>
+<ol type="1">
+<li>Cover the reference columns and assign a theme and tone yourself.</li>
+<li>Underline the text supporting each label, preserving mixed cases.</li>
+<li>Run the baseline by hand or in a spreadsheet.</li>
+<li>Compare with the reference key and record all disagreements.</li>
+<li>Write one operational conclusion the messages support and one they do not.</li>
+</ol>
+<p><strong>Artefact:</strong> an annotated disagreement table. <strong>Success:</strong> reproduce the baseline’s two agreements out of six, explain S5’s negation failure, and avoid claiming a population-wide error rate from this constructed set.</p>
+<p><strong>Optional tool comparison:</strong> import the bundled support CSV into a text tool or give the six messages to an approved model. Use the same label convention, record the actual output and version, and retain unresolved disagreements. The printed answer key checks your baseline; it does not prescribe what every model must say.</p>
+<p>Next, <em>Does it actually work?</em> brings these habits into a formal evaluation: declared criteria, held-out inputs, visible counts, and a decision that survives an unfavourable result.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

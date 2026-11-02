@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,22 +36,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/05-what-are-you-giving-up.html" rel="next">
+<link href="../chapters/06-whose-data-is-it.html" rel="next">
 <link href="../chapters/03-can-you-tell.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,16 +466,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-spreadsheet-and-the-question-it-wont-answer-by-itself" id="toc-the-spreadsheet-and-the-question-it-wont-answer-by-itself" class="nav-link active" data-scroll-target="#the-spreadsheet-and-the-question-it-wont-answer-by-itself"><span class="header-section-number">4.1</span> The spreadsheet, and the question it won’t answer by itself</a></li>
-  <li><a href="#two-questions-a-model-can-answer" id="toc-two-questions-a-model-can-answer" class="nav-link" data-scroll-target="#two-questions-a-model-can-answer"><span class="header-section-number">4.2</span> Two questions a model can answer</a></li>
-  <li><a href="#a-tool-that-shows-its-working" id="toc-a-tool-that-shows-its-working" class="nav-link" data-scroll-target="#a-tool-that-shows-its-working"><span class="header-section-number">4.3</span> A tool that shows its working</a></li>
-  <li><a href="#the-decision-tree-the-most-readable-model" id="toc-the-decision-tree-the-most-readable-model" class="nav-link" data-scroll-target="#the-decision-tree-the-most-readable-model"><span class="header-section-number">4.4</span> The decision tree, the most readable model</a></li>
-  <li><a href="#the-trap-a-split-is-a-correlation-not-a-cause" id="toc-the-trap-a-split-is-a-correlation-not-a-cause" class="nav-link" data-scroll-target="#the-trap-a-split-is-a-correlation-not-a-cause"><span class="header-section-number">4.5</span> The trap: a split is a correlation, not a cause</a></li>
-  <li><a href="#clustering-the-model-finds-the-shape-you-supply-the-meaning" id="toc-clustering-the-model-finds-the-shape-you-supply-the-meaning" class="nav-link" data-scroll-target="#clustering-the-model-finds-the-shape-you-supply-the-meaning"><span class="header-section-number">4.6</span> Clustering: the model finds the shape, you supply the meaning</a></li>
-  <li><a href="#average-or-precise-the-same-model-two-placements" id="toc-average-or-precise-the-same-model-two-placements" class="nav-link" data-scroll-target="#average-or-precise-the-same-model-two-placements"><span class="header-section-number">4.7</span> Average or precise: the same model, two placements</a></li>
-  <li><a href="#what-the-finding-is-worth" id="toc-what-the-finding-is-worth" class="nav-link" data-scroll-target="#what-the-finding-is-worth"><span class="header-section-number">4.8</span> What the finding is worth</a></li>
+  <li><a href="#two-questions-two-kinds-of-answer" id="toc-two-questions-two-kinds-of-answer" class="nav-link active" data-scroll-target="#two-questions-two-kinds-of-answer"><span class="header-section-number">4.1</span> Two questions, two kinds of answer</a></li>
+  <li><a href="#inspect-before-modelling" id="toc-inspect-before-modelling" class="nav-link" data-scroll-target="#inspect-before-modelling"><span class="header-section-number">4.2</span> Inspect before modelling</a></li>
+  <li><a href="#a-rule-you-can-trace" id="toc-a-rule-you-can-trace" class="nav-link" data-scroll-target="#a-rule-you-can-trace"><span class="header-section-number">4.3</span> A rule you can trace</a></li>
+  <li><a href="#the-trap-association-is-not-an-intervention" id="toc-the-trap-association-is-not-an-intervention" class="nav-link" data-scroll-target="#the-trap-association-is-not-an-intervention"><span class="header-section-number">4.4</span> The trap: association is not an intervention</a></li>
+  <li><a href="#clustering-without-naming-the-answer-in-advance" id="toc-clustering-without-naming-the-answer-in-advance" class="nav-link" data-scroll-target="#clustering-without-naming-the-answer-in-advance"><span class="header-section-number">4.5</span> Clustering without naming the answer in advance</a></li>
+  <li><a href="#core-produce-an-analysis-sheet" id="toc-core-produce-an-analysis-sheet" class="nav-link" data-scroll-target="#core-produce-an-analysis-sheet"><span class="header-section-number">4.6</span> Core: produce an analysis sheet</a></li>
+  <li><a href="#what-travels-to-the-next-chapter" id="toc-what-travels-to-the-next-chapter" class="nav-link" data-scroll-target="#what-travels-to-the-next-chapter"><span class="header-section-number">4.7</span> What travels to the next chapter</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">4.8</span> Further reading</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -483,135 +500,74 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-spreadsheet-and-the-question-it-wont-answer-by-itself" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="the-spreadsheet-and-the-question-it-wont-answer-by-itself"><span class="header-section-number">4.1</span> The spreadsheet, and the question it won’t answer by itself</h2>
-<p>Every customer-success team has this spreadsheet. Tessera’s is 200 rows of its customers: industry, region, how long they have been a customer, what they buy, what they pay, how much they use it, how satisfied they are, and a single loaded column: <code>Renewal_Likelihood</code>, recorded as High, Medium or Low — with Low the one you watch, because Low-renewal customers are the ones who leave. Roughly one customer in three is Low.</p>
-<p>You can stare at that file for an hour and learn almost nothing. The signal is in there, but it is tangled across columns and buried inside interactions. It is never one row that churns; it is a <em>kind</em> of row. This is the gap machine learning exists to close. Hand the data to a model and it will, in seconds, sort the rows by how much they resemble the ones that left. The promise is seductive, and mostly true: the machine finds the pattern.</p>
-<p>The problem this chapter is actually about is the next sentence, the one the demo never says: <em>found, then what?</em> Finding the pattern is the part being commoditised. Any tool can do it, and soon any junior with a chatbot can do it. What is not commoditised, and what this chapter is your first proper rehearsal of, is knowing what the pattern <em>is</em> and, just as importantly, what it <em>is not</em>. A pattern in data is not a fact about the world. It is a clue. Reading it as a clue rather than a conclusion is the whole skill, and it is the one skill the machine does not have.</p>
+<p>A column called <code>Renewal_Likelihood</code> looks like an answer. Before fitting a model, ask who created it, from which information, and at what point in the customer’s history. A label assigned by a person or business rule is different from an observed renewal. Predicting that label may reproduce the assessor’s judgement without telling you who will actually leave.</p>
+<p>That distinction changes the whole analysis. In this chapter, the target is explicitly the <strong>Low-renewal label</strong>, not future churn. The complete twelve-row synthetic dataset is in <a href="../appendices/g-reproducible-lab.html">Appendix G</a>. The larger Tessera site remains an optional extension; its files must be inspected on their own terms.</p>
+<section id="two-questions-two-kinds-of-answer" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="two-questions-two-kinds-of-answer"><span class="header-section-number">4.1</span> Two questions, two kinds of answer</h2>
+<p>Supervised learning asks: given examples with labels, can a rule predict the label on another example? Here the inputs include tenure and satisfaction, and the target is Low or High. A model trained on those rows learns an association with that target. It does not turn the label into an objective measure of loyalty.</p>
+<p>Unsupervised learning asks: what structure appears when we group examples without supplying the target? You might cluster customers by tenure and satisfaction, then inspect the groups. The algorithm has not discovered “loyal customers” until someone supplies and tests that interpretation. It has grouped points under a chosen representation and distance measure.</p>
+<p>Both can help an analyst. Neither decides the business meaning of a result. A useful first page in your dossier states the question, the unit of analysis, the target if any, and what the data cannot answer.</p>
 </section>
-<section id="two-questions-a-model-can-answer" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="two-questions-a-model-can-answer"><span class="header-section-number">4.2</span> Two questions a model can answer</h2>
-<p>Strip the software away and almost every data-analysis task collapses into one of two questions.</p>
-<p>The first: <em>I have a label, what predicts it?</em> You already know which Tessera customers churned. You want the rule that separates them from the ones who stayed, so you can apply it to customers you have not lost yet. This is <strong>supervised</strong> learning, and the decision tree is its most readable instrument.</p>
-<p>The second: <em>I have no label, what groups are hiding in here?</em> You take the same customers but set <code>Renewal_Likelihood</code> aside. You ask the data to fall into its own clusters, and you name the groups afterwards. This is <strong>unsupervised</strong> learning, and clustering is its workhorse.</p>
-<p>That is the whole forest. The rest (the widgets, the parameters, the colour palettes) is trees. Tessera’s churn problem is a supervised question first (who will leave?) and an unsupervised question second (what kinds of customer do we actually have?). Both answers are useful. They are <em>different kinds</em> of useful, and confusing them is one of the mistakes this chapter exists to prevent.</p>
+<section id="inspect-before-modelling" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="inspect-before-modelling"><span class="header-section-number">4.2</span> Inspect before modelling</h2>
+<p>Start with counts and definitions. In lab-v1, each row represents one fictional customer. There are no names or observed departures. Tenure is measured in months; satisfaction is an invented score. The development/test designation is part of the exercise and must not become a predictor.</p>
+<p>Six of twelve rows have Low labels. South has four Low labels among five rows, Metro two among four, and North none among three. Those fractions are easy to verify by hand. They describe <strong>label prevalence</strong>. They do not show that a model treats South customers badly, or that North customers are safe.</p>
+<p>Write the denominators beside the percentages. “Zero out of three” leaves the uncertainty visible in a way that “0% risk” does not. Also ask what is absent: a date, a sampling method, a definition of actual renewal, and a history of interventions. Those absences limit the conclusions before a model enters the picture.</p>
+<p>On a real dataset, check duplicated customers, missing values, inconsistent units, changing definitions, and whether information recorded after an outcome has slipped into the inputs. Preserve the original file and a record of every transformation.</p>
 </section>
-<section id="a-tool-that-shows-its-working" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="a-tool-that-shows-its-working"><span class="header-section-number">4.3</span> A tool that shows its working</h2>
-<p>You will do this in <strong>Orange</strong>, a visual data-mining tool with no code. You build an analysis by dragging widgets onto a canvas (File, Data Table, Distributions, Decision Tree, Tree Viewer) and wiring them together so data flows left to right. It looks like a child’s flowchart, and that is the point.</p>
-<p>The reason this book uses Orange for classical machine learning is precisely that it is plain and obvious. The splits are visible. The clusters are visible. The distributions are visible. Nothing is hidden behind a script or a polished dashboard. When the model does something surprising, you can trace exactly where, because every step is a box you can double-click. That transparency matters: explainability is not a feature you bolt on at the end. In classical machine learning it is the <em>default</em>, and Orange keeps it that way.</p>
+<section id="a-rule-you-can-trace" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="a-rule-you-can-trace"><span class="header-section-number">4.3</span> A rule you can trace</h2>
+<p>Use the supplied Rule A: <strong>predict Low when satisfaction is 6 or below; otherwise predict High</strong>. It is a predefined teaching rule, not a fitted model or a claim about real customer behaviour.</p>
+<p>On the eight development rows, it matches every label. This is exactly the sort of result that can make a demo feel finished. Now cover the test labels, write down the four predictions, and uncover them. T01 and T02 are wrong. The rule gets two of four right, detects one of the two Low labels, and makes one false alarm.</p>
+<p>T01 has satisfaction 7 but a Low label; T02 has satisfaction 5 but a High label. A rule fitted neatly to the development examples does not necessarily handle a different example. Whether those exceptions arise from noise, a missing variable, or a different labelling process cannot be determined from these rows.</p>
+<p>A decision tree generalises this form: it learns a sequence of splits rather than taking the single split as given. A small tree may be easy to trace. A deep tree may fit incidental details so closely that it generalises poorly. Choosing its depth is part of model development, not a reason to keep consulting the final test labels.</p>
 </section>
-<section id="the-decision-tree-the-most-readable-model" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="the-decision-tree-the-most-readable-model"><span class="header-section-number">4.4</span> The decision tree, the most readable model</h2>
-<p>Build a decision tree and you have built a flowchart that asks yes/no questions of your data. <em>Is the satisfaction score six or below? Is tenure under a year? Is the contract value below a threshold?</em> At each fork it picks the single question that separates churners from stayers most cleanly, then asks again on each branch, until the groups at the leaves are mostly pure or the splits stop helping. Follow a path from the top to a leaf and you have a sentence a Tessera executive could follow.</p>
-<p>Run it on Tessera’s customers and the tree lands hard on one variable first: <strong>satisfaction score</strong>. Customers who score six or below churn at ~98%; above six, effectively none do. That single split does most of the work. Below it the tree keeps finding structure (tenure, which product they hold, contract value) but the headline is already written.</p>
-<p>Now notice the part most people skip. You could have seen most of this yourself, with a bar chart and ten minutes. <em>Distributions</em>, one of Orange’s plainest widgets, will show you the same satisfaction cliff — the step from a score of six to seven — if you ask it to. That cross-check is not redundant; it is the difference between <em>using</em> a model and <em>trusting</em> one. A model that agrees with your own eyes is reassuring. A model that disagrees is interesting, and the disagreement is usually because the tree can see interactions between variables that a single bar chart cannot. Both outcomes are useful. Neither is a reason to stop thinking.</p>
-<div class="tessera-case">
-<p><strong>🌐 Tessera Case</strong></p>
-<p>The artefact for this chapter is <code>tessera-customer-data.csv</code>, 200 customers, dropped into an Orange canvas: <strong>File</strong> loads it, <strong>Distributions</strong> shows each variable split by churn, <strong>Decision Tree</strong> builds the model, <strong>Tree Viewer</strong> draws it, and <strong>k-Means</strong> segments the base when you switch to the unsupervised question.</p>
-<p>What the data actually says. The dominant predictor is <strong>satisfaction score</strong>: customers scoring six or below churn at ~98%, those above six at ~0%. The same story repeats in half a dozen reinforcing signals. <strong>Tenure</strong> tracks it (0–6 months ~100%, 6–12 months ~88%, 12–24 months ~45%, 24+ months ~0%), and so does <strong>product</strong> (Analytics Pro ~74% and SecureLink ~56% churn; CloudSync and DataVault ~0%). <strong>Industry</strong> piles on (Education ~94%, Healthcare ~85%; Finance, Manufacturing and Retail ~0%), as does <strong>company size</strong> (Small ~47%, Medium ~43%, Large ~6%) and <strong>region</strong> (South ~94% and Metro ~85%; Central, East and North ~0%). Even <strong>contract value</strong> agrees: at-risk customers average ~$960 against ~$2,160 for those who stay.</p>
-<p>The two findings worth carrying to leadership. First, a one-sentence headline any executive can parse: <em>“Dissatisfied customers (score under six) in their first year churn at well above the base rate.”</em> Second, a non-obvious one the tree makes crisp: the signals don’t compete, they pile up. Satisfaction, tenure, product, industry, size and contract value all point at the <em>same</em> customer — so the at-risk population is sharply defined, not scattered, and a single well-aimed intervention can reach most of it.</p>
-<p>The honest limit: once you cross two variables, the cells thin out fast. A Region × Company Size combination with only a handful of customers in it can show an extreme churn rate that is pure accident. If your tree splits on a cell like that near the top, it has found noise, not a finding. And every cluster name you write (“the heavy spenders who never call support”, “the new and flighty”) is <em>your</em> label, not the model’s.</p>
-</div>
+<section id="the-trap-association-is-not-an-intervention" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="the-trap-association-is-not-an-intervention"><span class="header-section-number">4.4</span> The trap: association is not an intervention</h2>
+<p>Suppose a tree repeatedly splits on satisfaction. You can report that satisfaction helps reproduce the supplied labels. You cannot conclude that increasing the score will cause a customer to renew.</p>
+<p>The score might reflect an underlying service problem. It might have helped someone assign the label in the first place. It might have been recorded after the renewal decision. A promotional intervention could change the score without changing the service experience. Each possibility calls for different evidence.</p>
+<p>A useful conversation looks like this:</p>
+<p><strong>Draft:</strong> “Low satisfaction causes churn, so offer every dissatisfied customer a discount.”</p>
+<p><strong>Check:</strong> “The target is a renewal-risk label, not an observed departure. Where is the evidence that the discount changes renewal?”</p>
+<p><strong>Owned conclusion:</strong> “The label is associated with satisfaction in this teaching sample. We need dated outcomes and an appropriate intervention study before recommending a retention policy.”</p>
+<p>The correction changes what the team is entitled to do.</p>
 </section>
-<section id="the-trap-a-split-is-a-correlation-not-a-cause" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="the-trap-a-split-is-a-correlation-not-a-cause"><span class="header-section-number">4.5</span> The trap: a split is a correlation, not a cause</h2>
-<p>This is the single most important sentence in the chapter, and you will watch people get it wrong for the rest of the book.</p>
-<blockquote class="blockquote">
-<p><strong>A decision tree split is a correlation, not a cause.</strong></p>
-</blockquote>
-<p>When the tree splits on <em>satisfaction score ≤ 6</em>, it is not telling you that a low score <em>causes</em> customers to leave. It is telling you that, in this dataset, low-scoring customers leave more often. The cause lives somewhere the tree cannot see: a low score is a <em>symptom</em> of something going wrong — a rough onboarding, a product that does not fit, support that let them down — and churn follows the symptom. The tree found the shadow; the thing casting it is your job to investigate.</p>
-<p>Here is where it gets subtle, and where the temptation to tell a story is strongest. Tenure is in the tree too, and it has a stark shape: customers in their <strong>first six months</strong> churn at close to 100%, falling to ~88% across the 6–12 month band, ~45% over the first two years, and near zero beyond. The newest customers are by far the most fragile, and the risk collapses with time. That gradient points straight at a mechanism the data hints at but does not name: the trial-to-paid transition, the price shock that lands when the honeymoon ends, the moment a customer decides whether the product is actually worth keeping.</p>
-<p>Read that split as a cause and you reach for the wrong lever. “Customers leave because they’re new; let’s shorten onboarding for everyone.” Half-right, and the half-right error is the most dangerous kind. Newness tracks churn, but it does not cause it: a <em>satisfied</em> new customer rarely leaves, a <em>dissatisfied</em> one almost always does. The signal is to investigate what happens in those first months — the onboarding, the fit, the first real problem — not to rewrite the calendar. The model gives you the question. It never gives you the answer.</p>
-<p>And then there is the quieter trap. This dataset’s region and industry columns each look meaningful on their own, and a tree that has run out of real signal will happily cross them into a sparse cell: a specific Region × Company Size combination, say, where a handful of rows all happen to have left (or all happened to stay). That cell <em>looks</em> like a finding, but the counts behind it are tiny and the gap is an accident of who landed there. It is noise wearing the costume of a pattern. If your tree is splitting on a two-variable cell with only a few customers in it, be suspicious. It has found an accident, not a finding. This is the spurious-correlation trap, and it is the whole reason to slow down when a split feels too neat.</p>
+<section id="clustering-without-naming-the-answer-in-advance" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="clustering-without-naming-the-answer-in-advance"><span class="header-section-number">4.5</span> Clustering without naming the answer in advance</h2>
+<p>For a paper exercise, set the label column aside and arrange the eight development rows by tenure and satisfaction. Describe two possible groupings. For example, group by shorter versus longer tenure, then try lower versus higher satisfaction. Which customers move together? Which separate?</p>
+<p>A clustering algorithm performs a more formal version of this exercise, under chosen assumptions. Scaling matters: a variable measured over a large numerical range can dominate some distance calculations. The number of clusters, distance measure, and representation all influence the result. Different groups do not necessarily mean one analysis is wrong; they may answer different questions.</p>
+<p>Give the groups descriptive names such as “shorter tenure, lower satisfaction” before using interpretive names such as “unhappy newcomers.” To earn the second name, inspect evidence beyond the coordinates. Do not put the renewal label into an ostensibly unsupervised analysis and then celebrate discovering the label.</p>
 </section>
-<section id="clustering-the-model-finds-the-shape-you-supply-the-meaning" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="clustering-the-model-finds-the-shape-you-supply-the-meaning"><span class="header-section-number">4.6</span> Clustering: the model finds the shape, you supply the meaning</h2>
-<p>It looks at how close customers are to one another across all their numeric attributes (tenure, contract value, usage hours, satisfaction) and drops them into <em>k</em> groups so that customers inside a group resemble each other and the groups differ. You tell it how many groups to look for; it tells you who landed where.</p>
-<p>Then comes the step the model cannot do, and it is where all the judgement, and all the bias, enters. <strong>You name the clusters.</strong> You read each group’s averages and give it a label: <em>the heavy spenders who never call support</em>, <em>the new and flighty single-product accounts</em>, <em>the steady mid-tier</em>. The names are yours. The model finds the shape; you supply the meaning.</p>
-<p>That act of naming is exactly how customer segmentation happens in a real marketing or success team, and it is exactly where a lazy or hurried analyst smuggles in a story the data does not warrant. A cluster of high-revenue, low-support customers is a fact. Calling them “our loyal champions” is an interpretation, one that might stop you noticing they are loyal only because nothing has gone wrong yet. Name carefully. The cluster is a description, not a verdict.</p>
+<section id="core-produce-an-analysis-sheet" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="core-produce-an-analysis-sheet"><span class="header-section-number">4.6</span> Core: produce an analysis sheet</h2>
+<p><strong>Time:</strong> 30 minutes. <strong>Inputs:</strong> Appendix G’s customer table and Rule A. A pencil or spreadsheet is enough.</p>
+<ol type="1">
+<li>State the target and list three questions the data cannot answer.</li>
+<li>Reproduce the label counts by region, including denominators.</li>
+<li>Apply Rule A to the development and test rows separately. Keep every error.</li>
+<li>Write one association claim you can defend and one causal claim you must reject.</li>
+<li>Propose the next data collection needed for an actual renewal decision.</li>
+</ol>
+<p><strong>Artefact:</strong> a one-page analysis sheet in the dossier. <strong>Success:</strong> distinguish label prevalence from prediction accuracy, report 2/4 test accuracy for Rule A, and refuse to describe a proxy as observed churn.</p>
+<p><strong>Optional build:</strong> import <code>resources/lab-v1/customers.csv</code> into a visual analysis tool. Set ID and split aside as metadata, identify the label as the target, and keep the test rows separate. A fitted tree may differ from the predefined rule; report its actual output. Do not tune it until it matches the printed answer. Eight development examples are not enough for a production claim.</p>
 </section>
-<section id="average-or-precise-the-same-model-two-placements" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="average-or-precise-the-same-model-two-placements"><span class="header-section-number">4.7</span> Average or precise: the same model, two placements</h2>
-<p>Here is where this data chapter meets the trust tool from Chapter 1, and why that tool shows up in a chapter that has nothing to do with large language models.</p>
-<p>A data analysis produces two very different kinds of output, and they belong in different cells of the grid. The first is <strong>average</strong> output: <em>“roughly, our churn concentrates in dissatisfied customers (score under six) in their first year, well above the base rate.”</em> That is a description. It points you where to look, nobody gets touched, and if it is slightly off the cost is small. That is a <strong>green</strong> artefact: skim it, act on it lightly, move on.</p>
-<p>The second is <strong>precise</strong> output: <em>“customer C0xxx has an estimated 78% chance of churning: flag them for a save call.”</em> Now a real person gets called, repriced, or dropped from a list because of a number a model produced. That is precise, and the blast radius is large. That is <strong>red</strong>: a human checks it before it touches anyone.</p>
-<p>Same model. Same dataset. Two placements. The discipline is knowing which one you just produced, because the segment description and the per-customer score come out of the <em>same</em> Orange canvas, and only one of them is safe to act on without a person in the middle.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🤖 Conversation Log
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You fed your Orange tree to an AI thinking partner and asked what Tessera should <em>do</em>. Two things came back, and both were instructively wrong.</p>
-<p><strong>The first error.</strong> The model read the satisfaction and tenure splits as a cause: <em>“Low satisfaction and short tenure cause churn. Tessera should drive every customer’s score above six and fast-track anyone in their first year.”</em> You pushed back. The splits are correlations, not causes. A low score and churn move together because both are symptoms of the same underlying problem — a rough onboarding, a poor product fit, support that let the customer down — and short tenure just means the customer has not yet decided to stay. Bullying the score up with credits, or rushing every new customer, moves the wrong number and the churn arrives anyway. The signal is to investigate <em>why</em> customers are dissatisfied in those first months. And “fast-track everyone in year one” is too blunt: a <em>satisfied</em> new customer is safe; a <em>dissatisfied</em> one is the real target.</p>
-<p><strong>The second error.</strong> The model then latched onto a two-variable cell: <em>“Large customers in the Metro region never churn — that’s a safe pocket, worth leaving alone.”</em> Tempting, and the number is real — 0% — but it is a single customer. A flexible model will happily fit a cell that small, and a rate computed from one row is an accident, not a finding. You corrected it: a tree splitting on a sparse Region × Company Size cell near the top is overfitting noise, and acting on it would steer effort away from the real signal — dissatisfaction and early tenure — which sits almost everywhere else.</p>
-<p>What you decided to trust. The satisfaction and tenure story is robust enough to act on — but directionally, not mechanically: focus save-effort on dissatisfied customers in their first year. The product, industry and size signals reinforce the same target, so they sharpen the aim rather than split it. The sparse Region × Company Size pocket you discarded as noise. The model did the finding fast. The judgement about what each finding <em>means</em>, and which one is worth anything, was yours.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This chapter’s output sits in <em>two</em> cells at once, and that is the lesson.</p>
+<section id="what-travels-to-the-next-chapter" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="what-travels-to-the-next-chapter"><span class="header-section-number">4.7</span> What travels to the next chapter</h2>
+<p>The analysis sheet now contains a data dictionary, a target definition, a checkable result, and missing evidence. Next, privacy adds another question: what may you do with the fields and records, even when the analysis is useful? A sound pattern does not authorise a new use of personal information.</p>
+</section>
+<section id="further-reading" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">4.8</span> Further reading</h2>
 <ul>
-<li><p><strong>The segment description</strong> (<em>“dissatisfied customers in their first year churn at well above the base rate”</em>) is <strong>average</strong> output with a <strong>small</strong> blast radius. It points you where to look and touches no one. <strong>🟢 Green</strong>: skim it, act on it lightly, use it to aim the next investigation.</p></li>
-<li><p><strong>The per-customer churn score</strong> (<em>“flag customer C0xxx for a save call”</em>) is <strong>precise</strong> output with a <strong>large</strong> blast radius. A person gets contacted, repriced, or dropped because of a number. <strong>🔴 Red</strong>: a human checks it before it touches anyone.</p></li>
+<li><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a>: the authors’ accessible treatment of supervised learning, classification, resampling, and tree-based methods. Read the chapters on model assessment before treating a training result as performance.</li>
+<li><a href="https://scikit-learn.org/stable/common_pitfalls.html">scikit-learn: common pitfalls</a>: the project’s documentation on inconsistent preprocessing and data leakage. The implementation uses code, but the separation of development and evaluation data applies equally to visual tools.</li>
 </ul>
-<p>Same canvas, two placements. The discipline this chapter builds is not building the model; it is recognising, the instant you produce a number attached to a name, that you have crossed from green to red and the oversight rules have changed.</p>
-</div>
-</div>
-</section>
-<section id="what-the-finding-is-worth" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="what-the-finding-is-worth"><span class="header-section-number">4.8</span> What the finding is worth</h2>
-<p>So what did Tessera actually learn? A defensible handful of things, and a longer list of things it did <em>not</em> learn, which matters just as much. It learned that churn is concentrated, not scattered: it lives in a specific kind of customer, and that kind is identifiable from data the company already holds. It learned where to point its limited customer-success effort. It did <em>not</em> learn <em>why</em> those customers leave, it did not learn whether intervening will change anything, and it did not learn that any individual prediction is safe to act on without a person checking.</p>
-<p>That is a lot, honestly, for one afternoon with a no-code tool. It is also, precisely, the kind of work that a chatbot can now produce in minutes: the tree, the clusters, even the one-sentence headline. The moat was never in producing it. The moat was in reading it correctly: resisting the cause, refusing the neat story, naming the clusters carefully, and placing each output in the right cell before acting. Find the pattern is cheap. Understand the pattern is the job.</p>
-<p>You did all of this on a laptop, in a tool that never sent a single row of Tessera’s customer data anywhere. That is not an accident, and it raises the question the next chapter answers: when the data is this sensitive, where do you run the AI, what does it cost, and whose servers are you willing to trust with it? Finding the pattern locally was the easy part of that decision. The hard part (deployment, sovereignty, and the trade between convenience and control) is where we go next.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔬 Power-user extension
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>Core</strong> above is enough: read one decision tree and write the one-line executive sentence. If you want to push further, cross-validate instead of trusting a single model. Add Orange’s <strong>Test &amp; Score</strong> widget and feed it three learners — <strong>Decision Tree</strong>, <strong>Random Forest</strong>, and <strong>Logistic Regression</strong> — over the same <code>Renewal_Likelihood</code> target. Read <strong>Classification Accuracy (CA)</strong> and <strong>AUC</strong> for each: if all three land in the same range, the satisfaction-and-tenure story is robust, not an artefact of one algorithm. Then drop a <strong>Rank</strong> widget on the data to rank features by information gain — satisfaction and tenure should sit at the top, which is exactly the cross-check the single tree already implied. The Core told you <em>what</em> the data says; this tells you <em>how much to trust it</em>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="🔍 Go deeper">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🔍 Go deeper
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>Pedro Domingos, “A Few Useful Things to Know about Machine Learning”</strong> (<em>Communications of the ACM</em>, 2012). <a href="https://cacm.acm.org/research/a-few-useful-things-to-know-about-machine-learning/" class="uri">https://cacm.acm.org/research/a-few-useful-things-to-know-about-machine-learning/</a>. The canonical “folk knowledge” paper: overfitting, the bias/variance trade-off, and why more data usually beats a cleverer algorithm. Read it to understand the traps a flexible model like a decision tree will happily fall into. [Free PDF from the author: <a href="https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf" class="uri">https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf</a>]</p></li>
-<li><p><strong>Christoph Molnar, <em>Interpretable Machine Learning</em></strong>, Chapter: “Decision Tree”. <a href="https://christophm.github.io/interpretable-ml-book/tree.html" class="uri">https://christophm.github.io/interpretable-ml-book/tree.html</a>. A free, rigorous online book on exactly this chapter’s core skill: how to read a decision tree, and why its famous interpretability quietly degrades as the tree gets deeper.</p></li>
-<li><p><strong>Josh Starmer (StatQuest), “K-means clustering”</strong> (video, 2018). <a href="https://www.youtube.com/watch?v=4b5d3muPQmA" class="uri">https://www.youtube.com/watch?v=4b5d3muPQmA</a>. A clear, visual walk through the unsupervised half: how <em>k</em>-means forms groups, why your choice of <em>k</em> matters, and how an elbow plot helps you pick it. Watch it before you name your first cluster.</p></li>
-</ul>
-</div>
-</div>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1032,8 +988,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/05-what-are-you-giving-up.html" class="pagination-link" aria-label="What are you giving up?">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/06-whose-data-is-it.html" class="pagination-link" aria-label="Whose data is it?">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

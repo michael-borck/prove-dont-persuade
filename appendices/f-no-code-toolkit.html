@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>F. The No-Code Toolkit — Getting Started – Prove, Don’t Persuade</title>
+<title>F. The No-Code Toolkit: Getting Started – Prove, Don’t Persuade</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,22 +36,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../acknowledgments.html" rel="next">
+<link href="../appendices/g-reproducible-lab.html" rel="next">
 <link href="../appendices/e-the-tessera-case.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/f-no-code-toolkit.html">F. The No-Code Toolkit — Getting Started</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/f-no-code-toolkit.html">F. The No-Code Toolkit: Getting Started</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -284,6 +289,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,23 +466,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#which-tool-which-chapter" id="toc-which-tool-which-chapter" class="nav-link active" data-scroll-target="#which-tool-which-chapter">Which tool, which chapter</a></li>
-  <li><a href="#orange-data-mining-visual-machine-learning" id="toc-orange-data-mining-visual-machine-learning" class="nav-link" data-scroll-target="#orange-data-mining-visual-machine-learning">Orange Data Mining — visual machine learning</a></li>
-  <li><a href="#google-teachable-machine-train-a-model-in-the-browser" id="toc-google-teachable-machine-train-a-model-in-the-browser" class="nav-link" data-scroll-target="#google-teachable-machine-train-a-model-in-the-browser">Google Teachable Machine — train a model in the browser</a></li>
-  <li><a href="#notebooklm-retrieval-as-a-black-box-you-can-open" id="toc-notebooklm-retrieval-as-a-black-box-you-can-open" class="nav-link" data-scroll-target="#notebooklm-retrieval-as-a-black-box-you-can-open">NotebookLM — retrieval, as a black box you can open</a></li>
-  <li><a href="#ollama-run-a-model-on-your-own-machine" id="toc-ollama-run-a-model-on-your-own-machine" class="nav-link" data-scroll-target="#ollama-run-a-model-on-your-own-machine">Ollama — run a model on your own machine</a></li>
-  <li><a href="#open-webui-the-chat-interface" id="toc-open-webui-the-chat-interface" class="nav-link" data-scroll-target="#open-webui-the-chat-interface">Open WebUI — the chat interface</a></li>
-  <li><a href="#a-note-on-equity" id="toc-a-note-on-equity" class="nav-link" data-scroll-target="#a-note-on-equity">A note on equity</a></li>
+  <li><a href="#choose-the-smallest-setup" id="toc-choose-the-smallest-setup" class="nav-link active" data-scroll-target="#choose-the-smallest-setup">Choose the smallest setup</a></li>
+  <li><a href="#orange-inspect-a-data-workflow" id="toc-orange-inspect-a-data-workflow" class="nav-link" data-scroll-target="#orange-inspect-a-data-workflow">Orange: inspect a data workflow</a></li>
+  <li><a href="#teachable-machine-preview-before-deployment" id="toc-teachable-machine-preview-before-deployment" class="nav-link" data-scroll-target="#teachable-machine-preview-before-deployment">Teachable Machine: preview before deployment</a></li>
+  <li><a href="#notebooklm-compare-observable-results" id="toc-notebooklm-compare-observable-results" class="nav-link" data-scroll-target="#notebooklm-compare-observable-results">NotebookLM: compare observable results</a></li>
+  <li><a href="#ollama-local-is-a-configuration-to-verify" id="toc-ollama-local-is-a-configuration-to-verify" class="nav-link" data-scroll-target="#ollama-local-is-a-configuration-to-verify">Ollama: local is a configuration to verify</a></li>
+  <li><a href="#open-webui-an-optional-configured-interface" id="toc-open-webui-an-optional-configured-interface" class="nav-link" data-scroll-target="#open-webui-an-optional-configured-interface">Open WebUI: an optional configured interface</a></li>
+  <li><a href="#if-setup-gets-in-the-way" id="toc-if-setup-gets-in-the-way" class="nav-link" data-scroll-target="#if-setup-gets-in-the-way">If setup gets in the way</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/f-no-code-toolkit.html">F. The No-Code Toolkit — Getting Started</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-the-trust-tool.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/f-no-code-toolkit.html">F. The No-Code Toolkit: Getting Started</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">F. The No-Code Toolkit — Getting Started</h1>
+<h1 class="title">F. The No-Code Toolkit: Getting Started</h1>
 </div>
 
 
@@ -482,115 +499,93 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Every hands-on activity in this book has a <strong>no-code Core</strong> path. You do not need to write code, install a compiler, or know a programming language to do the work this book asks of you. That is a design choice, not a compromise: the same capability should be available to every reader, whatever their background, on whatever laptop they happen to own.</p>
-<p>This appendix is the quick-start for the five free tools the Core paths use. Install what you need when you reach the chapter that needs it; you do not need all of them on day one. Everything here is free, runs on macOS, Windows, and Linux, and — with one exception — works entirely offline once set up.</p>
-<p>The optional <strong>🔬 Power-user extensions</strong> in each chapter sometimes go further (a little code, self-hosting, a second model). They are never required. If you want the ceiling, this appendix tells you where the floor is.</p>
-<section id="which-tool-which-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="which-tool-which-chapter">Which tool, which chapter</h2>
+<p>Use the paper-based route with a notebook and calculator, or add tools for the build-along activities. No-code analysis does not mean installation-free, offline, or suitable for every laptop. A shared teaching environment can help, but only use data approved for that environment.</p>
+<section id="choose-the-smallest-setup" class="level2">
+<h2 class="anchored" data-anchor-id="choose-the-smallest-setup">Choose the smallest setup</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 31%">
-<col style="width: 31%">
-<col style="width: 18%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tool</th>
-<th style="text-align: center;">Free?</th>
-<th style="text-align: center;">Online?</th>
-<th>Used in</th>
+<th>Activity</th>
+<th>Build-along tool</th>
+<th>What you must supply</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Orange Data Mining</strong></td>
-<td style="text-align: center;">yes</td>
-<td style="text-align: center;">runs offline</td>
-<td>4, 8, 11</td>
+<td>Data exploration and model comparison, Chapters 4 and 10</td>
+<td>Orange Data Mining</td>
+<td>Versioned customer data and a documented train/test split</td>
 </tr>
 <tr class="even">
-<td><strong>Google Teachable Machine</strong></td>
-<td style="text-align: center;">yes</td>
-<td style="text-align: center;">browser (export runs anywhere)</td>
-<td>9</td>
+<td>Text analysis, Chapter 8</td>
+<td>Orange with relevant text components, or an approved model</td>
+<td>Support text, labels, and a disagreement set</td>
 </tr>
 <tr class="odd">
-<td><strong>NotebookLM</strong></td>
-<td style="text-align: center;">yes</td>
-<td style="text-align: center;">browser</td>
-<td>11</td>
+<td>Image-classifier experiment, Chapter 9</td>
+<td>Teachable Machine</td>
+<td>Your own harmless teaching images and separate test images</td>
 </tr>
 <tr class="even">
-<td><strong>Ollama</strong></td>
-<td style="text-align: center;">yes</td>
-<td style="text-align: center;">runs offline</td>
-<td>5, 7, 10, 11</td>
+<td>Retrieval comparison, Chapters 7 and 10</td>
+<td>Open WebUI and optionally NotebookLM</td>
+<td>Approved source documents and fixed test questions</td>
 </tr>
 <tr class="odd">
-<td><strong>Open WebUI</strong></td>
-<td style="text-align: center;">yes</td>
-<td style="text-align: center;">runs offline</td>
-<td>5, 7, 10</td>
+<td>Local model experiment, Chapters 6–7</td>
+<td>Ollama and a compatible local model</td>
+<td>Hardware capacity, model download, and setup time</td>
+</tr>
+<tr class="even">
+<td>Agent design, Chapter 11</td>
+<td>Paper workflow first; optional sandboxed implementation</td>
+<td>Explicit permissions, mock inputs, and checkpoints</td>
 </tr>
 </tbody>
 </table>
+<p>Interfaces, access conditions, and hardware requirements change. Record the tool version or access date in your dossier. The chapter’s teaching result is not a benchmark guaranteed to reproduce on another model.</p>
 </section>
-<section id="orange-data-mining-visual-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="orange-data-mining-visual-machine-learning">Orange Data Mining — visual machine learning</h2>
-<p>Orange is a drag-and-drop tool for classical machine learning. You build a workflow by placing widgets on a canvas and wiring them together; each widget is a step you can open and inspect. It is the tool this book uses to make decision trees, clustering, and sentiment visible — <em>literally</em>, because you can see every split.</p>
-<ul>
-<li><strong>Get it:</strong> <a href="https://orangedatamining.com/download" class="uri">https://orangedatamining.com/download</a>. Installers for macOS, Windows, Linux.</li>
-<li><strong>First run:</strong> open it, drag a <strong>File</strong> widget onto the canvas, double-click it, and load a CSV. Drag a <strong>Data Table</strong> and a <strong>Distributions</strong> widget, wire them to File, and you are looking at data. That is the whole interaction model.</li>
-<li><strong>For Chapter 4:</strong> <strong>File → Decision Tree → Tree Viewer</strong>, and <strong>File → k-Means</strong> for clustering.</li>
-<li><strong>No account, no cloud.</strong> Your data stays on your machine. That matters in Chapter 6.</li>
-</ul>
+<section id="orange-inspect-a-data-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="orange-inspect-a-data-workflow">Orange: inspect a data workflow</h2>
+<p>Start from the <a href="https://orangedatamining.com/download">official download page</a>. Load an approved CSV into a File widget, connect a Data Table, and inspect column types and missing values before fitting anything. For a predictive task, identify the target and reserve test data before model selection. Keep the same split when comparing candidates.</p>
+<p>The full external Tessera CSVs are not bundled. Use the small, explicitly synthetic lab-v1 files from Appendix G for the core exercises; keep external data as a separately versioned extension. Do not confuse either with observed customer outcomes.</p>
 </section>
-<section id="google-teachable-machine-train-a-model-in-the-browser" class="level2">
-<h2 class="anchored" data-anchor-id="google-teachable-machine-train-a-model-in-the-browser">Google Teachable Machine — train a model in the browser</h2>
-<p>Teachable Machine lets you train an image, audio, or pose classifier in a browser tab using transfer learning. You point a webcam (or upload images), click <em>Train Model</em>, and export a working model you can put on a web page. It is the most approachable way to experience “I built and shipped a model” in an afternoon — which is exactly why Chapter 9 uses it.</p>
-<ul>
-<li><strong>Get it:</strong> <a href="https://teachablemachine.withgoogle.com" class="uri">https://teachablemachine.withgoogle.com</a>. A Google account helps for saving projects; the tool itself is free.</li>
-<li><strong>For Chapter 9:</strong> create an <strong>Image Project</strong>, add 2–3 classes, capture ~15–25 images per class varying the conditions on purpose, click <strong>Train Model</strong>, then <strong>Export → TensorFlow.js → “Upload my model”</strong>. Drop the link it gives you into the Glitch starter (below) and your classifier is live on your phone.</li>
-<li><strong>Glitch starter:</strong> remix the Teachable Machine starter at <a href="https://glitch.com" class="uri">https://glitch.com</a> (search “Teachable Machine”) to turn your exported model into a web app anyone can open.</li>
-<li><strong>Power-user note:</strong> the same export can be <em>downloaded</em> and self-hosted, which is the sovereignty move from Chapter 5 applied to a model you built.</li>
-</ul>
+<section id="teachable-machine-preview-before-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="teachable-machine-preview-before-deployment">Teachable Machine: preview before deployment</h2>
+<p>Use <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a> for an image project. Train with your development images, then use the preview with separate test images. Chapter 9 supplies the collection plan and an entirely paper-based alternative. Camera access, browser compatibility, and model saving are setup checks, not learning outcomes.</p>
+<p><strong>No hosting is required.</strong> Earlier editions used Glitch, whose project hosting ended on 8 July 2025. That instruction has been retired. <a href="https://blog.glitch.com/post/changes-are-coming-to-glitch/">Glitch’s announcement</a></p>
+<p>For an optional exported application, consult Google’s <a href="https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image">image-model library documentation</a>. Export and hosting involve additional dependencies and deployment checks; they are outside the Core exercise. Do not upload private images or publish a customer-facing app as part of this lab.</p>
 </section>
-<section id="notebooklm-retrieval-as-a-black-box-you-can-open" class="level2">
-<h2 class="anchored" data-anchor-id="notebooklm-retrieval-as-a-black-box-you-can-open">NotebookLM — retrieval, as a black box you can open</h2>
-<p>NotebookLM is Google’s polished retrieval system: you give it a set of source documents and it answers questions about them, with citations. It is, in this book’s terms, a production-grade harness you did not build. Chapter 11 uses it as the thing you <em>deconstruct</em> — you compare it against the rough retrieval you built by hand and ask what they built underneath it.</p>
-<ul>
-<li><strong>Get it:</strong> <a href="https://notebooklm.google.com" class="uri">https://notebooklm.google.com</a>. A free Google account.</li>
-<li><strong>For Chapter 11:</strong> create a notebook, add the same document folder you used for your Chapter 7 retrieval, and ask it questions. Then ask the harder question: what did it do (chunking, ranking, citation) that your folder-and-a-sentence version did not?</li>
-<li>A reminder from Chapter 11: NotebookLM is here to be <em>read</em>, not just used. The point of meeting it after you built the rough version is that you can see the seams.</li>
-</ul>
+<section id="notebooklm-compare-observable-results" class="level2">
+<h2 class="anchored" data-anchor-id="notebooklm-compare-observable-results">NotebookLM: compare observable results</h2>
+<p><a href="https://notebooklm.google.com/">NotebookLM</a> is an optional comparison system for the retrieval activity. Give it only sources approved for that service. Keep the source set and questions consistent with your other candidate.</p>
+<p>Check answers and supporting passages, including a question the sources cannot answer. Do not describe an inferred chunking, ranking, or embedding pipeline as if you had inspected its internals. If access is unavailable, leave that candidate untested.</p>
 </section>
-<section id="ollama-run-a-model-on-your-own-machine" class="level2">
-<h2 class="anchored" data-anchor-id="ollama-run-a-model-on-your-own-machine">Ollama — run a model on your own machine</h2>
-<p>Ollama is the engine that runs a large language model locally, on your own hardware, with no data leaving your machine. It is the sovereignty and equity story of Chapter 5 made literal: the same capable model for everyone, free at the margin, private by construction.</p>
-<ul>
-<li><strong>Get it:</strong> <a href="https://ollama.com/download" class="uri">https://ollama.com/download</a>. Install, then in a terminal run <code>ollama run qwen3:8b</code> (or whichever model the chapter names). The first run downloads the model — a few gigabytes, once.</li>
-<li><strong>What that tag means:</strong> <code>qwen3:8b</code> is an 8-billion-parameter instruction-tuned model, stored <strong>4-bit quantised</strong> so it fits in roughly 5 GB and runs on a normal laptop. Chapter 11 explains quantisation; for setup, just know the compression is <em>why</em> it runs on your hardware.</li>
-<li><strong>It runs offline</strong> once the model is downloaded. No account, no per-query bill, no data sent anywhere.</li>
-</ul>
+<section id="ollama-local-is-a-configuration-to-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ollama-local-is-a-configuration-to-verify">Ollama: local is a configuration to verify</h2>
+<p>Follow the <a href="https://docs.ollama.com/faq">official FAQ and setup guidance</a>. Choose a local model that fits your available memory; a model tag mentioned in a chapter is an example, not a universal hardware recommendation.</p>
+<p>Ollama supports both local and cloud-related capabilities. Confirm that the selected model and configuration actually run locally. Also inspect connected tools, logs, backups, and access: installing a local engine does not make the surrounding workflow private automatically. Record the model tag, configuration, and destination of each data flow.</p>
 </section>
-<section id="open-webui-the-chat-interface" class="level2">
-<h2 class="anchored" data-anchor-id="open-webui-the-chat-interface">Open WebUI — the chat interface</h2>
-<p>Open WebUI is the chat front-end this book uses to point at a model and a knowledge folder. If you have used ChatGPT in a browser, you already know how to use it. The difference is that <em>you</em> choose the model and <em>you</em> control the documents.</p>
-<ul>
-<li><strong>Get it:</strong> the simplest path is to run it alongside Ollama; see the install instructions at <a href="https://github.com/open-webui/open-webui" class="uri">https://github.com/open-webui/open-webui</a>. A shared hosted instance (run by a team or a classroom) lets you skip local install entirely and just point a browser at it.</li>
-<li><strong>For Chapter 7:</strong> create a knowledge folder, drop in your documents, set a one-line system prompt, and you have built retrieval-augmented generation — the model reads your files before answering.</li>
-<li><strong>For Chapter 10:</strong> the same folder-plus-model idea extends into a multi-step agent that reads, retrieves, and drafts.</li>
-</ul>
+<section id="open-webui-an-optional-configured-interface" class="level2">
+<h2 class="anchored" data-anchor-id="open-webui-an-optional-configured-interface">Open WebUI: an optional configured interface</h2>
+<p>Use the <a href="https://docs.openwebui.com/getting-started/quick-start/">official quick start</a>. Setup can require an administrator or command-line installation. A facilitator-managed instance is an alternative, but ask who can access its documents and logs.</p>
+<p>Connect only the intended model and approved sources. Test whether an answer actually uses the relevant source before calling the workflow retrieval-augmented. Keep action-taking tools disabled for the Chapter 7 injection exercise. Chapter 11 begins with a paper action map; granting an agent real permissions is not a prerequisite.</p>
 </section>
-<section id="a-note-on-equity" class="level2">
-<h2 class="anchored" data-anchor-id="a-note-on-equity">A note on equity</h2>
-<p>The reason this toolkit is all free is not accident or charity. It is the argument Chapter 2 makes in miniature: if the capability to evaluate AI is gated behind a paid subscription, then only the people who can pay get to develop the judgement the field depends on — and the rest get to be deployed on. A no-code floor built on free, offline-capable tools is the cheapest way to put that judgement in everyone’s hands. Install what you need, do the Core, and add the Power-user ceiling only if and when you want it.</p>
+<section id="if-setup-gets-in-the-way" class="level2">
+<h2 class="anchored" data-anchor-id="if-setup-gets-in-the-way">If setup gets in the way</h2>
+<p>Record the obstacle and continue with the self-contained audit, privacy, evaluation, or capstone exercise. Your dossier should say what you reasoned through and what you actually executed. Neither a paid subscription nor a successful installation substitutes for that distinction.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1006,13 +1001,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../appendices/e-the-tessera-case.html" class="pagination-link" aria-label="E. The Tessera Case — A Living Example">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">E. The Tessera Case — A Living Example</span>
+      <a href="../appendices/e-the-tessera-case.html" class="pagination-link" aria-label="E. The Tessera Case: A Living Example">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">E. The Tessera Case: A Living Example</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../acknowledgments.html" class="pagination-link" aria-label="Acknowledgments">
-        <span class="nav-page-text">Acknowledgments</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../appendices/g-reproducible-lab.html" class="pagination-link" aria-label="G. A Small, Reproducible Lab">
+        <span class="nav-page-text">G. A Small, Reproducible Lab</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

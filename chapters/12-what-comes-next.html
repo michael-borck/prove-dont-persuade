@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,21 +37,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../appendices/a-the-trust-tool.html" rel="next">
-<link href="../chapters/11-how-does-it-decide.html" rel="prev">
+<link href="../chapters/10-can-it-do-the-whole-job.html" rel="prev">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,6 +291,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction: The Proof Mindset</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Copyright</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -321,14 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
+  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06-whose-data-is-it.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Whose data is it?</span></span></a>
+  <a href="../chapters/05-what-are-you-giving-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What are you giving up?</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,14 +373,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
+  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/11-how-does-it-decide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span></a>
+  <a href="../chapters/10-can-it-do-the-whole-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/c-what-you-build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C. What You Build</span></a>
+ <span class="menu-text">C. The Proof Dossier: What You Build</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,13 +427,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/e-the-tessera-case.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">E. The Tessera Case — A Living Example</span></a>
+ <span class="menu-text">E. The Tessera Case: A Living Example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/f-no-code-toolkit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">F. The No-Code Toolkit — Getting Started</span></a>
+ <span class="menu-text">F. The No-Code Toolkit: Getting Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/g-reproducible-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">G. A Small, Reproducible Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,14 +466,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-efficiency-story-every-pitch-tells" id="toc-the-efficiency-story-every-pitch-tells" class="nav-link active" data-scroll-target="#the-efficiency-story-every-pitch-tells"><span class="header-section-number">12.1</span> The efficiency story every pitch tells</a></li>
-  <li><a href="#tasks-not-jobs" id="toc-tasks-not-jobs" class="nav-link" data-scroll-target="#tasks-not-jobs"><span class="header-section-number">12.2</span> Tasks, not jobs</a></li>
-  <li><a href="#who-pays-who-benefits-who-is-left-out" id="toc-who-pays-who-benefits-who-is-left-out" class="nav-link" data-scroll-target="#who-pays-who-benefits-who-is-left-out"><span class="header-section-number">12.3</span> Who pays, who benefits, who is left out</a></li>
-  <li><a href="#planning-for-a-range" id="toc-planning-for-a-range" class="nav-link" data-scroll-target="#planning-for-a-range"><span class="header-section-number">12.4</span> Planning for a range</a></li>
-  <li><a href="#the-question-is-now-yours" id="toc-the-question-is-now-yours" class="nav-link" data-scroll-target="#the-question-is-now-yours"><span class="header-section-number">12.5</span> The question is now yours</a></li>
-  <li><a href="#go-deeper" id="toc-go-deeper" class="nav-link" data-scroll-target="#go-deeper"><span class="header-section-number">12.6</span> 🔍 Go deeper</a></li>
+  <li><a href="#the-efficiency-claim-needs-a-denominator" id="toc-the-efficiency-claim-needs-a-denominator" class="nav-link active" data-scroll-target="#the-efficiency-claim-needs-a-denominator"><span class="header-section-number">12.1</span> The efficiency claim needs a denominator</a></li>
+  <li><a href="#tasks-roles-and-uncertainty" id="toc-tasks-roles-and-uncertainty" class="nav-link" data-scroll-target="#tasks-roles-and-uncertainty"><span class="header-section-number">12.2</span> Tasks, roles, and uncertainty</a></li>
+  <li><a href="#who-benefits-who-pays-who-is-missing" id="toc-who-benefits-who-pays-who-is-missing" class="nav-link" data-scroll-target="#who-benefits-who-pays-who-is-missing"><span class="header-section-number">12.3</span> Who benefits, who pays, who is missing?</a></li>
+  <li><a href="#a-second-order-memo-with-honest-limits" id="toc-a-second-order-memo-with-honest-limits" class="nav-link" data-scroll-target="#a-second-order-memo-with-honest-limits"><span class="header-section-number">12.4</span> A second-order memo with honest limits</a></li>
+  <li><a href="#maintenance-is-part-of-the-argument" id="toc-maintenance-is-part-of-the-argument" class="nav-link" data-scroll-target="#maintenance-is-part-of-the-argument"><span class="header-section-number">12.5</span> Maintenance is part of the argument</a></li>
+  <li><a href="#plan-for-several-futures" id="toc-plan-for-several-futures" class="nav-link" data-scroll-target="#plan-for-several-futures"><span class="header-section-number">12.6</span> Plan for several futures</a></li>
+  <li><a href="#independent-capstone-defend-the-decision" id="toc-independent-capstone-defend-the-decision" class="nav-link" data-scroll-target="#independent-capstone-defend-the-decision"><span class="header-section-number">12.7</span> Independent capstone: defend the decision</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/prove-dont-persuade.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/prove-dont-persuade.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://tessera.locoensayo.org"><i class="bi bi-building"></i>Tessera case site</a></li><li><a href="https://github.com/michael-borck/prove-dont-persuade"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/prove-dont-persuade"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -481,110 +499,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>You are standing in front of Tessera’s leadership team. Henrik Larsson, the CEO, wants to know where the data says to invest. Grace Sullivan, the COO, wants cost-to-serve down without quality dropping. Adrian Vasquez, the CIO, wants to know what is buildable and what is vendor lock-in. And in the room, whether the leadership frames it that way or not, is the support engineer whose task-mix your solution is about to change.</p>
-<p>This is where twelve chapters land. Every concept in this book (the trust tool, the harness, the three-lens rubric, the good-enough threshold, the human-in-the-loop) collapses into one artefact: a pitch that does not merely demo, but proves. And every concept the book has quietly been rehearsing (that the human role is to shape how AI lands, not be landed on) is what the decision will rest on.</p>
-<p>The pitch is also where the book’s hardest question becomes unavoidable: <em>what comes next?</em> Not as a prediction. As a practice.</p>
-<section id="the-efficiency-story-every-pitch-tells" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="the-efficiency-story-every-pitch-tells"><span class="header-section-number">12.1</span> The efficiency story every pitch tells</h2>
-<p>Here is the line almost every AI pitch arrives at, sooner or later: <em>“AI makes the work cheaper, so we’ll need fewer people doing it.”</em> It is the default mental model in every deployment memo Tessera’s leadership has read. It is also (historically) almost always wrong.</p>
-<p>The reason has a name. In 1865, William Stanley Jevons studied coal use in British factories. New steam engines were dramatically more efficient; they burned less coal per unit of work. The obvious prediction was that coal consumption would fall. It rose. Cheaper work meant more work became worth doing, and total coal use climbed. The pattern has repeated every time a key input gets cheaper. LEDs are roughly ten times more efficient than incandescent bulbs, and total lighting energy has gone <em>up</em>, because we now light everything. Transistors are astronomically cheaper than in 1970; we use astronomically more compute, not less. Bandwidth is cheap; we stream 4K all day rather than rationing it.</p>
-<p>The general rule: <strong>when an input gets cheaper, demand for the activity it enables tends to grow faster than the efficiency saves.</strong> Efficiency does not reduce consumption. It relocates and expands it.</p>
-<p>Map it onto AI. The input getting cheaper is cognitive work: drafting, summarising, classifying, searching, first-pass analysis. So the Jevons prediction is not “we’ll do today’s work with fewer people.” It is closer to this: the work that was too expensive to do at all (the analyses we never ran, the customers we never followed up, the documents we never summarised, the edge cases we never tested) will now get done. That is the <strong>efficiency trap</strong>. A business that deploys AI purely as a headcount play optimises for the wrong thing. The real question is not <em>how do we do today’s work with fewer people?</em> but <em>what work becomes worth doing that wasn’t worth doing before, and who does it, and how do we govern it?</em></p>
-<div class="tessera-case">
-<p><strong>🌐 Tessera Case: The capstone pitch, and its second-order effects</strong></p>
-<p>Your team’s capstone pitch is a collaborative churn workflow: an Open WebUI retrieval step pulls from the Tessera knowledge folder, an Orange classifier from Chapter 4 scores churn risk, a local Qwen drafts a retention note, and a support engineer signs off before anything reaches a customer. That hand-off (retrieval to model to human) is what makes it a <em>collaborative</em> workflow rather than a chatbot.</p>
-<p>Where the pitch earns trust is the second-order analysis built on top. The cheap version says “this flags churn risk five times faster.” The version the decision rewards runs all four legs: <strong>who benefits</strong> (HQ accounts, whose retention note now goes out same-day); <strong>who pays the transition cost</strong> (the support engineer mid-career, whose job is now half drafting-notes-for-AI-to-edit); <strong>who is left out</strong> (the South and Metro territories, and the Small SME customers, whose ticket language and churn patterns the classifier was never trained on — so the same solution silently underperforms, visible in <code>tessera-support-data.csv</code>); and <strong>what Jevons predicts</strong> (tier-1 proactive outreach to the 40% of customers currently left on hold, which expands the work rather than shrinking it).</p>
-<p>The artefact you hand the decision-makers is not the demo. It is the demo <em>plus the honest second-order sentence</em>: this is worth building, and here is what it costs the people and systems it touches.</p>
-</div>
-<p>The trap has two jaws, and a good pitch names both. The <strong>optimistic jaw</strong>: a team that believes AI will simply cut costs builds a thin solution, ships it, and is surprised when demand explodes; they planned for less work and got more, faster, with no governance ready. The <strong>pessimistic jaw</strong>: a team that believes AI will replace whole roles builds for a future that does not arrive on schedule, and demoralises the very people who are now maintaining the system. The practitioner move is to plan for both: assume the volume of cognitively cheap work goes up, <em>and</em> assume the human role changes rather than vanishes. The trust tool is how you decide which slice of that expanded volume needs a human and which does not.</p>
+<p>Tessera’s board receives an evaluated prototype and a recommendation to revise it. The fault test failed. The reviewer knows why the proposed deployment should not proceed, what a safer next experiment would require, and who must approve it.</p>
+<p>That is useful work even without a launch. The final task is to carry the evidence into decisions about people, resources, and continued operation. A technically sound comparison answers only part of that question.</p>
+<section id="the-efficiency-claim-needs-a-denominator" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="the-efficiency-claim-needs-a-denominator"><span class="header-section-number">12.1</span> The efficiency claim needs a denominator</h2>
+<p>“Five times faster” might describe drafting a paragraph, not completing a support case. A fuller measure includes preparation, verification, correction, escalation, and the work created elsewhere. Measure comparable tasks at an agreed quality level and keep failures in the sample.</p>
+<p>For a <strong>constructed example</strong>, the old process takes 12 minutes per ticket. A new tool drafts in 2 minutes but requires 5 minutes of review and 3 minutes of correction: 10 minutes in total. That is a two-minute saving, not a sixfold improvement. At 100 tickets, the arithmetic suggests 200 minutes saved before training, setup, and incident costs. It does not prove the result will persist at a different workload.</p>
+<p>Record whose time changed. A saving for the author can become extra work for a supervisor or customer. If reviewers cannot maintain the required standard at the proposed volume, the checkpoint design has failed even if the model is fast.</p>
 </section>
-<section id="tasks-not-jobs" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="tasks-not-jobs"><span class="header-section-number">12.2</span> Tasks, not jobs</h2>
-<p>So who does the work, once AI has made part of it cheap? The headline question (<em>will AI take our jobs?</em>) is the wrong shape. It treats jobs as fixed buckets that either exist or don’t, and it treats AI as a single event rather than a rolling change. It also has a terrible track record: every wave of automation since the Luddites has been debated in those terms, and the outcome has always been more punctuated and more uneven than either side claimed.</p>
-<p>A job is a bundle of tasks. AI rarely replaces a whole job; it changes the mix of tasks inside it. The useful unit of analysis is the <strong>task</strong>, not the role.</p>
-<p>Take a Tessera support engineer. The job bundles reading a ticket, reproducing the issue, searching internal docs, writing a response, escalating hard cases, mentoring juniors, and being the human a frustrated customer talks to. AI reliably changes the first four: drafting, searching, summarising, first-pass triage. It changes almost nothing about the last three: judgement on a genuinely novel outage, mentoring, and the human in a heated conversation. The role does not disappear; it <strong>redistributes</strong>. The engineer spends less time on the first four and more on the last three. The management challenge is immediate and concrete: <em>how do you redesign that role, retrain for it, re-measure performance, and re-pay for it, without losing the people who hold the institutional knowledge?</em> That is a question for next quarter, not next decade.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="🤖 Conversation Log">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🤖 Conversation Log
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Stress-testing the second-order analysis.</strong> To draft the four second-order answers for the churn pitch, the team asked a frontier model: <em>“For this workflow, who captures the upside, who pays the transition cost, and who is left out?”</em></p>
-<p>The model returned a fluent, confident, and almost entirely <strong>generic</strong> answer: <em>“Small businesses may be disadvantaged; junior staff may be displaced; the firm and large customers benefit.”</em> Plausible, and useless. It had no purchase on Tessera. It was the AI doing what AIs do when asked a distributional question without evidence: producing the average answer, the one that sounds right in any boardroom.</p>
-<p>The correction was the prove-don’t-persuade move, applied to the AI’s own output. The team refused the generic and grounded each group in the data instead: pulled satisfaction by territory from the tickets file, pulled ticket-language distribution to surface the South-and-Metro gap, pulled the support engineer’s actual logged hours to see which tasks the workflow absorbed. “Small businesses” became “Small SME accounts in the South and Metro territories, whose tickets the classifier scores with low confidence.” “Junior staff displaced” became “the two mid-career engineers whose tickets-to-resolutions the workflow now mediates.” The model produced the draft; the team supplied the evidence, and in doing so supplied the one thing the average could not: the <em>specific people</em> this solution touches.</p>
-<p>The lesson, at the close of the book, is that the same scepticism you apply to a churn score applies to the AI’s account of who your solution harms. An ungrounded second-order analysis is still an assertion. Ground it, or strike it.</p>
-</div>
-</div>
+<section id="tasks-roles-and-uncertainty" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="tasks-roles-and-uncertainty"><span class="header-section-number">12.2</span> Tasks, roles, and uncertainty</h2>
+<p>A job contains tasks, relationships, responsibilities, and institutional knowledge. Automating one task can change the others. It may reduce demand for a role, expand a service, or shift work towards review. None of those outcomes follows inevitably from a faster draft.</p>
+<p>Acemoglu’s task-based economic analysis connects aggregate effects to which tasks are affected and their productivity gains. Its estimates depend on assumptions; a macroeconomic model is not a forecast for Tessera’s staffing. Use it to ask better questions about scope and distribution, not to attach a precise employment prediction to a small prototype. <a href="https://www.nber.org/papers/w32487">The Simple Macroeconomics of AI</a></p>
+<p>Lower costs may increase demand. They may also leave demand unchanged, or savings may be absorbed by constraints elsewhere. A rebound effect is a possibility to model, not proof that cheaper AI always expands work. Avoid using “Jevons paradox” as a substitute for measuring the organisation’s backlog, budget, and demand.</p>
 </section>
-<section id="who-pays-who-benefits-who-is-left-out" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="who-pays-who-benefits-who-is-left-out"><span class="header-section-number">12.3</span> Who pays, who benefits, who is left out</h2>
-<p>That last move, naming the specific people, is the one the technology press tends to flatten into “AI is good” or “AI is bad.” The honest version is distributional: <strong>the gains and the costs of an AI deployment do not fall on the same people.</strong> Three groups, always named.</p>
-<p><strong>Who captures the upside?</strong> The firm that deploys it, the customer whose service gets faster, the worker whose drudge work shrinks, the vendor selling the model. These are not the same actor, and they do not split the gains evenly. <strong>Who pays the transition cost?</strong> Almost always the worker whose task-mix changes mid-career, the team that has to maintain a system that “works,” and the customer whose problem was an edge case the model was never trained on. <strong>Who is left out entirely?</strong> The people the solution was never built for: small customers, non-English speakers, the region with the worst data, the applicant whose résumé the screening model never surfaced. Exclusion is rarely announced; it shows up as silence.</p>
-<p>This is not a moral decoration on the analysis. It is the analysis. And you have been living it across the whole book without the label. A careful team runs a local Qwen alongside a frontier model on purpose. From Chapter 2 onwards the argument was: a team where some members can afford a frontier subscription and others cannot is not a level playing field. Local AI is an equity decision before it is a technical one. That is the political economy of AI in miniature. Scale it up: which organisations can afford to deploy frontier AI, and which get the local or open version? Which regions have the infrastructure, and which don’t? Which workforces get retrained, and which get “disrupted”? The same question that decided whether you ran Qwen locally or paid for a subscription decides who in the economy gets to participate in the AI layer at all.</p>
-<p>A practitioner who cannot name these groups is not a practitioner; they are a deployer. This book’s job is to produce the former. Your pitch is judged, in part, on whether you can hold the upside and the cost in the same sentence.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="📍 Trust-tool placement">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>📍 Trust-tool placement
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Where the pitch’s outputs sit on the grid.</strong> Place the capstone artefact one piece at a time. The live demo slice (a ranked churn list, a drafted retention note) is <strong>🟡 yellow</strong>: average is fine on the framing, but the load-bearing claim (which customer is actually at risk) must be precise, so a human verifies it before it drives an action. The retention note itself, if it goes to a customer, is <strong>🔴 red</strong>: large blast radius, precise requirement, human signs off, non-negotiable. The trust-tool checkpoint is not a flourish in the pitch; it is the design.</p>
-<p>And then the pitch’s second-order analysis (the <em>who benefits, who pays, who is left out</em>) is itself a <strong>🔴 red-quadrant output</strong>, and here is the irony worth noticing. The demo slice looks like the load-bearing part, so teams spend the rehearsal polishing it. But the decision the leadership makes (build this, or don’t) rests on the second-order claims, not the demo. Treating those claims as green (skim and trust) is the failure mode this book has spent twelve chapters trying to dislodge. The placement instinct, one last time: the thing that <em>looks</em> like decoration is often the thing that <em>is</em> load-bearing.</p>
-</div>
-</div>
+<section id="who-benefits-who-pays-who-is-missing" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="who-benefits-who-pays-who-is-missing"><span class="header-section-number">12.3</span> Who benefits, who pays, who is missing?</h2>
+<p>Keep three lists in the handover.</p>
+<p><strong>Benefits:</strong> which users receive a faster or better service, and how will you measure that improvement? Include accessibility, consistency, and the ability to resolve an issue, not just throughput.</p>
+<p><strong>Transition costs:</strong> who learns the new workflow, corrects its errors, maintains its sources, and handles exceptions? Make those hours visible. A team member moved into reviewing opaque outputs may need training, time, and a route to refuse unsafe work.</p>
+<p><strong>Missing experience:</strong> which customer groups, languages, devices, or situations were not represented in evaluation? Missing evidence is not evidence of harm, but neither is it permission to claim equal performance. Plan how those experiences will be assessed before expanding use.</p>
+<p>The label distributions in the customer lab cannot answer these questions by themselves. In particular, they do not prove that a group was excluded from training or that it receives more wrong predictions. The chapter on <em>For whom?</em> established the evidence needed for that comparison; keep that distinction through the final pitch.</p>
 </section>
-<section id="planning-for-a-range" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="planning-for-a-range"><span class="header-section-number">12.4</span> Planning for a range</h2>
-<p>And then there is the trajectory. There is a cottage industry in predicting <em>when</em> artificial general intelligence arrives. The dates range from “it’s already here” to “never,” and the people making the predictions have been wrong, in both directions, for sixty years. This chapter is not about joining that industry. There is a different, more useful discipline: <strong>planning assumptions.</strong></p>
-<p>A prediction is a claim about what <em>will</em> happen. A planning assumption is a stance about what you do <em>given that you don’t know.</em> Practitioners live in the second register. You do not get to wait for the forecast to settle before you build, hire, or govern. For planning purposes, the philosophical definition of AGI matters less than the <strong>capability trajectory</strong>: models keep getting better at a widening set of economically useful tasks, the cost per unit of cognitive work keeps falling, and the rate of both has repeatedly surprised people who expected a plateau. You felt this trajectory in the book itself. In Chapter 1 you ran the same prompt on a local Qwen and a frontier model and saw the gap. By Chapter 10 you were wiring that same local model into a multi-step agentic loop. The gap between what a free local model can do and what a frontier model can do is not fixed; it moves. That movement is the planning assumption.</p>
-<p>There are three stances, and only two survive contact with reality. <strong>Plan for stasis</strong>: assume the capability you deploy today is the capability you will have. Comforting, and almost always wrong; systems designed around one model’s quirks break when the model improves, and prompts that exploit a weakness stop working when the weakness is patched. <strong>Plan for a specific date</strong>: assume “AGI by 20XX” and build for that. This is a prediction dressed as a plan; be wrong by two years and you have built too early or too late, and spent the political capital of being a doomer or a laggard. <strong>Plan for a range</strong>: assume capability improves along a corridor, design so the system stays useful and safe across that corridor, and re-baseline regularly. This is the only durable stance. It treats the trajectory as a weather system you sail through, not a wall you hit.</p>
-<p>Stance three has practical teeth. It means build <strong>harnesses, not prompts</strong>. Keep the trust-tool placement current rather than fixed. Prefer solutions that degrade gracefully when the model changes. And put the human-in-the-loop controls in <em>now</em>, while it is cheap, not after a model upgrade removes the option quietly.</p>
-<p>Look back. Every chapter has been a small rehearsal of stance three. The local-vs-frontier comparison taught you to judge outputs, not brands, so your judgement survives a model swap. The harness as plain text taught you a portable skill that does not expire when a vendor changes pricing. The trust tool, every chapter, taught you to re-place outputs on the grid as capability shifts, instead of trusting “the good model” by default. The conversation log taught you to document your own thinking, which is the one thing that does not depreciate as models improve.</p>
+<section id="a-second-order-memo-with-honest-limits" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="a-second-order-memo-with-honest-limits"><span class="header-section-number">12.4</span> A second-order memo with honest limits</h2>
+<p>Suppose the prototype suggests shorter handling time on a small synthetic exercise. A weak memo says, “Automate support and redeploy the savings.” A stronger one says:</p>
+<blockquote class="blockquote">
+<p>We have demonstrated the workflow on invented cases, not measured customer outcomes. A bounded pilot would need approved data, representative tickets, reviewer training, a manual fallback, and a defined duration. Measure total handling time and missed issues by relevant group. Staff changes are outside the evidence available from this prototype.</p>
+</blockquote>
+<p>That version gives a decision-maker something to approve or reject. It also prevents a teaching exercise from quietly becoming an operational claim.</p>
+<p>For your capstone, choose an owner for each unresolved measurement. Do not assign every item to “the team.” If nobody can obtain the evidence, the proposed next stage is not yet planned.</p>
 </section>
-<section id="the-question-is-now-yours" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="the-question-is-now-yours"><span class="header-section-number">12.5</span> The question is now yours</h2>
-<p>Here is the honest answer to the book’s secondary thread: <em>if AI keeps getting better, what is the human role, and is it stable?</em> It is not a doomer question. It is the planning question. The human role is to do the things stance three requires: place outputs on the grid, design the harness, hold the governance, name who is left out, and re-baseline when the ground moves. That role is not stable in its <em>tasks</em>. It is stable in its <em>function</em>. Whether it stays stable is genuinely open. You are now equipped to hold the question without pretending to answer it.</p>
-<p>Twelve chapters ago, the demo and the deployment were the same thing to you: something that looked impressive, that you would build and trust. Now they are not. A demo is engineered to persuade. A deployment has to actually work: survive the inputs the demo never showed you, fail gracefully where it must, and be trusted, or not, by the people who depend on it. The discipline that closes that gap has a name. <strong>Prove, don’t persuade.</strong> Every claim about an AI solution is an assertion until evidence supports it. The model produces the draft; you supply the judgement, the evidence, and the defensible conclusion.</p>
-<p>In a world of demos, the proof is the point. The machine will keep getting better at building the demo; that is the trajectory you now plan against, not bet on. Your edge is the discipline that turns a demo into something a business can actually ship, with the right oversight, for the right people, honestly named where it fails. The question (<em>what comes next?</em>) is now genuinely yours to hold. So is the proof.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="🔬 Power-user extension">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔬 Power-user extension
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Ground each leg of the second-order pitch in measured evidence.</strong> The Core — the no-code path everyone completes — is to assemble the capstone pitch with its four legs named. The Power-user move is to make each leg a number, not an adjective. Three concrete asks:</p>
-<ul>
-<li><strong>Disaggregated accuracy.</strong> In Orange, use <em>Select Rows</em> to filter the churn data to one segment at a time (say <code>Region = South</code>, then <code>Company_Size = Small</code>), feed each subset through the trained classifier, and read the per-group accuracy from the <em>Confusion Matrix</em>. The overall accuracy can look fine while the model silently underperforms on the South and Metro territories and on Small SME accounts — the exact left-out leg of the pitch. Quote the worst-group gap.</li>
-<li><strong>Transition cost on a sample.</strong> Pull ten real tickets from <code>tessera-support-data.csv</code> and time the before/after task-mix for the mid-career engineer: how many minutes now go to drafting-notes-for-AI-to-edit. A measured cost on a sample beats an asserted cost every time.</li>
-<li><strong>Name the left-out segment with data.</strong> From <code>tessera-customer-data.csv</code>, count the customers in the segments the classifier was never trained on (Small × South, Small × Metro). Naming 43 specific customers rather than a generic some-customers hand-wave is what turns the equity leg from decoration into evidence.</li>
-</ul>
-</div>
-</div>
+<section id="maintenance-is-part-of-the-argument" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="maintenance-is-part-of-the-argument"><span class="header-section-number">12.5</span> Maintenance is part of the argument</h2>
+<p>A model update, a changed prompt, a revised runbook, or a new customer population can alter performance. Preserve the previous version and results. Run a controlled comparison before replacing a load-bearing component, and decide what would trigger a rollback.</p>
+<p>A practical review record has a date, version, sample definition, per-class or per-group results, incident summary, decision, and named owner. Distinguish regular monitoring from a new acceptance evaluation. Monitoring may identify a problem; it does not automatically explain its cause.</p>
+<p>The stop rule must be usable. If a reviewer sees unsupported recommendations or a missed-fault threshold is breached, who can disable the affected action? Where do pending cases go? Can the ordinary support process absorb them? Rehearse the fallback before it is needed.</p>
+<p>Appendix D supplies the stage gates so that the next decision depends on explicit evidence.</p>
 </section>
-<section id="go-deeper" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="go-deeper"><span class="header-section-number">12.6</span> 🔍 Go deeper</h2>
-<ul>
-<li><p><strong>Daron Acemoglu, “The Simple Macroeconomics of AI”</strong> (<em>Economic Policy</em>, 2025; NBER Working Paper 32487). A task-based economic model of AI’s effects, and the cleanest formal argument that the gains and costs do not fall on the same people. Read it for the political-economy half of this chapter: AI designed for augmentation raises welfare; AI designed purely for automation reinforces inequality unless policy intervenes. The case for “design the tool, don’t just deploy it,” with the maths attached. <a href="https://www.nber.org/papers/w32487" class="uri">https://www.nber.org/papers/w32487</a></p></li>
-<li><p><strong>David Autor, on AI and the future of work</strong> (VoxDev, 2025). The accessible version of the “tasks, not jobs” argument this chapter leans on. Autor distinguishes automation tools (which eliminate expertise) from collaboration tools, which multiply it, and warns that most current AI is built the wrong way round. Read (or watch) it for the workforce redesign question, and pair it with Autor &amp; Thompson’s “Expertise” (NBER w33941) if you want the underlying paper. <a href="https://voxdev.org/topic/technology-innovation/david-autor-ai-and-future-work" class="uri">https://voxdev.org/topic/technology-innovation/david-autor-ai-and-future-work</a></p></li>
-<li><p><strong>Epoch AI, “AI in 2030: Extrapolating current trends”</strong> (2025). The empirical anchor for the planning-assumption stance. Rather than predict a date for AGI, Epoch tracks the inputs (compute, data, power, capital) and extrapolates the corridor they describe. Read it as a worked example of stance three: you cannot forecast the endpoint, but you can bound the trajectory and design so your solution stays useful across it. <a href="https://epoch.ai/files/AI_2030.pdf" class="uri">https://epoch.ai/files/AI_2030.pdf</a></p></li>
-</ul>
+<section id="plan-for-several-futures" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="plan-for-several-futures"><span class="header-section-number">12.6</span> Plan for several futures</h2>
+<p>Instead of predicting a single capability trajectory, consider three scenarios: improvement slows, improvement continues, or a particular capability changes sharply. Which parts of your workflow remain useful in each?</p>
+<p>Portable assets include clear task definitions, test cases, source records, output validators, access boundaries, and the ability to compare a replacement with the current baseline. A prompt tuned to one interface may be less portable. A team that can explain its acceptance rule is better placed to revise it deliberately when the use case changes.</p>
+<p>Do not promise that human jobs or particular skills are permanently protected. The narrower commitment is within your control: keep responsibility explicit, practise checking work, and retain evidence that lets another person challenge a decision.</p>
+</section>
+<section id="independent-capstone-defend-the-decision" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="independent-capstone-defend-the-decision"><span class="header-section-number">12.7</span> Independent capstone: defend the decision</h2>
+<p><strong>Time:</strong> 45–60 minutes. <strong>Inputs:</strong> your original proof brief, the evidence dossier, and the benefits, transition costs, and missing-experience analysis from this chapter. No model is required. If you followed the paper route, use the supplied router results or Appendix G’s lab and label the whole submission a case analysis, not a completed build.</p>
+<p>Write a two-page decision memo for Tessera’s board:</p>
+<ol type="1">
+<li>State the intended use and forbidden use. Show the original acceptance rules beside the actual evidence; explain any change to the brief.</li>
+<li>Compare with a baseline or explain why that comparison remains untested. Include counts and subgroup or condition failures, not just favourable averages.</li>
+<li>Name who benefits, who bears mistakes or transition costs, and whose experience has not been measured. Separate evidence from forecasts.</li>
+<li>Recommend <strong>go to a bounded pilot</strong>, <strong>revise and retest</strong>, or <strong>stop</strong>. Specify the human checkpoint, stop condition, accountable role, and next review.</li>
+</ol>
+<p>Then read it as a sceptical colleague. Find one sentence that claims more than the evidence permits and rewrite it. An optional AI critique comes <em>after</em> this independent review.</p>
+<p><strong>Success:</strong> another reader can trace the decision to the evidence and identify what remains unknown. Use the acceptance checklist in <a href="../appendices/c-what-you-build.html">Appendix C</a> and the stage gates in <a href="../appendices/d-prototype-to-production.html">Appendix D</a>. An honest stop decision can meet every criterion; an impressive demo without the record cannot.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script data-embed-id="85d942db-3897-44aa-8541-1b30d683869f" data-base-api-url="https://chat.eduserver.au/api/embed" src="https://chat.eduserver.au/embed/anythingllm-chat-widget.min.js">
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1000,8 +977,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/11-how-does-it-decide.html" class="pagination-link" aria-label="How does it decide?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How does it decide?</span></span>
+      <a href="../chapters/10-can-it-do-the-whole-job.html" class="pagination-link" aria-label="Can it do the whole job?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Can it do the whole job?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
