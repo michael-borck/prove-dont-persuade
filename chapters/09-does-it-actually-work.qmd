@@ -1,6 +1,6 @@
 # Does it actually work?
 
-Suppose you train an image classifier on photographs of green, amber, and red router status lights. Its preview looks convincing. That is the point at which the work changes: can you defend its use on photographs from a different room, camera, or lighting condition?
+Suppose you train an image classifier on photographs of green, amber, and red router status lights. Its preview looks convincing. The work changes there: can you defend its use on photographs from a different room, camera, or lighting condition?
 
 Reopen the proof brief you wrote in the Introduction. Record the intended decision, error costs, baseline, acceptance threshold, and held-out test plan **before** building or inspecting results. This chapter executes that plan; it does not choose the target after seeing the score.
 

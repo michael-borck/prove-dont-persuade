@@ -6,7 +6,7 @@
 
 Watch any AI vendor for ten minutes and you will see a demo. It is slick, fast, and a little theatrical. A model drafts a policy in seconds. A chatbot answers a customer perfectly. A classifier sorts a tidy spreadsheet into the right piles, every time. The demo is designed to persuade. Read it as a practitioner and it reads as an assertion: a claim that has not yet met its evidence.
 
-**Tessera** has demos like this on its internal wiki. Tessera is an Australian managed-cloud and multi-tenant SaaS provider, founded in Perth, serving more than 600 clients across the SME and enterprise segments, and betting on AI to triage support tickets, flag churn, and summarise contracts. Its AI prototypes are impressive. Somewhere behind those prototypes is a churn model that quietly misses an entire customer segment, a ticket classifier that falls over the moment a customer is sarcastic, and a contract summariser that sounds confident about clauses it invented. Or maybe not. That is the point: nobody knows yet, and neither does Tessera's board.
+**Tessera** has demos like this on its internal wiki. Tessera is an Australian managed-cloud and multi-tenant SaaS provider, founded in Perth, serving more than 600 clients across the SME and enterprise segments, and betting on AI to triage support tickets, flag churn, and summarise contracts. Its AI prototypes are impressive. Somewhere behind those prototypes is a churn model that quietly misses an entire customer segment, a ticket classifier that falls over the moment a customer is sarcastic, and a contract summariser that sounds confident about clauses it invented. Or maybe not. Nobody knows yet, and neither does Tessera's board.
 
 And Tessera has a reason to care that most companies do not. Recently it lived through a data breach, a leaked cloud key that exposed tenant records and cost it customers and trust. One of the lessons it took from that incident is now stitched into its own stated values: *evidence over assertion*. This book takes that idea seriously, in the place it matters most for an AI-build programme: before you rely on any model, you prove what it actually does.
 
@@ -94,6 +94,8 @@ The core activities contain their own inputs or use the complete printed and dow
 ## The companion book
 
 *Conversation, Not Delegation* (https://michael-borck.github.io/conversation-not-delegation/) is the companion on method. Where this book teaches the build-and-evaluate discipline (the *what we prove*), that book teaches *how to work with the machine well*: the conversation loop, VET, and choosing appropriate assistance and checks. Appendix A here contains the trust grid in full. The two are complementary. When you use AI here, use it as a thinking partner whose claims need checking. The paper-based route lets you practise that checking without a model.
+
+The series trunk is *Conversation, Not Delegation* for method and *The Human Edge* for professional judgement. This book is the branch for applied-AI evidence.
 
 ## Conventions used in this book
 
