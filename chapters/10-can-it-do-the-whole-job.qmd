@@ -15,13 +15,13 @@ An agent erases the line. An agent is a model wired to **tools and a loop**, and
 
 An action-taking loop changes what must be checked. A mistaken answer can mislead a reader; a mistaken tool call can also alter records or communicate on someone's behalf. Do not infer that a public chatbot failure involved an autonomous tool loop unless the evidence establishes that architecture. Here we will use a constructed support workflow whose permissions are explicit.
 
-This chapter is not a warning against agents. It is the opposite: it specifies a small workflow and its checks. The core route is a paper design; an executable agent is an optional extension.
+This chapter specifies a small workflow and its checks. The core route is a paper design; an executable agent is an optional extension.
 
 ## Tools add an action boundary
 
-The single most useful idea in agentic AI is this: a tool call is **structured output, not a paragraph.** When the model decides to act, it does not reach into your file system. It emits something that looks like a function call (`search_docs("churn", region="Metro")`) and the **harness** executes it, handing the result back. The model proposes; the harness disposes.
+A tool call is **structured output, not a paragraph.** When the model decides to act, it does not reach into your file system. It emits something that looks like a function call (`search_docs("churn", region="Metro")`) and the **harness** executes it, handing the result back. The model proposes; the harness disposes.
 
-This matters because it tells you exactly where the danger is. A read-only search can still expose confidential information, cross an access boundary, or return injected content. Its risk depends on the data and permissions. A tool that *sends an email*, *files a support ticket*, *refunds a payment*, or *closes an account* is high risk, because those actions touch people, money, and records you cannot walk back. You do not control the danger by hoping the model is careful. You control it by controlling **which tools the harness exposes**, and, just as importantly, by reading every exposed tool as a *permission* you have granted the loop.
+A read-only search can still expose confidential information, cross an access boundary, or return injected content. Its risk depends on the data and permissions. A tool that *sends an email*, *files a support ticket*, *refunds a payment*, or *closes an account* is high risk, because those actions touch people, money, and records you cannot walk back. You do not control the danger by hoping the model is careful. You control it by controlling **which tools the harness exposes**, and, just as importantly, by reading every exposed tool as a *permission* you have granted the loop.
 
 A vendor will tell you their agent is "safe" because the model is aligned. That is persuasion, not proof. Start with the tool list: what, precisely, have you let this loop do? Combine it with the data boundaries, evaluation, action validation, and stop controls; a tool inventory alone is not proof of safety. If you cannot name every action the agent can take, you have not evaluated it.
 
@@ -59,11 +59,11 @@ It is not "a human glances at the end." That is a rubber stamp wearing a safety 
 3. **Confidence threshold.** The agent acts on its own when its confidence is high; escalates to a human when it is not. Requires a validated uncertainty signal; a model's self-reported confidence alone is insufficient. Do not use this as the only safeguard.
 4. **Dry-run then execute.** The agent produces a *plan* of actions; a human reviews the plan; only then does execution proceed.
 
-The skill is not picking the most autonomous pattern. The skill is matching the pattern *to the blast radius*, and, harder, placing the checkpoint at the right *step*. The wrong place is "at the very end, after everything is done." The useful question is the one you should tattoo on this chapter:
+The skill is not picking the most autonomous pattern. The skill is matching the pattern *to the blast radius*, and, harder, placing the checkpoint at the right *step*. The wrong place is "at the very end, after everything is done." Ask:
 
 > *At which step does the output become load-bearing or irreversible?*
 
-Put the checkpoint *just before* that step. Earlier steps still need access controls and proportionate checking. Everything after it carries a human's decision forward, and you can defend *why you put it there, and not one step later.* That defence is the actual deliverable. "Put a human here" is easy. Justifying *why here and not one step on* is the practitioner's edge.
+Put the checkpoint *just before* that step. Earlier steps still need access controls and proportionate checking. Everything after it carries a human's decision forward, and you can defend *why you put it there, and not one step later.*
 
 ## A constructed failure and correction
 
@@ -92,7 +92,7 @@ Draw the sequence: group tickets, retrieve guidance, propose a recommendation, r
 
 ## Where this leaves you
 
-An agent is the harness you already understand, extended to act. Its power is real, and so is its danger, and both live in the same place: the tool list, and the loop that calls it. The discipline this chapter adds to *prove, don't persuade* is specific. State, before you switch the loop on, *every action the agent can take.* Name *which steps are red-quadrant.* Place a checkpoint *just before* the output becomes load-bearing or irreversible, and be able to defend why there, and not one step later. Treat an agent that *could* retrieve but *didn't* as identical to one that confabulated, because to the reader they are.
+State, before you switch the loop on, *every action the agent can take.* Name *which steps are red-quadrant.* Place a checkpoint *just before* the output becomes load-bearing or irreversible, and be able to defend why there, and not one step later. Treat an agent that *could* retrieve but *didn't* as identical to one that confabulated, because to the reader they are.
 
 Your design should now say what may run, what requires review, and what is still untested. It does not yet establish the speed, cost, or reliability of an implemented system.
 
@@ -100,7 +100,7 @@ The final chapter brings the component tests, model comparison, and action bound
 
 ## 🔍 Go deeper
 
-- **Building Effective Agents**: Anthropic, <https://www.anthropic.com/engineering/building-effective-agents>. The canonical practitioner's primer on the agent loop, tool use, and, crucially, *when an agent is overkill and a simple prompt will do*. Read it for the discipline of reaching for the loop only when simpler solutions fall short, and for Anthropic's three principles: keep the design simple, make the planning transparent, and craft the agent-computer interface as carefully as you'd craft a user interface.
+- **Building Effective Agents**: Anthropic, <https://www.anthropic.com/engineering/building-effective-agents>. A practitioner primer on the agent loop and tool use, including *when an agent is overkill and a simple prompt will do*. Read it for the discipline of reaching for the loop only when simpler solutions fall short, and for Anthropic's three principles: keep the design simple, make the planning transparent, and craft the agent-computer interface as carefully as you'd craft a user interface.
 
 - **How we built our multi-agent research system**: [Anthropic Engineering, June 2025](https://www.anthropic.com/engineering/multi-agent-research-system). In that team's data, agents used about 4× the tokens of chat interactions and multi-agent systems about 15× **chat**, not 15× a single agent. Treat this as a reported result for their workload, not a universal multiplier. The article also describes source-based evaluation and the coordination work behind a running system.
 

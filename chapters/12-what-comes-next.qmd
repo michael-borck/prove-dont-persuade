@@ -50,7 +50,7 @@ A practical review record has a date, version, sample definition, per-class or p
 
 The stop rule must be usable. If a reviewer sees unsupported recommendations or a missed-fault threshold is breached, who can disable the affected action? Where do pending cases go? Can the ordinary support process absorb them? Rehearse the fallback before it is needed.
 
-Appendix D supplies the stage gates. The point is not to keep a prototype under endless review; it is to make the next decision depend on explicit evidence.
+Appendix D supplies the stage gates so that the next decision depends on explicit evidence.
 
 ## Plan for several futures
 

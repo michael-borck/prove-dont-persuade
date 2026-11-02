@@ -2,7 +2,7 @@
 
 Tessera is fictional. It is also, deliberately, *real enough to explore*. The company, its people, its documents, and its datasets exist as a living companion site at **tessera.locoensayo.org**. The core activities use the complete synthetic lab-v1 pack in Appendix G. Larger companion-site analyses require external files. This edition does not bundle the full customer or support CSVs, policy collection, or router photographs. The descriptions below are a map, not a versioned resource manifest.
 
-This appendix is the map. For each build, save the input files, source location, retrieval date, and version or checksum in your dossier. Check that the columns and row counts match the exercise before relying on a quoted finding. If a file is unavailable or differs, record that limitation; do not substitute invented data and claim to have reproduced the example.
+For each build, save the input files, source location, retrieval date, and version or checksum in your dossier. Check that the columns and row counts match the exercise before relying on a quoted finding. If a file is unavailable or differs, record that limitation; do not substitute invented data and claim to have reproduced the example.
 
 ## The company, in one paragraph
 
@@ -12,7 +12,7 @@ Tessera is an Australian managed-cloud and multi-tenant SaaS provider, founded i
 
 Tessera recently lived through an incident it records as **TSR-INC-2025-031**: a long-lived cloud access key leaked through a misconfigured code repository, and because the management plane was not properly segmented from the tenant-data plane, that key was used to read tenant data for an estimated five days before anyone noticed. Around 14,000 tenant records were exposed; 23 clients did not renew; the first-year impact was on the order of $1.8 million. The regulator was notified under the Australian Notifiable Data Breaches scheme.
 
-That incident is *not* the subject of this book. It is the backdrop. It is the reason Tessera's board now demands evidence rather than assertion for anything that touches customer data, including the AI systems the company is building. A company that has just paid the price of an unverified assumption is exactly the company that needs a practitioner who *proves, don't persuade*. Read the breach as the pressure that makes every chapter's question urgent.
+That incident is the backdrop, *not* the subject of this book: it is the reason Tessera's board now demands evidence rather than assertion for anything that touches customer data, including the AI systems the company is building.
 
 ## What is on the site, and where it lands
 
@@ -28,7 +28,7 @@ That incident is *not* the subject of this book. It is the backdrop. It is the r
 
 ## The people you can interview
 
-The most distinctive thing on the site is the cast. Tessera's senior team are not just named in an org chart; they are **AI personas you can talk to**. You can open a chat with the CEO, the CIO, the CISO, the CFO, the head of compliance, and half a dozen others. Ask them about the breach, the platform, or the certification programme, and they will answer in character, with the knowledge and the blind spots their role would give them.
+Tessera's senior team are not just named in an org chart; they are **AI personas you can talk to**. You can open a chat with the CEO, the CIO, the CISO, the CFO, the head of compliance, and half a dozen others. Ask them about the breach, the platform, or the certification programme, and they will answer in character, with the knowledge and the blind spots their role would give them.
 
 A few worth knowing:
 

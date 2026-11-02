@@ -4,13 +4,11 @@ The most dangerous AI output is the one nobody checked.
 
 Not the obviously broken one, those get caught, because something in the prose makes a human look twice. Not the hallucinated one either; a fabricated citation is loud, once you go looking. The dangerous output is fluent. It reads as polished, balanced, almost certainly correct. It is generic enough to apply anywhere and confident enough that no one thinks to ask what it is actually saying. By the time anyone notices, it has stopped being an *output* and quietly become *the decision*, and the only record of how it got there is “the model said so.”
 
-Chapter 1 gave you the trust tool. Chapter 2 asked *for whom* the model optimises, and the answer was rarely "everyone." This chapter asks the harder, sharper question at the centre of this book's ethics arc: when an output looks polished and plausible, **can you tell** whether it encodes bias or has already slipped past review and become a decision no one owns? Most ethical failures in applied AI are not spectacular model collapses. They are ordinary, fluent outputs that someone trusted in the wrong quadrant. Proving you can tell is the difference.
+Chapter 1 gave you the trust tool. Chapter 2 asked *for whom* the model optimises, and the answer was rarely "everyone." This chapter asks the harder, sharper question at the centre of this book's ethics arc: when an output looks polished and plausible, **can you tell** whether it encodes bias or has already slipped past review and become a decision no one owns? Most ethical failures in applied AI are not spectacular model collapses. They are ordinary, fluent outputs that someone trusted in the wrong quadrant.
 
 ## The trap named after the failure
 
-The companion book, *Conversation, Not Delegation*, is named after a trap, and this is the chapter where we name it. **Conversation** is the mode where you keep the AI in the loop of your own thinking: you push back, you re-scope, you check the load-bearing claim. **Delegation** is the mode where you hand the whole job over and accept the result. The Delegation Trap is the slide from one to the other, and it is gradual, which is what makes it dangerous.
-
-It happens in three moves, and each one feels like competence.
+The companion book, *Conversation, Not Delegation*, is named after a trap, and this is the chapter where we name it. **Conversation** is the mode where you keep the AI in the loop of your own thinking: you push back, you re-scope, you check the load-bearing claim. **Delegation** is the mode where you hand the whole job over and accept the result. The Delegation Trap is the slide from one to the other, and it is gradual, which is what makes it dangerous. Each step in the slide feels like competence.
 
 First, **it works once.** You delegate a small task (a draft paragraph, a summary) and the output is good. You learn “this is reliable.” That learning is the hook. Second, **the task grows.** You delegate something larger: a recommendation that will be sent, a shortlist of candidates, a customer profile that will drive a campaign. The output still *looks* good, because the model is fluent, and fluency reads as correctness. Third, **you stop checking.** The output becomes the decision. Nobody verified the load-bearing claim, because by now “the model does this” feels true, and the model has no idea which claim was load-bearing. It treated every sentence the same.
 
@@ -22,7 +20,7 @@ It is tempting to file rubber-stamping (accepting an AI output without genuine r
 
 When you rubber-stamp, three things happen at once, and all of them are ethical. **Responsibility has been offloaded to a system that has none.** A model cannot be held accountable. Uncritical acceptance can obscure who made the decision, but it does not erase the responsibilities of the people or organisation using it. **Harm is distributed, not avoided.** A biased churn flag, a screening decision, a customer reply: the harm does not disappear; it lands on a real person who never consented to be graded by an unreviewed model. And the failure is **invisible to the rubber-stamper.** The output reads fine. There is no alarm. Nothing in the prose tells you to look.
 
-That last point is the whole reason the trust tool exists. The tool forces a *conscious* placement *before* you act, precisely because the surface will never warn you. There is a simple honest test you can apply to any review you do this week: if your review could be replaced by the word *“approved”* without you changing a thing, it is not review. It is rubber-stamping. And if the output touches a person, that is an ethical failure, not a stylistic one.
+The trust tool forces a *conscious* placement *before* you act, precisely because the surface will never warn you. There is a simple honest test you can apply to any review you do this week: if your review could be replaced by the word *“approved”* without you changing a thing, it is not review. It is rubber-stamping. And if the output touches a person, that is an ethical failure, not a stylistic one.
 
 ## Shadow systems: when the output becomes the decision
 
@@ -34,7 +32,7 @@ None of these look like failures from inside. They look like efficiency. The fai
 
 ## The polished output is the hardest to audit
 
-Bias does not announce itself. This is the counter-intuitive core of the chapter: a polished output is the *hardest* to audit, because nothing in the prose tells you to look. A rough draft invites scrutiny; a confident, well-structured one disarms it. Fluency is not a signal of fairness; it is camouflage.
+Bias does not announce itself. A polished output is the *hardest* to audit, because nothing in the prose tells you to look. A rough draft invites scrutiny; a confident, well-structured one disarms it. Fluency is not a signal of fairness; it is camouflage.
 
 So you need a discipline that does not rely on vibes. You need an audit you can run against the actual text, in order, that produces *evidence* rather than a feeling. Four lenses do the work, and they map cleanly onto the trust tool:
 

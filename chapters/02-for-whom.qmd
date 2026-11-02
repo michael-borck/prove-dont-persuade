@@ -16,7 +16,7 @@ Small groups need careful interpretation. A perfect result on three examples doe
 
 A tool used in different places may face different languages, infrastructure, expectations, and legal obligations. Do not turn a country's name into a single cultural profile. Ask the intended users how the workflow fits their situation.
 
-Language performance is one reason to test locally. Dey and colleagues compared several models using English and South Asian language settings, finding better English-prompt results in their evaluation. That is evidence about those models, prompts, and tasks—not a permanent ranking of languages or every current service. [Dey et al. (2024), Better to Ask in English](https://arxiv.org/abs/2410.13153)
+Language performance is one reason to test locally. Dey and colleagues compared several models using English and South Asian language settings, finding better English-prompt results in their evaluation. That is evidence about those models, prompts, and tasks, not a permanent ranking of languages or every current service. [Dey et al. (2024), Better to Ask in English](https://arxiv.org/abs/2410.13153)
 
 For an actual rollout, make the requirements concrete:
 

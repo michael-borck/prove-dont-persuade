@@ -2,7 +2,7 @@
 
 The dossier may end with a working prototype, a failed evaluation, or a decision not to build. None is production approval. This appendix describes the evidence needed to move a candidate forward, and the conditions under which it should stay where it is.
 
-This appendix is about the gap between *proved it works* and *keeps working in production*. It is the layer the twelve chapters point at but do not build out, because it belongs to the operational lifetime of a system, not to the act of building one. The thesis does not change: *prove, don't persuade*. It just does not stop at launch.
+This appendix is about the gap between *proved it works* and *keeps working in production*. It is the layer the twelve chapters point at but do not build out, because it belongs to the operational lifetime of a system, not to the act of building one.
 
 ## Three gates, not one launch
 
@@ -18,7 +18,7 @@ These are decision gates, not universal numerical standards. Set their threshold
 
 The no-code tools in this book (Orange, Open WebUI, Teachable Machine, an agent framework) can help you build a candidate prototype for evaluation; a failed or paper-only exercise is also a valid dossier outcome. They will not, on their own, run a hardened production system. Engineering is needed during prototyping too; production adds operational demands such as monitoring, rollback, access control, incident response, scaling, cost management.
 
-Knowing where that line sits is itself the practitioner's edge. The dangerous practitioner is the one who ships a polished prototype as if it were a production system, because they cannot see the line. The useful practitioner can say, for any artefact: this far I can build, evaluate, and defend; from here, engineering and operations take it, and here is exactly what they must not drop. This appendix is a map of that handoff, not a course in it.
+The dangerous practitioner is the one who ships a polished prototype as if it were a production system, because they cannot see the line. The useful practitioner can say, for any artefact: this far I can build, evaluate, and defend; from here, engineering and operations take it, and here is exactly what they must not drop.
 
 ## What changes when you go live
 
@@ -53,6 +53,6 @@ A later candidate that meets the agreed criteria still needs the next gate's evi
 
 ## Where this book stops
 
-This book teaches you to specify a candidate, examine evidence and failures, and defend a bounded decision about its use. It stops short of teaching you to run it in production, because that is a different discipline, and pretending otherwise would be the demo mindset this book exists to resist.
+This book teaches you to specify a candidate, examine evidence and failures, and defend a bounded decision about its use. It stops short of teaching you to run it in production, because that is a different discipline.
 
-What it does give you is the ability to see the line, to hand the system over with its limits honestly named, and to specify the oversight that must travel with it. A practitioner who can do that is the one a business trusts to deploy AI. A practitioner who cannot is the one who ships a demo and calls it production, and the cost of the difference lands on the customer, the regulator, and the reputation that was on the line all along.
+What it does give you is the ability to see the line, to hand the system over with its limits honestly named, and to specify the oversight that must travel with it.

@@ -2,7 +2,7 @@
 
 A column called `Renewal_Likelihood` looks like an answer. Before fitting a model, ask who created it, from which information, and at what point in the customer's history. A label assigned by a person or business rule is different from an observed renewal. Predicting that label may reproduce the assessor's judgement without telling you who will actually leave.
 
-That distinction changes the whole analysis. In this chapter, the target is explicitly the **Low-renewal label**, not future churn. The complete twelve-row synthetic dataset is in [Appendix G](../appendices/g-reproducible-lab.qmd). It replaces the unversioned percentages used in earlier drafts. The larger Tessera site remains an optional extension; its files must be inspected on their own terms.
+That distinction changes the whole analysis. In this chapter, the target is explicitly the **Low-renewal label**, not future churn. The complete twelve-row synthetic dataset is in [Appendix G](../appendices/g-reproducible-lab.qmd). The larger Tessera site remains an optional extension; its files must be inspected on their own terms.
 
 ## Two questions, two kinds of answer
 
@@ -28,7 +28,7 @@ Use the supplied Rule A: **predict Low when satisfaction is 6 or below; otherwis
 
 On the eight development rows, it matches every label. This is exactly the sort of result that can make a demo feel finished. Now cover the test labels, write down the four predictions, and uncover them. T01 and T02 are wrong. The rule gets two of four right, detects one of the two Low labels, and makes one false alarm.
 
-That small example teaches more than a perfect development score. T01 has satisfaction 7 but a Low label; T02 has satisfaction 5 but a High label. A rule fitted neatly to the development examples does not necessarily handle a different example. Whether those exceptions arise from noise, a missing variable, or a different labelling process cannot be determined from these rows.
+T01 has satisfaction 7 but a Low label; T02 has satisfaction 5 but a High label. A rule fitted neatly to the development examples does not necessarily handle a different example. Whether those exceptions arise from noise, a missing variable, or a different labelling process cannot be determined from these rows.
 
 A decision tree generalises this form: it learns a sequence of splits rather than taking the single split as given. A small tree may be easy to trace. A deep tree may fit incidental details so closely that it generalises poorly. Choosing its depth is part of model development, not a reason to keep consulting the final test labels.
 
@@ -46,7 +46,7 @@ A useful conversation looks like this:
 
 **Owned conclusion:** “The label is associated with satisfaction in this teaching sample. We need dated outcomes and an appropriate intervention study before recommending a retention policy.”
 
-The correction changes what the team is entitled to do. It does not merely add cautious wording to the same unsupported recommendation.
+The correction changes what the team is entitled to do.
 
 ## Clustering without naming the answer in advance
 

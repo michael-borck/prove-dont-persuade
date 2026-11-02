@@ -14,11 +14,11 @@ What changed in the last few years is not that AI arrived. It is that the word g
 
 ## The arrow, not the list
 
-Memorising the taxonomy is beside the point. Notice the arrow. Narrow → general → agentic is a shift in *who acts*. The narrow model labels; the general model answers; the agent *takes steps*. That arrow is the whole reason this book is built the way it is.
+Memorising the taxonomy is beside the point. Notice the arrow. Narrow → general → agentic is a shift in *who acts*. The narrow model labels; the general model answers; the agent *takes steps*.
 
 A chatbot that hallucinates a sentence is embarrassing. An agent that hallucinates a sentence *and then sends the email, books the meeting, and modifies the customer record* is a liability. The more a model acts, the bigger the blast radius when it is wrong, and the less the demo tells you about whether the deployment will hold. The direction of change is, precisely, the direction in which "is it impressive?" stops being a safe substitute for "does it actually work?"
 
-This is also where the practitioner's moat opens up. If building a demo is the work an AI can do for anyone in an afternoon, then the demo gives no one an advantage. What holds its value as the models learn to act is the judgement the model cannot supply: whether the output is right, for whom, and under what conditions. The capability is not the problem. The *unacted-upon gap between demo and deployment* is. As the arrow points further towards agents that act, that gap (and your ability to close it with evidence) is exactly what becomes worth paying for.
+If building a demo is the work an AI can do for anyone in an afternoon, then the demo gives no one an advantage. What holds its value as the models learn to act is the judgement the model cannot supply: whether the output is right, for whom, and under what conditions. The capability is not the problem. The *unacted-upon gap between demo and deployment* is. As the arrow points further towards agents that act, that gap (and your ability to close it with evidence) is exactly what becomes worth paying for.
 
 ## Multimodality runs sideways
 
@@ -28,7 +28,7 @@ It matters in business for a blunt reason: the real world is not text-only. A Te
 
 ## First contact: a local model and a frontier model
 
-This is where the book stops describing and starts doing. You sit down at the shared stack: Open WebUI running a local Qwen on the machine in front of you, alongside a frontier model, side by side in the same window. You write one prompt and run it twice.
+You sit down at the shared stack: Open WebUI running a local Qwen on the machine in front of you, alongside a frontier model, side by side in the same window. You write one prompt and run it twice.
 
 Resist the question the interface is designed to provoke: *which one is better?* It is the wrong question, and answering it is how practitioners lose the plot. The right question is the one you can answer for either output, regardless of which model produced it: *where does this sit on the trust tool, and what does that tell me to do next?* A frontier model and a local four-bit Qwen can each produce green-quadrant brilliance and red-quadrant garbage on the same afternoon. You are learning to judge *outputs*, not brands. Brand confidence is not evidence, and the most expensive mistake in this chapter is trusting a fluent answer because it came from the model with the famous name. This is the first move the book asks of you, and it is the move you will repeat…
 
@@ -81,11 +81,11 @@ That is the question the next chapter turns to: *for whom?* Before you trust an 
 
 ## 🔍 Go deeper
 
-- **Stanford HAI, *AI Index Report* (annual).** [hai.stanford.edu/ai-index](https://hai.stanford.edu/ai-index/2025-ai-index-report): the closest thing the field has to a shared, evidence-grounded scoreboard: capability gains, plunging inference costs, rising incidents, regional divides in trust. *Why read it:* it is the antidote to arguing about where AI is from demos, whenever a chapter's claim needs a number behind it, start here.
+- **Stanford HAI, *AI Index Report* (annual).** [hai.stanford.edu/ai-index](https://hai.stanford.edu/ai-index/2025-ai-index-report): a shared, evidence-grounded scoreboard: capability gains, plunging inference costs, rising incidents, regional divides in trust. *Why read it:* whenever a chapter's claim needs a number behind it, start here.
 
 - **Andrew Ng, *Agentic AI* (DeepLearning.AI, free short course).** [learn.deeplearning.ai/courses/agentic-ai](https://learn.deeplearning.ai/courses/agentic-ai): Ng's case that agentic workflows (reflection, tool use, planning, multi-agent collaboration) will drive more progress than the next generation of foundation models. *Why watch it:* the clearest statement of the *arrow* this chapter is built on, models that take steps, not just give answers.
 
-- **Simon Willison's weblog, *local-llms* tag.** [simonwillison.net/tags/local-llms](https://simonwillison.net/tags/local-llms/): a respected practitioner's running notes on running open-weight models locally (Ollama and friends). *Why read it:* the local-versus-frontier terrain you touched in this chapter, written by someone who lives in it and distrusts hype as a matter of habit.
+- **Simon Willison's weblog, *local-llms* tag.** [simonwillison.net/tags/local-llms](https://simonwillison.net/tags/local-llms/): notes on running open-weight models locally (Ollama and friends). *Why read it:* the local-versus-frontier terrain you touched in this chapter, written by someone who lives in it and distrusts hype as a matter of habit.
 
 ## Core: inventory the proposed system
 

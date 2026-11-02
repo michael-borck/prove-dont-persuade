@@ -22,7 +22,7 @@ These small counts are an exercise design, not evidence of production reliabilit
 
 A working demo proves one thing: the solution *runs*. It says nothing about whether Tessera should *rely* on it, and reliance is the only question that matters once a model touches a customer. The gap between *runs* and *reliable* is where applied AI actually lives, and it is not a gap you close with a more impressive model. You close it by *evaluating*: stating what good enough means, measuring against it honestly, and naming where it fails.
 
-That sounds plain. It is meant to. The most expensive failure mode in applied AI is not a buggy model; it is a slick model that nobody ever bothered to break. Evaluation is the discipline of breaking it on purpose, before a real user, or a real adversary, does it for you.
+The most expensive failure mode in applied AI is not a buggy model; it is a slick model that nobody ever bothered to break. Evaluation is the discipline of breaking it on purpose, before a real user, or a real adversary, does it for you.
 
 ## Three lenses, not one number
 
@@ -36,7 +36,7 @@ Accuracy alone never settles "does it work?" A working evaluation holds the solu
 - **Fairness**: does it work *equally across the groups it serves*? The same model can be accurate overall and quietly wrong for a subgroup: a lighting condition, a region, a hand that is not yours.
 - **Explainability**: could you tell Tessera's CEO, Henrik Larsson, *why* it flagged this customer, in words a non-technical person would accept? "The model says so" is not an answer; it is the cap on how much anyone should trust it.
 
-The three lenses are not a checklist to tick. They are three different questions that a single number (accuracy) pretends to answer all at once. Read them as a demand: *prove it works on the class that matters, for the people it could fail, in a way you can defend.*
+The three lenses are not a checklist to tick. They are three different questions that a single number (accuracy) pretends to answer all at once.
 
 :::::: {.callout-warning title="Watch out: the headline is a hiding place"}
 "90% accurate" is the phrase that lets a solution look finished when it isn't. Overall accuracy is a weighted average, and averages hide the people (and the classes) the model fails. A churn model 90% accurate overall that misses 70% of actual churners is useless for retention; the headline never tells you. The cure is mechanical: never report an overall number without the per-class and per-group breakdown beneath it.
@@ -44,7 +44,7 @@ The three lenses are not a checklist to tick. They are three different questions
 
 ## "Good enough" is a judgement, not a number
 
-Here is the idea that turns evaluation from arithmetic into judgement: the same model can be fine in one place and dangerous in another, at exactly the same accuracy. Fitness for purpose is set by the decision the solution feeds, and the threshold is set by **the blast radius of being wrong**.
+The same model can be fine in one place and dangerous in another, at exactly the same accuracy. Fitness for purpose is set by the decision the solution feeds, and the threshold is set by **the blast radius of being wrong**.
 
 If your router classifier mis-routes a *healthy* ticket to the wrong queue, a human glances at it and moves it along. Small blast radius; an average solution is tolerable. But if it silently calls a *fault* healthy, an angry customer waits while their router stays down. That is a large, hard-to-reverse blast radius, and the same 80%-accurate model that was fine for the first job is dangerous for the second.
 
@@ -54,7 +54,7 @@ This is the trust tool from the Introduction in another form. Small blast radius
 
 Most testing asks "does it work on normal inputs?" **Adversarial testing** asks the opposite: *what inputs make it fail?* You are not being cruel to your model. You are finding its edges before a real user does.
 
-Every solution has a failure surface. The light is dim. The hand is shaky. The background is a carpet instead of a desk. A customer photographs the router in a dark cupboard at midnight, because that is when the fault showed up. A demo evaluated only on the happy path has proven nothing about the conditions that will actually bite.
+Every solution has a failure surface. The light is dim, the hand is shaky, and the background is a carpet instead of a desk. A customer photographs the router in a dark cupboard at midnight, because that is when the fault showed up. A demo evaluated only on the happy path has proven nothing about the conditions that will actually bite.
 
 Adversarial testing is a posture, not a technique: take every assumption your model is making and feed it the opposite. For a vision classifier, that is lighting, angle, distance, background, a photograph of nothing at all. For a churn model, it is a customer with missing fields, or one sitting right on the decision boundary where flipping a single input flips the prediction. For a RAG setup, it is a question the documents don't answer, and watching whether it admits ignorance or invents a confident lie.
 
@@ -64,13 +64,13 @@ Then there is **VET**, a three-move self-adversarial check you run on your own o
 - **Explain.** Explain the result in your own words, including what the test measured, the assumptions it relies on, and who it could fail. An explanation copied from the model does not demonstrate your understanding.
 - **Test.** Feed it the cases most likely to break it. The ones that fail go straight into your report.
 
-VET is the discipline that stops you rubber-stamping your own work. It is the trust tool as an *action*, not a label: verify the claim, expose the assumption, test to destruction.
+VET is the discipline that stops you rubber-stamping your own work.
 
 ## The honest report
 
-Here is the part that feels counter-intuitive and is, in fact, the point. A report that says *"82% overall, but only 61% under dim light, below our 80% threshold on the only class that matters"* is a **stronger** report than one that claims the model works. Finding a real failure, naming it, and saying what a human must do about it is worth more than a flawless demo.
+A report that says *"82% overall, but only 61% under dim light, below our 80% threshold on the only class that matters"* is a **stronger** report than one that claims the model works. Finding a real failure, naming it, and saying what a human must do about it is worth more than a flawless demo.
 
-This is not a consolation prize for a model that under-performed. It is the integrity gate. A report that only shows successes has told the reader nothing useful, because every demo can be made to succeed on its own training data. The thing a business cannot buy from a vendor's deck is the honest map of where the solution breaks, and that map is the practitioner's actual deliverable. *Prove, don't persuade* stops being a slogan the moment you write down a threshold your solution misses and ship the report anyway.
+A report that only shows successes has told the reader nothing useful, because every demo can be made to succeed on its own training data. The thing a business cannot buy from a vendor's deck is the honest map of where the solution breaks, and that map is the practitioner's actual deliverable. *Prove, don't persuade* stops being a slogan the moment you write down a threshold your solution misses and ship the report anyway.
 
 :::::: {.callout-note title="🤖 Conversation Log"}
 This is a constructed dialogue using the counts below, not a transcript of a measured run.
@@ -84,7 +84,7 @@ This is a constructed dialogue using the counts below, not a transcript of a mea
 
 ## What the measurement earned
 
-You now know enough to place the model, and the placement is not a label you choose, it is a consequence of what you measured. This is the trust tool doing its real work: turning evidence into a decision about how much human oversight the deployment needs.
+Placement follows from what you measured: the evidence determines how much human oversight the deployment needs.
 
 :::::: {.callout-tip title="📍 Trust-tool placement"}
 Routing a suggestion to a reviewer and clearing a customer fault are different uses. The latter can leave a customer without help and requires stronger evidence and controls. With the results below, do not allow automatic closure or assume a healthy prediction is safe: a missed fault arrives under the wrong label. Review **all** suggestions in any approved shadow exercise, not only predictions labelled fault.
@@ -130,11 +130,11 @@ These are depth, not the real version. The Core is complete on its own.
 
 - **Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification**: Joy Buolamwini & Timnit Gebru (Proceedings of Machine Learning Research, 2018).
   [proceedings.mlr.press/v81/buolamwini18a.html](https://proceedings.mlr.press/v81/buolamwini18a.html)
-  *Why read this:* The canonical study of fairness failing under real conditions: commercial vision classifiers up to 34% wrong on darker-skinned women while near-perfect on lighter-skinned men, all hidden behind a strong headline accuracy. This is your router classifier's story, at scale, with consequences.
+  *Why read this:* A study of fairness failing under real conditions: commercial vision classifiers up to 34% wrong on darker-skinned women while near-perfect on lighter-skinned men, all hidden behind a strong headline accuracy. This is your router classifier's story, at scale, with consequences.
 
 - **Model Cards for Model Reporting**: Margaret Mitchell et al. (FAT\* 2019).
   [arxiv.org/abs/1810.03993](https://arxiv.org/abs/1810.03993)
-  *Why read this:* The paper that made "report honestly" a practice. A model card forces you to publish intended use, evaluation data, and per-group performance *before* release, the same discipline your honest report is built on, turned into a standard you can adopt.
+  *Why read this:* A model card forces you to publish intended use, evaluation data, and per-group performance *before* release, the same discipline your honest report is built on, turned into a standard you can adopt.
 
 - **People + AI Guidebook: Data Collection + Evaluation**: Google PAIR (People + AI Research).
   [pair.withgoogle.com/guidebook-v2/chapters/data-collection/](https://pair.withgoogle.com/guidebook-v2/chapters/data-collection/)

@@ -2,7 +2,7 @@
 
 A conversation log is the artefact that makes your thinking *with* AI visible. It is the cumulative record you keep across the book: what you asked, how you pushed back, what you verified, and what you decided to trust. Each chapter's **Conversation Log** feature is the book version of the same discipline. This appendix is the format in full, so you can keep one of your own.
 
-The log is where *prove, don't persuade* stops being a slogan and becomes a habit. A demo persuades; a log proves, because it shows the work, including the parts where the AI was confidently wrong and you caught it.
+A demo persuades; a log proves, because it shows the work, including the parts where the AI was confidently wrong and you caught it.
 
 ## Why it exists
 
@@ -25,15 +25,15 @@ One entry per substantive session. Keep it short enough to read in a minute; att
 
 A good entry **shows the friction**. It records the disagreement that produced the insight, places the output honestly, and ends on a defensible line with its evidence named.
 
-A good entry **does not** log only the agreements, edit the transcript, hide the model's errors, or present the AI's fluent first draft as the conclusion. If your log reads as a smooth collaboration where the AI was right every time, you have written persuasion, not proof, and you have missed the point of the book.
+A good entry **does not** log only the agreements, edit the transcript, hide the model's errors, or present the AI's fluent first draft as the conclusion. If your log reads as a smooth collaboration where the AI was right every time, you have written persuasion, not proof.
 
 ## A worked shape
 
-The Conversation Log features in Chapters 1 to 12 all follow this shape. The Chapter 4 log is a compact example: the goal (ask an AI partner what Tessera should *do* with the churn tree), the two errors (reading a correlation as a cause; chasing noise in a sparse segment cell), the corrections (the satisfaction/tenure split is correlation not cause; the small-cell spread is overfitting), and the defensible conclusion (act lightly on satisfaction and tenure; treat the segment spike as a question; discard the sparse-cell split). Two errors, two corrections, one trusted line. That is the whole pattern, and it is the pattern your working log repeats.
+The Conversation Log features in Chapters 1 to 12 all follow this shape. The Chapter 4 log is a compact example: the goal (ask an AI partner what Tessera should *do* with the churn tree), the two errors (reading a correlation as a cause; chasing noise in a sparse segment cell), the corrections (the satisfaction/tenure split is correlation not cause; the small-cell spread is overfitting), and the defensible conclusion (act lightly on satisfaction and tenure; treat the segment spike as a question; discard the sparse-cell split).
 
 ## How it assembles into a body of work
 
-The conversation log is the spine of your working record. Across the twelve chapters it accumulates into the evidence that you can work *with* AI as a thinking partner and still supply the judgement the machine cannot: placing each output, catching each drift, and defending each decision you acted on. A reader who reads only your logs should be able to tell, for every artefact you built, which claim you trusted, which you verified, and which you refused. That is what *prove, don't persuade* looks like on paper.
+The conversation log is the spine of your working record. Across the twelve chapters it accumulates into the evidence that you can work *with* AI as a thinking partner and still supply the judgement the machine cannot: placing each output, catching each drift, and defending each decision you acted on. A reader who reads only your logs should be able to tell, for every artefact you built, which claim you trusted, which you verified, and which you refused.
 
 ::: {.callout-note}
 The conversation log is taught in full in the companion book, *Conversation, Not Delegation*, as part of the conversation loop. This appendix is the same format through the lens of this book: the cumulative record that turns an applied-AI build into something a human can stand behind.
