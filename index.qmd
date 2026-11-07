@@ -33,6 +33,8 @@ Before you build or evaluate anything, you need one small idea you will use in e
 
 That gives a 2×2: green (skim and use), yellow (verify the load-bearing bit), red (a human signs off). The grid is a teaching aid for deciding how much checking a use requires, not a complete safety assessment. Permissions, source quality, and the review process also matter. The trust tool makes placement a conscious act. By the final chapter, placing an output on this grid should be a reflex.
 
+That is how trust in AI is earned: not by faith, but by evidence proportionate to the stakes.
+
 ## Write the proof brief before you build {#sec-proof-brief}
 
 Choose one proposed use and open a **proof dossier**: a folder or notebook that keeps the decision, its evidence, and its limits together. Start with a one-page brief. Keep the original when you revise it; a changed threshold is a new decision to explain, not a way to rescue a disappointing score.
